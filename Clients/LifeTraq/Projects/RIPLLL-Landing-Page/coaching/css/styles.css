@@ -1,0 +1,788 @@
+/* RIPLLL Executive Coaching Landing Page Styles */
+/* Extends the main RIPLLL design system with coaching-specific styling */
+
+/* Import base styles from parent */
+@import url('../../css/styles.css');
+
+/* Coaching-Specific Color Enhancements */
+:root {
+    --coaching-primary: #1E3A5F;
+    --premium-gold: #D4AF37;
+    --trust-blue: #4A90E2;
+    --success-teal: #00A896;
+    --executive-slate: #2C3E50;
+}
+
+/* Hero Section - Coaching Specific */
+.coaching-hero {
+    background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
+}
+
+.coaching-hero .hero-title {
+    color: var(--coaching-primary);
+}
+
+/* Hero Dashboard - Coaching Specific */
+.coaching-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--coaching-primary);
+}
+
+.card-header {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-medium);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--bg-lighter);
+}
+
+.exec-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.profile-info {
+    margin-bottom: 0.5rem;
+}
+
+.exec-name {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1rem;
+    margin: 0 0 0.25rem 0;
+}
+
+.exec-company {
+    font-size: 0.875rem;
+    color: var(--text-medium);
+    margin: 0;
+}
+
+.progress-bar-container {
+    margin-bottom: 0.75rem;
+}
+
+.progress-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    position: relative;
+    height: 24px;
+    background-color: var(--bg-lighter);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--success-teal) 0%, var(--trust-blue) 100%);
+    border-radius: 6px;
+    transition: width 0.3s ease;
+}
+
+.progress-value {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.verified-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.action-item {
+    font-size: 0.875rem;
+    color: var(--success-teal);
+    font-weight: 600;
+    margin: 0;
+}
+
+.coach-metrics {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.metric-small {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.metric-label-small {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-medium);
+    font-weight: 600;
+}
+
+.metric-value-small {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.metric-value-small.success {
+    color: var(--success-teal);
+}
+
+.trend-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-light);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+}
+
+.trend-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-medium);
+}
+
+.trend-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--success-teal);
+}
+
+/* Dashboard Showcase */
+.dashboard-showcase {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.dashboard-panel {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--coaching-primary);
+}
+
+.client-panel {
+    border-left-color: var(--trust-blue);
+    background: linear-gradient(135deg, #F0F7FF 0%, #E6F2FF 100%);
+}
+
+.progress-panel {
+    border-left-color: var(--success-teal);
+    background: linear-gradient(135deg, #F0FFF8 0%, #E6F9F4 100%);
+}
+
+.panel-header {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-medium);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--bg-lighter);
+}
+
+/* Client Progress Display */
+.client-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.client-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: white;
+    border-radius: 6px;
+    border-left: 3px solid var(--trust-blue);
+}
+
+.client-name {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 0.9375rem;
+}
+
+.client-status {
+    font-size: 0.875rem;
+    color: var(--text-medium);
+    font-weight: 600;
+}
+
+.client-status.active {
+    color: var(--success-teal);
+}
+
+/* Progress Metrics */
+.progress-metrics {
+    display: flex;
+    justify-content: space-around;
+    gap: 1.5rem;
+}
+
+.progress-metric {
+    text-align: center;
+    flex: 1;
+}
+
+.progress-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-medium);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.progress-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.progress-value.success {
+    color: var(--success-teal);
+}
+
+/* Trust Logos */
+.trust-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.trust-logo {
+    background-color: var(--coaching-primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: none;
+}
+
+/* Stats Enhancement */
+.stat {
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-lighter) 100%);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--premium-gold);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-top: 1.5rem;
+    font-size: 0.9375rem;
+}
+
+/* Why It Matters Callout */
+.why-it-matters {
+    background-color: #FFF9E6;
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    border-left: 4px solid var(--premium-gold);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+}
+
+/* Coaching Benefits */
+.coaching-benefit {
+    border-left: 4px solid var(--coaching-primary);
+}
+
+.coaching-benefit:hover {
+    border-left-color: var(--premium-gold);
+}
+
+.coaching-benefit .benefit-icon {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+}
+
+/* Process Steps */
+.process-step {
+    text-align: center;
+    padding: 2rem;
+}
+
+.step-number {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--coaching-primary) 0%, var(--executive-slate) 100%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+/* Features Grid Enhancement */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--trust-blue);
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+    border-left-color: var(--premium-gold);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Testimonials - Coaching Specific */
+.testimonial {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 4px solid var(--coaching-primary);
+}
+
+.testimonial:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.testimonial.award {
+    border-left-color: var(--premium-gold);
+    background: linear-gradient(135deg, #FFFBF0 0%, #FFF8E1 100%);
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-name {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1.125rem;
+}
+
+.testimonial-title {
+    font-size: 0.875rem;
+    color: var(--text-medium);
+    font-weight: 600;
+}
+
+.testimonial-quote {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+    font-style: italic;
+    margin: 1rem 0;
+}
+
+.relevance-note {
+    background-color: var(--bg-lighter);
+    padding: 1rem;
+    border-radius: 6px;
+    font-style: italic;
+    color: var(--text-medium);
+    margin-top: 1rem;
+    border-left: 3px solid var(--trust-blue);
+    font-size: 0.9375rem;
+}
+
+/* Transformation Showcase */
+.transformation-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.transformation-side {
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+.transformation-side.before {
+    background: linear-gradient(135deg, #FAFAFA 0%, #F0F0F0 100%);
+    border: 2px solid #9E9E9E;
+}
+
+.transformation-side.after {
+    background: linear-gradient(135deg, #F0FFF8 0%, #E0F9F0 100%);
+    border: 2px solid var(--success-teal);
+}
+
+.transformation-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid currentColor;
+}
+
+.transformation-side.before .transformation-title {
+    color: #424242;
+}
+
+.transformation-side.after .transformation-title {
+    color: var(--success-teal);
+}
+
+.transformation-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.transformation-items p {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    padding-left: 0.5rem;
+    color: var(--text-dark);
+}
+
+.cost-highlight {
+    background-color: #EF5350;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.125rem;
+}
+
+.roi-highlight {
+    background-color: #00A896;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.125rem;
+}
+
+/* FAQ Enhancements */
+.faq-item {
+    transition: all 0.3s ease;
+}
+
+.faq-item h3 {
+    cursor: pointer;
+    position: relative;
+    padding-right: 3rem;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+.faq-item h3:hover {
+    color: var(--coaching-primary);
+}
+
+.faq-item h3:after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--coaching-primary);
+    transition: transform 0.3s ease;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.faq-item.active h3:after {
+    content: '−';
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.faq-item-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.faq-item.active .faq-item-content {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+.faq-item ul {
+    margin-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.faq-item li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+}
+
+/* CTA Supporting Elements */
+.cta-supporting {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--text-medium);
+    font-style: italic;
+}
+
+.supporting-list {
+    max-width: 700px;
+    margin: 2rem auto;
+    text-align: left;
+}
+
+.supporting-intro {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    text-align: center;
+}
+
+.supporting-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.supporting-list li {
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    font-size: 1.0625rem;
+}
+
+.supporting-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success-teal);
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+/* Responsive Design for Coaching Page */
+@media (max-width: 1024px) {
+    .dashboard-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .transformation-showcase {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .coaching-hero .hero-title {
+        font-size: 2rem;
+    }
+
+    .dashboard-card {
+        padding: 1.25rem;
+    }
+
+    .dashboard-panel {
+        padding: 1.25rem;
+    }
+
+    .coach-metrics {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .progress-metrics {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .progress-value {
+        font-size: 1.75rem;
+    }
+
+    .trust-logos {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .transformation-showcase {
+        margin: 2rem 0;
+    }
+
+    .transformation-side {
+        padding: 1.5rem;
+    }
+
+    .transformation-title {
+        font-size: 1.125rem;
+    }
+
+    .supporting-list {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .coaching-hero .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .dashboard-card {
+        padding: 1rem;
+    }
+
+    .dashboard-panel {
+        padding: 1rem;
+    }
+
+    .metric-value-small {
+        font-size: 1.25rem;
+    }
+
+    .progress-value {
+        font-size: 1.5rem;
+    }
+
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+    }
+
+    .transformation-side {
+        padding: 1.25rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .footer,
+    .cta-button,
+    .cta-button-primary,
+    .cta-button-secondary {
+        display: none;
+    }
+
+    .feature,
+    .testimonial {
+        page-break-inside: avoid;
+    }
+}
+
+/* Accessibility Enhancements */
+.dashboard-panel:focus,
+.feature:focus,
+.client-item:focus {
+    outline: 2px solid var(--coaching-primary);
+    outline-offset: 2px;
+}
+
+/* Animation for dashboard elements */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dashboard-panel {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.dashboard-panel:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dashboard-panel:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Premium Badge Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.testimonial.award:hover {
+    background: linear-gradient(90deg, #FFFBF0 25%, #FFE082 50%, #FFFBF0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
