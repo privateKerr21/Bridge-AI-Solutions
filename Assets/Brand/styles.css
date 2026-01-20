@@ -296,7 +296,7 @@ body.splash-complete .splash-screen ~ * {
     transform: translate(-50%, -50%);
     width: 600px;
     height: 600px;
-    background-image: url('Assets/Logos/transparent/Screenshot\ 2026-01-19\ 110718\ \(1\).png');
+    background-image: url('../Logos/transparent/Screenshot\ 2026-01-19\ 110718\ \(1\).png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
