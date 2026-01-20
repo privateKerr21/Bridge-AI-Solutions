@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/Assets/Brand/index.html" },
-    { "source": "/styles.css", "destination": "/Assets/Brand/styles.css" }
+    { "source": "/styles.css", "destination": "/Assets/Brand/styles.css" },
+    { "source": "/Logos/(.*)", "destination": "/Assets/Logos/$1" }
   ]
 }
