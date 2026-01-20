@@ -1,0 +1,172 @@
+Hayden Kerr  1:12  
+Oh, can you hear Me? Oh, Geez. That
+
+Hayden Kerr  1:42  
+Oh, hello.
+
+Unknown Speaker  1:45  
+What happened? Yeah, I made it. And then I
+
+Hayden Kerr  1:48  
+didn't I know. I was like, Okay, well, short
+
+Unknown Speaker  1:52  
+and sweet, did we do we
+
+Hayden Kerr  1:53  
+cover it? Yep, covered everything. I've got the entire proposal written out. Sorry, I don't have my camera on. I still have yet to get a webcam.
+
+Unknown Speaker  2:05  
+It doesn't matter to me one way or the other. So how's
+
+Hayden Kerr  2:08  
+it going? Good? How are you I'm doing well. Doing well. Morgan is just off to off to work here pretty soon. So yeah, you know, I have permission to be as loud as I want, which is great. Sweet. Well, I've got my own note taker here, just to make sure we capture everything that All right, yeah, perfect. Okay, sweet. So I'm going to go ahead and share my screen so you can see what it is that I'm looking at. But let me know if you can see this. Okay, sweet. So the way I compiled this was I just took essentially your chat log and the strategic roadmap that was generated with the agent that you interacted with, and I created this landing page. So some of the biggest things that came out of that were some of your goals and some of the things that you're manually, manually doing. So from what you said, sounds like you're doing you're trying to do about 20 manual daily LinkedIn introductions, 10 or more target qualified leads per month would be ideal, two to three new clients. Does that all sound pretty accurate? Okay, and so based off of what was found in that conversation, ideally we'd be able to get you back 15 to 20 hours per week with the work that you're already doing manually. So right here, we've got the shadow work that's going on in some of the core work. So if you want to just take a look at those real quick and let me know if what's right here looks accurate. Yeah.
+
+Matt Williams  4:17  
+Yeah, I mean, I think that hits it pretty well.
+
+Hayden Kerr  4:20  
+Okay, perfect. So, Matt, I know you've had some conversations with my dad, and I've kind of heard things through the grapevine, but is there anything in particular that has you interested in kind of leaning into AI with some of these things just to help me kind of get a better picture?
+
+Matt Williams  4:40  
+Yeah, absolutely, you know, I think for us, right? It's one of those things that I believe. And I think our whole office believes that the sooner we start this, the better suited we're going to be in the evolutionary cycle, right? I think if you fall too far behind here with AI, not that it's irrecoverable, but you're, you're going to be playing catch up. And my understanding is that, you know, I view it like this, you know, you've got this computer that needs food, which is just data, and once you provide it data, it can do things. And so as we're building real time data, and we're feeding this agent or bot, whatever it might be, we can actually leverage that data to make our work more seamless. The whole intent right for us deploying this would be to scale our business while maintaining lower human overhead, right? And I think that that's really the purpose. And you know, the reason we're starting with marketing, and you may already have kind of identified this, but the reason we're starting with marketing is that we're going to pay something to get something if we can generate revenue. Well, that's a nice offset. Yeah, relationship, right? And then, you know, of course, there are ideas that we can flow this through to operations and to all, you know, different areas, but I think what we're trying to do is enhance revenue so that we can justify the expense and then build from there. Perfect.
+
+Hayden Kerr  6:30  
+So with enhancing revenue and reducing that human overhead, I guess just just to make sure I understand, why is that important to you? I mean, obviously, aside from making more money and scaling your business, I mean the reason that is like, kind of getting ahead of the Kerr and implementing these systems, what why did? Why is that important?
+
+Matt Williams  6:56  
+I think number one, as an advisor, right? You're, you're dealing with real humans, right? Nobody wants to be a number, right? My job is to remember 500 family situations. Yeah, right. And so, you know, now this is, you know, full disclosure to you, right? You're going to maybe learn things about my industry that
+
+Hayden Kerr  7:25  
+might be proprietary to the all the nitty gritty, right?
+
+Matt Williams  7:29  
+But it's business, right? And when you look at a business, you know, you want to have that human touch. I think in our line of business with finances, it's critical. But one way that you can enhance that feeling is by really, really good note taking and following through on the things that you said you're going to do in the time in which you've said you're going to do them. Sure, and so when I think about, you know, marketing, but then Calendly, right for me, I guess I'm deviating from my initial response, but in the marketing side, it's similar to a client, but you're just fostering that relationship. So it's a reach out, right? And then, okay, well, when are you going to follow up? And then how are you going to follow up? And then, you know, for me, it's more about building a calendar of action items, because as I'm navigating all my clientele, it's hard to throw on your marketing hat at 8:30am run till eight, you know, nine o'clock, shut that down. Go client oriented for four hours. Throw on a marketing hat for an hour and then go back and, you know, do all the things that are required. Yeah. So I'm trying to, you know, compartmentalize and organize the tasks and have technology deliver me the high value action items
+
+Hayden Kerr  8:57  
+that makes sense. And from, from what you're saying it, it aligns pretty well with what I was hoping to talk about today. Because, I mean, really, based off of what you've given this agent, there's a lot of things kind of pulling you away from that client facing service and pulling you into things that aren't really using your time in the best way. Does that sound accurate? Yeah.
+
+Speaker 1  9:26  
+I mean, I think that's what we're faced with. Sweet
+
+Hayden Kerr  9:30  
+So based off of your your chat with Atlas, we were able to generate three main workflows. Now I'd like to kind of go through each of these, and then my hope is really to find which one would be your, your top priority. So starting with this first one, kind of addressing the manual, LinkedIn outreach, outreach, some of the things you said that you're manually reaching out to 20 new people each day. Breakdown happens with fatigue. Too much data to organize, breaks down their multiple prospects that need attention. That's where kind of we're seeing people fall through the cracks. Anything I'm missing there with with the challenge?
+
+Speaker 1  10:18  
+No, I think that pretty well spells out. Have you? Do you have much experience with LinkedIn?
+
+Hayden Kerr  10:23  
+I do not. I do know that they're pretty strict as far as it comes to automation and spam. So I have thought about this, and if that is the route we were going to focus on first, if anything, we would create some sort of agent that automates the search and drafts, but you would be the actual one to finalize the sending or that type of thing.
+
+Matt Williams  10:50  
+Got it. And there is a business we hired a couple years ago. It's called hummingbird, and they delivered this service, and they automated it, right? And they had a nice dashboard, but it was just expensive, and the results were mild. But I think what we're our experience would tell us that if we introduce ourselves to 20 people a day, we will land no fewer than one, one real client per month. Okay? Per person running this strategy? Sure. So myself and Kyle would want to run something like this. And then, to your point, though, you know, it's, it's, it's, we haven't missed much here. It's just understanding how we're trying to reach out, because we're very, you know, definitive niche of what, who we want to talk to. So that might be in the details.
+
+Hayden Kerr  11:43  
+So when you say you have a definitive niche with the people that you do reach out to, what what goes into that decision with who you're reaching out to, who you're introducing yourself to on
+
+Matt Williams  11:53  
+LinkedIn, right? So I would say 85% of our business is within the oil and gas industry. Okay, so we're looking at three companies right now. In particular, we're looking at Marathon petroleum, we're looking at H, F, Sinclair, and we're looking at Chevron, and those are all on the Wasatch front here, and we're pretty well known in these refineries, and so what we're trying to do is build now more of a national brand in that regard, by using LinkedIn
+
+Hayden Kerr  12:32  
+Okay, and I assume you're reaching out to individuals, obviously, but employees of okay, to manage their individual 401,
+
+Matt Williams  12:44  
+KS at this point. Okay, you know, do financial planning, right? The idea is that every relationship starts at financial planning. Sure. That makes sense. Okay.
+
+Hayden Kerr  12:54  
+So with that in mind, that's actually very helpful if we were to focus on this challenge. First, some of the ideas that were generated were automated LinkedIn activity logging, so we could feed it criteria, essentially search patterns that you and your team have already established to look for these kinds of people with these contacts, we can feed them to a dashboard, create follow up sequencing based on Prospect stage, and ideally we'd have an AI auto trigger touch points depending on how long it's been since you reached out to them. Yes, and tell me about the the CRM that you use, because I looked it up and I noticed it doesn't have any any API, or at least public API. But um, how long have you been using your current CRM? Years?
+
+Matt Williams  13:55  
+It's been three to five, five to six. It our CRM is specifically built for Registered Investment Advisory. Okay, so they are. They're a nightmare to hook into intentionally, I believe. But what they do for us is they carry a deep understanding of compliance and the way that we can notate and things are time stamped. And so, you know, when the SEC comes in and throws up their arms and says, hey, it's time for an audit, you know, we haven't been able to modify our notes. And so the SEC really likes that, because we're beholden to what we put in on, you know, January 2023, I can't go there and modify a client's nodes to make me look better.
+
+Hayden Kerr  14:50  
+Sure, that makes sense. But yes,
+
+Matt Williams  14:53  
+the CRM is not, I don't think friendly.
+
+Hayden Kerr  14:58  
+That's okay. And then with the with the Excel spreadsheet, I know in your chat log, it said it kind of just feels clunky, yeah, when you're inputting data, how do you mean by that?
+
+Matt Williams  15:16  
+I think for me, clunky means that in my day, right? It's at the bottom of the totem pole to publish, you know, the email, the phone number, the new contact in LinkedIn, the, you know, how many years of service maybe they have. And it's just like, Oh my God, I've got to really do that, right? It just doesn't seem like high value. But if I don't do it well, then how am I going to follow up with them? So it's really just the extraction of the data into an Excel it then becomes usable. Okay?
+
+Hayden Kerr  15:50  
+So you want to take the current data and just reduce the time that it takes extracting what's valuable to you, yeah.
+
+Matt Williams  15:59  
+Or, you know, in a perfect world, it would be when we say agent or bought. Are these the same things? Yeah, yeah. Okay. So if we have a marketing agent, right, one of the duties that I would ideally like would for that agent to if somebody connects with me on LinkedIn, I want that agent to go grab their email, their phone number, the years of service, the name, their location, right these certain data points, and populate the Excel, if that's possible, okay? And then we can organize the Excel into dashboard, or whatever it is. But if, if, if something could walk in grab those, it's probably eight data points at the most. And populate that, then that would be, I mean, that would save some time,
+
+Hayden Kerr  16:48  
+okay, and so on that note of saving time, because, I mean, at the end of the day, that sounds like what one of the biggest kind of underlying goals is here. It sort of estimates it right here. So, I mean, would you say eight to 10 hours per week saved if we were to able to automate like this Excel sheet population? Do you feel like that would be accurate?
+
+Speaker 1  17:14  
+Yeah, I think probably a little less than that. But I think that, you know, it's not too far off.
+
+Hayden Kerr  17:20  
+Okay, so with that in mind there, there will be a way to take the input that we get from LinkedIn and then take those data points and bring it to a spreadsheet with with AI. It's really smart, but sometimes it's pretty dumb, but there are some pretty amazing tools out there. And so if anything, it's just going to take some fine tuning and finagling of exactly what we want. And assuming there is a world where this we did, move forward with this project, then obviously we would want to have some sort of regular interval where we can test out what we're currently building and then fine tune it according to what you guys want, right? But moving on to the next workflow, with the nurture and drip campaigns you mentioned that don't really have any like automatic reminders to reach out to warm leads. So when it comes to the leads, I mean, how are you currently tracking that verse of like, who's warm, who's cold? Who are we currently working on,
+
+Speaker 1  18:36  
+honestly, manual inputs into an Excel Okay,
+
+Hayden Kerr  18:40  
+and so you're kind of just relying on, like, oh, that person's been like, six weeks, something like that,
+
+Matt Williams  18:45  
+more or less, okay, right? Look it, it's worked up to this point because row. But it's not, I know it's not the best way. It's horrible. And in fact, you know, we're probably losing clients based on it. Yeah, yeah,
+
+Hayden Kerr  19:01  
+that makes sense. So honestly, it doesn't really seem like there's a lot to there would be a lot to dive into, as far as need there, because obviously the the end goal with there, with this kind of workflow, would be to get as many clients as you can not lose any. It's what, right?
+
+Matt Williams  19:21  
+And I think that in our industry, it's kind of the service matching the time it we're not perfectly suited for everybody every day, right? Something happens to somebody, their parents dying. Oh my gosh, they just inherited a million bucks. What do I do? And if you're in front of them, month to month, bi weekly, whatever it is, quarter to quarter, well, they'd say, you know, what I saw Matt, or I saw refined, I should just call them. It's the easiest number, right? And so I think it's just maintaining, you know, in that last note, kind of maintaining a relevance and finding a path of like, okay, for the first six months, we're really hammering these people, because ideally we get to a yes or no, but if people hang on, then how do we nurture that for years, sure, in a meaningful kind of way?
+
+Hayden Kerr  20:20  
+Yeah, yeah. And what comes to mind with this, and what I've been looking into is creating some sort of just automated content generation for refined wealth, and kind of just having it manage that on its own. And obviously it would pass it off to you for final approval, yeah, because, I mean, the biggest thing with AI is it's not meant to replace what we do, yeah, with some things, sure, right? But with how much client facing work you guys do, it will be ideal if you have a final say on what a lot of this ends up getting set to Yeah,
+
+Matt Williams  21:02  
+and I for us. And just as a sorry to is kind of like a workflow, even timeline of information, right? A lot of times when we publish a communication, it's got to go through compliance, and so we're a day or two away from actually being able to deliver it sure, because a human has to review that, an attorney, right, has to say, yes, you can send that to the whole world, and that you're not necessarily advertising right, or whatever it may
+
+Hayden Kerr  21:36  
+be sweet. So are there? Are there, like, compliance documents that, I mean, I assume there would be that you have access to that we could possibly feed in as a knowledge source, because with a lot of these agents, we can train them up to be compliant to some of these restrictions, or compliant to some of these rules that are required in order to send these things out. Yeah.
+
+Matt Williams  22:00  
+I mean, compliance has a whole book, you know, a plethora of rules and regulations. And that's a very good point. I didn't think of that, that if you feed it and say, Look, this is the compliance agent every and you're a technical writer, everything has to be written within these rules. Yeah. I mean, that's, I didn't that makes a lot of sense.
+
+Hayden Kerr  22:22  
+Yeah, so that that's one of the big things with AI these days, is we're able to train specific agents or bots, or whatever term you want to use for very specific tasks. So I just want to make very clear that, moving forward with this, it is very, very unlikely that if you guys did decide to invest in this kind of project, that it would just be one all encompassing agent, if anything, we would create an HQ trained on the knowledge, on the knowledge that refined wealth has your expertise, so that we can essentially just build an automatic we can essentially just Build a teammate for you guys to work with, taking a lot of this manual load off your plate,
+
+Speaker 1  23:05  
+gotcha, but we might have five teammates, yeah, exactly, with one central hub.
+
+Hayden Kerr  23:14  
+And that's the really neat thing is AI is it's pretty much evolving every single week. So one of my main jobs would just to be making sure that we're staying on top of current trends, current capabilities. But having a central knowledge base for what's called the refined wealth like aI HQ, that would be critical. So as far as what we would need would be things like compliance documents, current practices, legal guidelines. Because especially, I mean, like you said, with financial management and this field, compliance is a huge deal,
+
+Matt Williams  23:57  
+yeah, and it's on a it's a hindrance, right? It actually stops us from taking action in certain realms. And you know, just having to be err on the side of caution. But, you know, forever I've believed that it's easy to edit things. It's hard to dream them up, right? And your dad will show me these photos right that you did of the goggles and things. Now, if you can, if you can create a compliant message, and we have, you know, three companies that we're focused on, well, it'd be pretty easy to take that one message and make it apply to those three businesses without a lot of heavy lifting. Yes, and it that becomes valuable because, but then we have to, materially, you know, deliver it to generate a result, obviously. But, yeah, I can see there's value in that.
+
+Hayden Kerr  24:57  
+So if anything, the prospect nurture and drip campaigns, and really, just whatever we can do, building with a knowledge base. You've probably heard the term competitive moat, but just to make sure we're both on the same page with with its understanding, a high competitive moat means that this isn't something that your competitors could just pop out tomorrow. Got it, because as the agent progresses over time, as we build its content base, its knowledge base, it will continue to build value for refined wealth. And this isn't something that, honestly, most companies are really doing anyways, because they're still stuck at the manual input, outreach, writing, copy. So if we were to focus on this route initially and again, these are just the suggestions that the agent gave us based on your first conversation. So I'll include anything that you want to prioritize in the proposal, but that's just something to keep in mind. Yeah, good. Okay. And then the last one here is about the SEO and website relevance that you were discussing. And as you said, SEO is currently getting no attention because you're buried in manual outreach and follow up. So as far as getting more relevance with your website, with search engine optimization, what do you feel like would be the biggest win that would help her find wealth with that if you're not doing anything right now?
+
+Matt Williams  26:36  
+Yeah, I think that. I think the biggest win that I could imagine would be someone typing in. Basically, I'm a chevron employee looking for a financial advisor, right? And that we somewhere are on that page, that would be a win, right? If you typed I don't want to compete with everybody in the world for financial advisory, but Chevron, Marathon, H, F, Sinclair, right, Chevron, employee, financial advisor, financial planner, planning retirement, that kind of stuff, to me, is where we want To live. Okay, I would tell you that now, and you may have a totally different thought, but for me, this is probably lower on the totem pole. But if you go to our website, right, and maybe you have, I don't know, but I would say that it's lacking, right? We've tried, and we kind of got stopped, and we wanted to do this and do that, but then we can't get the material, and so it's not being updated, and it's got these wonky places for videos and things that just aren't being filled and so Okay, I think it's, it's about we're committed that if we We do this right, we want a website that supports traffic a little bit, right? We're not trying to, you know, be the belle of the ball on websites. But rather,
+
+Hayden Kerr  28:12  
+you want it to help at least a little bit with
+
+Speaker 1  28:15  
+leadership, give people the option to do a Calendly thing, you know, something like that, right?
+
+Hayden Kerr  28:20  
+Okay, so let's say your website did become a lead generation asset, which kind of a short side tangent. If you did decide you wanted to just rebuild your website or optimize it, that is something that is totally possible. But kind of staying on the subject of lead generation, what do you feel like would make the biggest difference with the kind of content? Do you feel like? It'd be blogs, FAQs, like very niche, specific landing pages. What do you feel like?
+
+Matt Williams  28:56  
+Yeah, I think what we've kind of discussed internally are little like 62nd one minute to two minute videos, okay, of the summary plan description of an employer, right? And so, and we've even been dabbling with AI internal in our office, of creating videos of like, you know, take this data and not and it's like the draw shop or whatever, right? Sure, computers are powerful, if you can convey quite a bit of information in a short period of time. And so I think for me, it's more about having a marathon, you know, refined wealth management. You know, that name is not by accident. We're working with refineries, and we focus on marathon Chevron, so you click on whatever your employer is, and then you have this relevant data.
+
+Hayden Kerr  29:52  
+Okay, that's really good to know.
+
+Speaker 1  29:54  
+That's kind of the idea, right? I mean, that's the how we want to hold ourselves out. Sure, differentiator right there. We're a dime a dozen. There are a lot of financial advisors
+
+Transcribed by https://otter.ai
