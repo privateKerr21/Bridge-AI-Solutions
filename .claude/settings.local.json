@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(dir \"C:\\\\Users\\\\kerrk\\\\OneDrive\\\\Documents\\\\Rocket AI\" /AD /B)"
+      "Bash(dir \"C:\\\\Users\\\\kerrk\\\\OneDrive\\\\Documents\\\\Rocket AI\" /AD /B)",
+      "Bash(git commit:*)",
+      "Bash(gh:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(git add:*)"
     ]
   }
 }
