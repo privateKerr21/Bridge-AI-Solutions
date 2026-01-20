@@ -1,0 +1,5 @@
+{
+  "buildCommand": "echo 'No build needed'",
+  "outputDirectory": "Assets/Brand",
+  "devCommand": "echo 'No dev server'"
+}
