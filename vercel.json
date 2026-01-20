@@ -1,5 +1,6 @@
 {
-  "buildCommand": "echo 'No build needed'",
-  "outputDirectory": "Assets/Brand",
-  "devCommand": "echo 'No dev server'"
+  "rewrites": [
+    { "source": "/", "destination": "/Assets/Brand/index.html" },
+    { "source": "/styles.css", "destination": "/Assets/Brand/styles.css" }
+  ]
 }
