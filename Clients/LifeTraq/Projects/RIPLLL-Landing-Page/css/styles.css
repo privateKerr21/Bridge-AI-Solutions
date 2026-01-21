@@ -199,6 +199,41 @@ p {
     position: relative;
 }
 
+.hero-image {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-xl);
+    object-fit: cover;
+}
+
+.hero-ctas {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.cta-button-secondary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    color: var(--primary-blue);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-blue);
+}
+
+.cta-button-secondary:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
 .visual-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -270,7 +305,7 @@ section {
 
 .logo-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin: 3rem 0;
     padding: 2rem 0;
@@ -289,6 +324,14 @@ section {
     justify-content: center;
     min-height: 120px;
     transition: all 0.3s ease;
+}
+
+.partner-logo img {
+    max-width: 100%;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
 
 .partner-logo:hover {
@@ -383,7 +426,7 @@ section {
 
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -410,6 +453,15 @@ section {
     background-clip: text;
 }
 
+.benefit-icon .icon-img,
+.step-icon .icon-img,
+.feature-icon .icon-img,
+.use-case-icon .icon-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
 .benefit h3 {
     color: var(--primary-blue);
     margin-bottom: 1rem;
@@ -434,6 +486,32 @@ section {
 /* How It Works Section */
 .how-it-works {
     background-color: var(--bg-white);
+}
+
+.step-zero {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.step-zero h3 {
+    color: white;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.step-zero p {
+    color: white;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .steps {
