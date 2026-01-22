@@ -143,6 +143,19 @@ p {
     padding: 1rem 2rem;
 }
 
+/* Header-specific CTA Button - Green with white text */
+.header-cta-button {
+    background-color: var(--accent-green) !important;
+    color: white !important;
+    border-color: var(--accent-green) !important;
+}
+
+.header-cta-button:hover {
+    background-color: #048a47 !important;
+    border-color: #048a47 !important;
+    color: white !important;
+}
+
 .cta-link {
     color: var(--primary-blue);
     text-decoration: none;
@@ -217,7 +230,7 @@ p {
 .cta-button-secondary {
     display: inline-block;
     padding: 1rem 2rem;
-    background-color: transparent;
+    background-color: white;
     color: var(--primary-blue);
     text-decoration: none;
     border-radius: 6px;
@@ -228,8 +241,9 @@ p {
 }
 
 .cta-button-secondary:hover {
-    background-color: var(--primary-blue);
-    color: white;
+    background-color: var(--bg-light);
+    border-color: var(--primary-blue-dark);
+    color: var(--primary-blue-dark);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
@@ -772,14 +786,14 @@ section {
 }
 
 .final-cta .cta-button-primary {
-    background-color: white;
-    color: var(--primary-blue);
-    border-color: white;
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
 }
 
 .final-cta .cta-button-primary:hover {
-    background-color: var(--bg-light);
-    border-color: var(--bg-light);
+    background-color: var(--primary-blue-dark);
+    border-color: var(--primary-blue-dark);
 }
 
 /* Footer */
@@ -889,6 +903,20 @@ section {
 
 .footer-final-cta {
     text-align: center;
+}
+
+.footer-final-cta .cta-button {
+    background-color: var(--primary-blue) !important;
+    background-image: none !important;
+    color: white !important;
+    border-color: var(--primary-blue) !important;
+}
+
+.footer-final-cta .cta-button:hover {
+    background-color: var(--primary-blue-dark) !important;
+    background-image: none !important;
+    border-color: var(--primary-blue-dark) !important;
+    color: white !important;
 }
 
 /* Responsive Design */
