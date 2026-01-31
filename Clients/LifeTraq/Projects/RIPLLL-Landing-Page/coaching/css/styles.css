@@ -639,6 +639,63 @@
 }
 
 @media (max-width: 768px) {
+    .header {
+        padding: 1rem 0;
+    }
+
+    .header .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--bg-white);
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 100;
+        padding-top: 4rem;
+    }
+
+    .nav.mobile-open {
+        right: 0;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+    }
+
+    .nav li {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav a {
+        padding: 1rem 1.5rem;
+        display: block;
+        font-size: 1rem;
+    }
+
+    .cta-button, .header-cta-button {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        margin: 0;
+        border-radius: 0;
+        width: 100%;
+        text-align: left;
+    }
+
     .coaching-hero .hero-title {
         font-size: 2rem;
     }

@@ -156,3 +156,23 @@ const dashboardShowcase = document.querySelector('.dashboard-showcase');
 if (dashboardShowcase) {
     dashboardObserver.observe(dashboardShowcase);
 }
+
+// Mobile menu toggle
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const nav = document.querySelector('.nav');
+
+if (mobileMenuToggle && nav) {
+    mobileMenuToggle.addEventListener('click', () => {
+        nav.classList.toggle('mobile-open');
+        mobileMenuToggle.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('mobile-open');
+            mobileMenuToggle.classList.remove('active');
+        });
+    });
+}

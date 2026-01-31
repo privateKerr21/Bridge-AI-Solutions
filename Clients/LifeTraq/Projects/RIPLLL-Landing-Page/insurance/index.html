@@ -6,15 +6,112 @@
     <meta name="description" content="RIPLLL Insurance Incentivization - Turn wellness program promises into proven Star Rating results. Protect $15-20M+ in annual quality bonus revenue.">
     <title>RIPLLL | Insurance Incentivization - Protect Your Star Rating Revenue</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .logo-img {
+            height: 40px;
+            filter: invert(27%) sepia(82%) saturate(1800%) hue-rotate(182deg) brightness(92%) contrast(101%);
+        }
+        .hero-ctas .cta-button-primary,
+        .hero-ctas .cta-button-secondary {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+        .powered-by-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.25rem 2rem;
+            margin-bottom: 1.5rem;
+            background: #F7FAFC;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+        }
+        .powered-by-riplll-text-img {
+            height: 36px;
+            width: auto;
+            filter: invert(27%) sepia(82%) saturate(1800%) hue-rotate(182deg) brightness(92%) contrast(101%);
+        }
+        .powered-by-separator {
+            color: #A0AEC0;
+            font-size: 1.75rem;
+            font-weight: 300;
+        }
+        .powered-by-label {
+            font-size: 1.1rem;
+            color: #718096;
+            font-weight: 500;
+        }
+        .powered-by-lifetraq-logo {
+            height: 36px;
+            width: auto;
+        }
+        @media (max-width: 768px) {
+            .logo-img {
+                height: 30px;
+            }
+            .hero-ctas .cta-button-primary,
+            .hero-ctas .cta-button-secondary {
+                padding: 0.6rem 1.25rem;
+                font-size: 0.9rem;
+                white-space: nowrap;
+                width: auto;
+                border-radius: 6px;
+                text-align: center;
+            }
+            .powered-by-bar {
+                gap: 0.6rem;
+                padding: 1rem 1.25rem;
+            }
+            .powered-by-riplll-text-img {
+                height: 28px;
+            }
+            .powered-by-separator {
+                font-size: 1.25rem;
+            }
+            .powered-by-label {
+                font-size: 0.95rem;
+            }
+            .powered-by-lifetraq-logo {
+                height: 28px;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <!-- LinkedIn Insight Tag -->
+    <script type="text/javascript">
+        _linkedin_partner_id = "8663348";
+        window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+        window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+    </script>
+    <script type="text/javascript">
+        (function(l) {
+            if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+            window.lintrk.q=[]}
+            var s = document.getElementsByTagName("script")[0];
+            var b = document.createElement("script");
+            b.type = "text/javascript";b.async = true;
+            b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+            s.parentNode.insertBefore(b, s);
+        })(window.lintrk);
+    </script>
 </head>
 <body>
     <!-- Header/Navigation -->
     <header class="header">
         <div class="container">
             <div class="logo">
-                <h1>RIPLLL</h1>
-                <p class="tagline-small">Powered by LifeTraq</p>
+                <img src="../images/brand/riplll_text.png" alt="RIPLLL" class="logo-img">
             </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav class="nav">
                 <ul>
                     <li><a href="../index.html">Home</a></li>
@@ -36,10 +133,19 @@
                 <p class="hero-subtitle">Health plans lose millions on unverified wellness activities and preventable chronic disease. RIPLLL combines real-time member verification with proven behavioral health interventions—reducing readmissions and claims costs while protecting your Star Ratings and bonus revenue.</p>
                 <div class="hero-ctas">
                     <a href="#contact" class="cta-button-primary">Get in Touch</a>
-                    <a href="#how-it-works" class="cta-button-secondary">See How It Works</a>
+                    <div class="cta-with-annotation">
+                        <a href="/insurance/chat" class="cta-button-secondary">See How It Works</a>
+                        <p class="cta-subtext">Chat with our AI agent to learn more</p>
+                    </div>
                 </div>
             </div>
             <div class="hero-visual">
+                <div class="powered-by-bar">
+                    <img src="../images/brand/riplll_text.png" alt="RIPLLL" class="powered-by-riplll-text-img">
+                    <span class="powered-by-separator">&mdash;</span>
+                    <span class="powered-by-label">Powered by</span>
+                    <img src="../images/brand/lifetraq_logo.png" alt="LifeTraq" class="powered-by-lifetraq-logo">
+                </div>
                 <img src="../images/Hero Image - Insurance .jpg" alt="RIPLLL Insurance Platform" class="hero-image">
             </div>
         </div>
@@ -48,7 +154,7 @@
     <!-- Trust Logos Section -->
     <section class="trust-logos">
         <div class="container">
-            <h2 class="section-title">Powered by patent-pending behavioral technology</h2>
+            <h2 class="section-title">Built on patent-pending behavioral technology</h2>
             <p class="section-text">RIPLLL is built on the same platform trusted by corrections leaders, addiction treatment centers, and research institutions nationwide.</p>
 
             <div class="logo-row">
@@ -202,15 +308,19 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <h2 class="section-title">Trusted by Leaders Who Demand Results</h2>
+            <p style="text-align: center; font-size: 0.85rem; color: #999; margin-top: -0.5rem; margin-bottom: 1.5rem;">RIPLLL is powered by LifeTraq</p>
 
             <div class="testimonials-grid">
                 <!-- Testimonial 1 -->
                 <div class="testimonial">
                     <p class="quote">"LifeTraq has developed corrections-specific software with built-in compliance tracking that will appeal to program leaders responsible for ensuring program effectiveness and results."</p>
                     <div class="attribution">
-                        <p class="name">Tom Herzog</p>
-                        <p class="title">Retired Deputy Commissioner and CIO</p>
-                        <p class="organization">New York State Department of Corrections and Community Supervision</p>
+                        <img src="../images/tom_herzog.jpg" alt="Tom Herzog" class="headshot">
+                        <div>
+                            <p class="name">Tom Herzog</p>
+                            <p class="title">Retired Deputy Commissioner and CIO</p>
+                            <p class="organization">New York State Department of Corrections and Community Supervision</p>
+                        </div>
                     </div>
                 </div>
 
@@ -218,9 +328,12 @@
                 <div class="testimonial">
                     <p class="quote">"LifeTraq's involvement has been instrumental in transforming the lives of individuals by providing opportunities for growth."</p>
                     <div class="attribution">
-                        <p class="name">Traci Fant</p>
-                        <p class="title">Director, The Academy of Hope</p>
-                        <p class="organization">South Carolina Department of Corrections</p>
+                        <img src="../images/traci_fant.jpg" alt="Traci Fant" class="headshot">
+                        <div>
+                            <p class="name">Traci Fant</p>
+                            <p class="title">Director, The Academy of Hope</p>
+                            <p class="organization">South Carolina Department of Corrections</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -356,7 +469,7 @@
 
             <div class="cta-buttons">
                 <a href="#contact" class="cta-button-primary">Get in Touch</a>
-                <a href="#how-it-works" class="cta-button-secondary">See How It Works</a>
+                <a href="/insurance/chat" class="cta-button-secondary">See How It Works</a>
             </div>
         </div>
     </section>
@@ -365,8 +478,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-logo">
-                <h2>RIPLLL</h2>
-                <p class="tagline">Powered by LifeTraq</p>
+                <img src="../images/brand/riplll_stack.png" alt="RIPLLL" class="footer-logo-img">
                 <p class="tagline-full">Patent-Pending Behavioral Technology for Health Plan Excellence</p>
             </div>
 
@@ -415,17 +527,21 @@
             </div>
 
             <div class="footer-legal">
-                <a href="#privacy">Privacy Policy</a> |
+                <a href="../privacy.html">Privacy Policy</a> |
                 <a href="#terms">Terms of Service</a> |
                 <a href="#security">Security</a>
             </div>
 
             <div class="footer-copyright">
-                <p>&copy; 2026 RIPLLL. Powered by LifeTraq. All rights reserved.</p>
+                <p>&copy; 2026 RIPLLL. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <!-- LinkedIn Insight Tag Noscript -->
+    <noscript>
+        <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8663348&fmt=gif" />
+    </noscript>
 </body>
 </html>
