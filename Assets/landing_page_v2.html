@@ -761,6 +761,371 @@
                 font-size: 2rem;
             }
         }
+
+        /* AI Readiness Quiz Styles */
+        .quiz-section {
+            background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+            padding: 80px 0;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .quiz-header h2 {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .quiz-header p {
+            color: #555;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .quiz-badge {
+            display: inline-block;
+            background: rgba(122, 157, 126, 0.15);
+            color: #5d8061;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .quiz-card {
+            background: white;
+            border: 3px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 8px 8px 0 #1a1a1a;
+        }
+
+        .quiz-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin-left: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #7a9d7e, #5d8061);
+            border-radius: 4px;
+            transition: width 0.4s ease;
+        }
+
+        .quiz-question {
+            margin-bottom: 30px;
+        }
+
+        .quiz-question h3 {
+            font-size: 1.3rem;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quiz-option {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            background: #f8f8f8;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-option:hover {
+            border-color: #7a9d7e;
+            background: rgba(122, 157, 126, 0.05);
+        }
+
+        .quiz-option.selected {
+            border-color: #7a9d7e;
+            background: rgba(122, 157, 126, 0.1);
+        }
+
+        .quiz-option input {
+            display: none;
+        }
+
+        .option-radio {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-option.selected .option-radio {
+            border-color: #7a9d7e;
+            background: #7a9d7e;
+        }
+
+        .quiz-option.selected .option-radio::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .option-text {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .quiz-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        .quiz-btn {
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-btn-back {
+            background: transparent;
+            border: 2px solid #ddd;
+            color: #666;
+        }
+
+        .quiz-btn-back:hover {
+            border-color: #999;
+            color: #333;
+        }
+
+        .quiz-btn-next {
+            background: #1a1a1a;
+            border: 2px solid #1a1a1a;
+            color: white;
+        }
+
+        .quiz-btn-next:hover {
+            background: #333;
+        }
+
+        .quiz-btn-next:disabled {
+            background: #ccc;
+            border-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .quiz-btn-start {
+            background: linear-gradient(135deg, #7a9d7e 0%, #5d8061 100%);
+            border: none;
+            color: white;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+        }
+
+        .quiz-btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(122, 157, 126, 0.4);
+        }
+
+        /* Quiz Intro */
+        .quiz-intro {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .quiz-intro p {
+            color: #555;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .quiz-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .quiz-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .quiz-feature svg {
+            color: #7a9d7e;
+        }
+
+        /* Quiz Results */
+        .quiz-results {
+            text-align: center;
+        }
+
+        .results-score {
+            margin-bottom: 30px;
+        }
+
+        .score-circle {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7a9d7e 0%, #5d8061 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+        }
+
+        .score-number {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .score-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .results-level {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .results-summary {
+            color: #555;
+            font-size: 1.05rem;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .results-breakdown {
+            background: #f8f8f8;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .results-breakdown h4 {
+            font-size: 1rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .breakdown-label {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .breakdown-score {
+            font-weight: 600;
+            color: #7a9d7e;
+        }
+
+        .results-cta {
+            margin-top: 20px;
+        }
+
+        .results-cta p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .quiz-card {
+                padding: 25px 20px;
+            }
+
+            .quiz-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .quiz-question h3 {
+                font-size: 1.15rem;
+            }
+
+            .quiz-features {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .score-circle {
+                width: 130px;
+                height: 130px;
+            }
+
+            .score-number {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -778,8 +1143,8 @@
                 </a>
                 <div class="nav-links">
                     <a href="#pain">The Problem</a>
+                    <a href="#quiz">AI Quiz</a>
                     <a href="#process">How We Help</a>
-                    <a href="#results">Results</a>
                     <a href="/onboarding" class="cta-button primary">Get Started</a>
                 </div>
             </div>
@@ -916,6 +1281,82 @@
             <div class="inaction-cta">
                 <p>Your competitors aren't waiting. Industries embracing AI see productivity grow nearly 5x faster than those that don't.</p>
                 <a href="/onboarding" class="cta-button primary">Stop Falling Behind</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Readiness Quiz Section -->
+    <section id="quiz" class="quiz-section">
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <span class="quiz-badge">Free Assessment</span>
+                <h2>How Ready Is Your Business for AI?</h2>
+                <p>Take our quick assessment to discover your AI readiness score and get personalized recommendations.</p>
+            </div>
+
+            <div class="quiz-card">
+                <!-- Quiz Intro -->
+                <div id="quiz-intro" class="quiz-intro">
+                    <p>This 8-question assessment evaluates your current workflows, technology stack, and organizational readiness. You'll get instant results with actionable insights.</p>
+                    <div class="quiz-features">
+                        <span class="quiz-feature">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                            3-4 minutes
+                        </span>
+                        <span class="quiz-feature">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            No email required
+                        </span>
+                        <span class="quiz-feature">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+                            Instant results
+                        </span>
+                    </div>
+                    <button class="quiz-btn quiz-btn-start" onclick="startQuiz()">Start Assessment</button>
+                </div>
+
+                <!-- Quiz Questions -->
+                <div id="quiz-questions" style="display: none;">
+                    <div class="quiz-progress">
+                        <span class="progress-text">Question <span id="current-q">1</span> of 8</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill" style="width: 12.5%"></div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question" id="question-container">
+                        <!-- Questions loaded dynamically -->
+                    </div>
+
+                    <div class="quiz-nav">
+                        <button class="quiz-btn quiz-btn-back" id="btn-back" onclick="prevQuestion()" style="visibility: hidden;">Back</button>
+                        <button class="quiz-btn quiz-btn-next" id="btn-next" onclick="nextQuestion()" disabled>Next</button>
+                    </div>
+                </div>
+
+                <!-- Quiz Results -->
+                <div id="quiz-results" class="quiz-results" style="display: none;">
+                    <div class="results-score">
+                        <div class="score-circle">
+                            <span class="score-number" id="final-score">0</span>
+                            <span class="score-label">out of 100</span>
+                        </div>
+                        <div class="results-level" id="results-level">Calculating...</div>
+                        <p class="results-summary" id="results-summary"></p>
+                    </div>
+
+                    <div class="results-breakdown">
+                        <h4>Your Breakdown:</h4>
+                        <div id="breakdown-list">
+                            <!-- Breakdown items loaded dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="results-cta">
+                        <p>Want to explore what AI could actually do for your business?</p>
+                        <a href="/onboarding" class="quiz-btn quiz-btn-start">Talk to ATLAS, Our AI Discovery Agent</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1217,6 +1658,217 @@
                 observer.observe(el);
             });
         });
+
+        // AI Readiness Quiz Logic
+        const quizQuestions = [
+            {
+                category: "Workflow Complexity",
+                question: "How much of your workweek is spent on repetitive tasks (data entry, follow-ups, scheduling, reporting)?",
+                options: [
+                    { text: "Less than 5 hours", score: 2 },
+                    { text: "5-10 hours", score: 3 },
+                    { text: "10-20 hours", score: 4 },
+                    { text: "More than 20 hours", score: 5 }
+                ]
+            },
+            {
+                category: "Data Organization",
+                question: "How organized is your business data (client info, leads, documents)?",
+                options: [
+                    { text: "Scattered across multiple places, hard to find", score: 2 },
+                    { text: "Somewhat organized but inconsistent", score: 3 },
+                    { text: "Mostly centralized with some gaps", score: 4 },
+                    { text: "Well-organized in clear systems", score: 5 }
+                ]
+            },
+            {
+                category: "Technology Adoption",
+                question: "How would you describe your team's comfort with new software and tools?",
+                options: [
+                    { text: "Resistant to change, prefer familiar methods", score: 2 },
+                    { text: "Cautious but open to proven solutions", score: 3 },
+                    { text: "Generally comfortable, quick to adapt", score: 4 },
+                    { text: "Enthusiastic early adopters", score: 5 }
+                ]
+            },
+            {
+                category: "Current Automation",
+                question: "How much automation do you currently use in your business?",
+                options: [
+                    { text: "None - everything is manual", score: 2 },
+                    { text: "Basic (email templates, simple scheduling)", score: 3 },
+                    { text: "Moderate (CRM workflows, some integrations)", score: 4 },
+                    { text: "Extensive (multiple automated systems)", score: 5 }
+                ]
+            },
+            {
+                category: "Process Documentation",
+                question: "How well-documented are your key business processes?",
+                options: [
+                    { text: "Not documented - knowledge lives in people's heads", score: 2 },
+                    { text: "Some notes exist but not comprehensive", score: 3 },
+                    { text: "Most processes have basic documentation", score: 4 },
+                    { text: "Clear SOPs for most workflows", score: 5 }
+                ]
+            },
+            {
+                category: "Decision Authority",
+                question: "How quickly can you implement new tools or process changes?",
+                options: [
+                    { text: "Requires extensive approval, takes months", score: 2 },
+                    { text: "Moderate approval process, weeks to implement", score: 3 },
+                    { text: "Light approval, can move in days", score: 4 },
+                    { text: "Full authority to implement immediately", score: 5 }
+                ]
+            },
+            {
+                category: "Budget Mindset",
+                question: "How do you view investments in productivity tools?",
+                options: [
+                    { text: "Expense to minimize - prefer free solutions", score: 2 },
+                    { text: "Necessary cost - will spend if clearly justified", score: 3 },
+                    { text: "Strategic investment - willing to spend for ROI", score: 4 },
+                    { text: "Priority investment - actively seeking advantages", score: 5 }
+                ]
+            },
+            {
+                category: "Growth Goals",
+                question: "What's your primary business goal for the next 12 months?",
+                options: [
+                    { text: "Maintain current operations", score: 2 },
+                    { text: "Modest growth (10-20%)", score: 3 },
+                    { text: "Significant growth (20-50%)", score: 4 },
+                    { text: "Aggressive scaling (50%+)", score: 5 }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let answers = [];
+
+        function startQuiz() {
+            document.getElementById('quiz-intro').style.display = 'none';
+            document.getElementById('quiz-questions').style.display = 'block';
+            loadQuestion(0);
+        }
+
+        function loadQuestion(index) {
+            const q = quizQuestions[index];
+            const container = document.getElementById('question-container');
+
+            let optionsHtml = q.options.map((opt, i) => `
+                <label class="quiz-option ${answers[index] === i ? 'selected' : ''}" onclick="selectOption(${i})">
+                    <input type="radio" name="q${index}" value="${i}" ${answers[index] === i ? 'checked' : ''}>
+                    <span class="option-radio"></span>
+                    <span class="option-text">${opt.text}</span>
+                </label>
+            `).join('');
+
+            container.innerHTML = `
+                <h3>${q.question}</h3>
+                <div class="quiz-options">${optionsHtml}</div>
+            `;
+
+            // Update progress
+            document.getElementById('current-q').textContent = index + 1;
+            document.getElementById('progress-fill').style.width = `${((index + 1) / quizQuestions.length) * 100}%`;
+
+            // Update navigation
+            document.getElementById('btn-back').style.visibility = index === 0 ? 'hidden' : 'visible';
+            document.getElementById('btn-next').textContent = index === quizQuestions.length - 1 ? 'See Results' : 'Next';
+            document.getElementById('btn-next').disabled = answers[index] === undefined;
+        }
+
+        function selectOption(optionIndex) {
+            answers[currentQuestion] = optionIndex;
+
+            // Update visual selection
+            document.querySelectorAll('.quiz-option').forEach((opt, i) => {
+                opt.classList.toggle('selected', i === optionIndex);
+            });
+
+            document.getElementById('btn-next').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < quizQuestions.length - 1) {
+                currentQuestion++;
+                loadQuestion(currentQuestion);
+            } else {
+                showResults();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion(currentQuestion);
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-questions').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'block';
+
+            // Calculate scores by category
+            let categoryScores = {};
+            let totalScore = 0;
+            let maxPossible = quizQuestions.length * 5;
+
+            quizQuestions.forEach((q, i) => {
+                const score = q.options[answers[i]].score;
+                categoryScores[q.category] = score;
+                totalScore += score;
+            });
+
+            // Convert to percentage (scale 2-5 per question to 0-100 total)
+            const minPossible = quizQuestions.length * 2;
+            const normalizedScore = Math.round(((totalScore - minPossible) / (maxPossible - minPossible)) * 100);
+
+            // Animate score counter
+            let displayScore = 0;
+            const scoreEl = document.getElementById('final-score');
+            const scoreInterval = setInterval(() => {
+                displayScore += 2;
+                if (displayScore >= normalizedScore) {
+                    displayScore = normalizedScore;
+                    clearInterval(scoreInterval);
+                }
+                scoreEl.textContent = displayScore;
+            }, 30);
+
+            // Determine level and message
+            let level, summary;
+            if (normalizedScore >= 75) {
+                level = "AI Ready";
+                summary = "Your business is well-positioned for AI automation. You have the processes, mindset, and infrastructure to see significant ROI from AI implementation. The question isn't if you should automate, but where to start for maximum impact.";
+            } else if (normalizedScore >= 50) {
+                level = "AI Capable";
+                summary = "You have a solid foundation for AI adoption. Some areas need strengthening, but you're in a good position to start with targeted automation that builds momentum and delivers quick wins.";
+            } else if (normalizedScore >= 25) {
+                level = "AI Curious";
+                summary = "There's potential here, but some groundwork is needed first. Focus on organizing your data and documenting key processes before diving into automation. Small steps now will pay dividends later.";
+            } else {
+                level = "Getting Started";
+                summary = "You're early in your automation journey, which actually means you can build the right foundation from day one. Start with simple process improvements and build up from there.";
+            }
+
+            document.getElementById('results-level').textContent = level;
+            document.getElementById('results-summary').textContent = summary;
+
+            // Build breakdown
+            const breakdownEl = document.getElementById('breakdown-list');
+            breakdownEl.innerHTML = Object.entries(categoryScores).map(([cat, score]) => {
+                const percentage = Math.round(((score - 2) / 3) * 100);
+                let indicator = percentage >= 66 ? '✓ Strong' : percentage >= 33 ? '○ Moderate' : '△ Opportunity';
+                return `
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">${cat}</span>
+                        <span class="breakdown-score">${indicator}</span>
+                    </div>
+                `;
+            }).join('');
+        }
     </script>
 </body>
 </html>
