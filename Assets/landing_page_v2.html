@@ -1836,6 +1836,21 @@
             }
         }
 
+        function resetQuiz() {
+            // Reset state
+            currentQuestion = 0;
+            answers = [];
+
+            // Reset UI
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-questions').style.display = 'none';
+            document.getElementById('quiz-intro').style.display = 'block';
+
+            // Reset progress bar
+            document.getElementById('progress-fill').style.width = '10%';
+            document.getElementById('current-q').textContent = '1';
+        }
+
         function showResults() {
             document.getElementById('quiz-questions').style.display = 'none';
             document.getElementById('quiz-results').style.display = 'block';
@@ -1902,7 +1917,7 @@
                         </ul>
                     </div>
                     <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">When you've made progress on these, come back and retake the quiz!</p>
-                    <button onclick="location.reload()" class="quiz-btn quiz-btn-back" style="margin-top: 10px;">Retake Quiz</button>
+                    <button onclick="resetQuiz()" class="quiz-btn quiz-btn-back" style="margin-top: 10px;">Retake Quiz</button>
                 `;
             }
 
