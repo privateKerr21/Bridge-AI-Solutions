@@ -1,9 +1,6 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    { "source": "/onboarding", "destination": "/Assets/onboarding", "statusCode": 301 }
-  ],
   "rewrites": [
     { "source": "/", "destination": "/Assets/landing_page_v2.html" }
   ]

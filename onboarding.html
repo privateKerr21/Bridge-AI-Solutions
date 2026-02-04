@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discovery Assessment | Bridge AI Solutions</title>
+    <link rel="icon" type="image/jpeg" href="Assets/Brand/Logos/bridge_ai_logo%20(1).jpg">
+    <link rel="stylesheet" href="Assets/Brand/styles.css">
+    <style>
+        .onboarding-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+        }
+
+        .onboarding-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .onboarding-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .onboarding-header h1 {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .onboarding-header p {
+            color: #555;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .onboarding-header .time-estimate {
+            display: inline-block;
+            background: rgba(122, 157, 126, 0.15);
+            color: #5d8061;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .atlas-container {
+            background: white;
+            border: 3px solid #1a1a1a;
+            border-radius: 12px;
+            box-shadow: 8px 8px 0 #1a1a1a;
+            overflow: hidden;
+        }
+
+        .atlas-container iframe {
+            display: block;
+            width: 100%;
+            min-height: 800px;
+            border: none;
+        }
+
+        .alternative-cta {
+            text-align: center;
+            margin-top: 30px;
+            padding: 25px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+        }
+
+        .alternative-cta h3 {
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .alternative-cta p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .alternative-cta .cta-button {
+            padding: 12px 24px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .onboarding-header h1 {
+                font-size: 1.7rem;
+            }
+
+            .atlas-container iframe {
+                min-height: 700px;
+            }
+        }
+    </style>
+</head>
+<body class="onboarding-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="/" class="logo-link">
+                    <img src="Assets/Brand/Logos/transparent/bridge_ai_banner5.png" alt="Bridge AI Solutions" class="logo">
+                </a>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="onboarding-container">
+        <div class="onboarding-header">
+            <h1>AI Operations Discovery</h1>
+            <p>Let's find out where AI can create the most leverage in your work.</p>
+            <span class="time-estimate">⏱️ Takes about 5-7 minutes</span>
+        </div>
+
+        <!-- ATLAS AI Agent -->
+        <div class="atlas-container">
+            <iframe src="https://atlasaionboarding-10034115.chipp.ai" height="800px" width="100%" frameborder="0" title="ATLAS | AI Onboarding" allow="microphone; camera"></iframe>
+        </div>
+
+        <!-- Alternative CTA -->
+        <div class="alternative-cta">
+            <h3>Have questions?</h3>
+            <p>ATLAS will guide you through the discovery process and help you schedule a call at the end.</p>
+            <a href="/#process" class="cta-button secondary">Learn More About Our Process</a>
+        </div>
+    </div>
+</body>
+</html>
