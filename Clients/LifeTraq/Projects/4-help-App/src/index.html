@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-help App - Voice Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>4-help</h1>
+            <p class="subtitle">Voice Assistant</p>
+        </header>
+
+        <main>
+            <div class="voice-interface">
+                <div class="status-indicator" id="statusIndicator">
+                    <div class="status-dot"></div>
+                    <span class="status-text" id="statusText">Ready to start</span>
+                </div>
+
+                <div class="voice-control">
+                    <button id="voiceButton" class="voice-button" aria-label="Start conversation">
+                        <svg class="mic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                            <line x1="12" y1="19" x2="12" y2="23"></line>
+                            <line x1="8" y1="23" x2="16" y2="23"></line>
+                        </svg>
+                        <span class="button-text" id="buttonText">Start Conversation</span>
+                    </button>
+                </div>
+
+                <div class="transcript-container" id="transcriptContainer">
+                    <h3>Conversation</h3>
+                    <div class="transcript" id="transcript">
+                        <p class="transcript-empty">Your conversation will appear here...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-panel" id="settingsPanel">
+                <h3>Settings</h3>
+                <div class="setting-item">
+                    <label for="agentId">Agent ID:</label>
+                    <input type="text" id="agentId" placeholder="Enter your ElevenLabs Agent ID">
+                </div>
+                <button id="saveSettings" class="secondary-button">Save Settings</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by ElevenLabs Conversational AI</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

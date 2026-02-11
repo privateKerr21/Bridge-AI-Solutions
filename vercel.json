@@ -2,6 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/", "destination": "/Assets/landing_page_v2.html" }
+    { "source": "/", "destination": "/Assets/landing_page_v2.html" },
+    { "source": "/4-help", "destination": "/Clients/LifeTraq/Projects/4-help-App/index.html" }
   ]
 }

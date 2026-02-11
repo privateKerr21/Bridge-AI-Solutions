@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-black: #1a1a1a;
+    --primary-white: #f8f8f8;
+    --sage-green: #7a9d7e;
+    --accent-green: #5a7d5e;
+    --border-width: 3px;
+    --shadow-offset: 4px;
+    --transition: 0.3s ease;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--primary-white) 0%, #e8e8e8 100%);
+    color: var(--primary-black);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: var(--primary-white);
+    border: var(--border-width) solid var(--primary-black);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--primary-black);
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: var(--border-width) solid var(--primary-black);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-black);
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.voice-interface {
+    margin-bottom: 2rem;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+    border: var(--border-width) solid var(--primary-black);
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #999;
+    transition: var(--transition);
+}
+
+.status-indicator.ready .status-dot {
+    background: var(--sage-green);
+}
+
+.status-indicator.connecting .status-dot {
+    background: #f39c12;
+    animation: pulse 1.5s infinite;
+}
+
+.status-indicator.active .status-dot {
+    background: #27ae60;
+    animation: pulse 1s infinite;
+}
+
+.status-indicator.error .status-dot {
+    background: #e74c3c;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.status-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-black);
+}
+
+.voice-control {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.voice-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 3rem;
+    background: linear-gradient(135deg, var(--sage-green) 0%, var(--accent-green) 100%);
+    color: var(--primary-white);
+    border: var(--border-width) solid var(--primary-black);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--primary-black);
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.voice-button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--primary-black);
+}
+
+.voice-button:active {
+    transform: translate(var(--shadow-offset), var(--shadow-offset));
+    box-shadow: none;
+}
+
+.voice-button.active {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    animation: pulse-button 1.5s infinite;
+}
+
+@keyframes pulse-button {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.voice-button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.mic-icon {
+    width: 48px;
+    height: 48px;
+    stroke-width: 2.5;
+}
+
+.button-text {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.transcript-container {
+    border: var(--border-width) solid var(--primary-black);
+    padding: 1.5rem;
+    background: var(--primary-white);
+}
+
+.transcript-container h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.transcript {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 1rem;
+    background: #fafafa;
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.transcript-empty {
+    color: #999;
+    font-style: italic;
+    text-align: center;
+}
+
+.transcript-message {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-left: 3px solid var(--sage-green);
+    background: var(--primary-white);
+}
+
+.transcript-message.user {
+    border-left-color: var(--sage-green);
+}
+
+.transcript-message.agent {
+    border-left-color: #3498db;
+}
+
+.transcript-message .speaker {
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+    color: #666;
+}
+
+.transcript-message .message-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.settings-panel {
+    padding: 1.5rem;
+    background: #f0f0f0;
+    border: var(--border-width) solid var(--primary-black);
+    margin-bottom: 2rem;
+}
+
+.settings-panel h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.setting-item {
+    margin-bottom: 1rem;
+}
+
+.setting-item label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.setting-item input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--primary-black);
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: var(--primary-white);
+}
+
+.setting-item input:focus {
+    outline: none;
+    border-color: var(--sage-green);
+}
+
+.secondary-button {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-black);
+    color: var(--primary-white);
+    border: var(--border-width) solid var(--primary-black);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.secondary-button:hover {
+    background: var(--sage-green);
+}
+
+footer {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: var(--border-width) solid var(--primary-black);
+    color: #666;
+    font-size: 0.85rem;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .voice-button {
+        padding: 1.5rem 2rem;
+    }
+
+    .mic-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .transcript {
+        max-height: 200px;
+    }
+}
