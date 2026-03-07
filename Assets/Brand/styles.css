@@ -291,3 +291,19 @@ h3 {
   font-weight: 400;
   color: var(--muted);
 }
+
+/* --- Footer Logo --- */
+.footer-logo-wrap {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.footer-logo {
+  width: 120px;
+  height: auto;
+  filter: invert(1);
+  opacity: 0.85;
+  display: inline-block;
+}
