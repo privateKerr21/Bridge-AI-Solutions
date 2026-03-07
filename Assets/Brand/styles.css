@@ -77,6 +77,7 @@ h3 {
 .label {
   font-family: var(--font-mono);
   font-size: 0.75rem;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
@@ -124,6 +125,7 @@ h3 {
 .btn-dark:hover {
   background-color: var(--gold);
   color: var(--ink);
+  border-color: var(--gold-dark);
 }
 
 .btn-outline {
@@ -209,6 +211,7 @@ h3 {
 .navbar-links a {
   font-family: var(--font-mono);
   font-size: 0.8rem;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   text-decoration: none;
@@ -233,7 +236,7 @@ h3 {
   background-color: var(--ink);
   color: var(--dark-text);
   padding: 48px 0 32px;
-  border-top: var(--border-weight) solid var(--ink);
+  border-top: var(--border-weight) solid var(--gold);
 }
 
 .footer-inner {
@@ -263,7 +266,9 @@ h3 {
 .footer-links a {
   font-family: var(--font-mono);
   font-size: 0.8rem;
+  font-weight: 400;
   text-transform: uppercase;
+  letter-spacing: 0.08em;
   text-decoration: none;
   color: var(--muted);
   transition: color 0.15s ease;
@@ -276,8 +281,9 @@ h3 {
 .footer-copy {
   margin-top: 48px;
   padding-top: 24px;
-  border-top: 1px solid #333;
+  border-top: 1px solid #2a2a2a; /* subtle divider — intentionally lighter than --ink */
   font-family: var(--font-mono);
   font-size: 0.75rem;
+  font-weight: 400;
   color: var(--muted);
 }
