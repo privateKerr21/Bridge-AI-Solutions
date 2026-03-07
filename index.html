@@ -1,15 +1,934 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=Assets/landing_page_v2.html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bridge AI Solutions</title>
-    <script>
-        window.location.href = "Assets/landing_page_v2.html";
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bridge AI Solutions — Your AI Systems, Built For You</title>
+  <meta name="description" content="Bridge AI Solutions builds custom AI automation systems for small businesses. Stop doing work AI can do. We'll build it for you.">
+  <link rel="icon" type="image/jpeg" href="Assets/Brand/Logos/bridge_ai_logo%20(1).jpg">
+  <link rel="stylesheet" href="Assets/Brand/styles.css">
+  <style>
+    /* ===========================
+       Page Layout
+       =========================== */
+    body {
+      padding-top: 64px;
+    }
+
+    /* ===========================
+       Hero Section
+       =========================== */
+    .hero {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+      min-height: calc(100vh - 64px);
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: 'AI';
+      position: absolute;
+      right: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(200px, 30vw, 400px);
+      color: rgba(212, 175, 55, 0.06);
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .label {
+      color: var(--gold);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 28px;
+      max-width: 720px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      color: #A0A0A0;
+      max-width: 560px;
+      font-size: 1.2rem;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero-or {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Hero Email Form */
+    .hero-email-form {
+      display: flex;
+      align-items: stretch;
+      border: 1px solid #333;
+      overflow: hidden;
+    }
+
+    .hero-email-form input[type="email"] {
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 12px 16px;
+      color: var(--dark-text);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      width: 220px;
+      flex: 1;
+    }
+
+    .hero-email-form input[type="email"]::placeholder {
+      color: #555;
+    }
+
+    .hero-email-form button {
+      background-color: transparent;
+      border: none;
+      border-left: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 12px 18px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .hero-email-form button:hover {
+      background-color: var(--gold);
+      color: var(--ink);
+    }
+
+    /* ===========================
+       Quiz Section
+       =========================== */
+    .quiz-section {
+      padding: 100px 0;
+      background-color: var(--bg);
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .quiz-header {
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+
+    .quiz-header .label {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .quiz-header h2 {
+      margin-bottom: 16px;
+    }
+
+    .quiz-header p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* Progress Bar */
+    .quiz-progress {
+      max-width: 640px;
+      height: 3px;
+      background-color: #E0DDD9;
+      margin-bottom: 48px;
+      border-radius: 0;
+      overflow: hidden;
+    }
+
+    .quiz-progress-bar {
+      height: 100%;
+      background-color: var(--gold);
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    /* Quiz Questions */
+    .quiz-question {
+      display: none;
+      max-width: 640px;
+      animation: fadeInUp 0.3s ease;
+    }
+
+    .quiz-question.active {
+      display: block;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .quiz-q-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .quiz-q-text {
+      font-family: var(--font-head);
+      font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+      color: var(--ink);
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .quiz-option {
+      background: transparent;
+      border: 2px solid var(--ink);
+      padding: 20px 24px;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--ink);
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .quiz-option:hover {
+      background-color: var(--ink);
+      color: var(--dark-text);
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--gold);
+    }
+
+    .quiz-option.selected {
+      background-color: var(--gold);
+      color: var(--ink);
+      border-color: var(--gold-dark);
+    }
+
+    /* Quiz Result */
+    .quiz-result {
+      display: none;
+      max-width: 640px;
+      animation: fadeInUp 0.4s ease;
+    }
+
+    .quiz-result.active {
+      display: block;
+    }
+
+    .result-badge {
+      display: inline-block;
+      background-color: var(--gold);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+
+    .result-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .result-desc {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    /* Result Email Form */
+    .result-email-form {
+      display: flex;
+      align-items: stretch;
+      border: 2px solid var(--ink);
+      max-width: 480px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .result-email-form input[type="email"] {
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 14px 18px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--ink);
+      flex: 1;
+      min-width: 0;
+    }
+
+    .result-email-form input[type="email"]::placeholder {
+      color: var(--muted);
+    }
+
+    .result-email-form button {
+      background-color: var(--ink);
+      border: none;
+      border-left: 2px solid var(--ink);
+      color: var(--dark-text);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 14px 20px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .result-email-form button:hover {
+      background-color: var(--gold);
+      color: var(--ink);
+    }
+
+    .result-fine-print {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ===========================
+       Process Section
+       =========================== */
+    .process-section {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+      padding: 100px 0;
+    }
+
+    .process-header {
+      margin-bottom: 64px;
+    }
+
+    .process-header .label {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .process-header h2 {
+      max-width: 520px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .process-step {
+      padding: 48px 40px 48px 0;
+      border-right: 1px solid #222;
+    }
+
+    .process-step:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .process-step:not(:first-child) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    .process-step:last-child {
+      padding-left: 40px;
+    }
+
+    .process-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 28px;
+      display: block;
+    }
+
+    .process-step h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .process-step p {
+      color: #888;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ===========================
+       Stats Section
+       =========================== */
+    .stats-section {
+      background-color: var(--bg);
+      padding: 80px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .stat-item {
+      padding: 40px 32px;
+      border-right: 2px solid var(--ink);
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-item:first-child {
+      padding-left: 0;
+    }
+
+    .stat-number {
+      font-family: var(--font-head);
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .stat-number .stat-suffix {
+      color: var(--gold);
+    }
+
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .stat-desc {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    /* ===========================
+       CTA Band
+       =========================== */
+    .cta-band {
+      background-color: #D4AF37;
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+      padding: 80px 0;
+    }
+
+    .cta-band-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .cta-band h2 {
+      color: var(--ink);
+      max-width: 520px;
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+    }
+
+    /* ===========================
+       Responsive Breakpoints
+       =========================== */
+
+    /* Quiz: 1-col options on narrow screens */
+    @media (max-width: 540px) {
+      .quiz-options {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Process: 1-col on mobile */
+    @media (max-width: 768px) {
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-step {
+        border-right: none;
+        border-bottom: 1px solid #222;
+        padding: 40px 0 !important;
+      }
+
+      .process-step:last-child {
+        border-bottom: none;
+      }
+
+      .process-step:first-child {
+        padding-top: 0 !important;
+      }
+    }
+
+    /* Stats: 2-col on tablet */
+    @media (max-width: 900px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-item {
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .stat-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .stat-item:nth-child(3),
+      .stat-item:nth-child(4) {
+        border-bottom: none;
+      }
+
+      .stat-item:nth-child(4) {
+        border-right: none;
+      }
+
+      .stat-item:first-child {
+        padding-left: 32px;
+      }
+    }
+
+    /* Stats: 1-col on small mobile */
+    @media (max-width: 480px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-item {
+        border-right: none;
+        border-bottom: 2px solid var(--ink);
+        padding-left: 0;
+      }
+
+      .stat-item:last-child {
+        border-bottom: none;
+      }
+
+      .stat-item:first-child {
+        padding-left: 0;
+      }
+    }
+
+    /* Hero actions: stack on mobile */
+    @media (max-width: 600px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .hero-email-form {
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .hero-email-form input[type="email"] {
+        width: 100%;
+      }
+    }
+
+    /* CTA band: stack on mobile */
+    @media (max-width: 640px) {
+      .cta-band-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* Quiz section: tighter padding on mobile */
+    @media (max-width: 640px) {
+      .quiz-section {
+        padding: 64px 0;
+      }
+
+      .process-section {
+        padding: 64px 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <p>Redirecting to Bridge AI Solutions...</p>
+
+  <!-- ===========================
+       NAVBAR
+       =========================== -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo">Bridge <span>AI</span></a>
+    <ul class="navbar-links">
+      <li><a href="#quiz">Take the Quiz</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="insights.html">Insights</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===========================
+       HERO
+       =========================== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="label">// Bridge AI Solutions</span>
+      <h1>
+        Stop doing work<br>
+        <em>AI can do.</em>
+      </h1>
+      <p class="hero-sub">
+        You already know AI can automate your busywork. We build the systems that actually do it — custom, clean, and handed off to you.
+      </p>
+      <div class="hero-actions">
+        <a href="#quiz" class="btn btn-primary">Find Out What You Can Automate &rarr;</a>
+        <span class="hero-or">or get updates</span>
+        <form class="hero-email-form" onsubmit="handleHeroEmail(event)">
+          <input type="email" placeholder="your@email.com" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       RULE
+       =========================== -->
+  <hr class="rule">
+
+  <!-- ===========================
+       QUIZ SECTION
+       =========================== -->
+  <section class="quiz-section section" id="quiz">
+    <div class="container">
+
+      <div class="quiz-header">
+        <span class="label">2-Minute Assessment</span>
+        <h2>What can AI automate for you?</h2>
+        <p>Answer 3 quick questions and get a personalized automation roadmap.</p>
+      </div>
+
+      <div class="quiz-progress">
+        <div class="quiz-progress-bar" id="progressBar" style="width:0%"></div>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="quiz-question active" id="q1">
+        <div class="quiz-q-label">Question 1 of 3</div>
+        <div class="quiz-q-text">What type of work takes up most of your time right now?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="selectAnswer('q1', 'outreach', event)">Outreach &amp; follow-ups</button>
+          <button class="quiz-option" onclick="selectAnswer('q1', 'admin', event)">Admin &amp; reporting</button>
+          <button class="quiz-option" onclick="selectAnswer('q1', 'research', event)">Research &amp; data gathering</button>
+          <button class="quiz-option" onclick="selectAnswer('q1', 'content', event)">Content &amp; communications</button>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-question" id="q2">
+        <div class="quiz-q-label">Question 2 of 3</div>
+        <div class="quiz-q-text">How much time per week do you spend on this?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="selectAnswer('q2', 'low', event)">1–3 hours</button>
+          <button class="quiz-option" onclick="selectAnswer('q2', 'medium', event)">3–7 hours</button>
+          <button class="quiz-option" onclick="selectAnswer('q2', 'high', event)">7–15 hours</button>
+          <button class="quiz-option" onclick="selectAnswer('q2', 'extreme', event)">15+ hours</button>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-question" id="q3">
+        <div class="quiz-q-label">Question 3 of 3</div>
+        <div class="quiz-q-text">Have you tried any AI tools to solve this yet?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="selectAnswer('q3', 'none', event)">Not yet — don't know where to start</button>
+          <button class="quiz-option" onclick="selectAnswer('q3', 'tried', event)">Tried a few things, nothing stuck</button>
+          <button class="quiz-option" onclick="selectAnswer('q3', 'using', event)">Using some tools but want more</button>
+          <button class="quiz-option" onclick="selectAnswer('q3', 'ready', event)">Ready to go — just need someone to build it</button>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="quiz-result" id="quizResult">
+        <span class="result-badge" id="resultBadge"></span>
+        <h2 class="result-title" id="resultTitle"></h2>
+        <p class="result-desc" id="resultDesc"></p>
+        <form class="result-email-form" onsubmit="handleResultEmail(event)">
+          <input type="email" placeholder="your@email.com" required>
+          <button type="submit">Send My Roadmap</button>
+        </form>
+        <p class="result-fine-print">No spam. Unsubscribe any time.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===========================
+       HOW IT WORKS
+       =========================== -->
+  <section class="process-section section-dark" id="process">
+    <div class="container">
+
+      <div class="process-header">
+        <span class="label">How It Works</span>
+        <h2>Three steps. Real results.</h2>
+      </div>
+
+      <div class="process-grid">
+
+        <div class="process-step">
+          <span class="process-num">01 / Discover</span>
+          <h3>We map your time</h3>
+          <p>A 30-minute call to identify exactly which tasks are eating your hours and which are ready to automate.</p>
+        </div>
+
+        <div class="process-step">
+          <span class="process-num">02 / Build</span>
+          <h3>We build the system</h3>
+          <p>Custom automation workflows designed around your tools, your workflow, and your compliance requirements.</p>
+        </div>
+
+        <div class="process-step">
+          <span class="process-num">03 / Hand Off</span>
+          <h3>You take the wheel</h3>
+          <p>Full documentation, training, and ongoing support. You own it — we're here when you need us.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       STATS STRIP
+       =========================== -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+
+        <div class="stat-item">
+          <div class="stat-number">10<span class="stat-suffix">+</span></div>
+          <div class="stat-label">Hours saved / week</div>
+          <p class="stat-desc">Average time recovered by clients in the first 30 days</p>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">80<span class="stat-suffix">%</span></div>
+          <div class="stat-label">Of busywork is automatable</div>
+          <p class="stat-desc">Research shows most repetitive tasks can be handled by AI today</p>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">3<span class="stat-suffix">x</span></div>
+          <div class="stat-label">ROI in 90 days</div>
+          <p class="stat-desc">Typical return on automation investment within the first quarter</p>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">2<span class="stat-suffix">wks</span></div>
+          <div class="stat-label">Average build time</div>
+          <p class="stat-desc">From discovery call to live, working automation system</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       GOLD CTA BAND
+       =========================== -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="cta-band-inner">
+        <h2>Want the full picture first?</h2>
+        <a href="insights.html" class="btn btn-dark">Read the Research &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       FOOTER
+       =========================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">Bridge <span>AI</span></div>
+          <p style="margin-top:14px;font-size:0.9rem;color:var(--muted);max-width:320px;line-height:1.6;">
+            Custom AI automation for small businesses that are ready to stop doing work they shouldn't be doing.
+          </p>
+        </div>
+        <nav class="footer-links">
+          <a href="#quiz">Take the Quiz</a>
+          <a href="#process">How It Works</a>
+          <a href="insights.html">Insights</a>
+          <a href="mailto:hello@bridgeaisolutions.com">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Bridge AI Solutions. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===========================
+       JAVASCRIPT
+       =========================== -->
+  <script>
+    const answers = {};
+    const questions = ['q1', 'q2', 'q3'];
+    let current = 0;
+
+    const results = {
+      high: {
+        badge: 'High Automation Potential',
+        title: "You're leaving serious time on the table.",
+        desc: "Based on your answers, you're spending significant hours on work that AI can handle today. You're an ideal candidate for a custom automation build. Get your personalized roadmap below."
+      },
+      medium: {
+        badge: 'Good Automation Fit',
+        title: "There's a real opportunity here.",
+        desc: "You've got a solid automation opportunity. A targeted system could meaningfully reduce your manual workload and free you up for higher-value work. Let's map it out."
+      },
+      ready: {
+        badge: 'Ready to Build',
+        title: "You're already in the right mindset.",
+        desc: "You know what needs to happen — you just need someone to build it properly. Let's skip the intro and get straight to your custom roadmap."
+      },
+      low: {
+        badge: 'Starting Point Identified',
+        title: "Small wins, big momentum.",
+        desc: "Even with lighter automation needs, the right system can compound over time. Get your starter roadmap and see what's possible from day one."
+      }
+    };
+
+    function selectAnswer(questionId, value, event) {
+      answers[questionId] = value;
+      // Highlight selected tile
+      const q = document.getElementById(questionId);
+      q.querySelectorAll('.quiz-option').forEach(function(btn) {
+        btn.classList.remove('selected');
+      });
+      event.target.classList.add('selected');
+      setTimeout(function() { nextQuestion(); }, 300);
+    }
+
+    function nextQuestion() {
+      current++;
+      const progress = (current / 3) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+      if (current < 3) {
+        document.getElementById(questions[current - 1]).classList.remove('active');
+        document.getElementById(questions[current]).classList.add('active');
+      } else {
+        document.getElementById(questions[current - 1]).classList.remove('active');
+        showResult();
+      }
+    }
+
+    function showResult() {
+      const result = calculateResult();
+      document.getElementById('resultBadge').textContent = result.badge;
+      document.getElementById('resultTitle').textContent = result.title;
+      document.getElementById('resultDesc').textContent = result.desc;
+      document.getElementById('quizResult').classList.add('active');
+      document.getElementById('progressBar').style.width = '100%';
+    }
+
+    function calculateResult() {
+      if (answers.q3 === 'ready') return results.ready;
+      if (answers.q2 === 'extreme' || answers.q2 === 'high') return results.high;
+      if (answers.q2 === 'medium') return results.medium;
+      return results.low;
+    }
+
+    function handleHeroEmail(e) {
+      e.preventDefault();
+      const email = e.target.querySelector('input[type="email"]').value;
+      console.log('Hero email captured:', email);
+      e.target.innerHTML = '<p style="color:var(--gold);font-family:var(--font-mono);font-size:0.85rem;padding:14px 0;">You\'re in. Check your inbox.</p>';
+    }
+
+    function handleResultEmail(e) {
+      e.preventDefault();
+      const email = e.target.querySelector('input[type="email"]').value;
+      console.log('Result email captured:', email);
+      const confirmMsg = document.createElement('p');
+      confirmMsg.style.cssText = 'font-family:var(--font-mono);font-size:0.85rem;color:var(--gold-dark);padding:16px 0;';
+      confirmMsg.textContent = 'Roadmap on its way. Check your inbox.';
+      e.target.replaceWith(confirmMsg);
+    }
+  </script>
+
 </body>
 </html>
