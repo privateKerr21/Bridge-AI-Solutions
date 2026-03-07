@@ -938,10 +938,10 @@
 
     function showEmailError(container) {
       const existing = container.querySelector('.email-error');
-      if (existing) return; // don't duplicate
+      if (existing) return;
       const err = document.createElement('p');
       err.className = 'email-error';
-      err.style.cssText = 'font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);margin-top:12px;line-height:1.6;';
+      err.style.cssText = 'display:block;font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);margin-top:12px;line-height:1.6;';
       err.textContent = 'Something went wrong — email us directly at hello@bridgeaisolutions.com';
       container.appendChild(err);
     }
@@ -961,7 +961,7 @@
       } catch (err) {
         btn.textContent = originalText;
         btn.disabled = false;
-        showEmailError(form);
+        showEmailError(form.parentElement);
         console.error('Hero email error:', err);
       }
     }
@@ -984,7 +984,7 @@
       } catch (err) {
         btn.textContent = originalText;
         btn.disabled = false;
-        showEmailError(form);
+        showEmailError(form.parentElement);
         console.error('Result email error:', err);
       }
     }
