@@ -67,7 +67,7 @@
     }
 
     .insights-hero-sub {
-      color: #A0A0A0;
+      color: var(--muted-light);
       max-width: 600px;
       font-size: 1.2rem;
       line-height: 1.7;
@@ -148,7 +148,7 @@
     .pain-stat {
       margin-top: 20px;
       padding-top: 20px;
-      border-top: 1px solid #E0DDD9;
+      border-top: 1px solid var(--border-light);
       font-family: var(--font-mono);
       font-size: 0.8rem;
       color: var(--ink);
@@ -222,7 +222,7 @@
 
     .gap-list li {
       padding: 12px 0;
-      border-bottom: 1px solid #2a2a2a;
+      border-bottom: 1px solid var(--border-dark);
       font-size: 0.95rem;
       line-height: 1.5;
       display: flex;
@@ -247,7 +247,7 @@
     .gap-cta-block {
       margin-top: 64px;
       padding-top: 48px;
-      border-top: 1px solid #2a2a2a;
+      border-top: 1px solid var(--border-dark);
     }
 
     .gap-cta-block h3 {
@@ -256,7 +256,7 @@
     }
 
     .gap-cta-block p {
-      color: #A0A0A0;
+      color: var(--muted-light);
       max-width: 560px;
       line-height: 1.7;
       margin-bottom: 32px;
@@ -329,7 +329,7 @@
     }
 
     .roi-section .roi-intro {
-      color: #A0A0A0;
+      color: var(--muted-light);
       font-size: 1.05rem;
       margin-bottom: 64px;
       max-width: 520px;
@@ -339,8 +339,8 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
-      border-top: var(--border-weight) solid #2a2a2a;
-      border-left: var(--border-weight) solid #2a2a2a;
+      border-top: var(--border-weight) solid var(--border-dark);
+      border-left: var(--border-weight) solid var(--border-dark);
     }
 
     @media (max-width: 900px) {
@@ -356,8 +356,8 @@
     }
 
     .roi-stat-cell {
-      border-right: var(--border-weight) solid #2a2a2a;
-      border-bottom: var(--border-weight) solid #2a2a2a;
+      border-right: var(--border-weight) solid var(--border-dark);
+      border-bottom: var(--border-weight) solid var(--border-dark);
       padding: 40px 32px;
     }
 
@@ -381,7 +381,7 @@
 
     .roi-stat-desc {
       font-size: 0.85rem;
-      color: #888;
+      color: var(--muted);
       line-height: 1.5;
     }
 
@@ -494,7 +494,7 @@
 
     .ai-reality-list li {
       padding: 16px 0;
-      border-bottom: 1px solid #E0DDD9;
+      border-bottom: 1px solid var(--border-light);
     }
 
     .ai-reality-list li:last-child {
@@ -558,7 +558,7 @@
     }
 
     .audience-intro {
-      color: #A0A0A0;
+      color: var(--muted-light);
       font-size: 1.05rem;
       max-width: 540px;
       margin-bottom: 64px;
@@ -578,7 +578,7 @@
     }
 
     .audience-card {
-      border: var(--border-weight) solid #2a2a2a;
+      border: var(--border-weight) solid var(--border-dark);
       padding: 36px;
       transition: border-color 0.15s ease, transform 0.15s ease;
     }
@@ -596,7 +596,7 @@
 
     .audience-card p {
       font-size: 0.95rem;
-      color: #888;
+      color: var(--muted);
       line-height: 1.6;
       margin: 0;
     }
@@ -636,7 +636,7 @@
 
     .side-effects-list li {
       padding: 16px 0;
-      border-bottom: 1px solid #E0DDD9;
+      border-bottom: 1px solid var(--border-light);
       font-size: 0.95rem;
       line-height: 1.55;
       color: var(--ink);
@@ -699,6 +699,16 @@
         padding: 12px 20px;
       }
     }
+
+    .footer {
+      padding-bottom: 100px;
+    }
+
+    @media (max-width: 480px) {
+      .footer {
+        padding-bottom: 80px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -711,7 +721,7 @@
     <ul class="navbar-links">
       <li><a href="index.html#quiz">Take the Quiz</a></li>
       <li><a href="index.html#process">How It Works</a></li>
-      <li><a href="index.html">Back to Home</a></li>
+      <li><a href="insights.html" aria-current="page">Insights</a></li>
     </ul>
   </nav>
 
@@ -795,10 +805,10 @@
   <section class="gap-section">
     <div class="container">
       <span class="label">The Gap That's Costing You</span>
-      <blockquote class="gap-pull-quote">
+      <div class="gap-pull-quote">
         Where you are vs. where you could be in the next 12 months — the distance is smaller than you think, and larger than you can afford to ignore.
-      </blockquote>
-      <p style="color:#A0A0A0;max-width:640px;font-size:1.05rem;line-height:1.75;margin-bottom:0;">
+      </div>
+      <p style="color:var(--muted-light);max-width:640px;font-size:1.05rem;line-height:1.75;margin-bottom:0;">
         For most professional services firms, it's not a lack of skill or effort. It's spending too much time on work that doesn't leverage your expertise. AI changes that equation.
       </p>
 
@@ -1052,7 +1062,7 @@
         <nav class="footer-links">
           <a href="index.html#quiz">Take the Quiz</a>
           <a href="index.html#process">How It Works</a>
-          <a href="index.html">Home</a>
+          <a href="insights.html" aria-current="page">Insights</a>
           <a href="mailto:hello@bridgeaisolutions.com">Contact</a>
         </nav>
       </div>

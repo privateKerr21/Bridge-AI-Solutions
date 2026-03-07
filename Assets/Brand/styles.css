@@ -15,6 +15,9 @@
   --border:    #0D0D0D;
   --dark-bg:   #0D0D0D;
   --dark-text: #F5F2EE;
+  --border-dark:  #2a2a2a;   /* subtle divider on dark backgrounds */
+  --border-light: #E0DDD9;   /* subtle divider on light backgrounds */
+  --muted-light:  #A0A0A0;   /* secondary text on dark backgrounds */
 
   --font-head: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -281,7 +284,7 @@ h3 {
 .footer-copy {
   margin-top: 48px;
   padding-top: 24px;
-  border-top: 1px solid #2a2a2a; /* subtle divider — intentionally lighter than --ink */
+  border-top: 1px solid var(--border-dark); /* subtle divider — intentionally lighter than --ink */
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 400;
