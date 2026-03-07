@@ -917,21 +917,76 @@
       return results.low;
     }
 
-    function handleHeroEmail(e) {
-      e.preventDefault();
-      const email = e.target.querySelector('input[type="email"]').value;
-      console.log('Hero email captured:', email);
-      e.target.innerHTML = '<p style="color:var(--gold);font-family:var(--font-mono);font-size:0.85rem;padding:14px 0;">You\'re in. Check your inbox.</p>';
+    // ---- EMAIL SUBMISSION ----
+
+    async function submitEmail(email, source, quizAnswers) {
+      const payload = {
+        email: email,
+        source: source,
+        quizAnswers: quizAnswers || {},
+        timestamp: new Date().toISOString(),
+        page: window.location.pathname
+      };
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!response.ok) throw new Error('Subscribe request failed');
+      return response;
     }
 
-    function handleResultEmail(e) {
+    function showEmailError(container) {
+      const existing = container.querySelector('.email-error');
+      if (existing) return; // don't duplicate
+      const err = document.createElement('p');
+      err.className = 'email-error';
+      err.style.cssText = 'font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);margin-top:12px;line-height:1.6;';
+      err.textContent = 'Something went wrong — email us directly at hello@bridgeaisolutions.com';
+      container.appendChild(err);
+    }
+
+    async function handleHeroEmail(e) {
       e.preventDefault();
-      const email = e.target.querySelector('input[type="email"]').value;
-      console.log('Result email captured:', email);
-      const confirmMsg = document.createElement('p');
-      confirmMsg.style.cssText = 'font-family:var(--font-mono);font-size:0.85rem;color:var(--gold-dark);padding:16px 0;';
-      confirmMsg.textContent = 'Roadmap on its way. Check your inbox.';
-      e.target.replaceWith(confirmMsg);
+      const form = e.target;
+      const input = form.querySelector('input[type="email"]');
+      const btn = form.querySelector('button[type="submit"]');
+      const email = input.value;
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        await submitEmail(email, 'hero', {});
+        form.innerHTML = '<p style="color:var(--gold);font-family:var(--font-mono);font-size:0.85rem;padding:14px 0;">You\'re in. Check your inbox.</p>';
+      } catch (err) {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        showEmailError(form);
+        console.error('Hero email error:', err);
+      }
+    }
+
+    async function handleResultEmail(e) {
+      e.preventDefault();
+      const form = e.target;
+      const input = form.querySelector('input[type="email"]');
+      const btn = form.querySelector('button[type="submit"]');
+      const email = input.value;
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        await submitEmail(email, 'quiz-result', Object.assign({}, answers));
+        const confirmation = document.createElement('p');
+        confirmation.style.cssText = 'font-family:var(--font-mono);font-size:0.85rem;color:var(--gold);padding:16px 0;';
+        confirmation.textContent = 'Roadmap on its way. Check your inbox.';
+        form.replaceWith(confirmation);
+      } catch (err) {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        showEmailError(form);
+        console.error('Result email error:', err);
+      }
     }
   </script>
 
