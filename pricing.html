@@ -51,6 +51,11 @@
       border-right: var(--border-weight) solid var(--ink);
       position: relative;
       background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+    .pricing-card .btn {
+      margin-top: auto;
     }
     .pricing-card:last-child { border-right: none; }
     @media (max-width: 768px) {
@@ -92,7 +97,7 @@
       color: var(--muted);
       margin-bottom: 12px;
     }
-    .pricing-card.featured .tier-name { color: #A0A0A0; }
+    .pricing-card.featured .tier-name { color: var(--muted-light); }
 
     .tier-price {
       font-family: var(--font-head);
@@ -112,7 +117,7 @@
       letter-spacing: 0.08em;
       margin-bottom: 16px;
     }
-    .pricing-card.featured .tier-type { color: #A0A0A0; }
+    .pricing-card.featured .tier-type { color: var(--muted-light); }
 
     .tier-monthly {
       font-family: var(--font-head);
@@ -129,14 +134,14 @@
       letter-spacing: 0.06em;
       margin-bottom: 32px;
     }
-    .pricing-card.featured .tier-monthly-label { color: #A0A0A0; }
+    .pricing-card.featured .tier-monthly-label { color: var(--muted-light); }
 
     .tier-divider {
       border: none;
       border-top: 1px solid var(--border-light);
       margin: 0 0 32px;
     }
-    .pricing-card.featured .tier-divider { border-top-color: #333; }
+    .pricing-card.featured .tier-divider { border-top-color: var(--border-dark); }
 
     .tier-features {
       list-style: none;
@@ -168,7 +173,7 @@
       line-height: 1.6;
       margin-bottom: 32px;
     }
-    .pricing-card.featured .tier-note { color: #888; }
+    .pricing-card.featured .tier-note { color: var(--muted-light); }
 
     .pricing-disclaimer {
       text-align: center;
@@ -193,14 +198,14 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 0;
-      border: var(--border-weight) solid #333;
+      border: var(--border-weight) solid var(--border-dark);
     }
     @media (max-width: 640px) { .faq-grid { grid-template-columns: 1fr; } }
 
     .faq-item {
       padding: 40px;
-      border-right: var(--border-weight) solid #333;
-      border-bottom: var(--border-weight) solid #333;
+      border-right: var(--border-weight) solid var(--border-dark);
+      border-bottom: var(--border-weight) solid var(--border-dark);
     }
     .faq-item:nth-child(2),
     .faq-item:nth-child(4) { border-right: none; }
