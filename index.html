@@ -64,7 +64,7 @@
       max-width: 720px;
     }
 
-    .hero h1 em {
+    .hero h1 .text-accent {
       font-style: normal;
       color: var(--gold);
     }
@@ -485,7 +485,7 @@
        CTA Band
        =========================== */
     .cta-band {
-      background-color: #D4AF37;
+      background-color: var(--gold);
       border-top: 2px solid var(--ink);
       border-bottom: 2px solid var(--ink);
       padding: 80px 0;
@@ -646,7 +646,7 @@
       <span class="label">// Bridge AI Solutions</span>
       <h1>
         Stop doing work<br>
-        <em>AI can do.</em>
+        <span class="text-accent">AI can do.</span>
       </h1>
       <p class="hero-sub">
         You already know AI can automate your busywork. We build the systems that actually do it — custom, clean, and handed off to you.
@@ -655,7 +655,7 @@
         <a href="#quiz" class="btn btn-primary">Find Out What You Can Automate &rarr;</a>
         <span class="hero-or">or get updates</span>
         <form class="hero-email-form" onsubmit="handleHeroEmail(event)">
-          <input type="email" placeholder="your@email.com" required>
+          <input type="email" placeholder="your@email.com" required aria-label="Email address">
           <button type="submit">Subscribe</button>
         </form>
       </div>
@@ -688,10 +688,10 @@
         <div class="quiz-q-label">Question 1 of 3</div>
         <div class="quiz-q-text">What type of work takes up most of your time right now?</div>
         <div class="quiz-options">
-          <button class="quiz-option" onclick="selectAnswer('q1', 'outreach', event)">Outreach &amp; follow-ups</button>
-          <button class="quiz-option" onclick="selectAnswer('q1', 'admin', event)">Admin &amp; reporting</button>
-          <button class="quiz-option" onclick="selectAnswer('q1', 'research', event)">Research &amp; data gathering</button>
-          <button class="quiz-option" onclick="selectAnswer('q1', 'content', event)">Content &amp; communications</button>
+          <button class="quiz-option" onclick="selectAnswer('q1', 'outreach', this)">Outreach &amp; follow-ups</button>
+          <button class="quiz-option" onclick="selectAnswer('q1', 'admin', this)">Admin &amp; reporting</button>
+          <button class="quiz-option" onclick="selectAnswer('q1', 'research', this)">Research &amp; data gathering</button>
+          <button class="quiz-option" onclick="selectAnswer('q1', 'content', this)">Content &amp; communications</button>
         </div>
       </div>
 
@@ -700,10 +700,10 @@
         <div class="quiz-q-label">Question 2 of 3</div>
         <div class="quiz-q-text">How much time per week do you spend on this?</div>
         <div class="quiz-options">
-          <button class="quiz-option" onclick="selectAnswer('q2', 'low', event)">1–3 hours</button>
-          <button class="quiz-option" onclick="selectAnswer('q2', 'medium', event)">3–7 hours</button>
-          <button class="quiz-option" onclick="selectAnswer('q2', 'high', event)">7–15 hours</button>
-          <button class="quiz-option" onclick="selectAnswer('q2', 'extreme', event)">15+ hours</button>
+          <button class="quiz-option" onclick="selectAnswer('q2', 'low', this)">1–3 hours</button>
+          <button class="quiz-option" onclick="selectAnswer('q2', 'medium', this)">3–7 hours</button>
+          <button class="quiz-option" onclick="selectAnswer('q2', 'high', this)">7–15 hours</button>
+          <button class="quiz-option" onclick="selectAnswer('q2', 'extreme', this)">15+ hours</button>
         </div>
       </div>
 
@@ -712,10 +712,10 @@
         <div class="quiz-q-label">Question 3 of 3</div>
         <div class="quiz-q-text">Have you tried any AI tools to solve this yet?</div>
         <div class="quiz-options">
-          <button class="quiz-option" onclick="selectAnswer('q3', 'none', event)">Not yet — don't know where to start</button>
-          <button class="quiz-option" onclick="selectAnswer('q3', 'tried', event)">Tried a few things, nothing stuck</button>
-          <button class="quiz-option" onclick="selectAnswer('q3', 'using', event)">Using some tools but want more</button>
-          <button class="quiz-option" onclick="selectAnswer('q3', 'ready', event)">Ready to go — just need someone to build it</button>
+          <button class="quiz-option" onclick="selectAnswer('q3', 'none', this)">Not yet — don't know where to start</button>
+          <button class="quiz-option" onclick="selectAnswer('q3', 'tried', this)">Tried a few things, nothing stuck</button>
+          <button class="quiz-option" onclick="selectAnswer('q3', 'using', this)">Using some tools but want more</button>
+          <button class="quiz-option" onclick="selectAnswer('q3', 'ready', this)">Ready to go — just need someone to build it</button>
         </div>
       </div>
 
@@ -725,7 +725,7 @@
         <h2 class="result-title" id="resultTitle"></h2>
         <p class="result-desc" id="resultDesc"></p>
         <form class="result-email-form" onsubmit="handleResultEmail(event)">
-          <input type="email" placeholder="your@email.com" required>
+          <input type="email" placeholder="your@email.com" required aria-label="Email address">
           <button type="submit">Send My Roadmap</button>
         </form>
         <p class="result-fine-print">No spam. Unsubscribe any time.</p>
@@ -872,20 +872,19 @@
       }
     };
 
-    function selectAnswer(questionId, value, event) {
+    function selectAnswer(questionId, value, btn) {
       answers[questionId] = value;
-      // Highlight selected tile
-      const q = document.getElementById(questionId);
-      q.querySelectorAll('.quiz-option').forEach(function(btn) {
-        btn.classList.remove('selected');
-      });
-      event.target.classList.add('selected');
-      setTimeout(function() { nextQuestion(); }, 300);
+      document.getElementById(questionId)
+        .querySelectorAll('.quiz-option')
+        .forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      setTimeout(nextQuestion, 300);
     }
 
     function nextQuestion() {
+      const completed = current; // capture before increment
       current++;
-      const progress = (current / 3) * 100;
+      const progress = (completed / 3) * 100;
       document.getElementById('progressBar').style.width = progress + '%';
       if (current < 3) {
         document.getElementById(questions[current - 1]).classList.remove('active');
