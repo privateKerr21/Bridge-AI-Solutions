@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bridge AI Solutions — The AI Automation Brief</title>
+  <meta name="description" content="The real numbers. The honest limitations. And what's possible when you stop doing work AI can do.">
+  <link rel="icon" type="image/jpeg" href="Assets/Brand/Logos/bridge_ai_logo%20(1).jpg">
+  <link rel="stylesheet" href="Assets/Brand/styles.css">
+  <style>
+    /* ===========================
+       Page Layout
+       =========================== */
+    body {
+      padding-top: 64px;
+    }
+
+    /* ===========================
+       Insights Hero
+       =========================== */
+    .insights-hero {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .insights-hero::before {
+      content: 'AI';
+      position: absolute;
+      right: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(180px, 28vw, 380px);
+      color: rgba(212, 175, 55, 0.05);
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .insights-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .insights-hero .label {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .insights-hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 28px;
+      max-width: 760px;
+    }
+
+    .text-accent {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .insights-hero-sub {
+      color: #A0A0A0;
+      max-width: 600px;
+      font-size: 1.2rem;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    /* ===========================
+       Section A: Pain Points
+       =========================== */
+    .pain-points-section {
+      padding: 80px 0;
+      background-color: var(--bg);
+      border-bottom: var(--border-weight) solid var(--ink);
+    }
+
+    .section-header {
+      margin-bottom: 56px;
+    }
+
+    .section-header .label {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--muted);
+    }
+
+    .section-header h2 {
+      margin-bottom: 0;
+    }
+
+    .insight-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .insight-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .insight-card {
+      border: var(--border-weight) solid var(--ink);
+      padding: 40px;
+      background-color: var(--bg);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .insight-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .industry-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 4px 10px;
+      margin-bottom: 20px;
+    }
+
+    .insight-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+
+    .insight-card p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .pain-stat {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #E0DDD9;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* ===========================
+       Section B: The Gap
+       =========================== */
+    .gap-section {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+      padding: 100px 0;
+      border-bottom: var(--border-weight) solid var(--gold);
+    }
+
+    .gap-section .label {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .gap-pull-quote {
+      font-family: var(--font-head);
+      font-size: clamp(1.6rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 820px;
+      margin-bottom: 48px;
+      border-left: 4px solid var(--gold);
+      padding-left: 32px;
+    }
+
+    .gap-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 768px) {
+      .gap-columns {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .gap-col-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .gap-col-label.current {
+      color: var(--muted);
+    }
+
+    .gap-col-label.future {
+      color: var(--gold);
+    }
+
+    .gap-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .gap-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid #2a2a2a;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .gap-list li::before {
+      content: '—';
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .gap-list.future-list li::before {
+      content: '→';
+      color: var(--gold);
+    }
+
+    .gap-cta-block {
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid #2a2a2a;
+    }
+
+    .gap-cta-block h3 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      margin-bottom: 16px;
+    }
+
+    .gap-cta-block p {
+      color: #A0A0A0;
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* ===========================
+       Section C: Cost of Inaction
+       =========================== */
+    .inaction-section {
+      background-color: var(--bg);
+      padding: 100px 0;
+      border-bottom: var(--border-weight) solid var(--ink);
+    }
+
+    .inaction-section .label {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .inaction-section h2 {
+      max-width: 720px;
+      margin-bottom: 40px;
+    }
+
+    .inaction-pull-quote {
+      font-family: var(--font-head);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+    }
+
+    .inaction-pull-caption {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+
+    .inaction-body {
+      max-width: 680px;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    /* ===========================
+       Section D: ROI & Results
+       =========================== */
+    .roi-section {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+      padding: 100px 0;
+      border-bottom: var(--border-weight) solid var(--gold);
+    }
+
+    .roi-section .label {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .roi-section h2 {
+      margin-bottom: 16px;
+    }
+
+    .roi-section .roi-intro {
+      color: #A0A0A0;
+      font-size: 1.05rem;
+      margin-bottom: 64px;
+      max-width: 520px;
+    }
+
+    .roi-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: var(--border-weight) solid #2a2a2a;
+      border-left: var(--border-weight) solid #2a2a2a;
+    }
+
+    @media (max-width: 900px) {
+      .roi-stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .roi-stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .roi-stat-cell {
+      border-right: var(--border-weight) solid #2a2a2a;
+      border-bottom: var(--border-weight) solid #2a2a2a;
+      padding: 40px 32px;
+    }
+
+    .roi-stat-number {
+      font-family: var(--font-head);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .roi-stat-label {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark-text);
+      margin-bottom: 8px;
+    }
+
+    .roi-stat-desc {
+      font-size: 0.85rem;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    .roi-source {
+      margin-top: 32px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ===========================
+       Section E: AI Reality
+       =========================== */
+    .ai-reality-section {
+      background-color: var(--bg);
+      padding: 100px 0;
+      border-bottom: var(--border-weight) solid var(--ink);
+    }
+
+    .ai-reality-section .label {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .ai-reality-section h2 {
+      margin-bottom: 16px;
+    }
+
+    .ai-reality-intro {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: 64px;
+    }
+
+    .ai-reality-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: var(--border-weight) solid var(--ink);
+    }
+
+    @media (max-width: 768px) {
+      .ai-reality-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .ai-reality-col {
+      padding: 48px 40px;
+    }
+
+    .ai-reality-col:first-child {
+      border-right: var(--border-weight) solid var(--ink);
+    }
+
+    @media (max-width: 768px) {
+      .ai-reality-col:first-child {
+        border-right: none;
+        border-bottom: var(--border-weight) solid var(--ink);
+      }
+    }
+
+    .ai-reality-col-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .ai-reality-indicator {
+      width: 32px;
+      height: 32px;
+      border: var(--border-weight) solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .ai-reality-indicator.can {
+      background-color: var(--gold);
+      color: var(--ink);
+      border-color: var(--gold-dark);
+    }
+
+    .ai-reality-indicator.cant {
+      background-color: transparent;
+      color: var(--ink);
+    }
+
+    .ai-reality-col-title {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .ai-reality-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .ai-reality-list li {
+      padding: 16px 0;
+      border-bottom: 1px solid #E0DDD9;
+    }
+
+    .ai-reality-list li:last-child {
+      border-bottom: none;
+    }
+
+    .ai-reality-list li strong {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+
+    .ai-reality-list li p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .ai-reality-tagline {
+      margin-top: 48px;
+      padding: 32px 40px;
+      background-color: var(--ink);
+      color: var(--dark-text);
+    }
+
+    .ai-reality-tagline p {
+      font-family: var(--font-head);
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      max-width: 720px;
+      margin: 0;
+    }
+
+    .ai-reality-tagline span {
+      color: var(--gold);
+    }
+
+    /* ===========================
+       Section F: Who It's For
+       =========================== */
+    .audience-section {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+      padding: 100px 0;
+    }
+
+    .audience-section .label {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .audience-section h2 {
+      margin-bottom: 16px;
+    }
+
+    .audience-intro {
+      color: #A0A0A0;
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin-bottom: 64px;
+      line-height: 1.7;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .audience-card {
+      border: var(--border-weight) solid #2a2a2a;
+      padding: 36px;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .audience-card:hover {
+      border-color: var(--gold);
+      transform: translate(-2px, -2px);
+    }
+
+    .audience-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--dark-text);
+    }
+
+    .audience-card p {
+      font-size: 0.95rem;
+      color: #888;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ===========================
+       Warning Section (Side Effects)
+       =========================== */
+    .side-effects-section {
+      background-color: var(--bg);
+      padding: 100px 0;
+      border-top: var(--border-weight) solid var(--ink);
+    }
+
+    .side-effects-section .label {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .side-effects-section h2 {
+      margin-bottom: 16px;
+      max-width: 600px;
+    }
+
+    .side-effects-intro {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 40px;
+    }
+
+    .side-effects-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
+      max-width: 720px;
+    }
+
+    .side-effects-list li {
+      padding: 16px 0;
+      border-bottom: 1px solid #E0DDD9;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--ink);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .side-effects-list li::before {
+      content: '!';
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .side-effects-footer {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ===========================
+       Floating CTA
+       =========================== */
+    .floating-cta {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 50;
+    }
+
+    .floating-cta .btn {
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .floating-cta .btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    @media (max-width: 480px) {
+      .floating-cta {
+        bottom: 16px;
+        right: 16px;
+      }
+
+      .floating-cta .btn {
+        font-size: 0.85rem;
+        padding: 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       NAVBAR
+       =========================== -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo">Bridge <span>AI</span></a>
+    <ul class="navbar-links">
+      <li><a href="index.html#quiz">Take the Quiz</a></li>
+      <li><a href="index.html#process">How It Works</a></li>
+      <li><a href="index.html">Back to Home</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===========================
+       PAGE HERO
+       =========================== -->
+  <section class="insights-hero">
+    <div class="container insights-hero-inner">
+      <span class="label">// The AI Automation Brief</span>
+      <h1>
+        What AI can actually<br>
+        <span class="text-accent">do for your business.</span>
+      </h1>
+      <p class="insights-hero-sub">
+        The real numbers. The honest limitations. And what's possible when you stop doing work AI can do.
+      </p>
+      <a href="index.html#quiz" class="btn btn-primary">Find Out What You Can Automate &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION A: PAIN POINTS
+       =========================== -->
+  <section class="pain-points-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">The Problem</span>
+        <h2>Where your time is actually going</h2>
+      </div>
+      <div class="insight-cards">
+
+        <div class="insight-card">
+          <span class="industry-tag">Prospecting</span>
+          <h3>Your lead list keeps growing... but your outreach doesn't.</h3>
+          <p>You've got a spreadsheet full of prospects. You know you should be reaching out. But between client work, meetings, and putting out fires, "prospecting time" never actually happens.</p>
+          <div class="pain-stat">15+ hours/week lost to manual prospecting</div>
+        </div>
+
+        <div class="insight-card">
+          <span class="industry-tag">Follow-Up</span>
+          <h3>Warm leads go cold while you're busy chasing new ones.</h3>
+          <p>Your follow-up system is a mess of spreadsheets, sticky notes, and good intentions. You know there's money sitting in your existing network, but who has time to work it properly?</p>
+          <div class="pain-stat">73% of leads are never followed up properly</div>
+        </div>
+
+        <div class="insight-card">
+          <span class="industry-tag">Admin Work</span>
+          <h3>You're drowning in tasks that don't actually make you money.</h3>
+          <p>Data entry, scheduling, document processing, email sorting. The admin work multiplies faster than you can handle it. Every hour spent here is an hour not spent on billable work.</p>
+          <div class="pain-stat">2–3 hrs/day on non-billable admin</div>
+        </div>
+
+        <div class="insight-card">
+          <span class="industry-tag">Scaling</span>
+          <h3>You've hired before. It didn't solve the problem.</h3>
+          <p>You brought on help, but the training took forever, quality was inconsistent, and the costs added up fast. What you really need isn't another body. It's a better system.</p>
+          <div class="pain-stat">Hiring solves 20% of the problem at 100% of the cost</div>
+        </div>
+
+        <div class="insight-card">
+          <span class="industry-tag">Repetitive Tasks</span>
+          <h3>You keep doing the same thing over and over... and it's draining you.</h3>
+          <p>Same emails. Same data pulls. Same reports. You've done this a hundred times, and you'll do it a hundred more. Your expertise is being wasted on work a machine could handle.</p>
+          <div class="pain-stat">50–70% of daily work is repetitive</div>
+        </div>
+
+        <div class="insight-card">
+          <span class="industry-tag">The Real Issue</span>
+          <h3>The work that grows your business keeps losing to the work that just maintains it.</h3>
+          <p>You got into this to serve clients and build something meaningful. Instead, you're trapped in an endless cycle of tasks that feel urgent but aren't actually moving the needle.</p>
+          <div class="pain-stat">Only 20% of your time is on high-value work</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION B: THE GAP
+       =========================== -->
+  <section class="gap-section">
+    <div class="container">
+      <span class="label">The Gap That's Costing You</span>
+      <blockquote class="gap-pull-quote">
+        Where you are vs. where you could be in the next 12 months — the distance is smaller than you think, and larger than you can afford to ignore.
+      </blockquote>
+      <p style="color:#A0A0A0;max-width:640px;font-size:1.05rem;line-height:1.75;margin-bottom:0;">
+        For most professional services firms, it's not a lack of skill or effort. It's spending too much time on work that doesn't leverage your expertise. AI changes that equation.
+      </p>
+
+      <div class="gap-columns">
+        <div>
+          <span class="gap-col-label current">Where You Are Now</span>
+          <ul class="gap-list">
+            <li>Prospecting happens when you "find time"</li>
+            <li>Follow-ups are inconsistent at best</li>
+            <li>Manual processes for everything</li>
+            <li>Working IN the business, not ON it</li>
+            <li>Capacity-constrained by your hours</li>
+            <li>Revenue plateaued despite working harder</li>
+          </ul>
+        </div>
+        <div>
+          <span class="gap-col-label future">Where You Could Be</span>
+          <ul class="gap-list future-list">
+            <li>Pipeline fills itself with qualified leads</li>
+            <li>No prospect falls through the cracks</li>
+            <li>AI handles routine, you handle relationships</li>
+            <li>Time for strategy and high-value work</li>
+            <li>Capacity scales without hiring</li>
+            <li>Revenue grows while hours stay the same</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gap-cta-block">
+        <h3>What's Standing Between You and That Future?</h3>
+        <p>
+          The answer usually isn't ambition or resources — it's the systems. Build the right ones and the gap closes faster than you'd expect.
+        </p>
+        <a href="index.html#quiz" class="btn btn-primary">Let's Find Your Gap &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION C: COST OF INACTION
+       =========================== -->
+  <section class="inaction-section">
+    <div class="container">
+      <span class="label">The Hidden Cost</span>
+      <h2>Every month you wait is costing you more than you think</h2>
+
+      <div class="inaction-pull-quote">4.8x</div>
+      <div class="inaction-pull-caption">Faster productivity growth in AI-adopting industries</div>
+
+      <p class="inaction-body">
+        78% of organizations now use AI in at least one business function. Industries embracing AI see productivity grow nearly 5x faster than those that don't. Your competitors aren't waiting. Every quarter you delay is a quarter they pull further ahead — not because they're smarter, but because their systems do more.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION D: ROI & RESULTS
+       =========================== -->
+  <section class="roi-section">
+    <div class="container">
+      <span class="label">The Numbers Don't Lie</span>
+      <h2>What the research actually shows</h2>
+      <p class="roi-intro">Industry data backs up what early adopters are already experiencing.</p>
+
+      <div class="roi-stats-grid">
+
+        <div class="roi-stat-cell">
+          <div class="roi-stat-number">$3.70</div>
+          <div class="roi-stat-label">Return Per $1 Invested</div>
+          <div class="roi-stat-desc">Average ROI for businesses implementing AI automation</div>
+        </div>
+
+        <div class="roi-stat-cell">
+          <div class="roi-stat-number">26–55%</div>
+          <div class="roi-stat-label">Productivity Gains</div>
+          <div class="roi-stat-desc">What enterprises report after AI implementation</div>
+        </div>
+
+        <div class="roi-stat-cell">
+          <div class="roi-stat-number">240%</div>
+          <div class="roi-stat-label">Average ROI</div>
+          <div class="roi-stat-desc">From business process automation across industries</div>
+        </div>
+
+        <div class="roi-stat-cell">
+          <div class="roi-stat-number">2–3 mo</div>
+          <div class="roi-stat-label">Break-Even</div>
+          <div class="roi-stat-desc">Most businesses see positive ROI within 90 days</div>
+        </div>
+
+      </div>
+
+      <p class="roi-source">Sources: McKinsey State of AI Report 2025, Deloitte Tech Trends 2025</p>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION E: AI REALITY
+       =========================== -->
+  <section class="ai-reality-section">
+    <div class="container">
+      <span class="label">The Honest Conversation</span>
+      <h2>What AI can (and can't) do for you</h2>
+      <p class="ai-reality-intro">
+        We'll never oversell. Here's what AI actually handles well, and where your expertise remains essential.
+      </p>
+
+      <div class="ai-reality-grid">
+
+        <div class="ai-reality-col">
+          <div class="ai-reality-col-header">
+            <div class="ai-reality-indicator can">&#10003;</div>
+            <div class="ai-reality-col-title">Give This To AI</div>
+          </div>
+          <ul class="ai-reality-list">
+            <li>
+              <strong>Prospect Research &amp; Data Extraction</strong>
+              <p>Finding and qualifying leads, extracting info from LinkedIn, building target lists</p>
+            </li>
+            <li>
+              <strong>Follow-Up Sequencing &amp; Reminders</strong>
+              <p>Making sure no prospect falls through the cracks, tracking touchpoints</p>
+            </li>
+            <li>
+              <strong>Document Analysis &amp; Pattern Recognition</strong>
+              <p>Reviewing contracts for standard clauses, flagging exceptions, initial categorization</p>
+            </li>
+            <li>
+              <strong>Data Entry &amp; Formatting</strong>
+              <p>Moving info between systems, formatting reports, updating records</p>
+            </li>
+            <li>
+              <strong>Drafting First Passes</strong>
+              <p>Initial email drafts, message personalization, content suggestions for your review</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="ai-reality-col">
+          <div class="ai-reality-col-header">
+            <div class="ai-reality-indicator cant">&#10005;</div>
+            <div class="ai-reality-col-title">Keep This Human</div>
+          </div>
+          <ul class="ai-reality-list">
+            <li>
+              <strong>Relationship Building &amp; Trust</strong>
+              <p>The actual conversations that win clients and keep them loyal</p>
+            </li>
+            <li>
+              <strong>Strategic Advice &amp; Judgment Calls</strong>
+              <p>The expertise and context that makes your advice valuable</p>
+            </li>
+            <li>
+              <strong>Complex Negotiations</strong>
+              <p>Reading between the lines, handling sensitive situations</p>
+            </li>
+            <li>
+              <strong>Creative Problem-Solving</strong>
+              <p>Novel situations that require thinking outside the box</p>
+            </li>
+            <li>
+              <strong>Final Decisions &amp; Client-Facing Communication</strong>
+              <p>Everything important gets your approval before it goes out</p>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="ai-reality-tagline">
+        <p>We automate the work that <span>drains you</span>, so you can focus on the work that <span>drives you</span>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION F: WHO IT'S FOR
+       =========================== -->
+  <section class="audience-section">
+    <div class="container">
+      <span class="label">Is This Right For You?</span>
+      <h2>Who we work with</h2>
+      <p class="audience-intro">
+        We work best with businesses that have a real problem — and the desire to fix it properly, not patch it temporarily.
+      </p>
+
+      <div class="audience-grid">
+
+        <div class="audience-card">
+          <h3>Business Owners</h3>
+          <p>Who are tired of being the bottleneck and want systems that scale without adding headcount</p>
+        </div>
+
+        <div class="audience-card">
+          <h3>Service Providers</h3>
+          <p>Whose expertise is being wasted on repetitive, low-value tasks that could be automated today</p>
+        </div>
+
+        <div class="audience-card">
+          <h3>Growth-Focused Teams</h3>
+          <p>Who need to do more without hiring more — and are willing to invest in systems that compound</p>
+        </div>
+
+        <div class="audience-card">
+          <h3>Busy Professionals</h3>
+          <p>Who know AI could help but don't have time to figure it out — and need it done, not just explained</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SIDE EFFECTS (WARNING)
+       =========================== -->
+  <section class="side-effects-section">
+    <div class="container">
+      <span class="label">Side Effects of Working With Us</span>
+      <h2>Results suspiciously consistent across clients</h2>
+      <p class="side-effects-intro">Actual experiences reported by real clients:</p>
+
+      <ul class="side-effects-list">
+        <li>Mysterious reclamation of 10+ hours per week previously lost to manual tasks</li>
+        <li>Sudden realization that "this used to take me all day" now takes 10 minutes</li>
+        <li>Unexplained confidence when prospects ask "Can you handle more volume?"</li>
+        <li>Pipeline that fills itself while you're busy doing actual billable work</li>
+        <li>Chronic reduction in "I'll follow up on Monday" guilt</li>
+        <li>Dangerous habit of expecting things to "just work" automatically</li>
+        <li>Competitors wondering how you're moving so fast with the same team size</li>
+        <li>Inability to imagine going back to the old manual way of doing things</li>
+        <li>Frequent urge to show colleagues "watch what our AI system does"</li>
+        <li>Risk of having to actually take that vacation you've been postponing</li>
+      </ul>
+
+      <p class="side-effects-footer">Results may vary. Not responsible for increased job satisfaction or work-life balance.</p>
+    </div>
+  </section>
+
+  <!-- ===========================
+       FOOTER
+       =========================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">Bridge <span>AI</span></div>
+          <p style="margin-top:14px;font-size:0.9rem;color:var(--muted);max-width:320px;line-height:1.6;">
+            Custom AI automation for small businesses that are ready to stop doing work they shouldn't be doing.
+          </p>
+        </div>
+        <nav class="footer-links">
+          <a href="index.html#quiz">Take the Quiz</a>
+          <a href="index.html#process">How It Works</a>
+          <a href="index.html">Home</a>
+          <a href="mailto:hello@bridgeaisolutions.com">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Bridge AI Solutions. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===========================
+       FLOATING CTA
+       =========================== -->
+  <div class="floating-cta">
+    <a href="index.html#quiz" class="btn btn-primary">Start Your Assessment &rarr;</a>
+  </div>
+
+</body>
+</html>
