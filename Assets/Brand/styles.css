@@ -43,6 +43,7 @@ html {
 }
 
 body {
+  padding-top: 64px;
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.6;
