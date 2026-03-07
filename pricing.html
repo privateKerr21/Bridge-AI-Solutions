@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bridge AI Solutions — Pricing</title>
+  <meta name="description" content="Simple, transparent pricing for AI automation. No retainers, no surprises. One-time project fees for custom AI automation builds.">
+  <link rel="icon" type="image/jpeg" href="Assets/Brand/Logos/bridge_ai_logo%20(1).jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="Assets/Brand/styles.css">
+  <style>
+    /* ---- HERO ---- */
+    .pricing-hero {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+      padding: 100px 0 80px;
+    }
+    .pricing-hero .label {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 16px;
+    }
+    .pricing-hero h1 { margin-bottom: 20px; }
+    .pricing-hero p {
+      color: var(--muted-light);
+      font-size: 1.1rem;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ---- PRICING SECTION ---- */
+    .pricing-section {
+      padding: 100px 0;
+      background: var(--bg);
+      border-bottom: var(--border-weight) solid var(--ink);
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: var(--border-weight) solid var(--ink);
+      margin-bottom: 48px;
+    }
+    @media (max-width: 768px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+
+    .pricing-card {
+      padding: 48px 40px;
+      border-right: var(--border-weight) solid var(--ink);
+      position: relative;
+      background: var(--bg);
+    }
+    .pricing-card:last-child { border-right: none; }
+    @media (max-width: 768px) {
+      .pricing-card { border-right: none; border-bottom: var(--border-weight) solid var(--ink); }
+      .pricing-card:last-child { border-bottom: none; }
+    }
+
+    .pricing-card.featured {
+      background: var(--ink);
+      color: var(--dark-text);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 0 var(--gold);
+    }
+    @media (max-width: 768px) {
+      .pricing-card.featured {
+        transform: none;
+        box-shadow: inset 4px 0 0 var(--gold);
+      }
+    }
+
+    .popular-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 12px;
+      margin-bottom: 24px;
+    }
+
+    .tier-name {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .pricing-card.featured .tier-name { color: #A0A0A0; }
+
+    .tier-price {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+    .pricing-card.featured .tier-price { color: var(--dark-text); }
+
+    .tier-type {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .pricing-card.featured .tier-type { color: #A0A0A0; }
+
+    .tier-monthly {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .tier-monthly-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 32px;
+    }
+    .pricing-card.featured .tier-monthly-label { color: #A0A0A0; }
+
+    .tier-divider {
+      border: none;
+      border-top: 1px solid var(--border-light);
+      margin: 0 0 32px;
+    }
+    .pricing-card.featured .tier-divider { border-top-color: #333; }
+
+    .tier-features {
+      list-style: none;
+      margin: 0 0 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .tier-features li {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding-left: 20px;
+      position: relative;
+      color: var(--ink);
+    }
+    .pricing-card.featured .tier-features li { color: var(--dark-text); }
+    .tier-features li::before {
+      content: '\2192';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .tier-note {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .pricing-card.featured .tier-note { color: #888; }
+
+    .pricing-disclaimer {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ---- FAQ ---- */
+    .faq-section {
+      padding: 100px 0;
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+    .faq-section .label { color: var(--gold); display: block; margin-bottom: 16px; }
+    .faq-section h2 { margin-bottom: 64px; max-width: 560px; }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      border: var(--border-weight) solid #333;
+    }
+    @media (max-width: 640px) { .faq-grid { grid-template-columns: 1fr; } }
+
+    .faq-item {
+      padding: 40px;
+      border-right: var(--border-weight) solid #333;
+      border-bottom: var(--border-weight) solid #333;
+    }
+    .faq-item:nth-child(2),
+    .faq-item:nth-child(4) { border-right: none; }
+    .faq-item:nth-child(3),
+    .faq-item:nth-child(4) { border-bottom: none; }
+    @media (max-width: 640px) {
+      .faq-item { border-right: none; }
+      .faq-item:last-child { border-bottom: none; }
+    }
+
+    .faq-q {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+      line-height: 1.3;
+      color: var(--dark-text);
+    }
+    .faq-a { color: var(--muted-light); font-size: 0.95rem; line-height: 1.7; }
+
+    /* ---- CTA BAND ---- */
+    .pricing-cta {
+      padding: 80px 0;
+      background: var(--gold);
+      border-top: var(--border-weight) solid var(--ink);
+    }
+    .pricing-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .pricing-cta h2 { max-width: 500px; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo">Bridge <span>AI</span></a>
+    <ul class="navbar-links">
+      <li><a href="index.html#quiz">Take the Quiz</a></li>
+      <li><a href="index.html#process">How It Works</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="pricing.html" aria-current="page">Pricing</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section class="pricing-hero">
+      <div class="container">
+        <span class="label">// Pricing</span>
+        <h1>Simple, transparent<br>pricing.</h1>
+        <p>No retainers. No surprises. You pay for what gets built.</p>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="pricing-section">
+      <div class="container">
+        <div class="pricing-grid">
+
+          <!-- Tier 1 -->
+          <div class="pricing-card">
+            <p class="tier-name">Starter Automation</p>
+            <div class="tier-price">$500</div>
+            <div class="tier-type">One-time project fee</div>
+            <div class="tier-monthly">+ $300&ndash;$500<span style="font-size:0.75rem;font-weight:500">/mo</span></div>
+            <div class="tier-monthly-label">Estimated tools &amp; APIs</div>
+            <hr class="tier-divider">
+            <ul class="tier-features">
+              <li>1 automated workflow</li>
+              <li>Single tool integration</li>
+              <li>Setup + documentation</li>
+              <li>1 revision round</li>
+            </ul>
+            <p class="tier-note">Best for: one specific task eating your time &mdash; outreach follow-ups, data entry, report generation.</p>
+            <a href="mailto:hello@bridgeaisolutions.com?subject=Starter%20Automation%20Inquiry" class="btn btn-dark" style="width:100%;box-sizing:border-box;text-align:center;">Book a Discovery Call &rarr;</a>
+          </div>
+
+          <!-- Tier 2 (Featured) -->
+          <div class="pricing-card featured">
+            <div class="popular-badge">Most Popular</div>
+            <p class="tier-name">Full System</p>
+            <div class="tier-price">$1,500&ndash;$2,000</div>
+            <div class="tier-type">One-time project fee</div>
+            <div class="tier-monthly">+ $500&ndash;$800<span style="font-size:0.75rem;font-weight:500">/mo</span></div>
+            <div class="tier-monthly-label">Estimated tools &amp; APIs</div>
+            <hr class="tier-divider">
+            <ul class="tier-features">
+              <li>3&ndash;5 interconnected workflows</li>
+              <li>Multi-tool integration</li>
+              <li>Google Sheets dashboard</li>
+              <li>Full testing + handoff</li>
+              <li>2 revision rounds</li>
+            </ul>
+            <p class="tier-note">Best for: replacing an entire category of work &mdash; lead gen, client onboarding, reporting pipelines.</p>
+            <a href="mailto:hello@bridgeaisolutions.com?subject=Full%20System%20Inquiry" class="btn btn-primary" style="width:100%;box-sizing:border-box;text-align:center;">Book a Discovery Call &rarr;</a>
+          </div>
+
+          <!-- Tier 3 -->
+          <div class="pricing-card">
+            <p class="tier-name">Ongoing Operations</p>
+            <div class="tier-price">Custom</div>
+            <div class="tier-type">One-time build + monthly retainer</div>
+            <div class="tier-monthly">Tools bundled</div>
+            <div class="tier-monthly-label">in monthly retainer</div>
+            <hr class="tier-divider">
+            <ul class="tier-features">
+              <li>Everything in Full System</li>
+              <li>Ongoing monitoring &amp; updates</li>
+              <li>Monthly strategy calls</li>
+              <li>Priority support</li>
+              <li>Quarterly automation audit</li>
+            </ul>
+            <p class="tier-note">Best for: businesses ready to treat AI as infrastructure &mdash; not a one-time project.</p>
+            <a href="mailto:hello@bridgeaisolutions.com?subject=Ongoing%20Operations%20Inquiry" class="btn btn-dark" style="width:100%;box-sizing:border-box;text-align:center;">Let's Talk &rarr;</a>
+          </div>
+
+        </div>
+
+        <p class="pricing-disclaimer">
+          Tool and API costs vary by provider and usage volume.<br>
+          We'll give you an exact estimate during your free discovery call.
+        </p>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <span class="label">Common Questions</span>
+        <h2>Before you book.</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <p class="faq-q">What's included in the project fee?</p>
+            <p class="faq-a">The fee covers your discovery call, the full build, documentation so you understand what was built, and the revision rounds listed in your tier. You own everything delivered.</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">How long does a build take?</p>
+            <p class="faq-a">Starter builds typically take about a week. Full System builds run 2&ndash;3 weeks from the discovery call. Timelines depend on complexity and your availability for feedback rounds.</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">What if I need changes after handoff?</p>
+            <p class="faq-a">Revision rounds are included in each tier. Changes beyond those are billed at an hourly rate we'll agree on upfront. Ongoing Operations clients get continuous updates included.</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">Do you work with my existing tools?</p>
+            <p class="faq-a">We work with most major platforms &mdash; Zapier, Make, Google Workspace, Airtable, HubSpot, Slack, and more. Bring your stack to the discovery call and we'll tell you exactly what's possible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-cta">
+      <div class="container">
+        <div class="pricing-cta-inner">
+          <h2>Not sure which tier fits?</h2>
+          <a href="mailto:hello@bridgeaisolutions.com?subject=Discovery%20Call%20Request" class="btn btn-dark">Book a Free Discovery Call &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo-wrap">
+        <img src="Assets/Brand/Logos/transparent/hero_logo.png"
+             alt="Bridge AI Solutions logo"
+             class="footer-logo">
+      </div>
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">Bridge <span>AI</span></div>
+          <p style="color:#666;font-size:0.85rem;margin-top:8px;max-width:260px;line-height:1.6;">Custom AI automation for small businesses that are ready to stop doing work they shouldn't be doing.</p>
+        </div>
+        <nav class="footer-links">
+          <a href="index.html#quiz">Take the Quiz</a>
+          <a href="index.html#process">How It Works</a>
+          <a href="insights.html">Insights</a>
+          <a href="pricing.html" aria-current="page">Pricing</a>
+          <a href="mailto:hello@bridgeaisolutions.com">Contact</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 Bridge AI Solutions. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
