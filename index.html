@@ -63,6 +63,7 @@
       background-position: center;
       opacity: 0.28;
       z-index: 0;
+      transition: opacity 0.08s linear;
     }
 
     .hero-inner {
@@ -1092,6 +1093,18 @@
     }, { threshold: 0.15 });
 
     fadeEls.forEach(el => observer.observe(el));
+
+    // Hero background scroll fade
+    const heroBg = document.querySelector('.hero-bg');
+    const heroSection = document.querySelector('.hero');
+    function updateHeroBgOpacity() {
+      const heroHeight = heroSection.offsetHeight;
+      const scrolled = window.scrollY;
+      const fadeEnd = heroHeight * 0.6;
+      const opacity = Math.max(0, 0.28 * (1 - scrolled / fadeEnd));
+      heroBg.style.opacity = opacity;
+    }
+    window.addEventListener('scroll', updateHeroBgOpacity, { passive: true });
 
   </script>
 
