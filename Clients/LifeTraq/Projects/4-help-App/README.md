@@ -65,9 +65,8 @@ Deploys automatically via Vercel when pushed to main branch
 
 ## Configuration
 
-ElevenLabs Agent ID is embedded in the code:
-```
-agent_2701kh4p4ehpe03a94h8pmhbxxa6
-```
+ElevenLabs credentials are embedded in the code:
+- **Agent ID**: `agent_2701kh4p4ehpe03a94h8pmhbxxa6`
+- **API Key**: Configured and ready
 
 No additional setup needed! The agent is ready to use.

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credibility Track — Feb–Jun 2026 | Bridge AI Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===========================
+           Reset & Base
+           =========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #1a1a1a;
+            --white: #f8f8f8;
+            --pure-white: #ffffff;
+            --sage: #7a9d7e;
+            --sage-light: rgba(122, 157, 126, 0.12);
+            --sage-mid: rgba(122, 157, 126, 0.25);
+            --gold: #d4a574;
+            --gold-light: rgba(212, 165, 116, 0.12);
+            --blue: #0f4c5c;
+            --blue-light: rgba(15, 76, 92, 0.08);
+            --text-gray: #444;
+            --border: #e0e0e0;
+            --done-bg: rgba(122, 157, 126, 0.06);
+            --done-text: #5a8a5e;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        /* ===========================
+           Header
+           =========================== */
+        .header {
+            background: var(--black);
+            color: var(--pure-white);
+            padding: 2.5rem 0 2rem;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 1.75rem;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-brand {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin-bottom: 0.5rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .header-meta {
+            text-align: right;
+            font-size: 0.85rem;
+            opacity: 0.6;
+            line-height: 1.7;
+        }
+
+        /* ===========================
+           Progress Bar
+           =========================== */
+        .progress-bar-wrap {
+            background: var(--pure-white);
+            border-bottom: 2px solid var(--border);
+            padding: 1.25rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .progress-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .progress-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-gray);
+            white-space: nowrap;
+        }
+
+        .progress-track {
+            flex: 1;
+            height: 10px;
+            background: var(--border);
+            border-radius: 5px;
+            overflow: hidden;
+            border: 2px solid var(--black);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--sage);
+            border-radius: 3px;
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+
+        .progress-pct {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--sage);
+            min-width: 42px;
+            text-align: right;
+        }
+
+        /* ===========================
+           Month Sections
+           =========================== */
+        .months {
+            padding: 2rem 0 3rem;
+        }
+
+        .month-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .month-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .month-badge {
+            background: var(--black);
+            color: var(--pure-white);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 3px;
+            border: 2px solid var(--black);
+            box-shadow: 3px 3px 0 var(--sage);
+            white-space: nowrap;
+        }
+
+        .month-label {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .month-sub {
+            font-size: 0.82rem;
+            color: var(--text-gray);
+            margin-left: auto;
+            font-weight: 500;
+        }
+
+        /* ===========================
+           Week Rows
+           =========================== */
+        .week-row {
+            margin-bottom: 0.75rem;
+        }
+
+        .week-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-gray);
+            margin-bottom: 0.35rem;
+            padding-left: 0.25rem;
+        }
+
+        /* ===========================
+           Task Cards
+           =========================== */
+        .task-card {
+            background: var(--pure-white);
+            border: 2.5px solid var(--black);
+            border-radius: 6px;
+            box-shadow: 4px 4px 0 var(--black);
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.6rem;
+            display: grid;
+            grid-template-columns: 24px 1fr auto;
+            gap: 0.85rem;
+            align-items: start;
+            transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+            cursor: pointer;
+        }
+
+        .task-card:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 5px 5px 0 var(--black);
+        }
+
+        .task-card.done {
+            background: var(--done-bg);
+            box-shadow: 3px 3px 0 var(--sage);
+            border-color: var(--sage);
+        }
+
+        .task-card.done:hover {
+            box-shadow: 4px 4px 0 var(--sage);
+        }
+
+        /* Checkbox */
+        .task-check {
+            width: 24px;
+            height: 24px;
+            border: 2.5px solid var(--black);
+            border-radius: 4px;
+            background: var(--pure-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .task-card.done .task-check {
+            background: var(--sage);
+            border-color: var(--sage);
+        }
+
+        .task-check::after {
+            content: '';
+            width: 6px;
+            height: 10px;
+            border-right: 2.5px solid transparent;
+            border-bottom: 2.5px solid transparent;
+            transform: rotate(45deg);
+            margin-bottom: 2px;
+            transition: border-color 0.2s ease;
+        }
+
+        .task-card.done .task-check::after {
+            border-color: var(--pure-white);
+        }
+
+        /* Task body */
+        .task-body {
+            min-width: 0;
+        }
+
+        .task-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 0.15rem;
+        }
+
+        .task-card.done .task-title {
+            color: var(--done-text);
+        }
+
+        .task-detail {
+            font-size: 0.82rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        .task-card.done .task-detail {
+            color: #7a9d7e;
+            opacity: 0.75;
+        }
+
+        /* Cost badge */
+        .task-cost {
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: var(--gold-light);
+            color: #8a6a3a;
+            padding: 0.2rem 0.55rem;
+            border-radius: 3px;
+            border: 1.5px solid var(--gold);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .task-cost.free {
+            background: var(--sage-light);
+            color: var(--done-text);
+            border-color: var(--sage);
+        }
+
+        .task-card.done .task-cost {
+            opacity: 0.6;
+        }
+
+        /* ===========================
+           Info Boxes (notes within months)
+           =========================== */
+        .info-box {
+            background: var(--blue-light);
+            border-left: 3.5px solid var(--blue);
+            border-radius: 4px;
+            padding: 0.85rem 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.82rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .info-box strong {
+            color: var(--black);
+        }
+
+        .info-box.gold {
+            background: var(--gold-light);
+            border-left-color: var(--gold);
+        }
+
+        .info-box.gold strong {
+            color: #7a5220;
+        }
+
+        /* ===========================
+           Cost Summary Footer
+           =========================== */
+        .summary-section {
+            background: var(--pure-white);
+            border-top: 2.5px solid var(--black);
+            padding: 2rem 0 2.5rem;
+        }
+
+        .summary-header {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .summary-card {
+            background: var(--white);
+            border: 2.5px solid var(--black);
+            border-radius: 6px;
+            box-shadow: 4px 4px 0 var(--black);
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .summary-card .s-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--black);
+            line-height: 1;
+            margin-bottom: 0.35rem;
+        }
+
+        .summary-card .s-label {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .summary-card.highlight {
+            border-color: var(--sage);
+            box-shadow: 4px 4px 0 var(--sage);
+        }
+
+        .summary-card.highlight .s-number {
+            color: var(--sage);
+        }
+
+        /* ===========================
+           Skip list
+           =========================== */
+        .skip-section {
+            margin-top: 2rem;
+        }
+
+        .skip-header {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-gray);
+            margin-bottom: 0.6rem;
+        }
+
+        .skip-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skip-tag {
+            font-size: 0.78rem;
+            color: #888;
+            background: #f0f0f0;
+            border: 1.5px solid #ddd;
+            border-radius: 3px;
+            padding: 0.25rem 0.65rem;
+            text-decoration: line-through;
+        }
+
+        /* ===========================
+           Responsive
+           =========================== */
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.5rem; }
+            .header-top { flex-direction: column; }
+            .header-meta { text-align: left; }
+            .summary-grid { grid-template-columns: 1fr; }
+            .task-card { grid-template-columns: 24px 1fr; }
+            .task-cost { grid-column: 2; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <div class="container">
+        <div class="header-top">
+            <div>
+                <div class="header-brand">Bridge AI Solutions</div>
+                <h1>Credibility Track<br>Feb – Jun 2026</h1>
+            </div>
+            <div class="header-meta">
+                Target niche: Small CPA Firms<br>
+                Total budget: $414<br>
+                Started: Feb 4, 2026
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sticky Progress Bar -->
+<div class="progress-bar-wrap">
+    <div class="container">
+        <div class="progress-row">
+            <span class="progress-label">Progress</span>
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span class="progress-pct" id="progressPct">0%</span>
+        </div>
+    </div>
+</div>
+
+<!-- Month Sections -->
+<div class="months">
+    <div class="container">
+
+        <!-- ========== FEBRUARY ========== -->
+        <div class="month-block">
+            <div class="month-header">
+                <div class="month-badge">February</div>
+                <div class="month-label">Credential Foundations</div>
+                <div class="month-sub">~25 hrs · $99</div>
+            </div>
+
+            <div class="week-row">
+                <div class="week-label">Week 1–2 · Feb 4–17</div>
+
+                <div class="task-card" data-id="make-academy" onclick="toggle(this)">
+                    <div class="task-check"></div>
+                    <div class="task-body">
+                        <div class="task-title">Make Academy — All 3 Levels</div>
+                        <div class="task-detail">Foundation → Basics → Advanced. LinkedIn badges. Proves official training, not just YouTube.<br><a href="https://academy.make.com" target="_blank" onclick="event.stopPropagation()">academy.make.com →</a></div>
+                    </div>
+                    <div class="task-cost free">Free · ~15 hrs</div>
+                </div>
+
+                <div class="task-card" data-id="zapier-partner" onclick="toggle(this)">
+                    <div class="task-check"></div>
+                    <div class="task-body">
+                        <div class="task-title">Zapier Solution Partner — Apply</div>
+                        <div class="task-detail">Partner program, not just a badge. Gets you into Zapier's directory. Need a business site + custom domain email.<br><a href="https://zapier.com/l/solution-partner" target="_blank" onclick="event.stopPropagation()">zapier.com/l/solution-partner →</a></div>
+                    </div>
+                    <div class="task-cost free">Free · ~1 hr</div>
+                </div>
+            </div>
+
+            <div class="week-row">
+                <div class="week-label">Week 3–4 · Feb 18 – Mar 3</div>
+
+                <div class="task-card" data-id="google-genai" onclick="toggle(this)">
+                    <div class="task-check"></div>
+                    <div class="task-body">
+                        <div class="task-title">Google Cloud Generative AI Leader</div>
+                        <div class="task-detail">The only major vendor cert for the advisor role. Prep is free on Google Cloud Skills Boost. 60-min exam.<br><a href="https://cloud.google.com/learn/certification/generative-ai-leader" target="_blank" onclick="event.stopPropagation()">cloud.google.com/learn/certification →</a></div>
+                    </div>
+                    <div class="task-cost">$99 · ~10 hrs</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== MARCH ========== -->
+        <div class="month-block">
+            <div class="month-header">
+                <div class="month-badge">March</div>
+                <div class="month-label">Deepen + Pause</div>
+                <div class="month-sub">~13 hrs · $165</div>
+            </div>
+
+            <div class="week-row">
+                <div class="week-label">Week 1–2 · Mar 3–17</div>
+
+                <div class="task-card" data-id="ms-ai-bp" onclick="toggle(this)">
+                    <div class="task-check"></div>
+                    <div class="task-body">
+                        <div class="task-title">Microsoft AI Business Professional (AB-730)</div>
+                        <div class="task-detail">Most CPA firms run on Microsoft 365. Says "I understand AI in your tools." 45-min exam, free study materials.<br><a href="https://learn.microsoft.com/en-us/credentials/certifications/ai-business-professional/" target="_blank" onclick="event.stopPropagation()">learn.microsoft.com →</a></div>
+                    </div>
+                    <div class="task-cost">$165 · ~10 hrs</div>
+                </div>
+
+                <div class="task-card" data-id="n8n-l1" onclick="toggle(this)">
+                    <div class="task-check"></div>
+                    <div class="task-body">
+                        <div class="task-title">n8n Level 1 Certification</div>
+                        <div class="task-detail">Growing fast. Relevant for compliance-sensitive firms (data sovereignty). Knock out in one sitting.<br><a href="https://docs.n8n.io/courses/" target="_blank" onclick="event.stopPropagation()">docs.n8n.io/courses →</a></div>
+                    </div>
+                    <div class="task-cost free">Free · ~3 hrs</div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>Pause on certs after this.</strong> At this point you have Make (3 levels), Zapier Partner, Google Cloud GenAI Leader, Microsoft AI BP, and n8n L1. More certs have diminishing returns. April switches to proof assets — the things that actually close deals.
+            </div>
+        </div>
+
+        <!-- ========== APRIL ========== -->
+        <div class="month-block">
+            <div class="month-header">
+                <div class="month-badge">April</div>
+                <div class="month-label">Build the Proof Assets</div>
+                <div class="month-sub">$0 · writing work</div>
+            </div>
+
+            <div class="info-box gold">
+                <strong>This is the month that matters most.</strong> Feb–Mar gets you past the initial credibility filter. April is what turns interest into a conversation.
+            </div>
+
+            <div class="week-row">
+                <div class="week-label">Week 1–2 · Apr 1–14</div>
+
+                <div class="task-card" data-id="case-study" onclick="toggle(this)">
+                    <div class="task-check"></div>
+                    <div class="task-body">
+                        <div class="task-title">Refined Wealth Case Study</div>
+                        <div class="task-detail">Write the numbers-driven writeup. Pain point (Matt's quote about follow-ups falling through), what you built (two-track system, Make + Zapier + Sheets), target metrics (8–10 hrs/week, 80% data entry reduction), compliance angle. Update with real numbers once the engagement is live.</div>
+                    </div>
+                    <div class="task-cost free">Free · ~3 hrs</div>
+                </div>
+            </div>
+
+            <div class="week-row">
+                <div class="week-label">Week 3–4 · Apr 15–30</div>
+
+                <div class="task-card" data-id="tech-stack-doc" onclick="toggle(this)">
+                    <div class="task-check"></div>
+                    <div class="task-body">
+                        <div class="task-title">Tech Stack Transparency Doc</div>
+                        <div class="task-detail">One-pager: what tools Bridge AI uses (Make, Zapier, n8n, Google Sheets, Apify), when you reach for each, and why. No buzzwords. This is what builds trust with analytically-minded firm principals. Put it on your site, link from proposals.</div>
+                    </div>
+                    <div class="task-cost free">Free · ~2 hrs</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== MAY ========== -->
+        <div class="month-block">
+            <div class="month-header">
+                <div class="month-badge">May</div>
+                <div class="month-label">Aim at the CPA Niche</div>
+                <div class="month-sub">$0 · content + outreach</div>
+            </div>
+
+            <div class="week-row">
+                <div class="week-label">Week 1–2 · May 1–14</div>
+
+                <div class="task-card" data-id="cpa-content" onclick="toggle(this)">
+                    <div class="task-check"></div>
+                    <div class="task-body">
+                        <div class="task-title">CPA Shadow Work Content Piece</div>
+                        <div class="task-detail">Entry-point content for the niche. The specific repetitive work CPAs do and hate: document collection (5 hrs/week), manual reconciliations, deadline tracking on calendar alerts. Put on site, share on LinkedIn, use as a leave-behind.</div>
+                    </div>
+                    <div class="task-cost free">Free · ~3 hrs</div>
+                </div>
+            </div>
+
+            <div class="week-row">
+                <div class="week-label">Week 3–4 · May 15–31</div>
+
+                <div class="task-card" data-id="referral-intro" onclick="toggle(this)">
+                    <div class="task-check"></div>
+                    <div class="task-body">
+                        <div class="task-title">Activate the Referral Path</div>
+                        <div class="task-detail">Ask Refined Wealth for an intro to a CPA they work with. Frame it: "If you ever hear a CPA contact complain about document collection or deadline tracking eating their time, I'd love an intro." Don't ask generically.</div>
+                    </div>
+                    <div class="task-cost free">Free · 1 email</div>
+                </div>
+
+                <div class="task-card" data-id="linkedin-activity" onclick="toggle(this)">
+                    <div class="task-check"></div>
+                    <div class="task-body">
+                        <div class="task-title">Start Showing Up in CPA Spaces on LinkedIn</div>
+                        <div class="task-detail">Comment on posts from CPA firms and accounting industry accounts. Share the shadow work guide. Not selling — just being visible as someone who understands their workflow problems.</div>
+                    </div>
+                    <div class="task-cost free">Ongoing</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== JUNE ========== -->
+        <div class="month-block">
+            <div class="month-header">
+                <div class="month-badge">June</div>
+                <div class="month-label">Close the Loop</div>
+                <div class="month-sub">~4 hrs · $150</div>
+            </div>
+
+            <div class="week-row">
+                <div class="week-label">Week 1–2 · Jun 1–14</div>
+
+                <div class="task-card" data-id="uipath" onclick="toggle(this)">
+                    <div class="task-check"></div>
+                    <div class="task-body">
+                        <div class="task-title">UiPath Agentic Automation Associate</div>
+                        <div class="task-detail">Rounds out the portfolio for slightly larger CPA firms (20+) with IT infrastructure. Complete coursework through UiPath Academy, then sit the exam.<br><a href="https://www.uipath.com/learning/certification" target="_blank" onclick="event.stopPropagation()">uipath.com/learning/certification →</a></div>
+                    </div>
+                    <div class="task-cost">$150 · ~4 hrs</div>
+                </div>
+            </div>
+
+            <div class="week-row">
+                <div class="week-label">Week 3–4 · Jun 15–30</div>
+
+                <div class="task-card" data-id="review-update" onclick="toggle(this)">
+                    <div class="task-check"></div>
+                    <div class="task-body">
+                        <div class="task-title">Review + Update Everything</div>
+                        <div class="task-detail">Update case study with real Refined Wealth numbers if available. Make sure all assets are on the site. Confirm Zapier partner listing is live. Assess where CPA outreach stands. Plan next quarter.</div>
+                    </div>
+                    <div class="task-cost free">Free · ~2 hrs</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== SKIP LIST ========== -->
+        <div class="skip-section">
+            <div class="skip-header">Skip entirely</div>
+            <div class="skip-list">
+                <span class="skip-tag">AIT Designation (insurance-specific)</span>
+                <span class="skip-tag">PMP (experience req too high)</span>
+                <span class="skip-tag">CSCP (compliance practitioner cert)</span>
+                <span class="skip-tag">FINRA Series 7 / SIE</span>
+                <span class="skip-tag">Harvard / MIT / Stanford AI certs</span>
+                <span class="skip-tag">AWS AI Practitioner (do later)</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Summary Footer -->
+<div class="summary-section">
+    <div class="container">
+        <div class="summary-header">End of Track Summary</div>
+        <div class="summary-grid">
+            <div class="summary-card">
+                <div class="s-number">6</div>
+                <div class="s-label">Credentials</div>
+            </div>
+            <div class="summary-card">
+                <div class="s-number">3</div>
+                <div class="s-label">Proof Assets</div>
+            </div>
+            <div class="summary-card highlight">
+                <div class="s-number">$414</div>
+                <div class="s-label">Total Cost</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===========================
+     JavaScript — Checkbox persistence + progress
+     =========================== -->
+<script>
+    const STORAGE_KEY = 'bridge-credibility-track-v1';
+
+    function loadState() {
+        try {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+        } catch(e) {
+            return {};
+        }
+    }
+
+    function saveState(state) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function toggle(card) {
+        const id = card.dataset.id;
+        const isDone = card.classList.contains('done');
+        card.classList.toggle('done', !isDone);
+
+        const state = loadState();
+        if (isDone) {
+            delete state[id];
+        } else {
+            state[id] = true;
+        }
+        saveState(state);
+        updateProgress();
+    }
+
+    function updateProgress() {
+        const allCards = document.querySelectorAll('.task-card');
+        const doneCards = document.querySelectorAll('.task-card.done');
+        const pct = allCards.length > 0 ? Math.round((doneCards.length / allCards.length) * 100) : 0;
+
+        document.getElementById('progressFill').style.width = pct + '%';
+        document.getElementById('progressPct').textContent = pct + '%';
+    }
+
+    // Restore on load
+    window.addEventListener('DOMContentLoaded', () => {
+        const state = loadState();
+        document.querySelectorAll('.task-card').forEach(card => {
+            if (state[card.dataset.id]) {
+                card.classList.add('done');
+            }
+        });
+        updateProgress();
+    });
+</script>
+
+</body>
+</html>

@@ -7,6 +7,9 @@
     <title>RIPLLL | Employee Onboarding & Retention - Stop Losing New Hires</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        html, body {
+            overflow-x: hidden;
+        }
         .logo-img {
             height: 40px;
             filter: invert(27%) sepia(82%) saturate(1800%) hue-rotate(182deg) brightness(92%) contrast(101%);
@@ -51,30 +54,52 @@
             .logo-img {
                 height: 30px;
             }
+            .hero-ctas {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
             .hero-ctas .cta-button-primary,
             .hero-ctas .cta-button-secondary {
                 padding: 0.6rem 1.25rem;
                 font-size: 0.9rem;
-                white-space: nowrap;
+                white-space: normal;
                 width: auto;
                 border-radius: 6px;
                 text-align: center;
             }
             .powered-by-bar {
-                gap: 0.6rem;
-                padding: 1rem 1.25rem;
+                flex-wrap: wrap;
+                gap: 0.4rem;
+                padding: 0.75rem 1rem;
+                justify-content: center;
             }
             .powered-by-riplll-text-img {
-                height: 28px;
+                height: 24px;
             }
             .powered-by-separator {
-                font-size: 1.25rem;
+                font-size: 1rem;
             }
             .powered-by-label {
-                font-size: 0.95rem;
+                font-size: 0.85rem;
             }
             .powered-by-lifetraq-logo {
-                height: 28px;
+                height: 24px;
+            }
+            .logo-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin: 2rem 0;
+                padding: 1rem 0;
+            }
+            .partner-logo {
+                flex-direction: row;
+                min-height: auto;
+                padding: 1rem 1.5rem;
+                gap: 1rem;
+            }
+            .partner-logo img {
+                max-height: 50px;
+                max-width: 200px;
             }
         }
     </style>

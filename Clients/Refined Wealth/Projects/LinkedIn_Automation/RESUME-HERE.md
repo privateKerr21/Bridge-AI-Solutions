@@ -1,219 +1,69 @@
-# 📍 Resume Here - Quick Context for Next Session
+# Resume Here - Quick Context
 
-Last session: **January 17, 2026**
-
----
-
-## 🎯 Where We Left Off
-
-**HUGE WIN:** We validated a production-ready LinkedIn lead generation system!
-
-**Status:** Ready to import 6 test prospects and complete end-to-end workflow testing before Monday demo.
+**Last session:** 2026-02-10
+**Status:** Paused -- waiting for Matt to confirm he wants to move forward
 
 ---
 
-## ✅ What's Working
+## Where We're At
 
-1. **OttoKit MCP + Apify integration** - Finding real LinkedIn prospects via Google search
-2. **Google Sheet created** - Structured with 8 data points + tracking columns
-3. **6 qualified prospects found** - Average fit score 8.5/10, ready to import
-4. **Cost validated** - $0.01 per search, ~500 searches with free tier
-5. **Compliance confirmed** - 100% LinkedIn TOS compliant method
-6. **Mock demo ready** - `demo-with-search.html` works great
+Everything on our side is ready. Compliance response written, implementation plan finalized, docs cleaned up, Make.com integration researched. **Waiting on Matt.**
+
+When he confirms → schedule compliance call → get sign-off → build.
 
 ---
 
-## 📋 Immediate Next Steps
+## What We're Building
 
-### 1. Import Test Prospects
-- **File:** `Data/prospects-to-import.csv`
-- **Method:** Choose one:
-  - CSV import (easiest - 2 min)
-  - Python script (automated - 5 min setup)
-  - Manual copy/paste (immediate - 5 min)
-- **Guide:** See `Data/IMPORT-INSTRUCTIONS.md`
+**LinkedIn follow-up automation** so no prospect falls through the cracks after initial outreach.
 
-### 2. Test Message Generation
-- Generate personalized messages from imported sheet data
-- Validate 3-option message format
-- Ensure copy-to-clipboard works
+### The Stack
+- **Expandi** ($198/mo for 2 users) -- automated follow-up sequences + reply detection
+- **Google Sheets** (free) -- tracking hub, Active Engagement management, reporting
+- **Make.com** (optional, $9-16/mo) -- Expandi → Sheet sync for live dashboard
 
-### 3. Decide Demo Strategy
-- **Option A:** Mock demo (safe, polished)
-- **Option B:** Live search demo (impressive, risky)
-- **Recommendation:** Start with mock, offer live as bonus
+### How It Works
+1. Matt/Kyle connect with prospects on LinkedIn and add them to Expandi campaigns
+2. Expandi sends pre-approved follow-up messages on schedule (Day 3, 8, 17, 32+)
+3. If prospect replies, sequence auto-pauses (reply detection)
+4. Replied prospects move to Active Engagement tab in Google Sheet
+5. Matt/Kyle manage real conversations personally from there
 
-### 4. Prepare for Monday
-- Practice demo script
-- Prepare ROI talking points
-- Review compliance approach
+### Month 1 Timeline
+- **Week 1:** Expandi setup + Google Sheet build + message templates (7-8 hrs)
+- **Week 2:** Training materials + 2-hour training session with Matt & Kyle (4 hrs)
+- **Week 3:** Go live with conservative batch, monitor, optional Make.com sync (3 hrs)
+- **Week 4:** Performance report + Month 2 planning call (3 hrs)
 
 ---
 
-## 🔑 Key Resources
+## Immediate Next Steps
 
-### Google Sheet
-**URL:** https://docs.google.com/spreadsheets/d/1A-uhmnRHsTyyPDqNH2r5EPdxO1O_ZqiofHiFFE9ifRI/edit
-**Structure:** 8 core columns + 9 tracking columns
-
-### Import Files
-- `Data/prospects-to-import.csv` - 6 prospects ready
-- `Scripts/populate_sheet.py` - Python automation
-- `Data/IMPORT-INSTRUCTIONS.md` - Step-by-step guide
-
-### Documentation
-- `context.md` - Current status (updated today)
-- `tasks.md` - Next steps (updated today)
-- `Documentation/SESSION-SUMMARY-2026-01-17.md` - Full session recap
-- `Documentation/apify-test-results.md` - Prospect analysis
-- `Documentation/ottokit-findings.md` - Technical details
-
-### Demo
-- `Deliverables/demo-with-search.html` - Mock data demo
+1. **Schedule compliance call** with Matt
+2. **Walk through** `Documentation/compliance-response.md` on call
+3. **Confirm** Matt is comfortable with Expandi auto-sending pre-approved templates
+4. **Draft service agreement addendum** (data ownership, incident response, termination, non-training)
+5. **After sign-off:** Start Week 1 build
 
 ---
 
-## 💡 Quick Wins Available
+## Key Files
 
-### Can Do Right Now (5-10 min each):
-1. Import prospects via CSV
-2. Run another Apify search for more prospects
-3. Test message generation
-4. Scale to 20 prospects/day finding
-
-### Can Do Soon (30-60 min):
-1. Build automated message generation from sheet
-2. Set up Gmail integration testing
-3. Create follow-up sequence templates
-4. Prepare live demo as backup
+| File | What It Is |
+|------|-----------|
+| `context.md` | Full current state and decisions |
+| `tasks.md` | Task checklist |
+| `REQUIREMENTS.md` | What Matt actually needs |
+| `Documentation/compliance-response.md` | Answers to Matt's compliance concerns |
+| `Documentation/month-1-enhanced-implementation-guide.md` | Week-by-week build plan |
+| `Documentation/12-month-ai-hq-roadmap.md` | Long-term partnership roadmap |
+| `Deliverables/proposal.html` | Client-facing proposal |
 
 ---
 
-## 🎪 Monday Demo Prep
+## Important Context
 
-### Talking Points:
-- **Cost:** $0.01/search vs $500+/month for Hummingbird (98% savings)
-- **Time:** <1 hr/week vs 8-10 hrs/week (95% reduction)
-- **Quality:** 8.5/10 average fit score, 50% high-quality rate
-- **Compliance:** 100% LinkedIn TOS compliant
-- **Capacity:** Free tier handles their volume (600/month needed, 5,000+ possible)
-
-### Show Them:
-1. Mock demo with polished workflow
-2. Real prospects we found (6 qualified, show CSV)
-3. Cost breakdown ($1-50/month total)
-4. ROI comparison table
-5. (Bonus) Live search if they want proof
-
----
-
-## ⚠️ Known Issues
-
-### OttoKit Google Sheets API
-- **Issue:** Server errors when adding rows
-- **Impact:** Can't auto-populate sheet via API
-- **Workaround:** CSV import or Python script (both work fine)
-- **Status:** Non-blocking
-
-### Chrome Extension
-- **Issue:** Browser automation disconnected
-- **Impact:** Can't use browser tools
-- **Workaround:** Apify + CSV workflow works without it
-- **Status:** Low priority (not needed)
-
----
-
-## 🚀 Production Readiness
-
-**Ready to launch:**
-- ✅ Prospect finding (Apify)
-- ✅ Data structure (Google Sheets)
-- ✅ Fit scoring (algorithm validated)
-- ✅ Import workflow (CSV/Python)
-- ✅ Compliance approach (documented)
-
-**Need to build:**
-- ⏳ Automated message generation from sheet
-- ⏳ Gmail sending integration
-- ⏳ Follow-up sequencing
-- ⏳ Multi-user support (Matt + Kyle)
-
-**Estimated build time:** 1-2 weeks after approval
-
----
-
-## 🎯 Success Metrics
-
-**What "working" looks like:**
-- 20 prospects found per day ✅ (can do 30+ easily)
-- 8 data points per prospect ✅ (all validated)
-- <$50/month total cost ✅ ($1-50 projected)
-- <1 hour/week of Matt's time ✅ (just review/send)
-- 100% compliance ✅ (documented approach)
-
-**ROI delivered:**
-- **Time saved:** 8-10 hrs/week → <1 hr/week
-- **Cost saved:** $500+/month → $1-50/month
-- **Quality improved:** "Mild results" → 8.5/10 fit scores
-
----
-
-## 💬 Quick Commands
-
-### To search for more prospects:
-```
-Use Apify's Run Actor (POST Method)
-Endpoint: https://api.apify.com/v2/acts/nFJndFXA5zjCTuudP/run-sync-get-dataset-items
-
-Request:
-{
-  "queries": "\"financial advisor\" OR \"CFO\" (\"Marathon Petroleum\" OR \"HF Sinclair\") (\"Utah\" OR \"Texas\") site:linkedin.com (\"gmail.com\" OR \"outlook.com\")",
-  "maxPagesPerQuery": 1,
-  "resultsPerPage": 10
-}
-```
-
-### To import to Google Sheet:
-1. Open: https://docs.google.com/spreadsheets/d/1A-uhmnRHsTyyPDqNH2r5EPdxO1O_ZqiofHiFFE9ifRI/edit
-2. File → Import → Upload `Data/prospects-to-import.csv`
-3. Choose "Append to current sheet"
-
----
-
-## 📞 Client Context
-
-**Client:** Matt Williams & Kyle - Refined Wealth Management
-**Goal:** Automate LinkedIn prospecting for oil & gas industry clients
-**Target:** 20 introductions/day → 1 client/month per advisor
-**Current:** Manual search taking 8-10 hrs/week
-**Previous:** Hummingbird tool ($500+/mo) with "mild results"
-**Demo:** Monday (date TBD)
-
-**Client Priorities:**
-1. Time savings (reclaim 8-10 hrs/week)
-2. Cost efficiency (cheaper than Hummingbird)
-3. Compliance (SEC audit-friendly)
-4. Quality (better targeting than previous tool)
-
-**Our Solution Delivers All 4** ✅
-
----
-
-## 🔄 What to Do Next Session
-
-**Immediately:**
-1. Say: "Let's import those 6 test prospects into the Google Sheet"
-2. Choose import method (recommend CSV - fastest)
-3. Run the import
-4. Verify data looks good in sheet
-
-**Then:**
-1. Test message generation from sheet data
-2. Decide on demo strategy
-3. Prepare Monday presentation
-4. Get client approval
-5. Build production system
-
----
-
-**You're in a great spot! The hard validation work is done. Now just polish and demo.** 🎉
+- **This is NOT lead gen.** Matt finds prospects fine. The pain is tracking follow-ups after initial messages.
+- **No AI/LLMs in the pipeline.** Expandi is automation, not AI. Zero hallucination risk. Simplifies compliance.
+- **Human-in-the-loop:** All templates pre-approved by Matt/Kyle before going live. Expandi sends exactly what they wrote.
+- **Fallback option:** If auto-sending feels too aggressive for compliance, Expandi can be used for tracking/reply detection only while Matt sends manually.

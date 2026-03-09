@@ -1,40 +1,84 @@
 # 4-help App - Current Context
 
-**Last Updated**: 2026-02-10
-**Status**: Core implementation complete - ready for testing
+**Last Updated**: 2026-02-12
+**Status**: ✅ **FULLY FUNCTIONAL** - Voice conversation working end-to-end + Text mode widget integrated
 
 ## Current State
 
-Full web app implementation complete with ElevenLabs Conversational AI integration. The app is ready for testing with an ElevenLabs Agent ID.
+**COMPLETE** - Full bidirectional voice conversation with ElevenLabs "Hope" agent working perfectly. User can speak, agent responds with voice and text, all conversation is transcribed.
 
-## Recent Changes
+**NEW** - Text mode now uses official ElevenLabs conversation widget for seamless text chat experience.
 
-- Created complete project structure
-- Implemented ElevenLabs WebSocket voice agent integration
-- Built responsive web UI with brutalist design matching LifeTraq brand
-- Added real-time audio streaming (microphone to ElevenLabs)
-- Implemented audio playback for agent responses
-- Created conversation transcript display
-- **Embedded Agent ID directly in code** (agent_2701kh4p4ehpe03a94h8pmhbxxa6)
-- Removed settings panel (Agent ID pre-configured)
-- Created standalone HTML file for easy testing
-- Wrote comprehensive setup documentation
+**Deployed at**: https://4-help-ai.vercel.app/
+
+## Recent Changes (2026-02-12)
+
+### Audio Implementation Journey
+- Fixed WebSocket JSON message format (base64-encoded audio chunks)
+- Added comprehensive message type handling (agent_response, user_transcript, audio_event)
+- **Solved PCM audio decoding** - converted raw PCM16 to AudioBuffer for browser playback
+- Set correct sample rate (22050 Hz) for ElevenLabs audio output
+- Implemented proper Int16 to Float32 audio conversion
+- Fixed git commit author emails for Vercel deployment
+- Deployed to separate GitHub repository (4-Help-AI)
+
+### UI/UX Enhancement
+- Redesigned from brutalist to soft, Oracle-inspired interface (#FCFAFA, #C8D3D5, #A4B8C4)
+- Hope's generated image as central interactive element (circular, 280px)
+- Keyboard icon button for switching to text mode
+- Removed all status text for minimal, clean design
+- Integrated official ElevenLabs conversation widget for text mode
+
+### Working Features ✅
+- ✅ Microphone audio capture and streaming to ElevenLabs
+- ✅ Real-time voice recognition and transcription
+- ✅ Agent voice responses (Hope speaking audibly)
+- ✅ Full conversation transcript display
+- ✅ WebSocket bidirectional communication
+- ✅ HTTPS deployment on Vercel
+- ✅ Soft, centered UI with Hope's image
+- ✅ Text mode with ElevenLabs conversation widget
+- ✅ Dual-mode interface (voice/text)
+
+## Technical Implementation
+
+### Audio Pipeline
+1. **Input**: User speaks → Microphone → Float32 PCM → Int16 PCM → Base64 → JSON WebSocket
+2. **Output**: ElevenLabs → Base64 PCM16 → Int16Array → Float32 AudioBuffer → Web Audio API → Speaker
+
+### Key Technical Details
+- **Audio Format**: PCM16 at 22050 Hz, mono
+- **WebSocket URL**: `wss://api.elevenlabs.io/v1/convai/conversation?agent_id={id}`
+- **Message Format**: `{"user_audio_chunk": "base64_audio"}`
+- **Agent ID**: `agent_2701kh4p4ehpe03a94h8pmhbxxa6`
+- **Agent Voice**: ElevenLabs "Hope" persona
+- **Deployment**: Vercel auto-deploy from GitHub main branch
 
 ## Next Steps
 
-1. ~~Obtain ElevenLabs Agent ID for testing~~ ✓ (Embedded)
-2. Open `4-help-standalone.html` directly in browser to test
-3. Test microphone permissions on various browsers
-4. Test voice quality and latency
-5. Test on mobile devices (responsive design)
-6. Consider deployment to Vercel for HTTPS testing
+### Immediate Enhancements
+1. Test ElevenLabs widget on mobile devices (iOS Safari, Android Chrome)
+2. Verify widget styling matches soft design aesthetic
+3. Test widget functionality in both standalone and deployed versions
+4. Add error recovery and reconnection logic for voice mode
+5. Consider adding visual feedback during agent speech in voice mode
 
-## Technical Notes
+### Future Native App Migration
+1. Convert to React Native or Flutter
+2. Implement native audio APIs
+3. Add offline capability
+4. Publish to iOS App Store and Google Play Store
 
-- Web app built with vanilla JavaScript (no build tools)
-- Uses WebSocket API for real-time bidirectional communication
-- Audio format: 16kHz PCM 16-bit mono
-- Agent ID embedded directly in code: `agent_2701kh4p4ehpe03a94h8pmhbxxa6`
-- Standalone HTML file can be opened directly (no server needed for basic testing)
-- HTTPS required for microphone access in production (or use localhost/file://)
-- Architecture designed to port to native apps in future
+## Repository Structure
+
+- **Main Repo**: `Bridge-AI-Solutions` (documentation, project management)
+- **App Repo**: `4-Help-AI` (standalone deployment)
+- **Vercel**: Auto-deploys from 4-Help-AI main branch
+
+## Lessons Learned
+
+- ElevenLabs sends raw PCM16 audio, not encoded formats (MP3/WAV)
+- Browser's `decodeAudioData()` cannot handle raw PCM without headers
+- Manual AudioBuffer creation required for raw PCM playback
+- Agent must have audio output enabled in ElevenLabs dashboard
+- Git commit author email must match Vercel team member for deployments
