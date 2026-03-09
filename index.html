@@ -55,7 +55,6 @@
       100% { transform: translateY(64px); }
     }
 
-    /* Optional: swap in a real video by uncommenting .hero-video */
     .hero-video {
       position: absolute;
       inset: 0;
@@ -63,7 +62,13 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
-      opacity: 0.35;
+    }
+
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 0;
     }
 
     .hero-inner {
@@ -712,12 +717,10 @@
        HERO
        =========================== -->
   <section class="hero">
-    <!-- To use a real video background, uncomment below and add your file to Assets/Media/ -->
-    <!--
     <video class="hero-video" autoplay muted loop playsinline>
       <source src="Assets/Media/hero-bg.mp4" type="video/mp4">
     </video>
-    -->
+    <div class="hero-video-overlay"></div>
 
     <div class="container hero-inner">
       <img src="Assets/Brand/Logos/transparent/bridge_ai_logo4.png"
