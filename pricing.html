@@ -403,6 +403,14 @@
     </div>
   </footer>
 
+  <script>
+    const navbar = document.querySelector('.navbar');
+    function updateNavbar() {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
+  </script>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

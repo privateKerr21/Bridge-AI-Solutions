@@ -458,6 +458,14 @@
   </footer>
 
   <script>
+    // Navbar shrink on scroll
+    const navbar = document.querySelector('.navbar');
+    function updateNavbar() {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
+
     // Tab switching
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanels = document.querySelectorAll('.tab-panel');

@@ -1094,6 +1094,14 @@
 
     fadeEls.forEach(el => observer.observe(el));
 
+    // Navbar shrink on scroll
+    const navbar = document.querySelector('.navbar');
+    function updateNavbar() {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
+
     // Hero background scroll fade
     const heroBg = document.querySelector('.hero-bg');
     const heroSection = document.querySelector('.hero');

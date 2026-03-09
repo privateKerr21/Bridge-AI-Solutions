@@ -1092,6 +1092,14 @@
     <a href="index.html#quiz" class="btn btn-primary">Start Your Assessment &rarr;</a>
   </div>
 
+  <script>
+    const navbar = document.querySelector('.navbar');
+    function updateNavbar() {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
+  </script>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
