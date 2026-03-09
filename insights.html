@@ -1100,10 +1100,7 @@
       });
     }, { threshold: 0.15 });
 
-    document.querySelectorAll(
-      '.insight-card, .roi-stat-cell, .audience-card, ' +
-      '.gap-section, .inaction-section, .roi-section, .ai-reality-section, .side-effects-section'
-    ).forEach(el => {
+    document.querySelectorAll('.insight-card, .roi-stat-cell, .audience-card, .ai-reality-col').forEach(el => {
       el.classList.add('scroll-fade');
       cardFadeObserver.observe(el);
     });
