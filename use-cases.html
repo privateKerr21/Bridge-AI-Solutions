@@ -207,6 +207,15 @@
     .cta-band-custom h2 {
       font-size: clamp(1.4rem, 2.5vw, 2rem);
     }
+
+    .cta-band-custom .cta-band-inner {
+      gap: 48px;
+    }
+
+    .cta-band-custom .btn {
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
   </style>
 </head>
 <body>
@@ -231,7 +240,7 @@
         <span class="label">// Use Cases</span>
         <h1>What AI automation looks like in practice</h1>
         <p class="uc-hero-sub">These are real automation workflows built for professional services firms — the kind of work that eats hours every week and doesn't have to.</p>
-        <p class="uc-hero-note">Showing consulting, accounting, marketing &amp; recruitment — but these aren't the only industries we work with.</p>
+        <p class="uc-hero-note">Showing consulting, accounting, marketing, recruitment &amp; construction — but these aren't the only industries we work with.</p>
       </div>
     </section>
 
@@ -245,6 +254,7 @@
           <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-accounting" data-tab="accounting">Accounting</button>
           <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-marketing" data-tab="marketing">Marketing Agencies</button>
           <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-recruitment" data-tab="recruitment">Recruitment</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-construction" data-tab="construction">Construction</button>
         </div>
 
         <!-- Panel: Consulting -->
@@ -363,6 +373,36 @@
               <div class="uc-card-title">Interview Scheduling</div>
               <p class="uc-card-desc">Automate scheduling coordination between candidates and hiring managers. Eliminates the back-and-forth email chain entirely.</p>
               <span class="time-badge">~1 hr saved / week</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel: Construction -->
+        <div class="tab-panel" id="panel-construction" role="tabpanel">
+          <div class="tab-panel-header">
+            <h2>Construction</h2>
+            <p>Job site admin, bidding, and compliance paperwork pile up fast. Automation handles the back-office load so your crews stay focused on the build.</p>
+          </div>
+          <div class="cards-grid">
+            <div class="uc-card">
+              <div class="uc-card-title">Daily Site Reports</div>
+              <p class="uc-card-desc">Auto-generate end-of-day reports from crew notes and site updates. Keeps clients informed and creates a paper trail without the admin overhead.</p>
+              <span class="time-badge">~3 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Estimate & Quote Generation</div>
+              <p class="uc-card-desc">Draft project estimates from a scope of work template and materials list. Faster turnaround on bids means more jobs won.</p>
+              <span class="time-badge">~3 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Subcontractor Coordination</div>
+              <p class="uc-card-desc">Automate scheduling reminders, document requests, and status follow-ups with subs. Less chasing, more building.</p>
+              <span class="time-badge">~2 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Safety & Compliance Docs</div>
+              <p class="uc-card-desc">Auto-generate toolbox talk summaries, incident reports, and inspection checklists. Stay compliant without the paperwork pile.</p>
+              <span class="time-badge">~2 hrs saved / week</span>
             </div>
           </div>
         </div>
