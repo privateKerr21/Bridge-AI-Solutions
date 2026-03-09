@@ -126,8 +126,7 @@
     .cards-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border: var(--border-weight) solid var(--ink);
+      gap: 24px;
     }
 
     @media (max-width: 700px) {
@@ -138,8 +137,7 @@
 
     .uc-card {
       padding: 36px 32px;
-      border-right: var(--border-weight) solid var(--ink);
-      border-bottom: var(--border-weight) solid var(--ink);
+      border: var(--border-weight) solid var(--ink);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
@@ -148,14 +146,6 @@
       box-shadow: 4px 4px 0 var(--ink);
       position: relative;
       z-index: 1;
-    }
-
-    .uc-card:nth-child(even) {
-      border-right: none;
-    }
-
-    .uc-card:nth-last-child(-n+2) {
-      border-bottom: none;
     }
 
     /* For odd number of cards (last card spans or sits alone) */
