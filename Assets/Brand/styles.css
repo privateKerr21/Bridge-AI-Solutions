@@ -354,3 +354,15 @@ h3 {
   opacity: 0.85;
   display: inline-block;
 }
+
+/* ===========================
+   Scroll Fade (global)
+   =========================== */
+.scroll-fade {
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.scroll-fade.is-hidden {
+  opacity: 0;
+  transform: translateY(14px);
+}

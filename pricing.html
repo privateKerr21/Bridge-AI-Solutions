@@ -404,6 +404,18 @@
   </footer>
 
   <script>
+    // Section scroll fade (in on enter, out on leave)
+    const scrollFadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle('is-hidden', !entry.isIntersecting);
+      });
+    }, { threshold: 0.07 });
+
+    document.querySelectorAll('section:not(.pricing-hero), footer').forEach(el => {
+      el.classList.add('scroll-fade');
+      scrollFadeObserver.observe(el);
+    });
+
     const navbar = document.querySelector('.navbar');
     function updateNavbar() {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
