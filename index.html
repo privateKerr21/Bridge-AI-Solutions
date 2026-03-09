@@ -14,7 +14,12 @@
        Hero Section
        =========================== */
     .hero {
-      background-color: var(--dark-bg);
+      background: radial-gradient(
+        ellipse 70% 60% at 28% 55%,
+        rgba(212, 175, 55, 0.13) 0%,
+        rgba(212, 175, 55, 0.04) 45%,
+        transparent 70%
+      ), var(--dark-bg);
       color: var(--dark-text);
       min-height: calc(100vh - 64px);
       display: flex;
