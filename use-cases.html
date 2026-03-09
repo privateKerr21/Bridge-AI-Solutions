@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Use Cases — Bridge AI Solutions</title>
+  <meta name="description" content="See what AI automation looks like across consulting, accounting, marketing agencies, and recruitment — with real time savings per use case.">
+  <link rel="icon" type="image/jpeg" href="Assets/Brand/Logos/bridge_ai_logo%20(1).jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="Assets/Brand/styles.css">
+  <style>
+    /* ===========================
+       Use Cases Hero
+       =========================== */
+    .uc-hero {
+      background-color: var(--bg);
+      padding: 100px 0 72px;
+      border-bottom: var(--border-weight) solid var(--ink);
+    }
+
+    .uc-hero .label {
+      display: block;
+      margin-bottom: 20px;
+      color: var(--muted);
+    }
+
+    .uc-hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .uc-hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: 16px;
+    }
+
+    .uc-hero-note {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ===========================
+       Tabs
+       =========================== */
+    .tabs-section {
+      padding: 80px 0 100px;
+      background-color: var(--bg);
+    }
+
+    .tabs-bar {
+      display: flex;
+      gap: 0;
+      border-bottom: var(--border-weight) solid var(--ink);
+      margin-bottom: 56px;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 16px 28px;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      cursor: pointer;
+      color: var(--muted);
+      white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .tab-btn:hover {
+      color: var(--ink);
+    }
+
+    .tab-btn.active {
+      color: var(--ink);
+      border-bottom-color: var(--gold);
+    }
+
+    /* ===========================
+       Tab Panels
+       =========================== */
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .tab-panel-header {
+      margin-bottom: 48px;
+    }
+
+    .tab-panel-header h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .tab-panel-header p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 560px;
+    }
+
+    /* ===========================
+       Use Case Cards
+       =========================== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: var(--border-weight) solid var(--ink);
+    }
+
+    @media (max-width: 700px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .uc-card {
+      padding: 36px 32px;
+      border-right: var(--border-weight) solid var(--ink);
+      border-bottom: var(--border-weight) solid var(--ink);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .uc-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--ink);
+      position: relative;
+      z-index: 1;
+    }
+
+    .uc-card:nth-child(even) {
+      border-right: none;
+    }
+
+    .uc-card:nth-last-child(-n+2) {
+      border-bottom: none;
+    }
+
+    /* For odd number of cards (last card spans or sits alone) */
+    .cards-grid.cards-3 .uc-card:last-child,
+    .cards-grid.cards-1 .uc-card:last-child {
+      border-right: none;
+      border-bottom: none;
+    }
+
+    @media (max-width: 700px) {
+      .uc-card {
+        border-right: none;
+      }
+      .uc-card:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .uc-card-title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .uc-card-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .time-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      background-color: var(--gold);
+      padding: 4px 10px;
+    }
+
+    /* ===========================
+       CTA Band override
+       =========================== */
+    .cta-band-custom h2 {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-logo">Bridge <span>AI</span></a>
+    <ul class="navbar-links">
+      <li><a href="index.html#quiz">Take the Quiz</a></li>
+      <li><a href="index.html#process">How It Works</a></li>
+      <li><a href="use-cases.html" aria-current="page">Use Cases</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="uc-hero">
+      <div class="container">
+        <span class="label">// Use Cases</span>
+        <h1>What AI automation looks like in practice</h1>
+        <p class="uc-hero-sub">These are real automation workflows built for professional services firms — the kind of work that eats hours every week and doesn't have to.</p>
+        <p class="uc-hero-note">Showing consulting, accounting, marketing &amp; recruitment — but these aren't the only industries we work with.</p>
+      </div>
+    </section>
+
+    <!-- TABS SECTION -->
+    <section class="tabs-section">
+      <div class="container">
+
+        <!-- Tab Buttons -->
+        <div class="tabs-bar" role="tablist">
+          <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-consulting" data-tab="consulting">Consulting</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-accounting" data-tab="accounting">Accounting</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-marketing" data-tab="marketing">Marketing Agencies</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-recruitment" data-tab="recruitment">Recruitment</button>
+        </div>
+
+        <!-- Panel: Consulting -->
+        <div class="tab-panel active" id="panel-consulting" role="tabpanel">
+          <div class="tab-panel-header">
+            <h2>Consulting</h2>
+            <p>High-margin work gets buried under proposal writing, meeting notes, and status updates. Automation handles the admin so your team stays billable.</p>
+          </div>
+          <div class="cards-grid">
+            <div class="uc-card">
+              <div class="uc-card-title">Proposal Drafting</div>
+              <p class="uc-card-desc">Auto-generate first-draft proposals from a template and discovery notes. Cuts prep time and keeps formatting consistent across every engagement.</p>
+              <span class="time-badge">~3 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Meeting Summaries</div>
+              <p class="uc-card-desc">Transcribe and summarize client calls into structured action items automatically. No more manual note-taking after every call.</p>
+              <span class="time-badge">~2 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Client Research Briefs</div>
+              <p class="uc-card-desc">Pull together company background, recent news, and talking points before meetings. Show up prepared without spending an hour on manual research.</p>
+              <span class="time-badge">~2 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Status Reports</div>
+              <p class="uc-card-desc">Auto-compile project updates from your tools into a formatted weekly report. Clients stay informed; your team stays focused on delivery.</p>
+              <span class="time-badge">~1.5 hrs saved / week</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel: Accounting -->
+        <div class="tab-panel" id="panel-accounting" role="tabpanel">
+          <div class="tab-panel-header">
+            <h2>Accounting</h2>
+            <p>Data entry, document chasing, and recurring reports are the biggest time sinks in accounting. Automation handles the repetition so you can focus on advisory work.</p>
+          </div>
+          <div class="cards-grid">
+            <div class="uc-card">
+              <div class="uc-card-title">Invoice Processing</div>
+              <p class="uc-card-desc">Extract line items from incoming invoices and log them to your system automatically. Reduces manual data entry and entry errors at scale.</p>
+              <span class="time-badge">~4 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Client Onboarding Docs</div>
+              <p class="uc-card-desc">Generate engagement letters, checklists, and intake forms from a client profile. First impressions are consistent, professional, and fast.</p>
+              <span class="time-badge">~2 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Tax Document Collection</div>
+              <p class="uc-card-desc">Send automated reminders and track document receipt per client. Nothing falls through the cracks during busy season.</p>
+              <span class="time-badge">~3 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Recurring Reports</div>
+              <p class="uc-card-desc">Auto-generate monthly or quarterly financial summaries from your data. Reports go out on time without manual assembly every cycle.</p>
+              <span class="time-badge">~2 hrs saved / week</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel: Marketing Agencies -->
+        <div class="tab-panel" id="panel-marketing" role="tabpanel">
+          <div class="tab-panel-header">
+            <h2>Marketing Agencies</h2>
+            <p>Client reporting, content reformatting, and lead qualification drain creative bandwidth. Automation takes the grind work off your team's plate.</p>
+          </div>
+          <div class="cards-grid">
+            <div class="uc-card">
+              <div class="uc-card-title">Content Repurposing</div>
+              <p class="uc-card-desc">Turn a single blog post or video into social copy, email snippets, and ad variations automatically. One asset, five formats, minimal effort.</p>
+              <span class="time-badge">~3 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Client Reporting</div>
+              <p class="uc-card-desc">Pull campaign metrics and generate formatted client reports automatically. Looks polished without the manual spreadsheet assembly.</p>
+              <span class="time-badge">~2 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Lead Qualification</div>
+              <p class="uc-card-desc">Score and triage inbound leads based on fit criteria before they hit your CRM. Your sales team focuses only on the right conversations.</p>
+              <span class="time-badge">~2 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Creative Brief Generation</div>
+              <p class="uc-card-desc">Convert intake form answers into a structured creative brief automatically. Briefings are consistent and kickoffs start faster.</p>
+              <span class="time-badge">~1.5 hrs saved / week</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel: Recruitment -->
+        <div class="tab-panel" id="panel-recruitment" role="tabpanel">
+          <div class="tab-panel-header">
+            <h2>Recruitment</h2>
+            <p>Screening, outreach, and scheduling eat hours that should go toward building relationships. Automation handles the coordination so recruiters stay in conversations.</p>
+          </div>
+          <div class="cards-grid">
+            <div class="uc-card">
+              <div class="uc-card-title">Candidate Screening</div>
+              <p class="uc-card-desc">Summarize resumes against job requirements and flag top matches automatically. First-pass review in minutes, not hours.</p>
+              <span class="time-badge">~4 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Outreach Sequences</div>
+              <p class="uc-card-desc">Draft personalized outreach messages from a candidate profile and role description. Higher response rates, less time per message.</p>
+              <span class="time-badge">~2 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Job Description Writing</div>
+              <p class="uc-card-desc">Generate first-draft JDs from a role intake form. Consistent quality and tone without starting from a blank page every time.</p>
+              <span class="time-badge">~1.5 hrs saved / week</span>
+            </div>
+            <div class="uc-card">
+              <div class="uc-card-title">Interview Scheduling</div>
+              <p class="uc-card-desc">Automate scheduling coordination between candidates and hiring managers. Eliminates the back-and-forth email chain entirely.</p>
+              <span class="time-badge">~1 hr saved / week</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band cta-band-custom">
+      <div class="container">
+        <div class="cta-band-inner">
+          <h2>Don't see your industry? Let's talk.</h2>
+          <a href="mailto:h.kerr711@gmail.com" class="btn btn-dark">Get in Touch &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo-wrap">
+        <img src="Assets/Brand/Logos/transparent/hero_logo.png"
+             alt="Bridge AI Solutions logo"
+             class="footer-logo">
+      </div>
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">Bridge <span>AI</span></div>
+          <p style="margin-top:14px;font-size:0.9rem;color:var(--muted);max-width:320px;line-height:1.6;">
+            Custom AI automation for small businesses that are ready to stop doing work they shouldn't be doing.
+          </p>
+        </div>
+        <nav class="footer-links">
+          <a href="index.html#quiz">Take the Quiz</a>
+          <a href="index.html#process">How It Works</a>
+          <a href="use-cases.html" aria-current="page">Use Cases</a>
+          <a href="insights.html">Insights</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="mailto:hello@bridgeaisolutions.com">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Bridge AI Solutions. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tab switching
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+
+        tabBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        tabPanels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        document.getElementById('panel-' + target).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
