@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bridge AI Solutions — Pricing</title>
-  <meta name="description" content="Simple, transparent pricing for AI automation. No retainers, no surprises. One-time project fees for custom AI automation builds.">
+  <meta name="description" content="Simple, transparent pricing for custom AI-powered software. No retainers, no surprises. One-time project fees for real custom builds.">
   <link rel="icon" type="image/jpeg" href="Assets/Brand/Logos/bridge_ai_logo%20(1).jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +27,44 @@
       font-size: 1.1rem;
       max-width: 520px;
       line-height: 1.7;
+    }
+
+    /* ---- FOUNDING BANNER ---- */
+    .founding-banner {
+      background: var(--gold);
+      border: var(--border-weight) solid var(--ink);
+      border-bottom: none;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 0;
+    }
+    .founding-banner-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--ink);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .founding-banner p {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      margin: 0;
+    }
+    .founding-banner span {
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
     }
 
     /* ---- PRICING SECTION ---- */
@@ -265,7 +303,7 @@
     <section class="pricing-hero">
       <div class="container">
         <span class="label">// Pricing</span>
-        <h1>Simple, transparent<br>pricing.</h1>
+        <h1>Stop patching.<br>Start building.</h1>
         <p>No retainers. No surprises. You pay for what gets built.</p>
       </div>
     </section>
@@ -274,70 +312,80 @@
 
     <section class="pricing-section">
       <div class="container">
+
+        <div class="founding-banner">
+          <div class="founding-banner-dot"></div>
+          <p>3 Founding Client Spots Available &mdash; <span>Discounted rates for early clients while we build our portfolio. Ask about it during your discovery call.</span></p>
+        </div>
+
         <div class="pricing-grid">
 
-          <!-- Tier 1 -->
+          <!-- Tier 1: Focused Build -->
           <div class="pricing-card">
-            <p class="tier-name">Starter Automation</p>
-            <div class="tier-price">$500</div>
+            <p class="tier-name">Focused Build</p>
+            <div class="tier-price">$2,500</div>
             <div class="tier-type">One-time project fee</div>
             <div class="tier-monthly">No monthly fees</div>
-            <div class="tier-monthly-label">One tool, one build, done</div>
+            <div class="tier-monthly-label">One problem, one build, done</div>
             <hr class="tier-divider">
             <ul class="tier-features">
-              <li>1 automated workflow</li>
-              <li>Single tool integration</li>
-              <li>Setup + documentation</li>
+              <li>Discovery call to scope the problem</li>
+              <li>Custom-built tool, deployed and working</li>
+              <li>Documentation so you understand what was built</li>
               <li>1 revision round</li>
+              <li>You own everything &mdash; no subscriptions to us</li>
             </ul>
-            <p class="tier-note">Best for: one specific task eating your time &mdash; outreach follow-ups, data entry, report generation.</p>
-            <a href="mailto:h.kerr@aibridgedsolutions.com?subject=Starter%20Automation%20Inquiry" class="btn btn-dark" style="width:100%;box-sizing:border-box;text-align:center;">Book a Discovery Call &rarr;</a>
+            <p class="tier-note">Best for: one specific operational pain eating your time &mdash; internal trackers, dashboards, custom tools.</p>
+            <a href="mailto:h.kerr@aibridgedsolutions.com?subject=Focused%20Build%20Inquiry" class="btn btn-dark" style="width:100%;box-sizing:border-box;text-align:center;">Book a Discovery Call &rarr;</a>
           </div>
 
-          <!-- Tier 2 (Featured) -->
+          <!-- Tier 2: Signature Build (Featured) -->
           <div class="pricing-card featured">
             <div class="popular-badge">Most Popular</div>
-            <p class="tier-name">Full System</p>
-            <div class="tier-price">$1,500&ndash;$2,000</div>
+            <p class="tier-name">Signature Build</p>
+            <div class="tier-price">$6,000&ndash;$8,000</div>
             <div class="tier-type">One-time project fee</div>
-            <div class="tier-monthly">+ $499<span style="font-size:0.75rem;font-weight:500">/mo</span></div>
-            <div class="tier-monthly-label">Estimated tools &amp; APIs</div>
+            <div class="tier-monthly">50% upfront</div>
+            <div class="tier-monthly-label">50% on delivery</div>
             <hr class="tier-divider">
             <ul class="tier-features">
-              <li>3&ndash;5 interconnected workflows</li>
-              <li>Multi-tool integration</li>
-              <li>Google Sheets dashboard</li>
-              <li>Full testing + handoff</li>
+              <li>Deep-dive discovery to map your full workflow</li>
+              <li>Custom multi-feature platform, deployed and working</li>
+              <li>Multi-user support where needed</li>
+              <li>Full testing before handoff</li>
+              <li>Documentation + team walkthrough</li>
               <li>2 revision rounds</li>
+              <li>You own everything &mdash; no subscriptions to us</li>
             </ul>
-            <p class="tier-note">Best for: replacing an entire category of work &mdash; lead gen, client onboarding, reporting pipelines.</p>
-            <a href="mailto:h.kerr@aibridgedsolutions.com?subject=Full%20System%20Inquiry" class="btn btn-primary" style="width:100%;box-sizing:border-box;text-align:center;">Book a Discovery Call &rarr;</a>
+            <p class="tier-note">Best for: replacing a patchwork of spreadsheets and tools with one platform built around how you actually work.</p>
+            <a href="mailto:h.kerr@aibridgedsolutions.com?subject=Signature%20Build%20Inquiry" class="btn btn-primary" style="width:100%;box-sizing:border-box;text-align:center;">Book a Discovery Call &rarr;</a>
           </div>
 
-          <!-- Tier 3 -->
+          <!-- Tier 3: Studio Partner -->
           <div class="pricing-card">
-            <p class="tier-name">Ongoing Operations</p>
-            <div class="tier-price">Custom</div>
-            <div class="tier-type">One-time build + monthly retainer</div>
-            <div class="tier-monthly">Tools bundled</div>
-            <div class="tier-monthly-label">in monthly retainer</div>
+            <p class="tier-name">Studio Partner</p>
+            <div class="tier-price">$2,500</div>
+            <div class="tier-type">Per month</div>
+            <div class="tier-monthly">Includes initial build</div>
+            <div class="tier-monthly-label">Billed monthly in advance</div>
             <hr class="tier-divider">
             <ul class="tier-features">
-              <li>Everything in Full System</li>
-              <li>Ongoing monitoring &amp; updates</li>
-              <li>Monthly strategy calls</li>
-              <li>Priority support</li>
-              <li>Quarterly automation audit</li>
+              <li>Everything in Signature Build</li>
+              <li>Ongoing maintenance and bug fixes</li>
+              <li>Monthly strategy call to prioritize what's next</li>
+              <li>New features as your business grows</li>
+              <li>Priority response time</li>
+              <li>Quarterly system review</li>
             </ul>
-            <p class="tier-note">Best for: businesses ready to treat AI as infrastructure &mdash; not a one-time project.</p>
-            <a href="mailto:h.kerr@aibridgedsolutions.com?subject=Ongoing%20Operations%20Inquiry" class="btn btn-dark" style="width:100%;box-sizing:border-box;text-align:center;">Let's Talk &rarr;</a>
+            <p class="tier-note">Best for: businesses ready to treat custom software as infrastructure &mdash; not a one-time project.</p>
+            <a href="mailto:h.kerr@aibridgedsolutions.com?subject=Studio%20Partner%20Inquiry" class="btn btn-dark" style="width:100%;box-sizing:border-box;text-align:center;">Let's Talk &rarr;</a>
           </div>
 
         </div>
 
         <p class="pricing-disclaimer">
-          Tool and API costs vary by provider and usage volume.<br>
-          We'll give you an exact estimate during your free discovery call.
+          All projects start with a free discovery call to scope the problem and confirm fit.<br>
+          Focused Build and Signature Build: 50% upfront, 50% on delivery.
         </p>
       </div>
     </section>
@@ -348,20 +396,20 @@
         <h2>Before you book.</h2>
         <div class="faq-grid">
           <div class="faq-item">
-            <p class="faq-q">What's included in the project fee?</p>
-            <p class="faq-a">The fee covers your discovery call, the full build, documentation so you understand what was built, and the revision rounds listed in your tier. You own everything delivered.</p>
+            <p class="faq-q">What kinds of tools do you actually build?</p>
+            <p class="faq-a">Custom internal apps, dashboards, and platforms &mdash; anything from a single-purpose tracker to a full multi-user system. If you're managing something important in spreadsheets, manual processes, or a patchwork of tools that don't talk to each other, that's the kind of problem we solve.</p>
           </div>
           <div class="faq-item">
             <p class="faq-q">How long does a build take?</p>
-            <p class="faq-a">Starter builds typically take about a week. Full System builds run 2&ndash;3 weeks from the discovery call. Timelines depend on complexity and your availability for feedback rounds.</p>
+            <p class="faq-a">Focused Builds typically take about a week from kickoff. Signature Builds run 3&ndash;4 weeks depending on scope and how quickly you can provide feedback. We'll give you a specific timeline during your discovery call.</p>
           </div>
           <div class="faq-item">
-            <p class="faq-q">What if I need changes after handoff?</p>
-            <p class="faq-a">Revision rounds are included in each tier. Changes beyond those are billed at an hourly rate we'll agree on upfront. Ongoing Operations clients get continuous updates included.</p>
+            <p class="faq-q">What do I need to have ready before we start?</p>
+            <p class="faq-a">A clear problem you want solved and availability to give feedback during the build. You don't need a technical spec &mdash; that's our job. The more specifically you can describe what's eating your time, the better.</p>
           </div>
           <div class="faq-item">
-            <p class="faq-q">Do you work with my existing tools?</p>
-            <p class="faq-a">We work with most major platforms &mdash; Zapier, Make, Google Workspace, Airtable, HubSpot, Slack, and more. Bring your stack to the discovery call and we'll tell you exactly what's possible.</p>
+            <p class="faq-q">What happens after the build is handed off?</p>
+            <p class="faq-a">You own everything &mdash; code, data, all of it. We build in our own environment, then transfer everything cleanly to your accounts at handoff. No lock-in, no dependency on us to keep the lights on. Revision rounds are included in every tier &mdash; if you want ongoing support and new features, that's what Studio Partner is for.</p>
           </div>
         </div>
       </div>
@@ -371,7 +419,7 @@
       <div class="container">
         <div class="pricing-cta-inner">
           <h2>Not sure which tier fits?</h2>
-          <a href="mailto:h.kerr@aibridgedsolutions.com?subject=Discovery%20Call%20Request" class="btn btn-dark">Book a Free Discovery Call &rarr;</a>
+          <a href="https://calendly.com/h-kerr711/30min" target="_blank" rel="noopener" class="btn btn-dark">Book a Free Discovery Call &rarr;</a>
         </div>
       </div>
     </section>
@@ -388,7 +436,7 @@
       <div class="footer-inner">
         <div>
           <div class="footer-brand">Bridge <span>AI</span></div>
-          <p style="color:#666;font-size:0.85rem;margin-top:8px;max-width:260px;line-height:1.6;">Custom AI automation for small businesses that are ready to stop doing work they shouldn't be doing.</p>
+          <p style="color:#666;font-size:0.85rem;margin-top:8px;max-width:260px;line-height:1.6;">Custom software and AI-powered tools for small businesses ready to stop patching and start building.</p>
         </div>
         <nav class="footer-links">
           <a href="index.html#quiz">Take the Quiz</a>
@@ -404,7 +452,6 @@
   </footer>
 
   <script>
-    // Card scroll fade
     const cardFadeObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         entry.target.classList.toggle('is-hidden', !entry.isIntersecting);
