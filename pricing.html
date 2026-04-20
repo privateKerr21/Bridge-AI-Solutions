@@ -76,8 +76,7 @@
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border: var(--border-weight) solid var(--ink);
+      gap: 24px;
       margin-bottom: 48px;
     }
     @media (max-width: 768px) {
@@ -86,7 +85,7 @@
 
     .pricing-card {
       padding: 48px 40px;
-      border-right: var(--border-weight) solid var(--ink);
+      border: var(--border-weight) solid var(--ink);
       position: relative;
       background: var(--bg);
       display: flex;
@@ -95,36 +94,11 @@
     .pricing-card .btn {
       margin-top: auto;
     }
-    .pricing-card:last-child { border-right: none; }
-    @media (max-width: 768px) {
-      .pricing-card { border-right: none; border-bottom: var(--border-weight) solid var(--ink); }
-      .pricing-card:last-child { border-bottom: none; }
-    }
 
     .pricing-card.featured {
       background: var(--ink);
       color: var(--dark-text);
-      transform: translateY(-4px);
       box-shadow: 0 8px 0 var(--gold);
-    }
-    @media (max-width: 768px) {
-      .pricing-card.featured {
-        transform: none;
-        box-shadow: inset 4px 0 0 var(--gold);
-      }
-    }
-
-    .popular-badge {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--ink);
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 4px 12px;
-      margin-bottom: 24px;
     }
 
     .tier-name {
@@ -364,7 +338,6 @@
 
           <!-- Tier 2: Signature Build (Featured) -->
           <div class="pricing-card featured">
-            <div class="popular-badge">Most Popular</div>
             <p class="tier-name">Signature Build</p>
             <div class="tier-regular-price">$6,000&ndash;$8,000</div>
             <div class="tier-founding-label">Founding Rate</div>
