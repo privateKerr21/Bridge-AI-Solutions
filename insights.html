@@ -597,6 +597,133 @@
     }
 
     /* ===========================
+       Articles Section
+       =========================== */
+    .articles-section {
+      background-color: var(--bg);
+      padding: 100px 0;
+      border-top: var(--border-weight) solid var(--ink);
+      border-bottom: var(--border-weight) solid var(--ink);
+    }
+
+    .articles-section .label {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .articles-section h2 {
+      margin-bottom: 48px;
+    }
+
+    .article-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .article-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .article-card {
+      border: var(--border-weight) solid var(--ink);
+      padding: 40px;
+      background-color: var(--bg);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .article-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .article-card-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 4px 10px;
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+
+    .article-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+      color: var(--ink);
+    }
+
+    .article-card p {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-bottom: 0;
+      flex: 1;
+    }
+
+    .article-card-footer {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .article-card-meta {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted-light);
+    }
+
+    .article-card-arrow {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--ink);
+      transition: transform 0.15s ease;
+    }
+
+    .article-card:hover .article-card-arrow {
+      transform: translateX(4px);
+    }
+
+    .article-card-placeholder {
+      border: var(--border-weight) dashed var(--border-light);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 220px;
+    }
+
+    .article-card-placeholder .label {
+      margin-bottom: 12px;
+    }
+
+    .article-card-placeholder p {
+      font-size: 0.9rem;
+      color: var(--muted-light);
+      line-height: 1.6;
+      max-width: 300px;
+    }
+
+    /* ===========================
        Warning Section (Side Effects)
        =========================== */
     .side-effects-section {
@@ -1031,6 +1158,35 @@
         <div class="audience-card">
           <h3>Operators Stuck on Off-The-Shelf</h3>
           <p>Who've outgrown generic tools and need something custom — and want it built and handed off, not explained as a DIY project</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       ARTICLES
+       =========================== -->
+  <section class="articles-section">
+    <div class="container">
+      <span class="label">From the Brief</span>
+      <h2>Deep dives on decisions that matter</h2>
+
+      <div class="article-cards">
+
+        <a href="insights/no-code-vs-custom-ai.html" class="article-card scroll-fade">
+          <span class="article-card-tag">Perspective</span>
+          <h3>No-code automation vs. custom AI software: which is right for your business?</h3>
+          <p>If your workflow is simple and standard, Zapier may be enough. If it's complex, high-volume, or core to your operation, you need software you own. Here's how to make the call.</p>
+          <div class="article-card-footer">
+            <span class="article-card-meta">April 2026 &nbsp;&middot;&nbsp; 9 min read</span>
+            <span class="article-card-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <div class="article-card-placeholder">
+          <span class="label" style="color:var(--muted-light);">Coming Next</span>
+          <p>More articles on automation, ROI, and how small B2B businesses are building competitive advantages with custom software.</p>
         </div>
 
       </div>

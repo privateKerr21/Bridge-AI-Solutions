@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No-Code Automation vs. Custom AI Software: Which Is Right for Your Business? — Bridge AI Solutions</title>
+  <meta name="description" content="If your workflow is simple and standard, no-code tools like Zapier or Make are a fine starting point. If it's complex, high-volume, or core to how you operate, you need custom software. Here's how to decide.">
+  <link rel="icon" type="image/jpeg" href="../Assets/Brand/Logos/bridge_ai_logo%20(1).jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../Assets/Brand/styles.css">
+
+  <style>
+    /* ===========================
+       Article Layout
+       =========================== */
+    .article-hero {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+      padding: 80px 0 72px;
+      border-bottom: var(--border-weight) solid var(--gold);
+    }
+
+    .article-hero .label {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .article-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.75rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      max-width: 840px;
+      margin-bottom: 28px;
+    }
+
+    .article-hero-meta {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .article-hero-meta span {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted-light);
+    }
+
+    .article-hero-meta span + span::before {
+      content: '·';
+      margin-right: 24px;
+    }
+
+    /* ===========================
+       Article Body
+       =========================== */
+    .article-body {
+      background-color: var(--bg);
+      padding: 80px 0 100px;
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 72px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .article-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    /* ===========================
+       Article Content
+       =========================== */
+    .article-content {
+      max-width: 720px;
+    }
+
+    .article-content p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .article-content h2 {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-top: 56px;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+
+    .article-content h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-top: 36px;
+      margin-bottom: 14px;
+      color: var(--ink);
+    }
+
+    .article-content strong {
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* ===========================
+       Key Definitions Block
+       =========================== */
+    .definitions-block {
+      border: var(--border-weight) solid var(--ink);
+      padding: 36px 40px;
+      margin: 40px 0;
+      background-color: var(--bg);
+    }
+
+    .definitions-block-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .definitions-block dl {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .definitions-block dt {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .definitions-block dd {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-left: 0;
+    }
+
+    /* ===========================
+       Comparison Table
+       =========================== */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: var(--border-weight) solid var(--ink);
+      margin: 36px 0;
+      font-size: 0.92rem;
+    }
+
+    .comparison-table thead {
+      background-color: var(--ink);
+      color: var(--dark-text);
+    }
+
+    .comparison-table thead th {
+      padding: 14px 20px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: left;
+    }
+
+    .comparison-table thead th:first-child {
+      width: 35%;
+    }
+
+    .comparison-table tbody tr {
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .comparison-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .comparison-table tbody tr:nth-child(even) {
+      background-color: rgba(212, 175, 55, 0.04);
+    }
+
+    .comparison-table td {
+      padding: 14px 20px;
+      line-height: 1.55;
+      color: var(--ink);
+      vertical-align: top;
+    }
+
+    .comparison-table td:first-child {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    /* ===========================
+       Decision Framework
+       =========================== */
+    .decision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 32px 0;
+    }
+
+    @media (max-width: 600px) {
+      .decision-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .decision-card {
+      border: var(--border-weight) solid var(--ink);
+      padding: 28px 28px 24px;
+    }
+
+    .decision-card-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .decision-card-label.nocode {
+      color: var(--muted);
+    }
+
+    .decision-card-label.custom {
+      color: var(--gold);
+    }
+
+    .decision-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      margin-top: 0;
+      color: var(--ink);
+    }
+
+    .decision-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .decision-card ul li {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--muted);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .decision-card ul li::before {
+      content: '—';
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted-light);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .decision-card.custom-card {
+      background-color: var(--ink);
+      color: var(--dark-text);
+    }
+
+    .decision-card.custom-card h3 {
+      color: var(--dark-text);
+    }
+
+    .decision-card.custom-card ul li {
+      color: var(--muted-light);
+    }
+
+    .decision-card.custom-card ul li::before {
+      content: '→';
+      color: var(--gold);
+    }
+
+    /* ===========================
+       Recommendation Block
+       =========================== */
+    .recommendation-block {
+      background-color: var(--ink);
+      color: var(--dark-text);
+      padding: 44px 40px;
+      margin: 48px 0;
+      border-left: 4px solid var(--gold);
+    }
+
+    .recommendation-block .label {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .recommendation-block h2 {
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--dark-text);
+      margin-bottom: 20px;
+    }
+
+    .recommendation-block p {
+      color: var(--muted-light);
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    .recommendation-block p + p {
+      margin-top: 16px;
+    }
+
+    /* ===========================
+       Pull Quote
+       =========================== */
+    .article-pull-quote {
+      border-left: 4px solid var(--gold);
+      padding: 4px 0 4px 28px;
+      margin: 40px 0;
+    }
+
+    .article-pull-quote p {
+      font-family: var(--font-head);
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 0 !important;
+    }
+
+    /* ===========================
+       Article Sidebar
+       =========================== */
+    .article-sidebar {
+      position: sticky;
+      top: 88px;
+    }
+
+    @media (max-width: 900px) {
+      .article-sidebar {
+        position: static;
+        order: -1;
+      }
+    }
+
+    .sidebar-cta {
+      border: var(--border-weight) solid var(--ink);
+      padding: 32px 28px;
+      background-color: var(--bg);
+    }
+
+    .sidebar-cta .label {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .sidebar-cta h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .sidebar-cta p {
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .sidebar-cta .btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    .sidebar-back {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .sidebar-back a {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .sidebar-back a:hover {
+      color: var(--ink);
+    }
+
+    /* ===========================
+       Article Footer Nav
+       =========================== */
+    .article-footer-nav {
+      background-color: var(--dark-bg);
+      border-top: var(--border-weight) solid var(--gold);
+      padding: 64px 0;
+    }
+
+    .article-footer-nav .label {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .article-footer-nav h2 {
+      color: var(--dark-text);
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      margin-bottom: 16px;
+    }
+
+    .article-footer-nav p {
+      color: var(--muted-light);
+      font-size: 1rem;
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .footer {
+      padding-bottom: 0;
+    }
+  </style>
+
+  <!-- Article JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "No-Code Automation vs. Custom AI Software: Which Is Right for Your Business?",
+    "description": "If your workflow is simple and standard, no-code tools like Zapier or Make are a fine starting point. If it's complex, high-volume, or core to how you operate, you need custom software. Here's how to decide.",
+    "datePublished": "2026-04-23",
+    "dateModified": "2026-04-23",
+    "author": {
+      "@type": "Organization",
+      "name": "Bridge AI Solutions",
+      "url": "https://aibridgedsolutions.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bridge AI Solutions",
+      "url": "https://aibridgedsolutions.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aibridgedsolutions.com/Assets/Brand/Logos/bridge_ai_logo%20(1).jpg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://aibridgedsolutions.com/insights/no-code-vs-custom-ai.html"
+    },
+    "keywords": ["no-code automation", "custom AI software", "Zapier vs custom software", "business automation", "small business software", "AI tools for business"],
+    "articleSection": "Business Technology",
+    "wordCount": 900
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===========================
+       NAVBAR
+       =========================== -->
+  <nav class="navbar">
+    <a href="../index.html" class="navbar-logo">
+      <img src="../Assets/Brand/Logos/transparent/bridge_ai_banner10.png" alt="Bridge AI Solutions">
+    </a>
+    <ul class="navbar-links">
+      <li><a href="../index.html#quiz">Take the Quiz</a></li>
+      <li><a href="../index.html#process">How It Works</a></li>
+      <li><a href="../use-cases.html">Use Cases</a></li>
+      <li><a href="../insights.html" aria-current="page">Insights</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+    </ul>
+    <div class="navbar-cta">
+      <a href="https://calendly.com/h-kerr711/30min" target="_blank" rel="noopener">Let's Talk</a>
+    </div>
+  </nav>
+
+  <main>
+
+  <!-- ===========================
+       ARTICLE HERO
+       =========================== -->
+  <section class="article-hero">
+    <div class="container">
+      <span class="label">// The Custom AI Build Brief &mdash; Perspective</span>
+      <h1>No-code automation vs. custom AI software: which is right for your business?</h1>
+      <div class="article-hero-meta">
+        <span>Bridge AI Solutions</span>
+        <span>April 2026</span>
+        <span>9 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       ARTICLE BODY
+       =========================== -->
+  <section class="article-body">
+    <div class="container">
+      <div class="article-grid">
+
+        <!-- ===========================
+             MAIN CONTENT
+             =========================== -->
+        <article class="article-content">
+
+          <p>
+            <strong>The short answer: if your workflow is simple and standard, no-code tools like Zapier or Make are a reasonable starting point. If your workflow is complex, high-volume, or central to how your business operates, you need custom software.</strong> Most business owners arrive at the right answer by working backwards from the cost of the problem — not the cost of the solution. This article walks you through the distinctions that actually matter, and ends with a concrete framework for making the call.
+          </p>
+
+          <!-- Key Definitions -->
+          <div class="definitions-block">
+            <span class="definitions-block-label">Key Definitions</span>
+            <dl>
+              <div>
+                <dt><strong>No-code automation</strong></dt>
+                <dd>Tools like Zapier or Make that connect existing apps using pre-built triggers and actions. You configure workflows through a visual interface — no code required. You pay monthly based on task volume, and you're working within the limits of what the platforms allow.</dd>
+              </div>
+              <div>
+                <dt><strong>Custom software</strong></dt>
+                <dd>Software built specifically for your business — your process, your logic, your data structure. You own the code outright. There are no per-task fees, no usage limits, and no dependency on a third-party platform staying operational and affordable.</dd>
+              </div>
+              <div>
+                <dt><strong>API (Application Programming Interface)</strong></dt>
+                <dd>The connection point that allows two pieces of software to communicate and exchange data. No-code tools rely on APIs managed by the platform vendor. Custom software uses APIs directly, giving you more control and resilience when those connections change.</dd>
+              </div>
+            </dl>
+          </div>
+
+          <h2>What no-code tools actually do</h2>
+
+          <p>
+            Zapier, Make, and similar platforms are connector tools. Their core function is linking two or more existing apps so that an event in one triggers an action in another — a new form submission in Typeform sends a Slack notification, a new row in Google Sheets fires an email through Mailchimp. For linear, trigger-action workflows, they work well.
+          </p>
+
+          <p>
+            What they are not is software. You're not building a system — you're configuring automations on top of systems you already have. That's a meaningful distinction. When one of those underlying APIs changes (and they do), your workflow breaks and you fix it. When task volume grows, your monthly fee grows with it. When your process evolves in a way the platform didn't anticipate, you hit a wall.
+          </p>
+
+          <p>
+            None of that makes no-code tools bad. It makes them the right tool for a specific type of problem — and the wrong tool for most others.
+          </p>
+
+          <h2>What custom software actually does</h2>
+
+          <p>
+            Custom software is built around your exact process. It doesn't adapt your process to fit available integrations — it encodes how you actually work into a purpose-built system that you own. The inputs, logic, outputs, and user interface are all designed for your specific workflow, not approximated from a library of pre-built components.
+          </p>
+
+          <div class="article-pull-quote">
+            <p>You don't rent access to a custom solution. You own it — and it runs exactly the way your business runs.</p>
+          </div>
+
+          <p>
+            The upfront cost is higher than a monthly Zapier subscription. The ongoing cost — zero task fees, no per-seat licenses for the tool itself, no platform risk — typically makes it significantly cheaper over 12 to 18 months, especially at any meaningful volume. More importantly, you're not operating under constraints set by a tool vendor's product roadmap.
+          </p>
+
+          <h2>Comparing the two side by side</h2>
+
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Factor</th>
+                <th>No-Code (Zapier / Make)</th>
+                <th>Custom Software</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Setup time</td>
+                <td>Hours to days</td>
+                <td>Weeks to a month</td>
+              </tr>
+              <tr>
+                <td>Upfront cost</td>
+                <td>Low — often free to start</td>
+                <td>Higher — one-time build investment</td>
+              </tr>
+              <tr>
+                <td>Ongoing cost</td>
+                <td>Monthly fee, scales with task volume</td>
+                <td>None beyond hosting (typically &lt;$20/mo)</td>
+              </tr>
+              <tr>
+                <td>Ownership</td>
+                <td>You configure it; platform owns the infrastructure</td>
+                <td>You own the code outright</td>
+              </tr>
+              <tr>
+                <td>Flexibility</td>
+                <td>Limited to supported integrations and logic</td>
+                <td>Unlimited — built to your exact requirements</td>
+              </tr>
+              <tr>
+                <td>Maintenance</td>
+                <td>Breaks when APIs change; you fix it</td>
+                <td>Stable unless you change it; updates on your schedule</td>
+              </tr>
+              <tr>
+                <td>Complexity cap</td>
+                <td>Linear workflows; conditional logic is cumbersome</td>
+                <td>No cap — handles any level of complexity</td>
+              </tr>
+              <tr>
+                <td>AI capabilities</td>
+                <td>Basic LLM steps via pre-built integrations</td>
+                <td>Custom AI logic woven into your workflow</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Who should use no-code tools</h2>
+
+          <p>
+            No-code automation is the right starting point in a specific set of circumstances:
+          </p>
+
+          <ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:10px;">
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:1rem;line-height:1.65;color:var(--ink);">
+              <span style="font-family:var(--font-mono);color:var(--muted);flex-shrink:0;margin-top:3px;">—</span>
+              <span><strong>You're testing automation for the first time</strong> and want to see whether automating a process is worth the investment before committing to a build.</span>
+            </li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:1rem;line-height:1.65;color:var(--ink);">
+              <span style="font-family:var(--font-mono);color:var(--muted);flex-shrink:0;margin-top:3px;">—</span>
+              <span><strong>Your workflow is simple and linear</strong> — event A happens, action B follows, no conditional logic, no complex data transformations.</span>
+            </li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:1rem;line-height:1.65;color:var(--ink);">
+              <span style="font-family:var(--font-mono);color:var(--muted);flex-shrink:0;margin-top:3px;">—</span>
+              <span><strong>Your volume is low and predictable</strong>, so per-task pricing won't become a cost problem as usage grows.</span>
+            </li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:1rem;line-height:1.65;color:var(--ink);">
+              <span style="font-family:var(--font-mono);color:var(--muted);flex-shrink:0;margin-top:3px;">—</span>
+              <span><strong>The process isn't core to your operation</strong> — if the automation breaks for a day, the business keeps running fine.</span>
+            </li>
+          </ul>
+
+          <p>
+            In these cases, a no-code tool is the right-sized solution. Don't build a custom platform when a Zapier workflow will do the job — that's over-engineering.
+          </p>
+
+          <h2>Who needs custom software</h2>
+
+          <p>
+            The calculus shifts once your workflow becomes more complex, more central, or more expensive to run manually:
+          </p>
+
+          <ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:10px;">
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:1rem;line-height:1.65;color:var(--ink);">
+              <span style="font-family:var(--font-mono);color:var(--gold);flex-shrink:0;margin-top:3px;">→</span>
+              <span><strong>Your workflow has unique logic</strong> that can't be expressed in trigger-action pairs — routing rules, multi-step conditional flows, business-specific calculations.</span>
+            </li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:1rem;line-height:1.65;color:var(--ink);">
+              <span style="font-family:var(--font-mono);color:var(--gold);flex-shrink:0;margin-top:3px;">→</span>
+              <span><strong>The process is high-volume</strong> and per-task pricing would cost more than the build over the same period.</span>
+            </li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:1rem;line-height:1.65;color:var(--ink);">
+              <span style="font-family:var(--font-mono);color:var(--gold);flex-shrink:0;margin-top:3px;">→</span>
+              <span><strong>The process is core to your operations</strong> — if it breaks, work stops. You need reliability and direct control, not platform dependency.</span>
+            </li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:1rem;line-height:1.65;color:var(--ink);">
+              <span style="font-family:var(--font-mono);color:var(--gold);flex-shrink:0;margin-top:3px;">→</span>
+              <span><strong>You need to own the output</strong> — the software is part of your service delivery or a competitive advantage you don't want sitting on someone else's infrastructure.</span>
+            </li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:1rem;line-height:1.65;color:var(--ink);">
+              <span style="font-family:var(--font-mono);color:var(--gold);flex-shrink:0;margin-top:3px;">→</span>
+              <span><strong>Manual execution costs more than the build</strong> — the combined cost of staff time, errors, and delays already exceeds what a one-time build would cost in 12 months or less.</span>
+            </li>
+          </ul>
+
+          <p>
+            The last point deserves emphasis. Many businesses avoid custom software because they're anchored on the build cost. The more useful question is: what does the current manual process cost you per month — in staff hours, error correction, and opportunity cost? In most cases, the break-even is under six months.
+          </p>
+
+          <h2>A simple decision framework</h2>
+
+          <div class="decision-grid">
+            <div class="decision-card">
+              <span class="decision-card-label nocode">Start with no-code if...</span>
+              <h3>Your process is simple and standard</h3>
+              <ul>
+                <li>Linear trigger-action workflow</li>
+                <li>Low task volume (&lt;1,000/mo)</li>
+                <li>Testing automation for the first time</li>
+                <li>Not core to daily operations</li>
+                <li>Standard apps already have integrations</li>
+              </ul>
+            </div>
+            <div class="decision-card custom-card">
+              <span class="decision-card-label custom">Build custom software if...</span>
+              <h3>Your process is complex or central</h3>
+              <ul>
+                <li>Conditional logic or unique business rules</li>
+                <li>High volume where per-task fees compound</li>
+                <li>Process is core to how you deliver</li>
+                <li>You need to own the code and the output</li>
+                <li>Manual cost exceeds the build cost in &lt;12 months</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Recommendation -->
+          <div class="recommendation-block">
+            <span class="label">// Our recommendation</span>
+            <h2>If it's simple and standard — no-code. If it's complex, high-volume, or core to your operation — build it.</h2>
+            <p>
+              No-code tools are not the competition. They're training wheels. They're the right answer when you're figuring out whether automation is worth pursuing — and the wrong answer when you already know it is.
+            </p>
+            <p>
+              The businesses that pull ahead don't do so because they found a smarter Zapier workflow. They do it because they built something that runs their operation exactly the way they want it to run, and they own it. If your manual processes are costing you more than a build would, you've already answered the question — you just haven't acted on it yet.
+            </p>
+          </div>
+
+          <p>
+            Not sure which category your process falls into? The quiz on our homepage takes three minutes and gives you a clear read on whether custom software makes sense for your situation right now.
+          </p>
+
+          <p>
+            <a href="../index.html#quiz" class="btn btn-primary">Take the Bottleneck Quiz &rarr;</a>
+          </p>
+
+        </article>
+
+        <!-- ===========================
+             SIDEBAR
+             =========================== -->
+        <aside class="article-sidebar">
+          <div class="sidebar-cta">
+            <span class="label">Not sure which path is right?</span>
+            <h3>Find out in 3 minutes</h3>
+            <p>Take the quiz and get a clear read on whether custom software is right for your business right now.</p>
+            <a href="../index.html#quiz" class="btn btn-primary">Take the Quiz &rarr;</a>
+            <div class="sidebar-back">
+              <a href="../insights.html">&larr; Back to Insights</a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       ARTICLE FOOTER NAV
+       =========================== -->
+  <section class="article-footer-nav">
+    <div class="container">
+      <span class="label">// Bridge AI Solutions</span>
+      <h2>Ready to stop patching and start building?</h2>
+      <p>
+        Custom AI software built around your exact process, handed off so you own it. No monthly platform fees. No configuration limits.
+      </p>
+      <a href="https://calendly.com/h-kerr711/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a Discovery Call &rarr;</a>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ===========================
+       FOOTER
+       =========================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo-wrap">
+        <img src="../Assets/Brand/Logos/transparent/bridge_ai_banner10.png"
+             alt="Bridge AI Solutions logo"
+             class="footer-logo">
+      </div>
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">Bridge <span>AI</span></div>
+          <p style="margin-top:14px;font-size:0.9rem;color:var(--muted);max-width:320px;line-height:1.6;">
+            Custom AI-powered software and tools for small B2B businesses that are ready to stop patching and start building.
+          </p>
+        </div>
+        <nav class="footer-links">
+          <a href="../index.html#quiz">Take the Quiz</a>
+          <a href="../index.html#process">How It Works</a>
+          <a href="../use-cases.html">Use Cases</a>
+          <a href="../insights.html">Insights</a>
+          <a href="../pricing.html">Pricing</a>
+          <a href="mailto:h.kerr@aibridgedsolutions.com">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Bridge AI Solutions. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.querySelector('.navbar');
+    function updateNavbar() {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
