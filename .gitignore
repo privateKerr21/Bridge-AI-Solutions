@@ -3,3 +3,12 @@
 !.claude/commands/
 .env
 .env.local
+
+# Business operations — not for public repo
+Admin/
+Clients/
+Marketing/Proposals/
+Templates/
+
+# Editor config
+.obsidian/

@@ -1,0 +1,51 @@
+# Bridge AI Solutions
+
+> Bridge AI Solutions is a custom software consultancy that builds AI-powered tools and automations for small B2B service businesses in the United States. We identify your biggest operational bottleneck and build a real solution — handed off so you own the code. We do not build Zapier automations or chatbot templates. We build custom software.
+
+## Key Pages
+
+- [Home](https://aibridgedsolutions.com): Overview of services, process, pricing, and FAQ
+- [Use Cases](https://aibridgedsolutions.com/use-cases): Industry-specific examples of custom AI tools for consulting, accounting, marketing, recruitment, and construction businesses
+- [Pricing](https://aibridgedsolutions.com/pricing): Three engagement tiers — Focused Build ($2,500), Signature Build ($6,000–$8,000), Studio Partner ($2,500/month)
+- [Insights](https://aibridgedsolutions.com/insights): Articles on custom AI software, automation decisions, and building for small businesses
+- [Start Discovery](https://aibridgedsolutions.com/onboarding): Begin the discovery process with ATLAS, our AI intake assistant
+
+## About
+
+Bridge AI Solutions was founded in 2026 and serves small B2B service businesses across the United States. We specialize in building custom AI-powered tools that replace manual, repetitive operational work — client intake systems, proposal automation, internal knowledge assistants, reporting dashboards, and workflow automation wired to your existing stack.
+
+We are not a no-code automation agency. We do not build Zapier or Make workflows. We write real software: scoped, built, and handed off so the business owns it with no ongoing vendor dependency.
+
+Typical engagements save clients 5–15 hours per week and take 2–6 weeks to complete.
+
+## Founder
+
+Hayden Kerr — founder and developer. Based in the United States.
+
+## What We Build
+
+- Client intake and routing tools
+- Proposal and document generation software
+- Internal knowledge assistants
+- Automated reporting dashboards
+- Workflow automation wired to existing business stacks
+
+## Industries Served
+
+- Consulting firms
+- Accounting firms
+- Marketing agencies
+- Recruitment agencies
+- Construction businesses
+
+## Articles
+
+- [No-Code Automation vs. Custom AI Software: Which Is Right for Your Business?](https://aibridgedsolutions.com/insights/no-code-vs-custom-ai): Direct comparison of no-code tools (Zapier, Make) vs. custom software — who should use each, with a decision framework.
+
+## Contact
+
+Website: https://aibridgedsolutions.com
+Discovery: https://aibridgedsolutions.com/onboarding
+Email: h.kerr@aibridgedsolutions.com
+LinkedIn: https://www.linkedin.com/company/bridge-ai-solutions-llc/
+ProductHunt: https://www.producthunt.com/products/bridge-ai-solutions
