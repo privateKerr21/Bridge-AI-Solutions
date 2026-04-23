@@ -240,10 +240,8 @@
       border-right: var(--border-weight) solid var(--border-dark);
       border-bottom: var(--border-weight) solid var(--border-dark);
     }
-    .faq-item:nth-child(2),
-    .faq-item:nth-child(4) { border-right: none; }
-    .faq-item:nth-child(3),
-    .faq-item:nth-child(4) { border-bottom: none; }
+    .faq-item:nth-child(even) { border-right: none; }
+    .faq-item:nth-last-child(-n+2) { border-bottom: none; }
     @media (max-width: 640px) {
       .faq-item { border-right: none; }
       .faq-item:last-child { border-bottom: none; }
@@ -324,6 +322,42 @@
         "priceCurrency": "USD",
         "priceSpecification": { "@type": "UnitPriceSpecification", "priceType": "https://schema.org/SubscriptionPrice", "billingDuration": "P1M" }
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What kinds of tools do you actually build?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Custom internal apps, dashboards, and platforms — anything from a single-purpose tracker to a full multi-user system. If you're managing something important in spreadsheets, manual processes, or a patchwork of tools that don't talk to each other, that's the kind of problem we solve." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a build take?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Focused Builds typically take about a week from kickoff. Signature Builds run 3–4 weeks depending on scope and how quickly you can provide feedback. We'll give you a specific timeline during your discovery call." }
+        },
+        {
+          "@type": "Question",
+          "name": "What do I need to have ready before we start?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A clear problem you want solved and availability to give feedback during the build. You don't need a technical spec — that's our job. The more specifically you can describe what's eating your time, the better." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after the build is handed off?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You own everything — code, data, all of it. We build in our own environment, then transfer everything cleanly to your accounts at handoff. No lock-in, no dependency on us to keep the lights on. Revision rounds are included in every tier — if you want ongoing support and new features, that's what Studio Partner is for." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does custom AI software cost for a small business?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Project-based work starts at $1,500 for a Focused Build — one targeted problem, delivered in about a week. A Signature Build for more complex workflows starts at $3,500. The Studio Partner retainer is $1,500/month for ongoing development. All current spots are founding-client rates, discounted from standard pricing." }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the typical return on investment?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Most clients recover the cost of a Focused Build within the first month. If a build saves 5 hours a week at $100/hour of billable time, that's $2,000 a month back in capacity. The ROI compounds over time as the tool handles more volume without adding headcount." }
+        }
+      ]
     }
   ]
   </script>
@@ -463,6 +497,14 @@
           <div class="faq-item">
             <p class="faq-q">What happens after the build is handed off?</p>
             <p class="faq-a">You own everything &mdash; code, data, all of it. We build in our own environment, then transfer everything cleanly to your accounts at handoff. No lock-in, no dependency on us to keep the lights on. Revision rounds are included in every tier &mdash; if you want ongoing support and new features, that's what Studio Partner is for.</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">How much does custom AI software cost for a small business?</p>
+            <p class="faq-a">Project-based work starts at $1,500 for a Focused Build &mdash; one targeted problem, delivered in about a week. A Signature Build for more complex workflows starts at $3,500. The Studio Partner retainer is $1,500/month for ongoing development. All current spots are founding-client rates, discounted from standard pricing.</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">What's the typical return on investment?</p>
+            <p class="faq-a">Most clients recover the cost of a Focused Build within the first month. If a build saves 5 hours a week at $100/hour of billable time, that's $2,000 a month back in capacity. The ROI compounds over time as the tool handles more volume without adding headcount.</p>
           </div>
         </div>
       </div>
