@@ -225,10 +225,19 @@ function openProjectModal(id = null) {
 
 async function saveProject(e) {
   e.preventDefault();
+  const btn = e.target.querySelector('[type="submit"]');
+  const orig = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Saving…';
+
   const data = formData(e.target);
   ['value','start_date','delivery_date','notes'].forEach(k => { if (!data[k]) delete data[k]; });
-  if (editingId) await sb.from('projects').update(data).eq('id', editingId);
-  else           await sb.from('projects').insert(data);
+
+  const { error } = editingId
+    ? await sb.from('projects').update(data).eq('id', editingId)
+    : await sb.from('projects').insert(data);
+
+  btn.disabled = false; btn.textContent = orig;
+  if (error) { alert('Save failed: ' + error.message); return; }
   closeModal();
   await loadProjects();
 }
@@ -332,10 +341,18 @@ function openInvoiceModal() {
 
 async function saveInvoice(e) {
   e.preventDefault();
+  const btn = e.target.querySelector('[type="submit"]');
+  const orig = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Saving…';
+
   const data = formData(e.target);
   if (!data.due_date)    delete data.due_date;
   if (!data.description) delete data.description;
-  await sb.from('invoices').insert(data);
+
+  const { error } = await sb.from('invoices').insert(data);
+
+  btn.disabled = false; btn.textContent = orig;
+  if (error) { alert('Save failed: ' + error.message); return; }
   closeModal();
   await loadInvoices();
 }
@@ -468,10 +485,19 @@ async function generateArticle() {
 
 async function saveArticle(e) {
   e.preventDefault();
+  const btn = e.target.querySelector('[type="submit"]');
+  const orig = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Saving…';
+
   const data = formData(e.target);
   ['slug','publish_date','content'].forEach(k => { if (!data[k]) delete data[k]; });
-  if (editingId) await sb.from('articles').update(data).eq('id', editingId);
-  else           await sb.from('articles').insert(data);
+
+  const { error } = editingId
+    ? await sb.from('articles').update(data).eq('id', editingId)
+    : await sb.from('articles').insert(data);
+
+  btn.disabled = false; btn.textContent = orig;
+  if (error) { alert('Save failed: ' + error.message); return; }
   closeModal();
   await loadArticles();
 }
