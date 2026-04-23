@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Bridge AI Solutions</title>
+  <link rel="icon" type="image/jpeg" href="../Assets/Brand/Logos/bridge_ai_logo%20(1).jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div id="login-screen" class="login-screen" style="display:none">
+    <div class="login-box">
+      <img src="../Assets/Brand/Logos/transparent/bridge_ai_banner5.png" alt="Bridge AI Solutions" class="login-logo">
+      <h1>Dashboard</h1>
+      <p>Enter your email to receive a magic link.</p>
+      <form id="login-form">
+        <input type="email" id="login-email" placeholder="you@example.com" required>
+        <button type="submit" id="login-btn">Send Magic Link</button>
+      </form>
+      <p id="login-message" class="login-message"></p>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="dashboard" style="display:none">
+
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="../Assets/Brand/Logos/transparent/hero_logo.png" alt="Bridge AI" style="filter:invert(1);height:26px;">
+      </div>
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-panel="projects">
+          <span class="nav-icon">◈</span> Projects
+        </button>
+        <button class="nav-item" data-panel="invoices">
+          <span class="nav-icon">◧</span> Invoices
+        </button>
+        <button class="nav-item" data-panel="articles">
+          <span class="nav-icon">◉</span> Articles
+        </button>
+      </nav>
+      <button id="logout-btn" class="logout-btn">Sign out</button>
+    </aside>
+
+    <main class="main">
+
+      <!-- PROJECTS -->
+      <div id="panel-projects" class="panel active">
+        <div class="panel-header">
+          <div>
+            <h2>Projects</h2>
+            <p class="panel-sub">Drag cards between stages to update status.</p>
+          </div>
+          <button class="btn-primary" onclick="openProjectModal()">+ New Project</button>
+        </div>
+        <div class="kanban" id="kanban"></div>
+      </div>
+
+      <!-- INVOICES -->
+      <div id="panel-invoices" class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Invoices</h2>
+            <p class="panel-sub">Track payments across all projects.</p>
+          </div>
+          <button class="btn-primary" onclick="openInvoiceModal()">+ New Invoice</button>
+        </div>
+        <div class="invoice-table-wrap">
+          <table class="invoice-table">
+            <thead>
+              <tr>
+                <th>Project</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Due Date</th>
+                <th>Paid</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="invoice-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ARTICLES -->
+      <div id="panel-articles" class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Articles</h2>
+            <p class="panel-sub">Content pipeline for the Insights page.</p>
+          </div>
+          <button class="btn-primary" onclick="openArticleModal()">+ New Article</button>
+        </div>
+        <div class="article-board">
+          <div class="article-col">
+            <div class="article-col-header">Ideas</div>
+            <div class="article-cards" id="col-idea"></div>
+          </div>
+          <div class="article-col">
+            <div class="article-col-header">Draft</div>
+            <div class="article-cards" id="col-draft"></div>
+          </div>
+          <div class="article-col">
+            <div class="article-col-header">Published</div>
+            <div class="article-cards" id="col-published"></div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal-overlay" class="modal-overlay" style="display:none">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
