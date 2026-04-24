@@ -43,6 +43,9 @@
         <button class="nav-item" data-panel="articles">
           <span class="nav-icon">◉</span> Articles
         </button>
+        <button class="nav-item" data-panel="clients">
+          <span class="nav-icon">◫</span> Clients
+        </button>
       </nav>
       <button id="logout-btn" class="logout-btn">Sign out</button>
     </aside>
@@ -108,6 +111,25 @@
           <div class="article-col">
             <div class="article-col-header">Published</div>
             <div class="article-cards" id="col-published"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLIENTS -->
+      <div id="panel-clients" class="panel">
+        <div class="client-split">
+          <div class="client-list-pane">
+            <div class="client-list-header">
+              <div>
+                <h2>Clients</h2>
+                <p class="panel-sub">Select a client to view details.</p>
+              </div>
+              <button class="btn-primary" onclick="openClientModal()">+ New Client</button>
+            </div>
+            <div id="client-list"></div>
+          </div>
+          <div class="client-detail-pane" id="client-detail">
+            <div class="client-detail-empty">← Select a client</div>
           </div>
         </div>
       </div>
