@@ -50,7 +50,7 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
   btn.textContent = 'Sending...';
   const { error } = await sb.auth.signInWithOtp({
     email,
-    options: { emailRedirectTo: window.location.href }
+    options: { emailRedirectTo: window.location.origin + '/dashboard' }
   });
   if (error) {
     msg.textContent = error.message;
