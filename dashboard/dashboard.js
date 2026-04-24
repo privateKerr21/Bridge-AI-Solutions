@@ -480,13 +480,20 @@ async function generateArticle() {
     if (genData.error) throw new Error(genData.error);
     let content = genData.content;
 
-    // 2 — Scan for AI
+    // 2 — Scan for AI (skip gracefully if key not configured)
     status.textContent = '✓ Draft ready  ·  ⏳ Scanning for AI…';
-    const scan1   = await callDetect(content);
-    const score1  = scan1.score;
+    let score1 = null, score2 = null;
+    try {
+      const scan1 = await callDetect(content);
+      score1 = scan1.score;
+    } catch (detectErr) {
+      // GPTZero key not yet configured — skip detection + humanization
+      document.getElementById('article-content').value = content;
+      status.textContent = '✓ Draft generated (add GPTZERO_API_KEY to enable humanization)';
+      return;
+    }
 
     // 3 — Humanize if needed
-    let score2 = score1;
     if (score1 > 30) {
       status.textContent = `✓ Draft ready  ·  AI: ${score1}%  ·  ⏳ Humanizing…`;
       const humRes  = await fetch('/api/humanize-article', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ title, content }) });
@@ -496,17 +503,19 @@ async function generateArticle() {
 
       // 4 — Re-scan
       status.textContent = `✓ Draft ready  ·  AI: ${score1}%  ·  ✓ Humanized  ·  ⏳ Final scan…`;
-      const scan2 = await callDetect(content);
-      score2 = scan2.score;
+      try {
+        const scan2 = await callDetect(content);
+        score2 = scan2.score;
+      } catch (_) { /* key gone mid-run, ignore */ }
     }
 
     document.getElementById('article-content').value = content;
     status.textContent = score1 > 30
-      ? `✓ Done  ·  AI score: ${score1}% → ${score2}%`
+      ? `✓ Done  ·  AI score: ${score1}% → ${score2 ?? '?'}%`
       : `✓ Done  ·  AI score: ${score1}% (no humanization needed)`;
 
   } catch (err) {
-    alert('Pipeline failed: ' + err.message);
+    alert('Generation failed: ' + err.message);
     status.textContent = '';
   } finally {
     btn.disabled = false;
@@ -558,6 +567,8 @@ function closeModal() {
 document.getElementById('modal-overlay').addEventListener('click', e => {
   if (e.target === document.getElementById('modal-overlay')) closeModal();
 });
+
+document.querySelector('.modal').addEventListener('click', e => e.stopPropagation());
 
 // ── HELPERS ───────────────────────────────────────────────────────
 
