@@ -435,6 +435,7 @@ function openArticleModal(id = null) {
       <span>Content</span>
       <button type="button" class="btn-generate" id="gen-btn">⚡ Generate with AI</button>
     </div>
+    <div id="pipeline-status" class="pipeline-status"></div>
     <textarea name="content" id="article-content" rows="12"></textarea>
     <button type="submit" class="btn-primary">${a ? 'Save Changes' : 'Create Article'}</button>
     ${a ? '<button type="button" id="del-article-btn" style="background:none;border:none;color:#c0392b;cursor:pointer;font-size:0.82rem;text-align:left">Delete article</button>' : ''}`;
@@ -463,24 +464,61 @@ function openArticleModal(id = null) {
 async function generateArticle() {
   const title = document.querySelector('#article-form [name="title"]').value.trim();
   if (!title) { alert('Enter a title first.'); return; }
-  const btn = document.getElementById('gen-btn');
+
+  const btn    = document.getElementById('gen-btn');
+  const status = document.getElementById('pipeline-status');
+
   btn.disabled = true;
-  btn.textContent = '⚡ Generating...';
+  btn.textContent = '⚡ Running pipeline…';
+  status.textContent = '';
+
   try {
-    const res = await fetch('/api/generate-article', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title })
-    });
-    const { content, error } = await res.json();
-    if (error) throw new Error(error);
+    // 1 — Generate initial draft
+    status.textContent = '⏳ Generating draft…';
+    const genRes  = await fetch('/api/generate-article', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ title }) });
+    const genData = await genRes.json();
+    if (genData.error) throw new Error(genData.error);
+    let content = genData.content;
+
+    // 2 — Scan for AI
+    status.textContent = '✓ Draft ready  ·  ⏳ Scanning for AI…';
+    const scan1   = await callDetect(content);
+    const score1  = scan1.score;
+
+    // 3 — Humanize if needed
+    let score2 = score1;
+    if (score1 > 30) {
+      status.textContent = `✓ Draft ready  ·  AI: ${score1}%  ·  ⏳ Humanizing…`;
+      const humRes  = await fetch('/api/humanize-article', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ title, content }) });
+      const humData = await humRes.json();
+      if (humData.error) throw new Error(humData.error);
+      content = humData.content;
+
+      // 4 — Re-scan
+      status.textContent = `✓ Draft ready  ·  AI: ${score1}%  ·  ✓ Humanized  ·  ⏳ Final scan…`;
+      const scan2 = await callDetect(content);
+      score2 = scan2.score;
+    }
+
     document.getElementById('article-content').value = content;
+    status.textContent = score1 > 30
+      ? `✓ Done  ·  AI score: ${score1}% → ${score2}%`
+      : `✓ Done  ·  AI score: ${score1}% (no humanization needed)`;
+
   } catch (err) {
-    alert('Generation failed: ' + err.message);
+    alert('Pipeline failed: ' + err.message);
+    status.textContent = '';
   } finally {
     btn.disabled = false;
     btn.textContent = '⚡ Generate with AI';
   }
+}
+
+async function callDetect(text) {
+  const res  = await fetch('/api/detect-ai', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ text }) });
+  const data = await res.json();
+  if (data.error) throw new Error(data.error);
+  return data;
 }
 
 async function saveArticle(e) {

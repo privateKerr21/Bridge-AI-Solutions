@@ -567,3 +567,11 @@ body {
 
 .btn-generate:hover { background: var(--gold-dark); }
 .btn-generate:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.pipeline-status {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  min-height: 18px;
+  letter-spacing: 0.02em;
+}
