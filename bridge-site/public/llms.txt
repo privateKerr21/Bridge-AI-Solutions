@@ -1,0 +1,27 @@
+# Bridge AI Solutions
+
+Bridge AI Solutions is a custom software consultancy that builds AI-powered tools and automations for small B2B service businesses in the United States.
+
+## What We Do
+
+We identify your biggest operational bottleneck and build a real, custom AI-powered solution around it — then hand it off so you own the code, the data, and everything in it. No lock-in.
+
+## Who We Serve
+
+Small B2B service businesses, typically 1–20 people, spending significant hours each week on manual, repetitive work. Common industries: professional services, financial advisory, healthcare operations, marketing agencies.
+
+## Services
+
+- Focused Build: One targeted automation problem, delivered in ~1 week
+- Signature Build: Multi-system AI platform, delivered in 3–4 weeks
+
+## Contact
+
+- Email: h.kerr@aibridgedsolutions.com
+- LinkedIn: https://www.linkedin.com/in/harrisonkerr21/
+- Website: https://aibridgedsolutions.com
+
+## Content
+
+- Insights: https://aibridgedsolutions.com/insights
+- Sitemap: https://aibridgedsolutions.com/sitemap.xml

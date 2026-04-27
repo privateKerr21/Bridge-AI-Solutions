@@ -130,21 +130,21 @@
 
 .articleContent ul li,
 .articleContent ol li {
+  position: relative;
+  padding-left: 24px;
   font-size: 1.05rem;
   line-height: 1.65;
   color: var(--ink);
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
 }
 
 .articleContent ul li::before {
   content: "—";
+  position: absolute;
+  left: 0;
+  top: 3px;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--muted);
-  flex-shrink: 0;
-  margin-top: 4px;
 }
 
 .articleContent ol {
@@ -154,11 +154,12 @@
 .articleContent ol li::before {
   counter-increment: ol-counter;
   content: counter(ol-counter) ".";
+  position: absolute;
+  left: 0;
+  top: 3px;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--muted);
-  flex-shrink: 0;
-  margin-top: 4px;
 }
 
 /* Blockquote (pull quote) */

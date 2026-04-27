@@ -5,7 +5,7 @@ import Quiz from "@/components/Quiz";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Bridge AI Solutions — Stop Patching. Start Building.",
+  title: { absolute: "Bridge AI Solutions — Stop Patching. Start Building." },
   description:
     "Bridge AI Solutions builds custom AI-powered software and tools for small B2B businesses. We identify your biggest operational bottleneck and build a real solution — handed off so you own it.",
 };
@@ -48,8 +48,6 @@ const faqItems = [
 export default function HomePage() {
   return (
     <>
-      {/* JSON-LD schema added in Phase 6 via server-safe injection */}
-
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroBg} />
