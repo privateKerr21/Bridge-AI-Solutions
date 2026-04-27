@@ -1,0 +1,179 @@
+/* ===========================
+   Use Cases Hero
+   =========================== */
+.ucHero {
+  background-color: var(--bg);
+  padding: 100px 0 72px;
+  border-bottom: var(--border-weight) solid var(--ink);
+}
+
+.ucHero .heroLabel {
+  display: block;
+  margin-bottom: 20px;
+  color: var(--muted);
+}
+
+.ucHero h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.ucHeroSub {
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: 16px;
+}
+
+.ucHeroNote {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ===========================
+   Industry Sections
+   =========================== */
+.ucSections {
+  padding: 80px 0 100px;
+  background-color: var(--bg);
+}
+
+.ucIndustry {
+  padding: 64px 0;
+  border-top: var(--border-weight) solid var(--ink);
+}
+
+.ucIndustry:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.ucIndustryHeader {
+  margin-bottom: 40px;
+  max-width: 680px;
+}
+
+.ucIndustryHeader h2 {
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.ucIndustryHeader p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.tldrBlock {
+  border-left: 3px solid var(--gold);
+  background: rgba(212, 175, 55, 0.06);
+  padding: 16px 20px;
+  margin-bottom: 32px;
+  max-width: 680px;
+}
+
+.tldrBlock strong {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold-dark);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.tldrBlock p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* ===========================
+   Use Case Cards
+   =========================== */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 700px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ucCard {
+  padding: 36px 32px;
+  border: var(--border-weight) solid var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ucCard:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--ink);
+  position: relative;
+  z-index: 1;
+}
+
+.ucCardTitle {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.ucCardDesc {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.timeBadge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  background-color: var(--gold);
+  padding: 4px 10px;
+}
+
+/* ===========================
+   CTA Band
+   =========================== */
+.ctaBand {
+  background: var(--ink);
+  border-top: var(--border-weight) solid var(--gold);
+  padding: 80px 0;
+}
+
+.ctaBandInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.ctaBandInner h2 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: var(--dark-text);
+  max-width: 500px;
+}
