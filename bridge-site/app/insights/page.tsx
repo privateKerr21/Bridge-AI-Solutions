@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getAllArticles } from "@/lib/articles";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -9,6 +10,8 @@ export const metadata: Metadata = {
 };
 
 export default function InsightsPage() {
+  const articles = getAllArticles();
+
   return (
     <>
       {/* TODO Phase 6: JSON-LD schema */}
@@ -296,20 +299,21 @@ export default function InsightsPage() {
           <h2>Deep dives on decisions that matter</h2>
 
           <div className={styles.articleCards}>
-            <Link href="/insights/no-code-vs-custom-ai" className={styles.articleCard}>
-              <span className={styles.articleCardTag}>Perspective</span>
-              <h3>No-code automation vs. custom AI software: which is right for your business?</h3>
-              <p>If your workflow is simple and standard, Zapier may be enough. If it&apos;s complex, high-volume, or core to your operation, you need software you own. Here&apos;s how to make the call.</p>
-              <div className={styles.articleCardFooter}>
-                <span className={styles.articleCardMeta}>April 2026 &nbsp;&middot;&nbsp; 9 min read</span>
-                <span className={styles.articleCardArrow}>&rarr;</span>
-              </div>
-            </Link>
-
-            <div className={styles.articleCardPlaceholder}>
-              <span className={"label " + styles.placeholderLabel}>Coming Next</span>
-              <p>More articles on automation, ROI, and how small B2B businesses are building competitive advantages with custom software.</p>
-            </div>
+            {articles.map((article) => (
+              <Link key={article.slug} href={`/insights/${article.slug}`} className={styles.articleCard}>
+                <span className={styles.articleCardTag}>{article.tag}</span>
+                <h3>{article.title}</h3>
+                <p>{article.description}</p>
+                <div className={styles.articleCardFooter}>
+                  <span className={styles.articleCardMeta}>
+                    {new Date(article.date).toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+                    &nbsp;&middot;&nbsp;
+                    {article.readTime}
+                  </span>
+                  <span className={styles.articleCardArrow}>&rarr;</span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
