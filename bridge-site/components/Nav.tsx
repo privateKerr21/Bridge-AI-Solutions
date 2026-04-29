@@ -16,12 +16,16 @@ const links = [
 export default function Nav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Close menu on route change
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
 
   return (
     <nav className={`navbar${scrolled ? " scrolled" : ""}`}>
@@ -40,6 +44,7 @@ export default function Nav() {
           <li key={href}>
             <Link
               href={href}
+              aria-current={pathname === href ? "page" : undefined}
               className={pathname === href ? "active" : undefined}
             >
               {label}
@@ -57,6 +62,44 @@ export default function Nav() {
           Let&apos;s Talk
         </a>
       </div>
+
+      <button
+        className={`navbar-hamburger${menuOpen ? " open" : ""}`}
+        onClick={() => setMenuOpen((o) => !o)}
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={menuOpen}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      {menuOpen && (
+        <div className="navbar-mobile-menu">
+          <ul>
+            {links.map(({ href, label }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  aria-current={pathname === href ? "page" : undefined}
+                  className={pathname === href ? "active" : undefined}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="https://calendly.com/h-kerr711/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary navbar-mobile-cta"
+          >
+            Let&apos;s Talk
+          </a>
+        </div>
+      )}
     </nav>
   );
 }

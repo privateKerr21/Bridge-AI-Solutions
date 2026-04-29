@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: "Use Cases",
   description:
     "See what custom AI-powered software looks like across consulting, accounting, marketing agencies, and recruitment — with real time savings per use case.",
+  openGraph: {
+    title: "Use Cases — Bridge AI Solutions",
+    description:
+      "See what custom AI-powered software looks like across consulting, accounting, marketing agencies, and recruitment — with real time savings per use case.",
+    url: "https://aibridgedsolutions.com/use-cases",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Use Cases — Bridge AI Solutions",
+    description:
+      "See what custom AI-powered software looks like across consulting, accounting, marketing agencies, and recruitment.",
+  },
 };
 
 export default function UseCasesPage() {

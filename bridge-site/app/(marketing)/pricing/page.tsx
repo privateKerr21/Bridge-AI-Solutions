@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   title: "Pricing",
   description:
     "Simple, transparent pricing for custom AI-powered software. No retainers, no surprises. One-time project fees for real custom builds.",
+  openGraph: {
+    title: "Pricing — Bridge AI Solutions",
+    description:
+      "Simple, transparent pricing for custom AI-powered software. No retainers, no surprises. One-time project fees for real custom builds.",
+    url: "https://aibridgedsolutions.com/pricing",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pricing — Bridge AI Solutions",
+    description:
+      "Simple, transparent pricing for custom AI-powered software. No retainers, no surprises.",
+  },
 };
 
 const faqs = [

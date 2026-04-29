@@ -8,6 +8,18 @@ export const metadata: Metadata = {
   title: { absolute: "Bridge AI Solutions — Stop Patching. Start Building." },
   description:
     "Bridge AI Solutions builds custom AI-powered software and tools for small B2B businesses. We identify your biggest operational bottleneck and build a real solution — handed off so you own it.",
+  openGraph: {
+    title: "Bridge AI Solutions — Stop Patching. Start Building.",
+    description:
+      "Custom AI-powered software for small B2B businesses. We identify your biggest operational bottleneck and build a real solution you own.",
+    url: "https://aibridgedsolutions.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bridge AI Solutions — Stop Patching. Start Building.",
+    description:
+      "Custom AI-powered software for small B2B businesses. We identify your biggest operational bottleneck and build a real solution you own.",
+  },
 };
 
 const faqItems = [

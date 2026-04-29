@@ -224,6 +224,7 @@ export default function Quiz() {
                 <button
                   className={`linkedin-copy-btn${copied ? " copied" : ""}`}
                   onClick={copyLinkedIn}
+                  aria-label="Copy LinkedIn message to clipboard"
                 >
                   {copied ? "Copied!" : "Copy"}
                 </button>

@@ -7,6 +7,18 @@ export const metadata: Metadata = {
   title: "Insights — The Custom AI Build Brief",
   description:
     "The real numbers. The honest limitations. And what's possible when you replace patchwork tools with software built for how you actually work.",
+  openGraph: {
+    title: "Insights — The Custom AI Build Brief",
+    description:
+      "The real numbers. The honest limitations. And what's possible when you replace patchwork tools with software built for how you actually work.",
+    url: "https://aibridgedsolutions.com/insights",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Insights — The Custom AI Build Brief",
+    description:
+      "The real numbers. The honest limitations. And what's possible when you replace patchwork tools with software built for how you actually work.",
+  },
 };
 
 export default function InsightsPage() {
