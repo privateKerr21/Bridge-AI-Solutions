@@ -119,13 +119,24 @@ export default function Quiz() {
 
   function copyLinkedIn() {
     if (!result) return;
-    navigator.clipboard.writeText(buildLinkedInDraft(answers, result)).then(() => {
+    const text = buildLinkedInDraft(answers, result);
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }).catch(() => {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.cssText = "position:fixed;opacity:0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });
   }
 
-  const progress = done ? 100 : (current / 3) * 100;
+  const progress = done ? 100 : ((current + 1) / 3) * 100;
 
   const questionData = [
     {
