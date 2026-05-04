@@ -77,10 +77,10 @@ function buildEmailLink(answers: Answers, result: (typeof results)[keyof typeof 
   };
 
   const bodies: Record<string, string> = {
-    ready: `Hi Harrison,\n\nI just took the quiz on Bridge AI — came out as "Ready to Build."\n\nI've been spending ${hours} on ${work} and I ${exp}. I'm not looking for an intro — I want a custom tool built.\n\nWorth a quick call?\n\n[Your name]`,
-    high: `Hi Harrison,\n\nI just took the quiz on Bridge AI — looks like I have high build potential.\n\nI'm spending ${hours} on ${work} and I ${exp}. Sounds like there's real capacity to recover here.\n\nWould love to scope something out. Open to a call?\n\n[Your name]`,
-    medium: `Hi Harrison,\n\nTook the quiz on Bridge AI — got "Good Fit for a Custom Build."\n\nI'm spending ${hours} on ${work} and I ${exp}. Curious what a custom tool could do for my operation.\n\nOpen to a quick call?\n\n[Your name]`,
-    low: `Hi Harrison,\n\nI just took the quiz on Bridge AI — got "Starting Point Identified."\n\nI'm spending ${hours} on ${work}. Even if it's focused to start, I want to see what the right first build would look like.\n\nUp for a quick chat?\n\n[Your name]`,
+    ready: `Hi Hayden,\n\nI just took the quiz on Bridge AI — came out as "Ready to Build."\n\nI've been spending ${hours} on ${work} and I ${exp}. I'm not looking for an intro — I want a custom tool built.\n\nWorth a quick call?\n\n[Your name]`,
+    high: `Hi Hayden,\n\nI just took the quiz on Bridge AI — looks like I have high build potential.\n\nI'm spending ${hours} on ${work} and I ${exp}. Sounds like there's real capacity to recover here.\n\nWould love to scope something out. Open to a call?\n\n[Your name]`,
+    medium: `Hi Hayden,\n\nTook the quiz on Bridge AI — got "Good Fit for a Custom Build."\n\nI'm spending ${hours} on ${work} and I ${exp}. Curious what a custom tool could do for my operation.\n\nOpen to a quick call?\n\n[Your name]`,
+    low: `Hi Hayden,\n\nI just took the quiz on Bridge AI — got "Starting Point Identified."\n\nI'm spending ${hours} on ${work}. Even if it's focused to start, I want to see what the right first build would look like.\n\nUp for a quick chat?\n\n[Your name]`,
   };
 
   return (
@@ -94,7 +94,7 @@ function buildLinkedInDraft(answers: Answers, result: (typeof results)[keyof typ
   const work = workTypeLabels[answers.q1 ?? ""] || "repetitive work";
   const hours = hoursLabels[answers.q2 ?? ""] || "several hours a week";
   const exp = aiExpLabels[answers.q3 ?? ""] || "";
-  return `Hi Harrison — I just took the quiz on your Bridge AI site and came out as "${result.badge}." I'm spending ${hours} on ${work} and I ${exp}. Would love to connect and hear what you've built for similar businesses.`;
+  return `Hi Hayden — I just took the quiz on your Bridge AI site and came out as "${result.badge}." I'm spending ${hours} on ${work} and I ${exp}. Would love to connect and hear what you've built for similar businesses.`;
 }
 
 export default function Quiz() {
