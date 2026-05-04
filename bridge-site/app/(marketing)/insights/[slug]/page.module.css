@@ -164,8 +164,8 @@
 
 /* Blockquote (pull quote) */
 .articleContent blockquote {
-  border-left: 4px solid var(--gold);
-  padding: 4px 0 4px 28px;
+  border-top: 2px solid var(--gold);
+  padding: 28px 0 4px 0;
   margin: 40px 0;
 }
 

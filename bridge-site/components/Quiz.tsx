@@ -186,7 +186,7 @@ export default function Quiz() {
         </div>
 
         <div className="quiz-progress">
-          <div className="quiz-progress-bar" style={{ width: `${progress}%` }} />
+          <div className="quiz-progress-bar" style={{ transform: `scaleX(${progress / 100})` }} />
         </div>
 
         {!done && (
