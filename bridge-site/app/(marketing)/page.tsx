@@ -90,7 +90,7 @@ export default function HomePage() {
             <div className={styles.heroContactLinks}>
               <a href="mailto:h.kerr@aibridgedsolutions.com">h.kerr@aibridgedsolutions.com</a>
               <a
-                href="https://www.linkedin.com/in/harrisonkerr21/"
+                href="https://www.linkedin.com/in/haydenkerr-bridged"
                 target="_blank"
                 rel="noopener noreferrer"
               >

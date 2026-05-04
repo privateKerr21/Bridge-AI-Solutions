@@ -230,7 +230,7 @@ export default function Quiz() {
                 </button>
               </div>
               <a
-                href="https://www.linkedin.com/in/harrisonkerr21/"
+                href="https://www.linkedin.com/in/haydenkerr-bridged"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-dark linkedin-go-btn"
