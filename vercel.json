@@ -1,7 +1,1 @@
-{
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    { "source": "/4-help", "destination": "/Clients/LifeTraq/Projects/4-help-App/index.html" }
-  ]
-}
+{}
