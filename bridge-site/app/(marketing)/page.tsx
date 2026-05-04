@@ -130,19 +130,21 @@ export default function HomePage() {
       {/* STATS */}
       <section className={styles.statsSection}>
         <div className="container">
-          <div className={styles.statsGrid}>
+          <div className={styles.statsTable}>
             {[
               { num: "10", suffix: "+", label: "Hours saved / week", desc: "Average time recovered by clients in the first 30 days" },
               { num: "80", suffix: "%", label: "Of busywork is automatable", desc: "Research shows most repetitive tasks can be handled by AI today" },
-              { num: "3", suffix: "x", label: "ROI in 90 days", desc: "Typical return on automation investment within the first quarter" },
-              { num: "2", suffix: "wks", label: "Average build time", desc: "From discovery call to live, working custom tool" },
+              { num: "3", suffix: "×", label: "ROI in 90 days", desc: "Typical return on automation investment within the first quarter" },
+              { num: "2", suffix: " wks", label: "Average build time", desc: "From discovery call to live, working custom tool" },
             ].map(({ num, suffix, label, desc }) => (
-              <div key={label} className={styles.statItem}>
-                <div className={styles.statNumber}>
-                  {num}<span className={styles.statSuffix}>{suffix}</span>
+              <div key={label} className={styles.statRow}>
+                <div className={styles.statFigure}>
+                  {num}<span>{suffix}</span>
                 </div>
-                <div className={styles.statLabel}>{label}</div>
-                <p className={styles.statDesc}>{desc}</p>
+                <div className={styles.statMeta}>
+                  <span className={styles.statLabel}>{label}</span>
+                  <p className={styles.statDesc}>{desc}</p>
+                </div>
               </div>
             ))}
           </div>

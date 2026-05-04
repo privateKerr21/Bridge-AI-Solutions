@@ -24,6 +24,11 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
   // Close menu on route change
   useEffect(() => { setMenuOpen(false); }, [pathname]);
 
@@ -68,6 +73,7 @@ export default function Nav() {
         onClick={() => setMenuOpen((o) => !o)}
         aria-label={menuOpen ? "Close menu" : "Open menu"}
         aria-expanded={menuOpen}
+        aria-controls="mobile-menu"
       >
         <span />
         <span />
@@ -75,7 +81,7 @@ export default function Nav() {
       </button>
 
       {menuOpen && (
-        <div className="navbar-mobile-menu">
+        <div id="mobile-menu" className="navbar-mobile-menu">
           <ul>
             {links.map(({ href, label }) => (
               <li key={href}>

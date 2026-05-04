@@ -33,7 +33,7 @@ export default function Footer() {
               style={{
                 marginTop: 14,
                 fontSize: "0.9rem",
-                color: "var(--muted)",
+                color: "var(--muted-light)",
                 maxWidth: 320,
                 lineHeight: 1.6,
               }}

@@ -43,7 +43,10 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} ${spaceMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <a href="#main-content" className="skip-link">Skip to content</a>
+        {children}
+      </body>
     </html>
   );
 }
