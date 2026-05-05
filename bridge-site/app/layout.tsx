@@ -20,6 +20,33 @@ const spaceMono = Space_Mono({
   variable: "--font-space-mono",
 });
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Bridge AI Solutions",
+  url: "https://aibridgedsolutions.com",
+  logo: "https://aibridgedsolutions.com/brand/logos/bridge_ai_logo4.png",
+  description:
+    "Custom AI-powered software consultancy for small B2B service businesses. We build and hand off real solutions — you own the code.",
+  founder: {
+    "@type": "Person",
+    name: "Hayden Kerr",
+    sameAs: "https://www.linkedin.com/in/haydenkerr-bridged",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "h.kerr@aibridgedsolutions.com",
+    contactType: "sales",
+  },
+  sameAs: ["https://www.linkedin.com/in/haydenkerr-bridged"],
+  areaServed: "US",
+  knowsAbout: [
+    "AI software development",
+    "business process automation",
+    "custom software for small businesses",
+  ],
+};
+
 export const metadata: Metadata = {
   title: {
     default: "Bridge AI Solutions — Custom AI Software for Small B2B Businesses",
@@ -44,6 +71,11 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${spaceMono.variable}`}
     >
       <body>
+        {/* JSON-LD: static hardcoded object, no user input — dangerouslySetInnerHTML is safe here */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <a href="#main-content" className="skip-link">Skip to content</a>
         {children}
       </body>
