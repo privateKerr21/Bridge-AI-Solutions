@@ -334,8 +334,7 @@ export default function InsightsPage() {
       <section className={styles.sideEffectsSection}>
         <div className="container">
           <span className={"label " + styles.sideEffectsLabel}>Side Effects of Working With Us</span>
-          <h2>Results suspiciously consistent across clients</h2>
-          <p className={styles.sideEffectsIntro}>Actual experiences reported by real clients:</p>
+          <h2>Results suspiciously consistent across the board</h2>
 
           <ul className={styles.sideEffectsList}>
             <li>Mysterious reclamation of 10+ hours per week previously lost to manual processes and spreadsheet maintenance</li>
