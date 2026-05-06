@@ -28,9 +28,38 @@ export default async function ArticlePage({
   const meta = getArticleMeta(slug);
   const { default: Content } = await import(`@/content/insights/${slug}.mdx`);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: meta.title,
+    description: meta.description,
+    datePublished: meta.date,
+    dateModified: meta.date,
+    url: `https://aibridgedsolutions.com/insights/${slug}`,
+    mainEntityOfPage: `https://aibridgedsolutions.com/insights/${slug}`,
+    author: {
+      "@type": "Person",
+      name: "Hayden Kerr",
+      url: "https://www.linkedin.com/in/haydenkerr-bridged",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Bridge AI Solutions",
+      url: "https://aibridgedsolutions.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://aibridgedsolutions.com/brand/logos/bridge_ai_logo4.png",
+      },
+    },
+    articleSection: meta.tag,
+  };
+
   return (
     <>
-      {/* TODO Phase 6: Article JSON-LD schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
 
       <section className={styles.articleHero}>
         <div className={"container " + styles.articleHeroInner}>

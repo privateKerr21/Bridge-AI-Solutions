@@ -1,27 +1,150 @@
 # Bridge AI Solutions
 
-Bridge AI Solutions is a custom software consultancy that builds AI-powered tools and automations for small B2B service businesses in the United States.
+Bridge AI Solutions is a custom software consultancy that builds AI-powered tools and automations for small B2B service businesses in the United States. Founded by Hayden Kerr.
 
-## What We Do
+> Stop patching. Start building.
 
-We identify your biggest operational bottleneck and build a real, custom AI-powered solution around it — then hand it off so you own the code, the data, and everything in it. No lock-in.
+## Positioning
+
+Bridge AI builds custom AI-powered software, not Zapier or Make.com workflow automation. Clients receive real software they own outright — full source code, deployed in their own environment, with no ongoing dependency on Bridge AI to operate it.
+
+The core thesis: small B2B service businesses outgrow no-code patches quickly. Zapier breaks at scale, off-the-shelf SaaS almost-fits, and a full-time developer hire is overkill. A custom build sized for the actual problem is faster, cheaper, and more durable.
 
 ## Who We Serve
 
-Small B2B service businesses, typically 1–20 people, spending significant hours each week on manual, repetitive work. Common industries: professional services, financial advisory, healthcare operations, marketing agencies.
+- Small B2B service businesses, typically 1–20 people
+- Spending significant hours each week on manual, repetitive work
+- Common verticals: consulting, accounting, financial advisory, healthcare operations, marketing agencies, recruitment, construction
+- Located in the United States
+
+Clients usually arrive after one or more of: outgrowing a Zapier stack, hitting limits on a no-code tool, considering hiring a developer, or watching a critical process depend on one team member's memory.
 
 ## Services
 
-- Focused Build: One targeted automation problem, delivered in ~1 week
-- Signature Build: Multi-system AI platform, delivered in 3–4 weeks
+### Focused Build — $1,500 (founding rate; $2,500 standard)
+
+One targeted operational problem solved with a custom AI-powered tool. Includes:
+- Discovery call to scope the problem
+- Custom-built tool, deployed and working
+- Documentation
+- One revision round
+- Full ownership of the code
+
+Delivered in approximately one week. Best for: a single specific pain point — an internal tracker, dashboard, or custom tool.
+
+### Signature Build — $3,500 (founding rate; $6,000–$8,000 standard)
+
+Multi-feature custom AI platform replacing a patchwork of spreadsheets and disconnected tools. Includes:
+- Deep-dive discovery to map the full workflow
+- Custom multi-feature platform, deployed and working
+- Multi-user support where needed
+- Full testing before handoff
+- Documentation and team walkthrough
+- Two revision rounds
+- Full ownership of the code
+
+Delivered in 3–4 weeks. 50% upfront, 50% on delivery. Best for: replacing a patchwork of tools with one platform built around how the business actually works.
+
+### Studio Partner — $1,500/month (founding rate; $2,500/month standard)
+
+Ongoing custom development retainer. Includes:
+- Everything in Signature Build
+- Ongoing maintenance and bug fixes
+- Monthly strategy call to prioritize next features
+- New features as the business grows
+- Priority response time
+- Quarterly system review
+
+Best for: businesses ready to treat custom software as infrastructure, not a one-time project.
+
+## Process
+
+1. **Discover** — A 30-minute call to identify exactly which tasks are eating hours and which are ready to automate.
+2. **Build** — A custom AI-powered tool or platform built around the client's exact workflow. Not a generic SaaS that almost fits.
+3. **Hand Off** — Full documentation, training, and ongoing support. The client owns it. Bridge AI is there when needed.
+
+## Discovery Call Framework (PULL)
+
+Discovery calls follow the PULL framework over 60 minutes:
+- **P — Project**: What is the single biggest operational problem?
+- **U — Urgency**: Why is this a priority now versus six months ago?
+- **L1 — Limitation**: What has already been tried and why is it still unsolved?
+- **L2 — Fit**: What does the ideal solution look like, who uses it, and what does it need to do?
+
+## Frequently Asked Questions
+
+### What does Bridge AI Solutions do?
+Bridge AI builds custom AI-powered software for small B2B service businesses. The consultancy identifies the biggest operational bottleneck, builds a real solution around it, and hands it off — the client owns the code and everything in it.
+
+### Who is Bridge AI Solutions for?
+Small B2B service businesses (1–20 people) spending significant hours each week on manual, repetitive work. Particularly suited to teams tracking important things in spreadsheets, copy-pasting between tools, or running processes that depend on one person's memory.
+
+### What is the difference between custom AI software and no-code tools like Zapier?
+Zapier connects existing apps with pre-built triggers and actions. Custom software is built from the ground up around an exact process — no workarounds, no per-task limits, no breaking when an API changes. The client owns it outright instead of renting access to someone else's infrastructure.
+
+### How long does a project take?
+A Focused Build (one targeted problem) takes about a week from kickoff. A Signature Build runs 3–4 weeks depending on scope. Specific timelines are confirmed during discovery.
+
+### Do clients own the software after the project?
+Yes — fully. Clients own the code, the data, and all of it. Bridge AI builds in its own environment and transfers everything cleanly to client accounts at handoff. No lock-in, no dependency on Bridge AI to keep it running.
+
+### What kinds of problems does custom AI software solve for small businesses?
+Most common: manual client reporting that takes hours weekly, outreach and follow-up that falls through the cracks, research done by hand, internal dashboards that do not yet exist, document collection and tracking, proposal and quote generation, candidate or lead screening. If the process is repetitive and rule-based, it is usually automatable.
+
+### Do clients need to be technical?
+No. Clients describe the problem clearly — what they are doing today, how long it takes, and what the ideal outcome looks like. Bridge AI handles the technical side entirely. Most clients have never written a line of code.
+
+### How is Bridge AI different from hiring a freelancer?
+A freelancer builds what is specced. Bridge AI starts with discovery — identifying the right problem before writing code. Bridge AI also brings AI-specific expertise most freelancers do not have, and every project includes documentation and training so clients are never dependent on Bridge AI afterward.
+
+### How much does custom AI software cost for a small business?
+Project-based work starts at $1,500 for a Focused Build, and $3,500 for a Signature Build. The Studio Partner retainer is $1,500/month. All current spots are founding-client rates, discounted from standard pricing.
+
+### What is the typical return on investment?
+Most clients recover the cost of a Focused Build within the first month. A build that saves five hours per week at $100/hour of billable time returns $2,000/month in capacity. ROI compounds as the tool handles more volume without adding headcount.
+
+### Why custom software instead of off-the-shelf SaaS?
+SaaS is built for the average customer in a category. Small B2B service businesses rarely fit the average. Custom software shapes itself around the actual workflow — the SaaS shapes the workflow around itself. Custom builds also have no per-seat costs, no feature gates, and no risk of pricing changes or acquisitions disrupting operations.
+
+### What is "shadow work" and why does it matter?
+Shadow work is the high-effort, low-value repetitive task layer that no one is hired to do but everyone ends up doing — the spreadsheet maintenance, copy-paste between tools, manual reporting, document chasing. It silently consumes 30–50% of operational capacity in many small B2B businesses. Custom AI software is uniquely good at eliminating it because shadow work is rule-based by definition.
+
+## Industry Use Cases
+
+### Consulting
+Typical time savings: 8–10 hours per week. Common builds: proposal builders, meeting intelligence tools, client research dashboards, client reporting platforms.
+
+### Accounting
+Typical time savings: 8–12 hours per week. Common builds: invoice processing tools, client onboarding platforms, document collection trackers, reporting dashboards.
+
+### Marketing Agencies
+Typical time savings: 6–8 hours per week. Common builds: content repurposing tools, client reporting dashboards, lead scoring platforms, brief generators.
+
+### Recruitment
+Typical time savings: 6–8 hours per week. Common builds: candidate screening tools, outreach message builders, job description generators, scheduling coordination platforms.
+
+### Construction
+Typical time savings: 6–10 hours per week. Common builds: site report generators, estimate and quote builders, subcontractor management platforms, safety and compliance documentation tools.
+
+## Founder
+
+Hayden Kerr — Founder of Bridge AI Solutions. Background in custom AI software development for small B2B service businesses.
+
+- LinkedIn: https://www.linkedin.com/in/haydenkerr-bridged
+- Email: h.kerr@aibridgedsolutions.com
 
 ## Contact
 
+- Website: https://aibridgedsolutions.com
 - Email: h.kerr@aibridgedsolutions.com
 - LinkedIn: https://www.linkedin.com/in/haydenkerr-bridged
-- Website: https://aibridgedsolutions.com
+- Discovery calls: Free 30-minute call to scope the problem and confirm fit
 
-## Content
+## Site Map
 
-- Insights: https://aibridgedsolutions.com/insights
-- Sitemap: https://aibridgedsolutions.com/sitemap.xml
+- Homepage: https://aibridgedsolutions.com
+- Pricing: https://aibridgedsolutions.com/pricing
+- Use Cases: https://aibridgedsolutions.com/use-cases
+- Our Work: https://aibridgedsolutions.com/work
+- Insights (blog): https://aibridgedsolutions.com/insights
+- XML Sitemap: https://aibridgedsolutions.com/sitemap.xml

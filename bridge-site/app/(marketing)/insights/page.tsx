@@ -24,9 +24,35 @@ export const metadata: Metadata = {
 export default function InsightsPage() {
   const articles = getAllArticles();
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "The Custom AI Build Brief",
+    url: "https://aibridgedsolutions.com/insights",
+    description:
+      "Honest writing on custom AI software for small B2B businesses — what it can do, what it costs, and where it breaks.",
+    publisher: {
+      "@type": "Organization",
+      name: "Bridge AI Solutions",
+      url: "https://aibridgedsolutions.com",
+    },
+    blogPost: articles.map((a) => ({
+      "@type": "BlogPosting",
+      headline: a.title,
+      description: a.description,
+      datePublished: a.date,
+      url: `https://aibridgedsolutions.com/insights/${a.slug}`,
+      author: { "@type": "Person", name: "Hayden Kerr" },
+    })),
+  };
+
   return (
     <>
-      {/* TODO Phase 6: JSON-LD schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+
 
       {/* HERO */}
       <section className={styles.insightsHero}>

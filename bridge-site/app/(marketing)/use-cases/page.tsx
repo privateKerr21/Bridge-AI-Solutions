@@ -19,10 +19,41 @@ export const metadata: Metadata = {
   },
 };
 
+const industries = [
+  { id: "consulting", name: "Consulting", savings: "8–10 hours per week" },
+  { id: "accounting", name: "Accounting", savings: "8–12 hours per week" },
+  { id: "marketing-agencies", name: "Marketing Agencies", savings: "6–8 hours per week" },
+  { id: "recruitment", name: "Recruitment", savings: "6–8 hours per week" },
+  { id: "construction", name: "Construction", savings: "6–10 hours per week" },
+];
+
+const useCasesSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Use Cases — Custom AI Software for Small B2B Businesses",
+  url: "https://aibridgedsolutions.com/use-cases",
+  description:
+    "What custom AI-powered software looks like in practice across consulting, accounting, marketing agencies, recruitment, and construction.",
+  isPartOf: { "@type": "WebSite", name: "Bridge AI Solutions", url: "https://aibridgedsolutions.com" },
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: industries.map((industry, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `https://aibridgedsolutions.com/use-cases#${industry.id}`,
+      name: `Custom AI software for ${industry.name.toLowerCase()}`,
+      description: `Typical time savings: ${industry.savings}.`,
+    })),
+  },
+};
+
 export default function UseCasesPage() {
   return (
     <>
-      {/* TODO Phase 6: JSON-LD schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(useCasesSchema) }}
+      />
 
       {/* HERO */}
       <section className={styles.ucHero}>

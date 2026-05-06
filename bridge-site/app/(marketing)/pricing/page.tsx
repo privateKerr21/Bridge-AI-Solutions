@@ -47,10 +47,70 @@ const faqs = [
   },
 ];
 
+const serviceTiers = [
+  {
+    name: "Focused Build",
+    description:
+      "One targeted operational problem solved with a custom AI-powered tool. Discovery call, build, deployment, documentation, one revision round. Delivered in about a week. Client owns the code.",
+    price: "1500",
+    priceSpecification: { unitText: "ONE_TIME" },
+    bestFor: "One specific operational pain — internal trackers, dashboards, custom tools.",
+  },
+  {
+    name: "Signature Build",
+    description:
+      "Multi-feature custom AI platform replacing a patchwork of tools. Deep-dive discovery, multi-user support, full testing, training, two revision rounds. Delivered in 3–4 weeks. Client owns the code.",
+    price: "3500",
+    priceSpecification: { unitText: "ONE_TIME" },
+    bestFor: "Replacing a patchwork of spreadsheets and tools with one platform built around how you work.",
+  },
+  {
+    name: "Studio Partner",
+    description:
+      "Ongoing custom development retainer. Includes initial build, monthly strategy call, new feature development, maintenance, priority response, quarterly reviews.",
+    price: "1500",
+    priceSpecification: { unitText: "MONTH" },
+    bestFor: "Businesses ready to treat custom software as infrastructure, not a one-time project.",
+  },
+];
+
+const pricingSchema = {
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  name: "Bridge AI Solutions — Service Tiers",
+  url: "https://aibridgedsolutions.com/pricing",
+  itemListElement: serviceTiers.map((tier, i) => ({
+    "@type": "Offer",
+    position: i + 1,
+    name: tier.name,
+    description: tier.description,
+    price: tier.price,
+    priceCurrency: "USD",
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: tier.price,
+      priceCurrency: "USD",
+      unitText: tier.priceSpecification.unitText,
+    },
+    seller: { "@type": "Organization", name: "Bridge AI Solutions" },
+    itemOffered: {
+      "@type": "Service",
+      name: tier.name,
+      serviceType: "Custom AI software development",
+      provider: { "@type": "Organization", name: "Bridge AI Solutions" },
+      description: tier.description,
+      areaServed: "US",
+    },
+  })),
+};
+
 export default function PricingPage() {
   return (
     <>
-      {/* TODO Phase 6: JSON-LD schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }}
+      />
 
       {/* HERO */}
       <section className={styles.pricingHero}>
