@@ -12,3 +12,5 @@ Templates/
 
 # Editor config
 .obsidian/
+
+.vercel

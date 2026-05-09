@@ -106,15 +106,31 @@ export default function Quiz() {
   const result = done ? calculateResult(answers) : null;
 
   function selectAnswer(questionId: QuestionKey, value: string) {
-    const newAnswers = { ...answers, [questionId]: value };
-    setAnswers(newAnswers);
-    setTimeout(() => {
-      if (current < 2) {
-        setCurrent(current + 1);
-      } else {
-        setDone(true);
-      }
-    }, 300);
+    setAnswers({ ...answers, [questionId]: value });
+  }
+
+  function goNext() {
+    if (current < 2) {
+      setCurrent(current + 1);
+    } else {
+      setDone(true);
+    }
+  }
+
+  function goBack() {
+    if (done) {
+      setDone(false);
+      setCurrent(2);
+      return;
+    }
+    if (current > 0) setCurrent(current - 1);
+  }
+
+  function startOver() {
+    setAnswers({});
+    setCurrent(0);
+    setDone(false);
+    setCopied(false);
   }
 
   function copyLinkedIn() {
@@ -199,10 +215,31 @@ export default function Quiz() {
                   key={opt.value}
                   className={`quiz-option${answers[q.id] === opt.value ? " selected" : ""}`}
                   onClick={() => selectAnswer(q.id, opt.value)}
+                  aria-pressed={answers[q.id] === opt.value}
                 >
                   {opt.label}
                 </button>
               ))}
+            </div>
+            <div className="quiz-nav">
+              <button
+                type="button"
+                className="quiz-nav-back"
+                onClick={goBack}
+                disabled={current === 0}
+                aria-label="Previous question"
+              >
+                ← Back
+              </button>
+              <button
+                type="button"
+                className="quiz-nav-next"
+                onClick={goNext}
+                disabled={!answers[q.id]}
+                aria-label={current === 2 ? "See your result" : "Next question"}
+              >
+                {current === 2 ? "See your result →" : "Next →"}
+              </button>
             </div>
           </div>
         )}
@@ -213,31 +250,54 @@ export default function Quiz() {
             <h2 className="result-title">{result.title}</h2>
             <p className="result-desc">{result.desc}</p>
 
-            <div className="result-contact-links">
-              <a href={buildEmailLink(answers, result)}>Get in Touch &rarr;</a>
-            </div>
-
-            <div className="linkedin-draft-block">
-              <p className="linkedin-draft-label">// Copy this message, then connect on LinkedIn</p>
-              <div className="linkedin-draft-box">
-                <p className="linkedin-draft-text">{buildLinkedInDraft(answers, result)}</p>
-                <button
-                  className={`linkedin-copy-btn${copied ? " copied" : ""}`}
-                  onClick={copyLinkedIn}
-                  aria-label="Copy LinkedIn message to clipboard"
-                >
-                  {copied ? "Copied!" : "Copy"}
-                </button>
-              </div>
+            <div className="result-actions">
               <a
-                href="https://www.linkedin.com/in/haydenkerr-bridged"
+                href="https://calendly.com/h-kerr711/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-dark linkedin-go-btn"
+                className="btn-ink"
               >
-                Open LinkedIn &rarr;
+                Book a discovery call
               </a>
+              <button
+                type="button"
+                className="quiz-result-back"
+                onClick={goBack}
+                aria-label="Edit my answers"
+              >
+                ← Edit answers
+              </button>
             </div>
+
+            <details className="result-alt-paths">
+              <summary>Prefer email or LinkedIn?</summary>
+              <div className="result-alt-paths-inner">
+                <div className="result-contact-links">
+                  <a href={buildEmailLink(answers, result)}>Send a personalized email →</a>
+                </div>
+                <div className="linkedin-draft-block">
+                  <p className="linkedin-draft-label">// Or copy this LinkedIn message</p>
+                  <div className="linkedin-draft-box">
+                    <p className="linkedin-draft-text">{buildLinkedInDraft(answers, result)}</p>
+                    <button
+                      className={`linkedin-copy-btn${copied ? " copied" : ""}`}
+                      onClick={copyLinkedIn}
+                      aria-label="Copy LinkedIn message to clipboard"
+                    >
+                      {copied ? "Copied!" : "Copy"}
+                    </button>
+                  </div>
+                  <a
+                    href="https://www.linkedin.com/in/haydenkerr-bridged"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="linkedin-go-link"
+                  >
+                    Open LinkedIn →
+                  </a>
+                </div>
+              </div>
+            </details>
           </div>
         )}
       </div>

@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Simple, transparent pricing for custom AI-powered software. No retainers, no surprises. One-time project fees for real custom builds.",
+    "Simple, transparent pricing for custom AI-powered software. No retainers, no surprises. Fixed project fees for real custom builds.",
   openGraph: {
     title: "Pricing — Bridge AI Solutions",
     description:
-      "Simple, transparent pricing for custom AI-powered software. No retainers, no surprises. One-time project fees for real custom builds.",
+      "Simple, transparent pricing for custom AI-powered software. No retainers, no surprises. Fixed project fees for real custom builds.",
     url: "https://aibridgedsolutions.com/pricing",
   },
   twitter: {
@@ -27,50 +26,77 @@ const faqs = [
   },
   {
     q: "How long does a build take?",
-    a: "Focused Builds typically take about a week from kickoff. Signature Builds run 3–4 weeks depending on scope and how quickly you can provide feedback. We'll give you a specific timeline during your discovery call.",
+    a: "Focused Builds typically take about a week from kickoff. Signature Builds run 3–4 weeks depending on scope and how quickly you can provide feedback. The specific timeline lands in the proposal that follows the discovery call.",
   },
   {
     q: "What do I need to have ready before we start?",
-    a: "A clear problem you want solved and availability to give feedback during the build. You don't need a technical spec — that's our job. The more specifically you can describe what's eating your time, the better.",
+    a: "A clear problem you want solved and availability to give feedback during the build. You don't need a technical spec, that's our job. The more specifically you can describe what's eating your time, the better.",
   },
   {
     q: "What happens after the build is handed off?",
-    a: "You own everything — code, data, all of it. We build in our own environment, then transfer everything cleanly to your accounts at handoff. No lock-in, no dependency on us to keep the lights on. Revision rounds are included in every tier — if you want ongoing support and new features, that's what Studio Partner is for.",
+    a: "You own everything — code, data, all of it. We build in our own environment, then transfer everything cleanly to your accounts at handoff. No lock-in, no dependency on us to keep the lights on. Revision rounds are included in every tier. If you want ongoing development and new features, that's what Studio Partner is for.",
   },
   {
-    q: "How much does custom AI software cost for a small business?",
-    a: "Project-based work starts at $1,500 for a Focused Build — one targeted problem, delivered in about a week. A Signature Build for more complex workflows starts at $3,500. The Studio Partner retainer is $1,500/month for ongoing development. All current spots are founding-client rates, discounted from standard pricing.",
-  },
-  {
-    q: "What's the typical return on investment?",
-    a: "Most clients recover the cost of a Focused Build within the first month. If a build saves 5 hours a week at $100/hour of billable time, that's $2,000 a month back in capacity. The ROI compounds over time as the tool handles more volume without adding headcount.",
+    q: "How should I think about the return on investment?",
+    a: "Run the math against your own time. If a Focused Build replaces five hours a week of work that would otherwise cost $100 an hour of your time or a contractor's, that's $2,000 a month back in capacity — the build pays for itself inside a month. The ROI compounds the longer the tool runs, since custom software handles more volume without adding headcount. After the discovery call, the proposal includes this calculation against your actual workflow.",
   },
 ];
 
 const serviceTiers = [
   {
     name: "Focused Build",
+    price: "2500",
+    priceDisplay: "$2,500",
+    priceUnit: "one-time",
     description:
       "One targeted operational problem solved with a custom AI-powered tool. Discovery call, build, deployment, documentation, one revision round. Delivered in about a week. Client owns the code.",
-    price: "1500",
-    priceSpecification: { unitText: "ONE_TIME" },
     bestFor: "One specific operational pain — internal trackers, dashboards, custom tools.",
+    features: [
+      "Discovery call to scope the problem",
+      "Custom-built tool, deployed and working",
+      "Documentation so you understand what was built",
+      "One revision round",
+      "You own everything",
+    ],
+    priceSpecification: { unitText: "ONE_TIME" },
   },
   {
     name: "Signature Build",
+    price: "6000",
+    priceDisplay: "$6,000 – $8,000",
+    priceUnit: "one-time",
     description:
       "Multi-feature custom AI platform replacing a patchwork of tools. Deep-dive discovery, multi-user support, full testing, training, two revision rounds. Delivered in 3–4 weeks. Client owns the code.",
-    price: "3500",
-    priceSpecification: { unitText: "ONE_TIME" },
     bestFor: "Replacing a patchwork of spreadsheets and tools with one platform built around how you work.",
+    features: [
+      "Deep-dive discovery to map your full workflow",
+      "Custom multi-feature platform, deployed and working",
+      "Multi-user support where needed",
+      "Full testing before handoff",
+      "Documentation and team walkthrough",
+      "Two revision rounds",
+      "You own everything",
+    ],
+    priceSpecification: { unitText: "ONE_TIME" },
+    featured: true,
   },
   {
     name: "Studio Partner",
+    price: "2500",
+    priceDisplay: "$2,500 / mo",
+    priceUnit: "retainer",
     description:
       "Ongoing custom development retainer. Includes initial build, monthly strategy call, new feature development, maintenance, priority response, quarterly reviews.",
-    price: "1500",
-    priceSpecification: { unitText: "MONTH" },
     bestFor: "Businesses ready to treat custom software as infrastructure, not a one-time project.",
+    features: [
+      "Everything in Signature Build",
+      "Ongoing maintenance and bug fixes",
+      "Monthly strategy call",
+      "New features as your business grows",
+      "Priority response time",
+      "Quarterly system review",
+    ],
+    priceSpecification: { unitText: "MONTH" },
   },
 ];
 
@@ -112,139 +138,76 @@ export default function PricingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }}
       />
 
-      {/* HERO */}
-      <section className={styles.pricingHero}>
-        <div className="container">
-          <span className={"label " + styles.heroLabel}>// Pricing</span>
-          <h1>
-            Stop patching.<br />
-            Start building.
+      {/* HEADER */}
+      <section className={styles.header} aria-labelledby="pricing-heading">
+        <div className={styles.headerInner}>
+          <p className={styles.headerMeta}>
+            <span>// Pricing</span>
+          </p>
+          <h1 id="pricing-heading" className={styles.headerH1}>
+            Fixed fees.<br />
+            <em>You own the code.</em>
           </h1>
-          <p>No retainers. No surprises. You pay for what gets built.</p>
-        </div>
-      </section>
-
-      <hr className="rule" />
-
-      {/* PRICING SECTION */}
-      <section className={styles.pricingSection}>
-        <div className="container">
-
-          <div className={styles.foundingBanner}>
-            <div className={styles.foundingBannerDot}></div>
-            <p>
-              3 Founding Client Spots Available &mdash;{" "}
-              <span>Discounted rates shown below. Ask about availability during your discovery call.</span>
-            </p>
-          </div>
-
-          <div className={styles.pricingGrid}>
-
-            {/* Tier 1: Focused Build */}
-            <div className={styles.pricingCard}>
-              <p className={styles.tierName}>Focused Build</p>
-              <div className={styles.tierRegularPrice}>$2,500</div>
-              <div className={styles.tierFoundingLabel}>Founding Rate</div>
-              <div className={styles.tierPrice}>$1,500</div>
-              <div className={styles.tierType}>One-time project fee</div>
-              <div className={styles.tierMonthly}>No monthly fees</div>
-              <div className={styles.tierMonthlyLabel}>One problem, one build, done</div>
-              <hr className={styles.tierDivider} />
-              <ul className={styles.tierFeatures}>
-                <li>Discovery call to scope the problem</li>
-                <li>Custom-built tool, deployed and working</li>
-                <li>Documentation so you understand what was built</li>
-                <li>1 revision round</li>
-                <li>You own everything &mdash; no subscriptions to us</li>
-              </ul>
-              <p className={styles.tierNote}>
-                Best for: one specific operational pain eating your time &mdash; internal trackers, dashboards, custom tools.
-              </p>
-              <a
-                href="mailto:h.kerr@aibridgedsolutions.com?subject=Focused%20Build%20Inquiry"
-                className={"btn btn-dark " + styles.cardBtn}
-                style={{ width: "100%", boxSizing: "border-box", textAlign: "center" }}
-              >
-                Book a Discovery Call &rarr;
-              </a>
-            </div>
-
-            {/* Tier 2: Signature Build (Featured) */}
-            <div className={`${styles.pricingCard} ${styles.featured}`}>
-              <p className={styles.tierName}>Signature Build</p>
-              <div className={styles.tierRegularPrice}>$6,000&ndash;$8,000</div>
-              <div className={styles.tierFoundingLabel}>Founding Rate</div>
-              <div className={styles.tierPrice}>$3,500</div>
-              <div className={styles.tierType}>One-time project fee</div>
-              <div className={styles.tierMonthly}>50% upfront</div>
-              <div className={styles.tierMonthlyLabel}>50% on delivery</div>
-              <hr className={styles.tierDivider} />
-              <ul className={styles.tierFeatures}>
-                <li>Deep-dive discovery to map your full workflow</li>
-                <li>Custom multi-feature platform, deployed and working</li>
-                <li>Multi-user support where needed</li>
-                <li>Full testing before handoff</li>
-                <li>Documentation + team walkthrough</li>
-                <li>2 revision rounds</li>
-                <li>You own everything &mdash; no subscriptions to us</li>
-              </ul>
-              <p className={styles.tierNote}>
-                Best for: replacing a patchwork of spreadsheets and tools with one platform built around how you actually work.
-              </p>
-              <a
-                href="mailto:h.kerr@aibridgedsolutions.com?subject=Signature%20Build%20Inquiry"
-                className={"btn btn-primary " + styles.cardBtn}
-                style={{ width: "100%", boxSizing: "border-box", textAlign: "center" }}
-              >
-                Book a Discovery Call &rarr;
-              </a>
-            </div>
-
-            {/* Tier 3: Studio Partner */}
-            <div className={styles.pricingCard}>
-              <p className={styles.tierName}>Studio Partner</p>
-              <div className={styles.tierRegularPrice}>$2,500/mo</div>
-              <div className={styles.tierFoundingLabel}>Founding Rate</div>
-              <div className={styles.tierPrice}>$1,500</div>
-              <div className={styles.tierType}>Per month</div>
-              <div className={styles.tierMonthly}>Includes initial build</div>
-              <div className={styles.tierMonthlyLabel}>Billed monthly in advance</div>
-              <hr className={styles.tierDivider} />
-              <ul className={styles.tierFeatures}>
-                <li>Everything in Signature Build</li>
-                <li>Ongoing maintenance and bug fixes</li>
-                <li>Monthly strategy call to prioritize what&apos;s next</li>
-                <li>New features as your business grows</li>
-                <li>Priority response time</li>
-                <li>Quarterly system review</li>
-              </ul>
-              <p className={styles.tierNote}>
-                Best for: businesses ready to treat custom software as infrastructure &mdash; not a one-time project.
-              </p>
-              <a
-                href="mailto:h.kerr@aibridgedsolutions.com?subject=Studio%20Partner%20Inquiry"
-                className={"btn btn-dark " + styles.cardBtn}
-                style={{ width: "100%", boxSizing: "border-box", textAlign: "center" }}
-              >
-                Let&apos;s Talk &rarr;
-              </a>
-            </div>
-
-          </div>
-
-          <p className={styles.pricingDisclaimer}>
-            All projects start with a free discovery call to scope the problem and confirm fit.<br />
-            Focused Build and Signature Build: 50% upfront, 50% on delivery.
+          <p className={styles.headerSub}>
+            Three ways to engage. No retainers unless you want one. No
+            surprises, no per-task limits, no subscriptions to us. Every
+            engagement starts with a 30-minute discovery call.
           </p>
         </div>
       </section>
 
+      <hr className={styles.rule} />
+
+      {/* TIERS */}
+      <section className={styles.tiers}>
+        <div className={styles.tiersInner}>
+          {serviceTiers.map((tier) => (
+            <article
+              key={tier.name}
+              className={`${styles.tier} ${tier.featured ? styles.tierFeatured : ""}`}
+            >
+              <h2 className={styles.tierName}>{tier.name}</h2>
+              <p className={styles.tierPriceLine}>
+                <span className={styles.tierPriceFigure}>{tier.priceDisplay}</span>
+                <span className={styles.tierPriceUnit}>{tier.priceUnit}</span>
+              </p>
+              <p className={styles.tierDescription}>{tier.bestFor}</p>
+              <hr className={styles.tierDivider} />
+              <ul className={styles.tierFeatures}>
+                {tier.features.map((f) => (
+                  <li key={f}>{f}</li>
+                ))}
+              </ul>
+              <a
+                href="https://calendly.com/h-kerr711/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`btn-ink ${styles.tierCTA}`}
+              >
+                Book a discovery call
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <p className={styles.disclaimer}>
+          Focused Build and Signature Build: 50% upfront, 50% on delivery.
+          Every engagement starts with a free discovery call.
+        </p>
+      </section>
+
+      <hr className={styles.rule} />
+
       {/* FAQ */}
-      <section className={styles.faqSection}>
-        <div className="container">
-          <span className={"label " + styles.faqLabel}>Common Questions</span>
-          <h2>Before you book.</h2>
-          <div className={styles.faqGrid}>
+      <section className={styles.faq} aria-labelledby="faq-heading">
+        <div className={styles.faqInner}>
+          <p className={styles.faqMeta}>
+            <span>// Before you book</span>
+          </p>
+          <h2 id="faq-heading" className={styles.faqH2}>
+            Common questions.
+          </h2>
+          <div className={styles.faqList}>
             {faqs.map(({ q, a }) => (
               <div key={q} className={styles.faqItem}>
                 <p className={styles.faqQ}>{q}</p>
@@ -255,18 +218,31 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* CTA BAND */}
-      <section className={styles.pricingCta}>
-        <div className="container">
-          <div className={styles.pricingCtaInner}>
-            <h2>Not sure which tier fits?</h2>
+      <hr className={styles.rule} />
+
+      {/* CLOSING CTA */}
+      <section className={styles.closing} aria-labelledby="closing-heading">
+        <div className={styles.closingInner}>
+          <p className={styles.closingMeta}>
+            <span>// Next</span>
+          </p>
+          <h2 id="closing-heading" className={styles.closingH2}>
+            Not sure which tier fits?
+          </h2>
+          <p className={styles.closingSub}>
+            That&apos;s what the discovery call is for. Thirty minutes to scope
+            the work. Either you receive a written proposal afterward with a
+            specific build plan and price, or we tell you straight that it
+            isn&apos;t a fit.
+          </p>
+          <div className={styles.closingCTA}>
             <a
               href="https://calendly.com/h-kerr711/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-dark"
+              className="btn-ink"
             >
-              Book a Free Discovery Call &rarr;
+              Book a discovery call
             </a>
           </div>
         </div>

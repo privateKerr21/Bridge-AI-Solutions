@@ -8,8 +8,8 @@ import { useEffect, useState } from "react";
 const links = [
   { href: "/#quiz", label: "Take the Quiz" },
   { href: "/#process", label: "How It Works" },
-  { href: "/work", label: "Our Work" },
-  { href: "/use-cases", label: "Use Cases" },
+  { href: "/work", label: "Selected work" },
+  { href: "/use-cases", label: "Use cases" },
   { href: "/insights", label: "Insights" },
   { href: "/pricing", label: "Pricing" },
 ];
@@ -65,7 +65,7 @@ export default function Nav() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Let&apos;s Talk
+          Book a call
         </a>
       </div>
 
@@ -101,9 +101,9 @@ export default function Nav() {
             href="https://calendly.com/h-kerr711/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-primary navbar-mobile-cta"
+            className="btn-ink navbar-mobile-cta"
           >
-            Let&apos;s Talk
+            Book a discovery call
           </a>
         </div>
       )}

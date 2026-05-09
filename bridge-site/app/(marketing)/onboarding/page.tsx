@@ -36,8 +36,8 @@ export default function OnboardingPage() {
           <div className={styles.alternativeCta}>
             <h3>Have questions?</h3>
             <p>ATLAS will guide you through the discovery process, identify your biggest bottleneck, and help you schedule a call at the end.</p>
-            <Link href="/#process" className="btn btn-dark">
-              Learn More About How We Build &rarr;
+            <Link href="/#process" className="btn-ink">
+              How we build →
             </Link>
           </div>
         </div>

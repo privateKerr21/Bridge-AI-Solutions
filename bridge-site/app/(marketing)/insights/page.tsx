@@ -6,20 +6,89 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Insights — The Custom AI Build Brief",
   description:
-    "The real numbers. The honest limitations. And what's possible when you replace patchwork tools with software built for how you actually work.",
+    "An honest read on what custom AI software actually does, what it doesn't, and where the numbers come from.",
   openGraph: {
     title: "Insights — The Custom AI Build Brief",
     description:
-      "The real numbers. The honest limitations. And what's possible when you replace patchwork tools with software built for how you actually work.",
+      "An honest read on what custom AI software actually does, what it doesn't, and where the numbers come from.",
     url: "https://aibridgedsolutions.com/insights",
   },
   twitter: {
     card: "summary_large_image",
     title: "Insights — The Custom AI Build Brief",
     description:
-      "The real numbers. The honest limitations. And what's possible when you replace patchwork tools with software built for how you actually work.",
+      "An honest read on what custom AI software actually does, what it doesn't, and where the numbers come from.",
   },
 };
+
+const canDo = [
+  {
+    title: "Internal trackers and dashboards",
+    body: "Custom platforms that replace spreadsheets and give your team a real-time view of the work in motion.",
+  },
+  {
+    title: "Document generation",
+    body: "Tools that produce reports, summaries, briefs, and contracts from your data — automatically, in your voice.",
+  },
+  {
+    title: "Intake and workflow systems",
+    body: "Structured intake forms, routing logic, and status tracking built around your exact process.",
+  },
+  {
+    title: "Data aggregation",
+    body: "Pulling information from multiple sources into one clean, usable view your team can actually act on.",
+  },
+  {
+    title: "AI-assisted first drafts",
+    body: "Tools that generate proposals, briefs, and responses for your team to review and send.",
+  },
+];
+
+const cantDo = [
+  {
+    title: "Relationship building",
+    body: "The conversations that win clients, and the trust that keeps them. AI cannot fake this and shouldn't try.",
+  },
+  {
+    title: "Strategic judgment",
+    body: "The expertise and context that makes your service valuable. AI summarizes; you decide.",
+  },
+  {
+    title: "Complex negotiation",
+    body: "Reading between the lines, handling sensitive situations, knowing when to push and when to wait.",
+  },
+  {
+    title: "Creative problem-solving",
+    body: "Novel situations that require thinking outside the patterns the tool was trained on.",
+  },
+  {
+    title: "Final approval",
+    body: "Anything client-facing gets your sign-off. The tool supports you. It does not replace you.",
+  },
+];
+
+const stats = [
+  {
+    figure: "$3.70",
+    label: "Return per $1 invested",
+    desc: "Reported average for businesses deploying custom AI-powered tools.",
+  },
+  {
+    figure: "26–55%",
+    label: "Productivity gains",
+    desc: "Range teams report after replacing manual processes with purpose-built software.",
+  },
+  {
+    figure: "240%",
+    label: "Average ROI",
+    desc: "From custom internal platforms replacing patchwork tool stacks.",
+  },
+  {
+    figure: "2–3 mo",
+    label: "Break-even window",
+    desc: "Reported break-even for businesses replacing manual processes with custom software.",
+  },
+];
 
 export default function InsightsPage() {
   const articles = getAllArticles();
@@ -30,7 +99,7 @@ export default function InsightsPage() {
     name: "The Custom AI Build Brief",
     url: "https://aibridgedsolutions.com/insights",
     description:
-      "Honest writing on custom AI software for small B2B businesses — what it can do, what it costs, and where it breaks.",
+      "Honest writing on custom AI software for small B2B businesses — what it does, what it doesn't, and where the numbers come from.",
     publisher: {
       "@type": "Organization",
       name: "Bridge AI Solutions",
@@ -53,338 +122,171 @@ export default function InsightsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
       />
 
-
       {/* HERO */}
-      <section className={styles.insightsHero}>
-        <div className={"container " + styles.insightsHeroInner}>
-          <span className={"label " + styles.heroLabel}>// The Custom AI Build Brief</span>
-          <h1>
-            What custom AI tools can<br />
-            <span className={styles.textAccent}>actually do for your business.</span>
+      <section className={styles.hero} aria-labelledby="insights-heading">
+        <div className={styles.heroInner}>
+          <p className={styles.heroMeta}>
+            <span>// The Custom AI Build Brief</span>
+          </p>
+          <h1 id="insights-heading" className={styles.heroH1}>
+            What custom AI software<br />
+            <em>actually does for a business.</em>
           </h1>
-          <p className={styles.insightsHeroSub}>
-            The real numbers. The honest limitations. And what&apos;s possible when you replace patchwork tools with software built for how you actually work.
+          <p className={styles.heroSub}>
+            An honest read. What it handles well, what it doesn&apos;t, where
+            the numbers come from. No hype, no AI buzzwords, no &ldquo;Powered
+            by AI&rdquo; badges.
           </p>
-          <Link href="/#quiz" className="btn btn-primary">
-            Find Your Biggest Bottleneck &rarr;
-          </Link>
         </div>
       </section>
 
-      {/* SECTION A: PAIN POINTS */}
-      <section className={styles.painPointsSection}>
-        <div className="container">
+      <hr className={styles.rule} />
+
+      {/* SECTION 1 — CAN / CAN'T */}
+      <section className={styles.realitySection} aria-labelledby="reality-heading">
+        <div className={styles.sectionInner}>
           <div className={styles.sectionHeader}>
-            <span className={"label " + styles.sectionLabel}>The Problem</span>
-            <h2>Where your time is actually going</h2>
-          </div>
-          <div className={styles.insightCards}>
-
-            <div className={styles.insightCard}>
-              <span className={styles.industryTag}>Spreadsheet Debt</span>
-              <h3>Your spreadsheet is doing a job it was never designed for.</h3>
-              <p>You built something impressive in Excel or Google Sheets. But it&apos;s become a full-time maintenance burden — broken formulas, manual updates, and zero visibility for anyone else on the team.</p>
-              <div className={styles.painStat}>15+ hours/week maintaining manual tracking systems</div>
-            </div>
-
-            <div className={styles.insightCard}>
-              <span className={styles.industryTag}>Patchwork Tools</span>
-              <h3>You&apos;re duct-taping five tools together and it&apos;s starting to show.</h3>
-              <p>Your stack is a collection of apps that almost work together. Data lives in different places, nothing syncs cleanly, and every new hire takes weeks to get up to speed on &quot;the system.&quot;</p>
-              <div className={styles.painStat}>73% of small B2B teams cite tool fragmentation as a top pain point</div>
-            </div>
-
-            <div className={styles.insightCard}>
-              <span className={styles.industryTag}>Manual Processes</span>
-              <h3>You&apos;re drowning in tasks that don&apos;t actually make you money.</h3>
-              <p>Data entry, status chasing, document processing, manual reporting. The back-office work multiplies faster than you can handle it. Every hour spent here is an hour not spent on billable work.</p>
-              <div className={styles.painStat}>2–3 hrs/day on work a custom tool could handle</div>
-            </div>
-
-            <div className={styles.insightCard}>
-              <span className={styles.industryTag}>Scaling</span>
-              <h3>You&apos;ve hired before. It didn&apos;t solve the problem.</h3>
-              <p>You brought on help, but the training took forever, quality was inconsistent, and the costs added up fast. What you really need isn&apos;t another body. It&apos;s a better system — built specifically for how your business runs.</p>
-              <div className={styles.painStat}>Hiring solves 20% of the problem at 100% of the cost</div>
-            </div>
-
-            <div className={styles.insightCard}>
-              <span className={styles.industryTag}>Repetitive Work</span>
-              <h3>You keep doing the same thing over and over... and it&apos;s draining you.</h3>
-              <p>Same reports. Same data pulls. Same manual steps to produce the same output. You&apos;ve done this a hundred times, and you&apos;ll do it a hundred more. The right custom tool would eliminate it entirely.</p>
-              <div className={styles.painStat}>50–70% of daily work is repeatable and buildable</div>
-            </div>
-
-            <div className={styles.insightCard}>
-              <span className={styles.industryTag}>The Real Issue</span>
-              <h3>The work that grows your business keeps losing to the work that just maintains it.</h3>
-              <p>You got into this to serve clients and build something meaningful. Instead, you&apos;re trapped managing processes that should run themselves — because the right software doesn&apos;t exist off the shelf for your specific situation.</p>
-              <div className={styles.painStat}>Only 20% of your time is on high-value work</div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION B: THE GAP */}
-      <section className={styles.gapSection}>
-        <div className="container">
-          <span className={"label " + styles.gapLabel}>The Gap That&apos;s Costing You</span>
-          <div className={styles.gapPullQuote}>
-            Where you are vs. where you could be in the next 12 months — the distance is smaller than you think, and larger than you can afford to ignore.
-          </div>
-          <p className={styles.gapIntro}>
-            For most small B2B service businesses, it&apos;s not a lack of skill or effort. It&apos;s running operations on tools that were never built for your specific workflow. Custom software changes that equation.
-          </p>
-
-          <div className={styles.gapColumns}>
-            <div>
-              <span className={`${styles.gapColLabel} ${styles.current}`}>Where You Are Now</span>
-              <ul className={styles.gapList}>
-                <li>Tracking everything in spreadsheets and shared docs</li>
-                <li>Processes live in people&apos;s heads, not systems</li>
-                <li>Manual steps for everything repeatable</li>
-                <li>Working IN the business, not ON it</li>
-                <li>Capacity-constrained by your hours</li>
-                <li>Revenue plateaued despite working harder</li>
-              </ul>
-            </div>
-            <div>
-              <span className={`${styles.gapColLabel} ${styles.future}`}>Where You Could Be</span>
-              <ul className={`${styles.gapList} ${styles.futureList}`}>
-                <li>A custom platform that runs your core operations</li>
-                <li>Processes encoded in software, not tribal knowledge</li>
-                <li>Repeatable work handled by tools you own outright</li>
-                <li>Time for strategy and high-value client work</li>
-                <li>Capacity scales without adding headcount</li>
-                <li>Revenue grows while hours stay the same</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className={styles.gapCtaBlock}>
-            <h3>What&apos;s Standing Between You and That Future?</h3>
-            <p>
-              The answer usually isn&apos;t ambition or resources — it&apos;s the right software. Build it once, own it forever, and the gap closes faster than you&apos;d expect.
+            <p className={styles.sectionMeta}>
+              <span>// 01 — The honest version</span>
             </p>
-            <Link href="/#quiz" className="btn btn-primary">
-              Find Your Biggest Bottleneck &rarr;
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION C: COST OF INACTION */}
-      <section className={styles.inactionSection}>
-        <div className="container">
-          <span className={"label " + styles.inactionLabel}>The Hidden Cost</span>
-          <h2>Every month you wait is costing you more than you think</h2>
-          <div className={styles.inactionPullQuote}>4.8x</div>
-          <div className={styles.inactionPullCaption}>Faster productivity growth in businesses with purpose-built software</div>
-          <p className={styles.inactionBody}>
-            78% of small businesses report that generic off-the-shelf tools don&apos;t fit their actual workflow. Meanwhile, businesses with custom-built internal tools and AI-powered platforms pull ahead — not because they have bigger teams, but because their systems do more. Your competitors aren&apos;t waiting to build. Every quarter you delay is a quarter they extend their lead.
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION D: ROI & RESULTS */}
-      <section className={styles.roiSection}>
-        <div className="container">
-          <span className={"label " + styles.roiLabel}>The Numbers Don&apos;t Lie</span>
-          <h2>What the research actually shows</h2>
-          <p className={styles.roiIntro}>Industry data backs up what early adopters are already experiencing.</p>
-
-          <div className={styles.roiStatsGrid}>
-            <div className={styles.roiStatCell}>
-              <div className={styles.roiStatNumber}>$3.70</div>
-              <div className={styles.roiStatLabel}>Return Per $1 Invested</div>
-              <div className={styles.roiStatDesc}>Average ROI for businesses deploying custom AI-powered tools</div>
-            </div>
-            <div className={styles.roiStatCell}>
-              <div className={styles.roiStatNumber}>26–55%</div>
-              <div className={styles.roiStatLabel}>Productivity Gains</div>
-              <div className={styles.roiStatDesc}>What teams report after replacing manual processes with purpose-built software</div>
-            </div>
-            <div className={styles.roiStatCell}>
-              <div className={styles.roiStatNumber}>240%</div>
-              <div className={styles.roiStatLabel}>Average ROI</div>
-              <div className={styles.roiStatDesc}>From custom internal platforms replacing patchwork tool stacks</div>
-            </div>
-            <div className={styles.roiStatCell}>
-              <div className={styles.roiStatNumber}>2–3 mo</div>
-              <div className={styles.roiStatLabel}>Break-Even</div>
-              <div className={styles.roiStatDesc}>Most businesses recover the build cost within 90 days of launch</div>
-            </div>
-          </div>
-
-          <p className={styles.roiSource}>Sources: McKinsey State of AI Report 2025, Deloitte Tech Trends 2025</p>
-        </div>
-      </section>
-
-      {/* SECTION E: AI REALITY */}
-      <section className={styles.aiRealitySection}>
-        <div className="container">
-          <span className={"label " + styles.aiRealityLabel}>The Honest Conversation</span>
-          <h2>What custom AI software can (and can&apos;t) do for you</h2>
-          <p className={styles.aiRealityIntro}>
-            We&apos;ll never oversell. Here&apos;s what purpose-built AI tools handle extremely well, and where your expertise remains irreplaceable.
-          </p>
-
-          <div className={styles.aiRealityGrid}>
-            <div className={styles.aiRealityCol}>
-              <div className={styles.aiRealityColHeader}>
-                <div className={`${styles.aiRealityIndicator} ${styles.can}`}>&#10003;</div>
-                <div className={styles.aiRealityColTitle}>Build a Tool For This</div>
-              </div>
-              <ul className={styles.aiRealityList}>
-                <li>
-                  <strong>Internal Trackers &amp; Dashboards</strong>
-                  <p>Custom platforms that replace spreadsheets and give your team real-time visibility</p>
-                </li>
-                <li>
-                  <strong>Document Generation &amp; Processing</strong>
-                  <p>Tools that produce reports, contracts, or summaries from your data — automatically</p>
-                </li>
-                <li>
-                  <strong>Intake &amp; Workflow Systems</strong>
-                  <p>Structured intake forms, routing logic, and status tracking built for your exact process</p>
-                </li>
-                <li>
-                  <strong>Data Aggregation &amp; Formatting</strong>
-                  <p>Pulling information from multiple sources into one clean, usable view</p>
-                </li>
-                <li>
-                  <strong>AI-Assisted First Drafts</strong>
-                  <p>Tools that generate proposals, briefs, or responses for your team to review and send</p>
-                </li>
-              </ul>
-            </div>
-
-            <div className={styles.aiRealityCol}>
-              <div className={styles.aiRealityColHeader}>
-                <div className={`${styles.aiRealityIndicator} ${styles.cant}`}>&#10005;</div>
-                <div className={styles.aiRealityColTitle}>Keep This Human</div>
-              </div>
-              <ul className={styles.aiRealityList}>
-                <li>
-                  <strong>Relationship Building &amp; Trust</strong>
-                  <p>The actual conversations that win clients and keep them loyal</p>
-                </li>
-                <li>
-                  <strong>Strategic Advice &amp; Judgment Calls</strong>
-                  <p>The expertise and context that makes your service valuable</p>
-                </li>
-                <li>
-                  <strong>Complex Negotiations</strong>
-                  <p>Reading between the lines, handling sensitive situations with nuance</p>
-                </li>
-                <li>
-                  <strong>Creative Problem-Solving</strong>
-                  <p>Novel situations that require thinking outside established patterns</p>
-                </li>
-                <li>
-                  <strong>Final Decisions &amp; Client-Facing Communication</strong>
-                  <p>Everything important gets your approval — the tool supports you, not replaces you</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className={styles.aiRealityTagline}>
-            <p>
-              We build the software that{" "}
-              <span>handles the grind</span>, so you can focus on the work that{" "}
-              <span>actually grows your business</span>.
+            <h2 id="reality-heading" className={styles.sectionH2}>
+              What custom AI software<br />
+              <em>can and can&apos;t do.</em>
+            </h2>
+            <p className={styles.sectionSub}>
+              Most AI marketing skips this part. Here&apos;s the line we draw,
+              and where your expertise stays irreplaceable.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* SECTION F: WHO IT'S FOR */}
-      <section className={styles.audienceSection}>
-        <div className="container">
-          <span className={"label " + styles.audienceLabel}>Is This Right For You?</span>
-          <h2>Who we work with</h2>
-          <p className={styles.audienceIntro}>
-            We work best with businesses that have a real operational problem — and want it solved properly with software they own, not patched with another subscription tool.
-          </p>
-
-          <div className={styles.audienceGrid}>
-            <div className={styles.audienceCard}>
-              <h3>Business Owners</h3>
-              <p>Who are tired of being the bottleneck and want custom-built systems that scale without adding headcount</p>
+          <div className={styles.realityGrid}>
+            <div className={styles.realityCol}>
+              <p className={styles.realityColLabel}>// Build a tool for this</p>
+              <ul className={styles.realityList}>
+                {canDo.map(({ title, body }) => (
+                  <li key={title}>
+                    <strong>{title}</strong>
+                    <p>{body}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className={styles.audienceCard}>
-              <h3>Service Providers</h3>
-              <p>Whose expertise is being wasted managing spreadsheets and manual processes that a purpose-built tool would replace</p>
-            </div>
-            <div className={styles.audienceCard}>
-              <h3>Growth-Focused Teams</h3>
-              <p>Who need to do more without hiring more — and are ready to invest in a platform built specifically for how they work</p>
-            </div>
-            <div className={styles.audienceCard}>
-              <h3>Operators Stuck on Off-The-Shelf</h3>
-              <p>Who&apos;ve outgrown generic tools and need something custom — and want it built and handed off, not explained as a DIY project</p>
+            <div className={styles.realityCol}>
+              <p className={styles.realityColLabel}>// Keep this human</p>
+              <ul className={styles.realityList}>
+                {cantDo.map(({ title, body }) => (
+                  <li key={title}>
+                    <strong>{title}</strong>
+                    <p>{body}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ARTICLES */}
-      <section className={styles.articlesSection}>
-        <div className="container">
-          <span className={"label " + styles.articlesLabel}>From the Brief</span>
-          <h2>Deep dives on decisions that matter</h2>
+      <hr className={styles.rule} />
 
-          <div className={styles.articleCards}>
+      {/* SECTION 2 — THE RESEARCH */}
+      <section className={styles.researchSection} aria-labelledby="research-heading">
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionMeta}>
+              <span>// 02 — The research</span>
+            </p>
+            <h2 id="research-heading" className={styles.sectionH2}>
+              What the industry data <em>actually says.</em>
+            </h2>
+            <p className={styles.sectionSub}>
+              Numbers from independent industry research, not Bridge case
+              studies. Bridge is a new practice and we&apos;re not going to
+              quote ourselves.
+            </p>
+          </div>
+
+          <dl className={styles.statsList}>
+            {stats.map(({ figure, label, desc }) => (
+              <div key={label} className={styles.statRow}>
+                <dt className={styles.statFigure}>{figure}</dt>
+                <dd className={styles.statBody}>
+                  <span className={styles.statLabel}>{label}</span>
+                  <span className={styles.statDesc}>{desc}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <p className={styles.statsSource}>
+            Sources: McKinsey State of AI Report 2025, Deloitte Tech Trends 2025.
+          </p>
+        </div>
+      </section>
+
+      <hr className={styles.rule} />
+
+      {/* SECTION 3 — ARTICLES */}
+      <section className={styles.articlesSection} aria-labelledby="articles-heading">
+        <div className={styles.sectionInner}>
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionMeta}>
+              <span>// 03 — From the brief</span>
+            </p>
+            <h2 id="articles-heading" className={styles.sectionH2}>
+              Deep dives on decisions <em>that matter.</em>
+            </h2>
+          </div>
+
+          <ul className={styles.articleList}>
             {articles.map((article) => (
-              <Link key={article.slug} href={`/insights/${article.slug}`} className={styles.articleCard}>
-                <span className={styles.articleCardTag}>{article.tag}</span>
-                <h3>{article.title}</h3>
-                <p>{article.description}</p>
-                <div className={styles.articleCardFooter}>
-                  <span className={styles.articleCardMeta}>
-                    {new Date(article.date).toLocaleDateString("en-US", { month: "long", year: "numeric" })}
-                    &nbsp;&middot;&nbsp;
+              <li key={article.slug}>
+                <Link href={`/insights/${article.slug}`} className={styles.articleRow}>
+                  <span className={styles.articleTag}>{article.tag}</span>
+                  <div className={styles.articleBody}>
+                    <h3 className={styles.articleTitle}>{article.title}</h3>
+                    <p className={styles.articleDesc}>{article.description}</p>
+                  </div>
+                  <span className={styles.articleMeta}>
+                    {new Date(article.date).toLocaleDateString("en-US", { month: "short", year: "numeric" })}
+                    {" · "}
                     {article.readTime}
                   </span>
-                  <span className={styles.articleCardArrow}>&rarr;</span>
-                </div>
-              </Link>
+                  <span className={styles.articleArrow} aria-hidden="true">→</span>
+                </Link>
+              </li>
             ))}
+          </ul>
+        </div>
+      </section>
+
+      <hr className={styles.rule} />
+
+      {/* CLOSING */}
+      <section className={styles.closing} aria-labelledby="insights-closing">
+        <div className={styles.closingInner}>
+          <p className={styles.closingMeta}>
+            <span>// Next</span>
+          </p>
+          <h2 id="insights-closing" className={styles.closingH2}>
+            Ready to translate this into a build?
+          </h2>
+          <p className={styles.closingSub}>
+            Thirty minutes to scope the work. The proposal that follows lays
+            out the build plan, the price, and the ROI math against your
+            actual workflow.
+          </p>
+          <div className={styles.closingCTA}>
+            <a
+              href="https://calendly.com/h-kerr711/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ink"
+            >
+              Book a discovery call
+            </a>
           </div>
         </div>
       </section>
-
-      {/* SIDE EFFECTS */}
-      <section className={styles.sideEffectsSection}>
-        <div className="container">
-          <span className={"label " + styles.sideEffectsLabel}>Side Effects of Working With Us</span>
-          <h2>Results suspiciously consistent across the board</h2>
-
-          <ul className={styles.sideEffectsList}>
-            <li>Mysterious reclamation of 10+ hours per week previously lost to manual processes and spreadsheet maintenance</li>
-            <li>Sudden realization that &quot;this used to take me all day&quot; now takes 10 minutes</li>
-            <li>Unexplained confidence when prospects ask &quot;Can you handle more volume?&quot;</li>
-            <li>Operational workflows that run themselves while you focus on actual billable work</li>
-            <li>Chronic reduction in &quot;I&apos;ll deal with that spreadsheet later&quot; guilt</li>
-            <li>Dangerous habit of expecting the platform to handle it automatically</li>
-            <li>Competitors wondering how you&apos;re moving so fast with the same team size</li>
-            <li>Inability to imagine going back to the old patchwork of disconnected tools</li>
-            <li>Frequent urge to show new clients &quot;here&apos;s the platform we built for this&quot;</li>
-            <li>Risk of having to actually take that vacation you&apos;ve been postponing</li>
-          </ul>
-
-          <p className={styles.sideEffectsFooter}>Results may vary. Not responsible for increased job satisfaction or work-life balance.</p>
-        </div>
-      </section>
-
-      {/* FLOATING CTA */}
-      <div className={styles.floatingCta}>
-        <Link href="/#quiz" className="btn btn-primary">
-          Find Your Bottleneck &rarr;
-        </Link>
-      </div>
     </>
   );
 }

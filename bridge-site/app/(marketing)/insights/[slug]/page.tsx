@@ -61,10 +61,12 @@ export default async function ArticlePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
 
-      <section className={styles.articleHero}>
-        <div className={"container " + styles.articleHeroInner}>
-          <span className={"label " + styles.articleTag}>{meta.tag}</span>
-          <h1 className={styles.articleTitle}>{meta.title}</h1>
+      <section className={styles.articleHero} aria-labelledby="article-title">
+        <div className={styles.articleHeroInner}>
+          <p className={styles.articleTag}>
+            <span>// {meta.tag}</span>
+          </p>
+          <h1 id="article-title" className={styles.articleTitle}>{meta.title}</h1>
           <div className={styles.articleMeta}>
             <span>{meta.date}</span>
             <span>{meta.readTime}</span>
@@ -81,17 +83,14 @@ export default async function ArticlePage({
 
             <aside className={styles.articleSidebar}>
               <div className={styles.sidebarCta}>
-                <span className="label" style={{ color: "var(--muted)", display: "block", marginBottom: 14 }}>
-                  // Take the quiz
-                </span>
-                <h3>Find your biggest bottleneck</h3>
-                <p>Answer 3 questions and get a clear read on where custom software would have the biggest impact on your operation.</p>
-                <Link href="/#quiz" className="btn btn-primary" style={{ width: "100%", textAlign: "center", display: "block" }}>
-                  Take the Quiz &rarr;
+                <h3>Find your bottleneck</h3>
+                <p>Answer three questions and get a clear read on where custom software would have the biggest impact.</p>
+                <Link href="/#quiz" className="btn-ink" style={{ width: "100%", textAlign: "center", justifyContent: "center" }}>
+                  Take the quiz →
                 </Link>
               </div>
               <div className={styles.sidebarBack}>
-                <Link href="/insights">← All Articles</Link>
+                <Link href="/insights">← All articles</Link>
               </div>
             </aside>
           </div>
@@ -100,14 +99,16 @@ export default async function ArticlePage({
 
       <section className={styles.articleFooterNav}>
         <div className="container">
-          <span className="label" style={{ color: "var(--gold)", display: "block", marginBottom: 20 }}>
-            // Ready to build?
-          </span>
           <h2>Turn your bottleneck into a custom tool.</h2>
-          <p>A 30-minute discovery call is all it takes to map out exactly what to build and what it would cost.</p>
-          <Link href="/#quiz" className="btn btn-primary">
-            Book a Discovery Call &rarr;
-          </Link>
+          <p>Thirty minutes to scope the work. The proposal that follows lays out exactly what to build and what it would cost.</p>
+          <a
+            href="https://calendly.com/h-kerr711/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ink"
+          >
+            Book a discovery call
+          </a>
         </div>
       </section>
     </>

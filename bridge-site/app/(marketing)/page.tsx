@@ -37,7 +37,7 @@ const faqItems = [
   },
   {
     q: "How long does a project take?",
-    a: "A Focused Build (one targeted problem) takes about a week from kickoff. A Signature Build runs 3–4 weeks depending on scope. You get a specific timeline during your discovery call.",
+    a: "A Focused Build (one targeted problem) takes about a week from kickoff. A Signature Build runs 3–4 weeks depending on scope. The specific timeline lands in the proposal that follows the discovery call.",
   },
   {
     q: "Do I own the software after the project?",
@@ -45,7 +45,7 @@ const faqItems = [
   },
   {
     q: "What kinds of problems does custom AI software solve for small businesses?",
-    a: "The most common: manual client reporting that takes hours weekly, outreach and follow-up that falls through the cracks, research done by hand, and internal dashboards that do not yet exist. If the process is repetitive and rule-based, it is usually automatable.",
+    a: "Patterns we look for: manual client reporting that takes hours weekly, outreach and follow-up that falls through the cracks, research done by hand, and internal dashboards that do not yet exist. If a process is repetitive and rule-based, it is usually automatable.",
   },
   {
     q: "Do I need to be technical to work with Bridge AI?",
@@ -75,61 +75,92 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* HERO */}
-      <section className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className={"container " + styles.heroInner}>
-          <Image
-            src="/brand/logos/bridge_ai_logo4.png"
-            alt="Bridge AI Solutions mark"
-            width={160}
-            height={160}
-            className={styles.heroLogoMark}
-            priority
-          />
-          <span className={"label " + styles.heroLabel}>// Bridge AI Solutions</span>
-          <h1 className={styles.heroH1}>
-            Stop patching.<br />
-            <span className={styles.textAccent}>Start building.</span>
-          </h1>
-          <p className={styles.heroSub}>
-            Bridge AI Solutions is a custom software consultancy that builds AI-powered tools and
-            automations for small B2B service businesses in the United States. We identify your biggest
-            operational bottleneck and build a real solution — real software, handed off so you own it.
-          </p>
-          <div className={styles.heroActions}>
-            <Link href="#quiz" className="btn btn-primary">
-              Find Your Biggest Bottleneck
-            </Link>
-            <span className={styles.heroOr}>or reach out directly</span>
-            <div className={styles.heroContactLinks}>
-              <a href="mailto:h.kerr@aibridgedsolutions.com">h.kerr@aibridgedsolutions.com</a>
+      <section className={styles.hero} aria-labelledby="hero-heading">
+        <div className={styles.heroGrid}>
+          <div className={styles.heroLeft}>
+            <p className={styles.heroMeta}>
+              <span>// 2026 — A Practice</span>
+            </p>
+            <h1 id="hero-heading" className={styles.heroH1}>
+              Stop patching.<br />
+              <em>Start building.</em>
+            </h1>
+            <p className={styles.heroSub}>
+              A small studio building custom AI-powered software for small B2B
+              service businesses in the United States. We identify the bottleneck,
+              build the tool, hand off the code.
+            </p>
+            <div className={styles.heroCTA}>
               <a
-                href="https://www.linkedin.com/in/haydenkerr-bridged"
+                href="https://calendly.com/h-kerr711/30min"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="btn-ink"
               >
-                LinkedIn
+                Book a discovery call
               </a>
+            </div>
+          </div>
+          <div className={styles.heroRight}>
+            <div className={styles.heroImageWrap}>
+              <Image
+                src="/work/surety-landing.png"
+                alt="Surety — multi-tenant SaaS for COI tracking, shipped 2026"
+                fill
+                sizes="(max-width: 1023px) 100vw, 60vw"
+                className={styles.heroImage}
+                priority
+              />
             </div>
           </div>
         </div>
       </section>
 
-      <hr className="rule" />
+      {/* PROOF STRIP */}
+      <section className={styles.proofStrip} aria-label="From the studio">
+        <div className={styles.proofStripInner}>
+          <span className={styles.proofStripItem}>
+            <span className={styles.proofStripKey}>// From the studio</span>
+          </span>
+          <span className={styles.proofStripItem}>
+            <span className={styles.proofStripKey}>Product —</span>
+            <a
+              href="https://suretybuild.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.proofStripLink}
+            >
+              suretybuild.com
+            </a>
+          </span>
+          <span className={styles.proofStripItem}>
+            <span className={styles.proofStripKey}>In production —</span>
+            <span className={styles.proofStripValue}>2026</span>
+          </span>
+          <span className={styles.proofStripItem}>
+            <span className={styles.proofStripKey}>Stack —</span>
+            <span className={styles.proofStripValue}>Next.js · Supabase · Stripe</span>
+          </span>
+        </div>
+      </section>
       <Quiz />
 
       {/* HOW IT WORKS */}
-      <section className={styles.processSection} id="process">
-        <div className="container">
+      <section className={styles.processSection} id="process" aria-labelledby="process-heading">
+        <div className={styles.processInner}>
           <div className={styles.processHeader}>
-            <span className="label">How It Works</span>
-            <h2>Three steps. Real results.</h2>
+            <p className={styles.processMeta}>
+              <span>// How it works</span>
+            </p>
+            <h2 id="process-heading" className={styles.processH2}>
+              Three steps. <em>You own the result.</em>
+            </h2>
           </div>
           <div className={styles.processGrid}>
             {[
-              { num: "01 / Discover", title: "We map your time", body: "A 30-minute call to identify exactly which tasks are eating your hours and which are ready to automate." },
-              { num: "02 / Build", title: "We build the solution", body: "A custom AI-powered tool or platform built around your exact workflow — not a generic SaaS that almost fits." },
-              { num: "03 / Hand Off", title: "You take the wheel", body: "Full documentation, training, and ongoing support. You own it — we are here when you need us." },
+              { num: "01 / Discover", title: "We scope your time", body: "A 30-minute call to map the tasks eating your hours. The proposal that follows lays out what to build, the price, and the ROI math against your actual workflow." },
+              { num: "02 / Build", title: "We ship the tool", body: "A custom AI-powered tool or platform built around your exact workflow — not a generic SaaS that almost fits. Documented, tested, deployed." },
+              { num: "03 / Hand off", title: "You take the wheel", body: "Full documentation, training, and a clean transfer to your accounts. You own the code outright. We're here if you want us; you don't need us to keep the lights on." },
             ].map(({ num, title, body }) => (
               <div key={num} className={styles.processStep}>
                 <span className={styles.processNum}>{num}</span>
@@ -141,41 +172,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className={styles.statsSection}>
-        <div className="container">
-          <div className={styles.statsTable}>
-            {[
-              { num: "10", suffix: "+", label: "Hours saved / week", desc: "Average time recovered by clients in the first 30 days" },
-              { num: "80", suffix: "%", label: "Of busywork is automatable", desc: "Research shows most repetitive tasks can be handled by AI today" },
-              { num: "3", suffix: "×", label: "ROI in 90 days", desc: "Typical return on automation investment within the first quarter" },
-              { num: "2", suffix: " wks", label: "Average build time", desc: "From discovery call to live, working custom tool" },
-            ].map(({ num, suffix, label, desc }) => (
-              <div key={label} className={styles.statRow}>
-                <div className={styles.statFigure}>
-                  {num}<span>{suffix}</span>
-                </div>
-                <div className={styles.statMeta}>
-                  <span className={styles.statLabel}>{label}</span>
-                  <p className={styles.statDesc}>{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
-      <section className={styles.faqSection}>
-        <div className="container">
-          <span
-            className="label"
-            style={{ display: "block", marginBottom: 16, color: "var(--muted)" }}
-          >
-            Common Questions
-          </span>
-          <h2>Everything you need to know.</h2>
-          <div className={styles.faqGrid}>
+      <section className={styles.faqSection} aria-labelledby="faq-heading">
+        <div className={styles.faqInner}>
+          <p className={styles.faqMeta}>
+            <span>// Common questions</span>
+          </p>
+          <h2 id="faq-heading" className={styles.faqH2}>
+            Everything you need to know.
+          </h2>
+          <div className={styles.faqList}>
             {faqItems.map(({ q, a }) => (
               <div key={q} className={styles.faqItem}>
                 <p className={styles.faqQ}>{q}</p>
@@ -187,14 +193,22 @@ export default function HomePage() {
       </section>
 
       {/* CTA BAND */}
-      <section className={styles.ctaBand}>
-        <div className="container">
-          <div className={styles.ctaBandInner}>
-            <h2>Want the full picture first?</h2>
-            <Link href="/insights" className="btn btn-dark">
-              Read the Research
-            </Link>
-          </div>
+      <section className={styles.ctaBand} aria-labelledby="cta-heading">
+        <div className={styles.ctaBandInner}>
+          <p className={styles.ctaBandMeta}>
+            <span>// Read further</span>
+          </p>
+          <h2 id="cta-heading" className={styles.ctaBandH2}>
+            Want the full picture first?
+          </h2>
+          <p className={styles.ctaBandSub}>
+            The Insights page lays out where custom AI software actually pays
+            off, what it can and can&apos;t do, and the kinds of workflows
+            we&apos;d build around.
+          </p>
+          <Link href="/insights" className={styles.ctaBandLink}>
+            Read the research →
+          </Link>
         </div>
       </section>
     </>
