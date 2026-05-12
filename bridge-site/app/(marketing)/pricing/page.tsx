@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "What happens after the build is handed off?",
-    a: "You own everything — code, data, all of it. We build in our own environment, then transfer everything cleanly to your accounts at handoff. No lock-in, no dependency on us to keep the lights on. Revision rounds are included in every tier. If you want ongoing development and new features, that's what Studio Partner is for.",
+    a: "You own everything — code, data, all of it. We build in our own environment, then transfer everything cleanly to your accounts at handoff. No lock-in, no dependency on us to keep the lights on. Post-launch support is included — 30 days on a Focused Build, 60 days on a Signature Build. If you want ongoing development and new features, that's what Studio Partner is for.",
   },
   {
     q: "How should I think about the return on investment?",
@@ -49,13 +49,13 @@ const serviceTiers = [
     priceDisplay: "$2,500",
     priceUnit: "one-time",
     description:
-      "One targeted operational problem solved with a custom AI-powered tool. Discovery call, build, deployment, documentation, one revision round. Delivered in about a week. Client owns the code.",
+      "One targeted operational problem solved with a custom AI-powered tool. Discovery call, build, deployment, documentation, 30 days of post-launch support. Delivered in about a week. Client owns the code.",
     bestFor: "One specific operational pain — internal trackers, dashboards, custom tools.",
     features: [
       "Discovery call to scope the problem",
       "Custom-built tool, deployed and working",
       "Documentation so you understand what was built",
-      "One revision round",
+      "30 days of post-launch support",
       "You own everything",
     ],
     priceSpecification: { unitText: "ONE_TIME" },
@@ -63,10 +63,10 @@ const serviceTiers = [
   {
     name: "Signature Build",
     price: "6000",
-    priceDisplay: "$6,000 – $8,000",
+    priceDisplay: "$6,000",
     priceUnit: "one-time",
     description:
-      "Multi-feature custom AI platform replacing a patchwork of tools. Deep-dive discovery, multi-user support, full testing, training, two revision rounds. Delivered in 3–4 weeks. Client owns the code.",
+      "Multi-feature custom AI platform replacing a patchwork of tools. Deep-dive discovery, multi-user support, full testing, training, 60 days of post-launch support. Delivered in 3–4 weeks. Client owns the code.",
     bestFor: "Replacing a patchwork of spreadsheets and tools with one platform built around how you work.",
     features: [
       "Deep-dive discovery to map your full workflow",
@@ -74,7 +74,7 @@ const serviceTiers = [
       "Multi-user support where needed",
       "Full testing before handoff",
       "Documentation and team walkthrough",
-      "Two revision rounds",
+      "60 days of post-launch support",
       "You own everything",
     ],
     priceSpecification: { unitText: "ONE_TIME" },
@@ -82,14 +82,14 @@ const serviceTiers = [
   },
   {
     name: "Studio Partner",
-    price: "2500",
-    priceDisplay: "$2,500 / mo",
-    priceUnit: "retainer",
+    price: "",
+    priceDisplay: "Custom",
+    priceUnit: "by application",
     description:
-      "Ongoing custom development retainer. Includes initial build, monthly strategy call, new feature development, maintenance, priority response, quarterly reviews.",
+      "Ongoing development partnership. Monthly sprints, maintenance, new features, and strategy — for businesses ready to treat custom software as infrastructure.",
     bestFor: "Businesses ready to treat custom software as infrastructure, not a one-time project.",
     features: [
-      "Everything in Signature Build",
+      "Active development sprints each month",
       "Ongoing maintenance and bug fixes",
       "Monthly strategy call",
       "New features as your business grows",
@@ -105,7 +105,7 @@ const pricingSchema = {
   "@type": "OfferCatalog",
   name: "Bridge AI Solutions — Service Tiers",
   url: "https://aibridgedsolutions.com/pricing",
-  itemListElement: serviceTiers.map((tier, i) => ({
+  itemListElement: serviceTiers.filter((tier) => tier.price).map((tier, i) => ({
     "@type": "Offer",
     position: i + 1,
     name: tier.name,
@@ -192,7 +192,7 @@ export default function PricingPage() {
 
         <p className={styles.disclaimer}>
           Focused Build and Signature Build: 50% upfront, 50% on delivery.
-          Every engagement starts with a free discovery call.
+          Studio Partner: scoped and priced per engagement after a discovery call.
         </p>
       </section>
 
