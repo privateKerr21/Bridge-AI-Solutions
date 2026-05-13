@@ -45,8 +45,8 @@ const faqs = [
 const serviceTiers = [
   {
     name: "Focused Build",
-    price: "2500",
-    priceDisplay: "$2,500",
+    price: "1500",
+    priceDisplay: "$1,500",
     priceUnit: "one-time",
     description:
       "One targeted operational problem solved with a custom AI-powered tool. Discovery call, build, deployment, documentation, 30 days of post-launch support. Delivered in about a week. Client owns the code.",

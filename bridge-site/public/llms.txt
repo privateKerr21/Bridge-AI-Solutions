@@ -21,7 +21,7 @@ Clients usually arrive after one or more of: outgrowing a Zapier stack, hitting 
 
 ## Services
 
-### Focused Build — $1,500 (founding rate; $2,500 standard)
+### Focused Build — $1,500
 
 One targeted operational problem solved with a custom AI-powered tool. Includes:
 - Discovery call to scope the problem
