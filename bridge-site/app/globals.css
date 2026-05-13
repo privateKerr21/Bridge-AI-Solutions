@@ -30,6 +30,10 @@
   --gold:      var(--gilt);
   --gold-dark: var(--gilt-deep);
 
+  /* CTA — warm terracotta, harmonizes with gilt/clay */
+  --cta:       #C8602E;
+  --cta-deep:  #A04A1F;
+
   --font-head: var(--font-fraunces), 'Times New Roman', serif;
   --font-body: var(--font-inter), sans-serif;
   --font-mono: var(--font-space-mono), monospace;
@@ -237,24 +241,26 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
   align-items: center;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   text-decoration: none;
   color: var(--paper);
-  background: var(--ink-warm);
-  padding: 12px 20px;
+  background: var(--cta);
+  padding: 11px 22px;
   border: none;
-  transition: background 0.2s ease;
+  border-radius: 999px;
+  transition: background 0.2s ease, transform 0.15s ease;
   white-space: nowrap;
 }
 
 .navbar-cta a:hover {
-  background: var(--clay);
+  background: var(--cta-deep);
+  transform: translateY(-1px);
 }
 
 .navbar-cta a:focus-visible {
-  outline: 2px solid var(--gilt);
+  outline: 2px solid var(--cta-deep);
   outline-offset: 3px;
 }
 
@@ -881,26 +887,27 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
   gap: 12px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  padding: 18px 32px;
-  background-color: var(--ink-warm);
+  padding: 16px 32px;
+  background-color: var(--cta);
   color: var(--paper);
   border: none;
-  border-radius: 0;
+  border-radius: 999px;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
 .btn-ink:hover {
-  background-color: var(--clay);
+  background-color: var(--cta-deep);
   color: var(--paper);
+  transform: translateY(-1px);
 }
 
 .btn-ink:focus-visible {
-  outline: 2px solid var(--gilt);
+  outline: 2px solid var(--cta-deep);
   outline-offset: 3px;
 }
 
@@ -924,4 +931,93 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
   .btn-ink {
     transition: none;
   }
+}
+
+/* ===========================
+   Quiz — Hero variant (compact)
+   =========================== */
+.quiz-section.quiz-hero {
+  padding: 0;
+  background: transparent;
+  border: none;
+  width: 100%;
+}
+
+.quiz-hero-inner {
+  background-color: var(--bone);
+  border: 1px solid var(--hairline);
+  padding: clamp(24px, 3vw, 36px);
+  width: 100%;
+}
+
+.quiz-hero .quiz-header {
+  margin-bottom: clamp(20px, 2.5vw, 28px);
+  max-width: none;
+}
+
+.quiz-hero .quiz-header .label {
+  margin-bottom: 14px;
+}
+
+.quiz-hero .quiz-header .label::after {
+  display: none;
+}
+
+.quiz-hero-tagline {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.25rem, 1.75vw, 1.625rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink-warm);
+  margin: 0;
+  max-width: 26ch;
+}
+
+.quiz-hero .quiz-progress {
+  margin-bottom: clamp(20px, 2.5vw, 28px);
+  max-width: none;
+}
+
+.quiz-hero .quiz-question,
+.quiz-hero .quiz-result {
+  max-width: none;
+}
+
+.quiz-hero .quiz-q-text {
+  font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+  margin-bottom: clamp(20px, 2.5vw, 24px);
+}
+
+.quiz-hero .quiz-options {
+  grid-template-columns: 1fr;
+}
+
+.quiz-hero .quiz-option {
+  padding: 14px 18px;
+  font-size: 0.95rem;
+}
+
+.quiz-hero .quiz-nav {
+  margin-top: 20px;
+  padding-top: 16px;
+}
+
+.quiz-hero .result-title {
+  font-size: clamp(1.375rem, 2vw, 1.75rem);
+  margin-bottom: 12px;
+}
+
+.quiz-hero .result-desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.quiz-hero .result-actions {
+  margin-bottom: 20px;
+}
+
+.quiz-hero .btn-ink {
+  padding: 14px 24px;
 }

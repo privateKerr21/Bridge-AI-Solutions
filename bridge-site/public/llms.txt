@@ -21,7 +21,9 @@ Clients usually arrive after one or more of: outgrowing a Zapier stack, hitting 
 
 ## Services
 
-### Focused Build — $1,500
+Every engagement is scoped and priced after a 30-minute discovery call. The proposal afterward includes a specific build plan and a fixed fee. Project work is split 50% upfront, 50% on delivery.
+
+### Focused Build — ~1 week, one targeted problem
 
 One targeted operational problem solved with a custom AI-powered tool. Includes:
 - Discovery call to scope the problem
@@ -30,9 +32,9 @@ One targeted operational problem solved with a custom AI-powered tool. Includes:
 - One revision round
 - Full ownership of the code
 
-Delivered in approximately one week. Best for: a single specific pain point — an internal tracker, dashboard, or custom tool.
+Best for: a single specific pain point — an internal tracker, dashboard, or custom tool.
 
-### Signature Build — $3,500 (founding rate; $6,000–$8,000 standard)
+### Signature Build — 3–4 weeks, multi-feature platform
 
 Multi-feature custom AI platform replacing a patchwork of spreadsheets and disconnected tools. Includes:
 - Deep-dive discovery to map the full workflow
@@ -43,9 +45,9 @@ Multi-feature custom AI platform replacing a patchwork of spreadsheets and disco
 - Two revision rounds
 - Full ownership of the code
 
-Delivered in 3–4 weeks. 50% upfront, 50% on delivery. Best for: replacing a patchwork of tools with one platform built around how the business actually works.
+Best for: replacing a patchwork of tools with one platform built around how the business actually works.
 
-### Studio Partner — $1,500/month (founding rate; $2,500/month standard)
+### Studio Partner — ongoing monthly partnership
 
 Ongoing custom development retainer. Includes:
 - Everything in Signature Build
@@ -98,7 +100,7 @@ No. Clients describe the problem clearly — what they are doing today, how long
 A freelancer builds what is specced. Bridge AI starts with discovery — identifying the right problem before writing code. Bridge AI also brings AI-specific expertise most freelancers do not have, and every project includes documentation and training so clients are never dependent on Bridge AI afterward.
 
 ### How much does custom AI software cost for a small business?
-Project-based work starts at $1,500 for a Focused Build, and $3,500 for a Signature Build. The Studio Partner retainer is $1,500/month. All current spots are founding-client rates, discounted from standard pricing.
+Every build is shaped to a specific operational problem, and the right scope depends on what's actually broken and what the business wants it to do. Bridge AI prices after the discovery call so the number reflects the real work, not a template. Clients receive a written proposal with a specific build plan and a fixed fee — no hourly billing, no surprises. Project work is split 50% upfront, 50% on delivery.
 
 ### What is the typical return on investment?
 Most clients recover the cost of a Focused Build within the first month. A build that saves five hours per week at $100/hour of billable time returns $2,000/month in capacity. ROI compounds as the tool handles more volume without adding headcount.

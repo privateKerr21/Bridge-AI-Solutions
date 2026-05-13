@@ -11,7 +11,7 @@ const links = [
   { href: "/work", label: "Selected work" },
   { href: "/use-cases", label: "Use cases" },
   { href: "/insights", label: "Insights" },
-  { href: "/pricing", label: "Pricing" },
+  { href: "/pricing", label: "How we work" },
 ];
 
 export default function Nav() {

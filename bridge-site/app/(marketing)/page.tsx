@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Quiz from "@/components/Quiz";
 import styles from "./page.module.css";
@@ -95,23 +94,14 @@ export default function HomePage() {
                 href="https://calendly.com/h-kerr711/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-ink"
+                className={styles.heroSkip}
               >
-                Book a discovery call
+                Or skip the quiz — book a call
               </a>
             </div>
           </div>
           <div className={styles.heroRight}>
-            <div className={styles.heroImageWrap}>
-              <Image
-                src="/work/surety-landing.png"
-                alt="Surety — multi-tenant SaaS for COI tracking, shipped 2026"
-                fill
-                sizes="(max-width: 1023px) 100vw, 60vw"
-                className={styles.heroImage}
-                priority
-              />
-            </div>
+            <Quiz variant="hero" />
           </div>
         </div>
       </section>
@@ -143,7 +133,6 @@ export default function HomePage() {
           </span>
         </div>
       </section>
-      <Quiz />
 
       {/* HOW IT WORKS */}
       <section className={styles.processSection} id="process" aria-labelledby="process-heading">

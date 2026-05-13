@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: "How we work",
   description:
-    "Simple, transparent pricing for custom AI-powered software. No retainers, no surprises. Fixed project fees for real custom builds.",
+    "Three engagements for custom AI-powered software, from a focused one-week build to ongoing partnership. Every project scoped and priced after a 30-minute discovery call.",
   openGraph: {
-    title: "Pricing — Bridge AI Solutions",
+    title: "How we work — Bridge AI Solutions",
     description:
-      "Simple, transparent pricing for custom AI-powered software. No retainers, no surprises. Fixed project fees for real custom builds.",
+      "Three engagements for custom AI-powered software, from a focused one-week build to ongoing partnership. Every project scoped and priced after a 30-minute discovery call.",
     url: "https://aibridgedsolutions.com/pricing",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pricing — Bridge AI Solutions",
+    title: "How we work — Bridge AI Solutions",
     description:
-      "Simple, transparent pricing for custom AI-powered software. No retainers, no surprises.",
+      "Three engagements. Every project scoped and priced after a 30-minute discovery call.",
   },
 };
 
@@ -29,6 +29,10 @@ const faqs = [
     a: "Focused Builds typically take about a week from kickoff. Signature Builds run 3–4 weeks depending on scope and how quickly you can provide feedback. The specific timeline lands in the proposal that follows the discovery call.",
   },
   {
+    q: "Why isn't pricing listed on the site?",
+    a: "Every build is shaped to a specific operational problem, and the right scope depends on what's actually broken and what you want it to do. We price after the discovery call so the number reflects the work, not a template. You receive a written proposal with a specific build plan and a fixed fee — no hourly billing, no surprises.",
+  },
+  {
     q: "What do I need to have ready before we start?",
     a: "A clear problem you want solved and availability to give feedback during the build. You don't need a technical spec, that's our job. The more specifically you can describe what's eating your time, the better.",
   },
@@ -38,18 +42,15 @@ const faqs = [
   },
   {
     q: "How should I think about the return on investment?",
-    a: "Run the math against your own time. If a Focused Build replaces five hours a week of work that would otherwise cost $100 an hour of your time or a contractor's, that's $2,000 a month back in capacity — the build pays for itself inside a month. The ROI compounds the longer the tool runs, since custom software handles more volume without adding headcount. After the discovery call, the proposal includes this calculation against your actual workflow.",
+    a: "Run the math against your own time. If a custom build replaces five hours a week of work that would otherwise cost $100 an hour of your time or a contractor's, that's $2,000 a month back in capacity — most Focused Builds pay for themselves inside a month. The ROI compounds the longer the tool runs, since custom software handles more volume without adding headcount. The proposal after discovery includes this calculation against your actual workflow.",
   },
 ];
 
 const serviceTiers = [
   {
     name: "Focused Build",
-    price: "1500",
-    priceDisplay: "$1,500",
-    priceUnit: "one-time",
-    description:
-      "One targeted operational problem solved with a custom AI-powered tool. Discovery call, build, deployment, documentation, 30 days of post-launch support. Delivered in about a week. Client owns the code.",
+    timeline: "~1 week",
+    scope: "One targeted problem",
     bestFor: "One specific operational pain — internal trackers, dashboards, custom tools.",
     features: [
       "Discovery call to scope the problem",
@@ -58,15 +59,11 @@ const serviceTiers = [
       "30 days of post-launch support",
       "You own everything",
     ],
-    priceSpecification: { unitText: "ONE_TIME" },
   },
   {
     name: "Signature Build",
-    price: "6000",
-    priceDisplay: "$6,000",
-    priceUnit: "one-time",
-    description:
-      "Multi-feature custom AI platform replacing a patchwork of tools. Deep-dive discovery, multi-user support, full testing, training, 60 days of post-launch support. Delivered in 3–4 weeks. Client owns the code.",
+    timeline: "3–4 weeks",
+    scope: "Multi-feature platform",
     bestFor: "Replacing a patchwork of spreadsheets and tools with one platform built around how you work.",
     features: [
       "Deep-dive discovery to map your full workflow",
@@ -77,16 +74,12 @@ const serviceTiers = [
       "60 days of post-launch support",
       "You own everything",
     ],
-    priceSpecification: { unitText: "ONE_TIME" },
     featured: true,
   },
   {
     name: "Studio Partner",
-    price: "",
-    priceDisplay: "Custom",
-    priceUnit: "by application",
-    description:
-      "Ongoing development partnership. Monthly sprints, maintenance, new features, and strategy — for businesses ready to treat custom software as infrastructure.",
+    timeline: "Ongoing",
+    scope: "Monthly partnership",
     bestFor: "Businesses ready to treat custom software as infrastructure, not a one-time project.",
     features: [
       "Active development sprints each month",
@@ -96,37 +89,22 @@ const serviceTiers = [
       "Priority response time",
       "Quarterly system review",
     ],
-    priceSpecification: { unitText: "MONTH" },
   },
 ];
 
-const pricingSchema = {
+const servicesSchema = {
   "@context": "https://schema.org",
-  "@type": "OfferCatalog",
-  name: "Bridge AI Solutions — Service Tiers",
+  "@type": "ItemList",
+  name: "Bridge AI Solutions — Engagements",
   url: "https://aibridgedsolutions.com/pricing",
-  itemListElement: serviceTiers.filter((tier) => tier.price).map((tier, i) => ({
-    "@type": "Offer",
+  itemListElement: serviceTiers.map((tier, i) => ({
+    "@type": "Service",
     position: i + 1,
     name: tier.name,
-    description: tier.description,
-    price: tier.price,
-    priceCurrency: "USD",
-    priceSpecification: {
-      "@type": "UnitPriceSpecification",
-      price: tier.price,
-      priceCurrency: "USD",
-      unitText: tier.priceSpecification.unitText,
-    },
-    seller: { "@type": "Organization", name: "Bridge AI Solutions" },
-    itemOffered: {
-      "@type": "Service",
-      name: tier.name,
-      serviceType: "Custom AI software development",
-      provider: { "@type": "Organization", name: "Bridge AI Solutions" },
-      description: tier.description,
-      areaServed: "US",
-    },
+    serviceType: "Custom AI software development",
+    description: tier.bestFor,
+    provider: { "@type": "Organization", name: "Bridge AI Solutions" },
+    areaServed: "US",
   })),
 };
 
@@ -135,23 +113,23 @@ export default function PricingPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
       />
 
       {/* HEADER */}
       <section className={styles.header} aria-labelledby="pricing-heading">
         <div className={styles.headerInner}>
           <p className={styles.headerMeta}>
-            <span>// Pricing</span>
+            <span>// How we work</span>
           </p>
           <h1 id="pricing-heading" className={styles.headerH1}>
-            Fixed fees.<br />
+            Three engagements.<br />
             <em>You own the code.</em>
           </h1>
           <p className={styles.headerSub}>
-            Three ways to engage. No retainers unless you want one. No
-            surprises, no per-task limits, no subscriptions to us. Every
-            engagement starts with a 30-minute discovery call.
+            From a focused one-week build to ongoing partnership. Every
+            engagement is scoped and priced after a 30-minute discovery call —
+            so you only pay for what your problem actually needs.
           </p>
         </div>
       </section>
@@ -168,8 +146,8 @@ export default function PricingPage() {
             >
               <h2 className={styles.tierName}>{tier.name}</h2>
               <p className={styles.tierPriceLine}>
-                <span className={styles.tierPriceFigure}>{tier.priceDisplay}</span>
-                <span className={styles.tierPriceUnit}>{tier.priceUnit}</span>
+                <span className={styles.tierPriceFigure}>{tier.timeline}</span>
+                <span className={styles.tierPriceUnit}>{tier.scope}</span>
               </p>
               <p className={styles.tierDescription}>{tier.bestFor}</p>
               <hr className={styles.tierDivider} />
@@ -191,8 +169,8 @@ export default function PricingPage() {
         </div>
 
         <p className={styles.disclaimer}>
-          Focused Build and Signature Build: 50% upfront, 50% on delivery.
-          Studio Partner: scoped and priced per engagement after a discovery call.
+          Every engagement scoped and priced after the discovery call. Project
+          work is split 50% upfront, 50% on delivery.
         </p>
       </section>
 
@@ -227,13 +205,13 @@ export default function PricingPage() {
             <span>// Next</span>
           </p>
           <h2 id="closing-heading" className={styles.closingH2}>
-            Not sure which tier fits?
+            Not sure which fits?
           </h2>
           <p className={styles.closingSub}>
             That&apos;s what the discovery call is for. Thirty minutes to scope
             the work. Either you receive a written proposal afterward with a
-            specific build plan and price, or we tell you straight that it
-            isn&apos;t a fit.
+            specific build plan and a fixed fee, or we tell you straight that
+            it isn&apos;t a fit.
           </p>
           <div className={styles.closingCTA}>
             <a

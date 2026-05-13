@@ -97,7 +97,10 @@ function buildLinkedInDraft(answers: Answers, result: (typeof results)[keyof typ
   return `Hi Hayden — I just took the quiz on your Bridge AI site and came out as "${result.badge}." I'm spending ${hours} on ${work} and I ${exp}. Would love to connect and hear what you've built for similar businesses.`;
 }
 
-export default function Quiz() {
+type QuizVariant = "default" | "hero";
+
+export default function Quiz({ variant = "default" }: { variant?: QuizVariant } = {}) {
+  const isHero = variant === "hero";
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [done, setDone] = useState(false);
@@ -192,13 +195,22 @@ export default function Quiz() {
 
   const q = questionData[current];
 
+  const sectionClass = isHero ? "quiz-section quiz-hero" : "quiz-section section";
+  const containerClass = isHero ? "quiz-hero-inner" : "container";
+
   return (
-    <section className="quiz-section section" id="quiz">
-      <div className="container">
+    <section className={sectionClass} id="quiz">
+      <div className={containerClass}>
         <div className="quiz-header">
           <span className="label">2-Minute Assessment</span>
-          <h2>Where&apos;s your biggest operational bottleneck?</h2>
-          <p>Answer 3 quick questions and find out what a custom build could do for your business.</p>
+          {isHero ? (
+            <p className="quiz-hero-tagline">Find your biggest operational bottleneck in 3 questions.</p>
+          ) : (
+            <>
+              <h2>Where&apos;s your biggest operational bottleneck?</h2>
+              <p>Answer 3 quick questions and find out what a custom build could do for your business.</p>
+            </>
+          )}
         </div>
 
         <div className="quiz-progress">

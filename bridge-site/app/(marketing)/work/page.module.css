@@ -123,8 +123,9 @@
 
 /* ---- Case Figure ---- */
 .caseFigure {
-  margin: 0 0 clamp(48px, 7vw, 80px);
-  padding: 0;
+  max-width: 820px;
+  margin: 0 auto clamp(48px, 7vw, 80px);
+  padding: 0 clamp(24px, 5vw, 64px);
 }
 
 .caseImage {
@@ -132,6 +133,7 @@
   width: 100%;
   height: auto;
   object-fit: cover;
+  border: 1px solid var(--hairline);
 }
 
 .caseFigcaption {

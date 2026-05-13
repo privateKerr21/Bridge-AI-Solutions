@@ -4,7 +4,7 @@ const links = [
   { href: "/work", label: "Selected work" },
   { href: "/use-cases", label: "Use cases" },
   { href: "/insights", label: "Insights" },
-  { href: "/pricing", label: "Pricing" },
+  { href: "/pricing", label: "How we work" },
   { href: "/#quiz", label: "Take the quiz" },
   { href: "https://calendly.com/h-kerr711/30min", label: "Book a discovery call" },
 ];
