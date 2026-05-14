@@ -53,3 +53,29 @@ A running log of what worked, what didn't, and what to apply next time.
 - Not yet tested — check after publishing
 
 ---
+
+## Article 4 — If you run a digital marketing agency, client reporting is eating a full workweek a month from every account manager
+**Date:** 2026-05-14
+**Status:** Published
+
+### What Hayden corrected
+- v1 included "the conversation I keep having" and "Most agency owners I talk to" — implied firsthand conversations with agency owners Hayden hasn't actually had. Reframed all personal-experience language to research-based: "agency operator communities," "agency benchmarking," "the agency reviews online."
+
+### What landed without changes
+- Bold thesis (workweek-per-account-manager framing)
+- The 32-hour breakdown (45/60/45/90 minute split)
+- "Fix the easy 50% / leave the hard 50%" structure
+- The three things the existing tools don't fix (narrative, format, exceptions)
+- "Thin custom layer on top of the dashboard you already have" framing
+- Human-in-the-loop section
+- The blockquote ("The reporting tools automated the part agencies already had under control...")
+- Closer
+- LinkedIn post — no changes
+
+### Apply next time
+- **Hard rule**: Don't make up any information about Hayden personally or what he does that isn't grounded in the Bridge AI context. No invented conversations, client rosters, recurring meetings, or experiences. When the source is research and synthesis, frame it as research and synthesis — name the actual source (community threads, benchmarking, online reviews) rather than implying firsthand experience.
+
+### AI detection score
+- Not yet tested — check after publishing
+
+---
