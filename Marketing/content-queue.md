@@ -27,4 +27,4 @@ Keep the queue 4–6 items deep — enough buffer, not so deep it goes stale.
 | 2 | What AI can realistically automate for a 10-person B2B business | Strategy | untracked | 2026-04-27 |
 | 3 | How to know if your business problem is worth building custom AI software for | Framework | untracked | 2026-05-05 |
 | 4 | The SMB AI Readiness Checklist: 12 questions before you spend a dollar | How-To | 6 — Free Resource | 2026-05-12 |
-| 5 | If you run a digital marketing agency, client reporting is eating a full workweek a month from every account manager | Perspective | 5 — Client Pain Point | 2026-05-14 |
+| 5 | Agency client reporting: where the workweek actually goes | Perspective | 5 — Client Pain Point | 2026-05-14 |

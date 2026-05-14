@@ -54,7 +54,7 @@ A running log of what worked, what didn't, and what to apply next time.
 
 ---
 
-## Article 4 — If you run a digital marketing agency, client reporting is eating a full workweek a month from every account manager
+## Article 4 — Agency client reporting: where the workweek actually goes
 **Date:** 2026-05-14
 **Status:** Published
 
