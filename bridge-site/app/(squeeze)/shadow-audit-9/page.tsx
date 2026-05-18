@@ -1,0 +1,19 @@
+import type { Metadata } from "next";
+import SqueezeContent from "@/components/SqueezeContent";
+
+export const metadata: Metadata = {
+  title: "The Shadow Work Audit",
+  description:
+    "Ten questions. Five to seven minutes. A personalized Strategic Roadmap that names the one automation worth shipping first.",
+  robots: { index: false, follow: false },
+  openGraph: {
+    title: "The Shadow Work Audit — Bridge AI Solutions",
+    description:
+      "The diagnostic that finds your highest-leverage automation. $9.95.",
+    url: "https://aibridgesolutions.com/shadow-audit-9",
+  },
+};
+
+export default function ShadowAudit9Page() {
+  return <SqueezeContent tier="audit_9" variant="a" />;
+}
