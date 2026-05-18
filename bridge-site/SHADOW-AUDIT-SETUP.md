@@ -2,6 +2,29 @@
 
 Internal setup guide for the Shadow Audit tripwire funnel. Reference: `C:\Users\kerrk\.claude\plans\continue-and-let-s-build-agile-mitten.md`.
 
+---
+
+## ⏸ Current Status (2026-05-18, paused)
+
+**Branch**: `feat/shadow-audit` (pushed to origin, not merged to main)
+
+| Day | Status |
+|---|---|
+| Day 1: Infrastructure | ✅ Code shipped to branch |
+| Day 2: Audit form | ✅ Code shipped to branch |
+| Day 3: PDF generation | ✅ Code shipped to branch |
+| Day 4: Squeeze pages | ⏳ Not started |
+| Day 5: Email + nurture | ⏳ Not started |
+| Day 6: $97 Calendly flow | ⏳ Not started |
+| Day 7: Cron + UTM + e2e | ⏳ Not started |
+| Day 7-8: Admin dashboard | ⏳ Not started |
+
+**External setup status**: None done yet. Setup is what unblocks testing the deployed branch. See steps below.
+
+**Resume**: continue from Day 4 (squeeze pages) OR finish external setup first to test Days 1-3 end-to-end on Vercel preview.
+
+---
+
 ## Required `.env.local` variables
 
 Create `bridge-site/.env.local` (gitignored) with the following:
