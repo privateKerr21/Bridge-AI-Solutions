@@ -1,15 +1,21 @@
 import Stripe from "stripe";
 import type { AuditTier, AuditVariant } from "./types";
 
-const secretKey = process.env.STRIPE_SECRET_KEY;
-if (!secretKey) {
-  throw new Error("STRIPE_SECRET_KEY is not set");
-}
+// Use a placeholder during build if env var is missing. Any actual API call
+// will fail clearly at runtime. This lets `next build` evaluate routes that
+// import this module without env vars set (e.g. on a fresh Vercel deploy).
+const secretKey = process.env.STRIPE_SECRET_KEY || "sk_test_placeholder_unset";
 
 export const stripe = new Stripe(secretKey, {
   // Lock to the SDK's pinned API version. Bump intentionally when upgrading.
   apiVersion: "2026-04-22.dahlia",
 });
+
+export function assertStripeConfigured(): void {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error("STRIPE_SECRET_KEY is not set");
+  }
+}
 
 // ─── Helpers ─────────────────────────────────────────────────────────────
 
