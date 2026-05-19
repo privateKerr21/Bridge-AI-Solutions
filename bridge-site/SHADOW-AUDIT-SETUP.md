@@ -4,24 +4,32 @@ Internal setup guide for the Shadow Audit tripwire funnel. Reference: `C:\Users\
 
 ---
 
-## ⏸ Current Status (2026-05-18, paused)
+## ⏸ Current Status (2026-05-19, paused)
 
 **Branch**: `feat/shadow-audit` (pushed to origin, not merged to main)
+**PR**: #9 (DRAFT) — title/body still references old $9.95/$97 pricing; needs an update or merge
+
+**Pricing pivot (2026-05-19):** A/B test moved from $9.95 vs $97 → **Free vs $1**. Free tier skips Stripe entirely (email capture → token-gated audit form). Paid tier ($1) still uses Stripe.
 
 | Day | Status |
 |---|---|
-| Day 1: Infrastructure | ✅ Code shipped to branch |
-| Day 2: Audit form | ✅ Code shipped to branch |
-| Day 3: PDF generation | ✅ Code shipped to branch |
-| Day 4: Squeeze pages | ⏳ Not started |
+| Day 1: Infrastructure | ✅ Code shipped |
+| Day 2: Audit form | ✅ Code shipped |
+| Day 3: PDF generation | ✅ Code shipped |
+| Day 4: Squeeze pages | ✅ Code shipped (Bagel Bots restyle + roadmap image + Free/$1 routes) |
 | Day 5: Email + nurture | ⏳ Not started |
 | Day 6: $1 Calendly flow | ⏳ Not started |
 | Day 7: Cron + UTM + e2e | ⏳ Not started |
 | Day 7-8: Admin dashboard | ⏳ Not started |
 
-**External setup status**: None done yet. Setup is what unblocks testing the deployed branch. See steps below.
+**External setup status**:
+- ⏳ Stripe: NEW $1 product needed (`STRIPE_PRICE_AUDIT_PAID`). Old $9.95/$97 products can be archived.
+- ⏳ Supabase: needs the `20260519000000_free_vs_paid_pricing.sql` migration applied
+- ⏳ Resend domain verification: not done
+- Free tier flow works end-to-end as soon as the migration runs (no Stripe needed)
+- Paid ($1) tier needs Stripe product + env var to function
 
-**Resume**: continue from Day 4 (squeeze pages) OR finish external setup first to test Days 1-3 end-to-end on Vercel preview.
+**Resume next session**: pick from (a) apply Supabase migration + smoke-test free flow locally, (b) create $1 Stripe product to unblock paid path, (c) move to Day 5 (Resend nurture sequence).
 
 ---
 
