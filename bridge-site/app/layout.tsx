@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Mono, Fraunces } from "next/font/google";
+import { Inter, Space_Mono, Fraunces, Poppins } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -19,6 +19,12 @@ const fraunces = Fraunces({
   weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
   variable: "--font-fraunces",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-poppins",
 });
 
 const organizationSchema = {
@@ -69,7 +75,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceMono.variable} ${fraunces.variable}`}
+      className={`${inter.variable} ${spaceMono.variable} ${fraunces.variable} ${poppins.variable}`}
     >
       <body>
         {/* JSON-LD: static hardcoded object, no user input — dangerouslySetInnerHTML is safe here */}

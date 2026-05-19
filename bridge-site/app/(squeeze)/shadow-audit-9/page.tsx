@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Shadow Work Audit — Bridge AI Solutions",
     description:
-      "The diagnostic that finds your highest-leverage automation. $9.95.",
+      "The diagnostic that finds your highest-leverage automation. Free.",
     url: "https://aibridgesolutions.com/shadow-audit-9",
   },
 };

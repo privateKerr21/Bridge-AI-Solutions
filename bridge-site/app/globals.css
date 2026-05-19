@@ -1027,9 +1027,25 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
 /* ──────────────────────────────────────────────────────────────────────── */
 
 .squeeze-shell {
+  /* Bagel Bots theme — overrides Atelier tokens for squeeze pages only */
+  --paper:        #FFFFFF;
+  --bone:         #F9FAFB;
+  --ink-warm:     #030712;
+  --clay:         #374151;
+  --mute-warm:    #6B7280;
+  --mute-soft:    #9CA3AF;
+  --hairline:     #E5E7EB;
+  --hairline-dark: rgba(0, 0, 0, 0.08);
+  --gilt:         #ff4b00;
+  --gilt-deep:    #cc3d00;
+  --cta:          #ff4b00;
+  --cta-deep:     #cc3d00;
+  --font-display: var(--font-poppins), 'Helvetica Neue', sans-serif;
+
   min-height: 100vh;
   background-color: var(--paper);
   color: var(--ink-warm);
+  margin-top: -64px; /* counteract global body padding-top from nav */
 }
 
 .squeeze-page {

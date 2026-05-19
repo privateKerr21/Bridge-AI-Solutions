@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Shadow Work Audit + Call — Bridge AI Solutions",
     description:
-      "Personalized roadmap PDF + a 30-minute call within five business days. $97.",
+      "Personalized roadmap PDF + a 30-minute call within five business days. $1.",
     url: "https://aibridgesolutions.com/shadow-audit-97",
   },
 };

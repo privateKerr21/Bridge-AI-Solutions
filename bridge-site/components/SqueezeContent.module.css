@@ -41,7 +41,7 @@
   line-height: 1.15;
   letter-spacing: -0.025em;
   color: var(--ink-warm);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   max-width: 26ch;
 }
 
@@ -85,20 +85,67 @@
 /* ─── HERO ───────────────────────────────────────────────────────────── */
 
 .hero {
-  padding: clamp(72px, 12vw, 144px) 0 clamp(48px, 8vw, 96px);
+  padding: clamp(32px, 6vw, 64px) 0 clamp(24px, 4vw, 40px);
+}
+
+.heroGrid {
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: center;
+}
+
+.heroText {
+  min-width: 0;
+}
+
+.heroVisual {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroVisual {
+    order: -1;
+    max-width: 400px;
+    margin: 0 auto;
+  }
 }
 
 .heroSub {
-  font-family: var(--font-body);
-  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
-  line-height: 1.55;
-  color: var(--clay);
-  margin-bottom: 40px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.35;
+  color: var(--ink-warm);
+  margin-bottom: 24px;
   max-width: 52ch;
 }
 
+.heroBody {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--clay);
+  margin-bottom: 24px;
+  max-width: 52ch;
+}
+
+.heroImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .heroCta {
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
 .heroMicro {
@@ -113,21 +160,22 @@
 .ctaButton {
   display: inline-block;
   background-color: var(--cta);
-  color: var(--paper);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  padding: 18px 28px;
-  border: 1px solid var(--cta);
-  border-radius: 0;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
 .ctaButton:hover:not(:disabled) {
-  background-color: var(--ink-warm);
-  border-color: var(--ink-warm);
+  background-color: var(--cta-deep);
+  transform: translateY(-1px);
 }
 
 .ctaButton:disabled {
@@ -142,7 +190,7 @@
 .mechanism,
 .deliverables,
 .finalCta {
-  padding: clamp(64px, 10vw, 112px) 0;
+  padding: clamp(40px, 6vw, 64px) 0;
 }
 
 /* ─── EXAMPLES ───────────────────────────────────────────────────────── */
@@ -197,7 +245,7 @@
   background-color: var(--hairline);
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
-  margin-top: 32px;
+  margin-top: 20px;
 }
 
 .step {
@@ -237,7 +285,7 @@
 
 .deliverableList {
   list-style: none;
-  margin: 32px 0 0;
+  margin: 20px 0 0;
   padding: 0;
   display: grid;
   gap: 1px;
@@ -291,12 +339,12 @@
 }
 
 .finalCta .body {
-  color: rgba(237, 231, 221, 0.78);
+  color: rgba(249, 250, 251, 0.78);
   margin-bottom: 32px;
 }
 
 .finalCta .heroMicro {
-  color: rgba(237, 231, 221, 0.6);
+  color: rgba(249, 250, 251, 0.6);
 }
 
 /* ─── MICRO FOOTER ───────────────────────────────────────────────────── */
