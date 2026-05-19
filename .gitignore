@@ -3,11 +3,13 @@
 !.claude/commands/
 .env
 .env.local
+.mcp.json
+.playwright-mcp/
 
 # Business operations — not for public repo
 Admin/
 Clients/
-Marketing/Proposals/
+Marketing/
 Templates/
 
 # Editor config
