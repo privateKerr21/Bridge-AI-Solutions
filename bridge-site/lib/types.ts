@@ -1,6 +1,6 @@
 // Shared types for the Shadow Audit funnel.
 
-export type AuditTier = "audit_9" | "audit_97";
+export type AuditTier = "audit_free" | "audit_paid";
 
 export type AuditVariant = "a" | "b";
 

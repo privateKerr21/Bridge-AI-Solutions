@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Shadow Work Audit — Bridge AI Solutions",
     description:
-      "The diagnostic that finds your highest-leverage automation. Free.",
-    url: "https://aibridgesolutions.com/shadow-audit-9",
+      "Your personalized Strategic Roadmap. $1.",
+    url: "https://aibridgesolutions.com/shadow-audit-1",
   },
 };
 
-export default function ShadowAudit9Page() {
-  return <SqueezeContent tier="audit_9" variant="a" />;
+export default function ShadowAudit1Page() {
+  return <SqueezeContent tier="audit_paid" variant="b" />;
 }

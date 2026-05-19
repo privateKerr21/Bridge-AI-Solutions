@@ -1087,6 +1087,85 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
   max-width: 56ch;
 }
 
+/* ── Start form (free-tier email capture) ──────────────────────────── */
+
+.start-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 440px;
+}
+
+.start-form__label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--mute-warm);
+}
+
+.start-form__optional {
+  text-transform: none;
+  letter-spacing: 0.04em;
+  color: var(--mute-warm);
+  opacity: 0.7;
+}
+
+.start-form__input {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 14px 16px;
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  background-color: var(--paper);
+  color: var(--ink-warm);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.start-form__input:focus-visible {
+  outline: 2px solid var(--gilt-deep);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.start-form__submit {
+  align-self: flex-start;
+  background-color: #ff4b00;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.start-form__submit:hover:not(:disabled) {
+  background-color: #cc3d00;
+  transform: translateY(-1px);
+}
+
+.start-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.start-form__error {
+  margin: 0;
+  padding: 10px 14px;
+  background-color: #FBEAE3;
+  border-left: 3px solid #ff4b00;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink-warm);
+}
+
 /* ── Audit quiz ─────────────────────────────────────────────────────── */
 
 .audit-quiz {

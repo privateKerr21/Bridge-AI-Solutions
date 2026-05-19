@@ -32,6 +32,20 @@ export default function CheckoutButton({
     };
 
     try {
+      if (tier === "audit_free") {
+        // Free path: send straight to the start page where email is captured.
+        // UTM params follow along so the lead record gets sourced correctly.
+        const qs = new URLSearchParams({
+          variant,
+          utm_source: utm.source,
+          utm_campaign: utm.campaign,
+          utm_content: utm.content,
+        });
+        window.location.href = `/shadow-audit/start?${qs.toString()}`;
+        return;
+      }
+
+      // Paid path: Stripe checkout.
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

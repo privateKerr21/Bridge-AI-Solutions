@@ -63,7 +63,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
 
   const tier = (session.metadata?.tier || "") as AuditTier;
   const variant = (session.metadata?.variant || "a") as AuditVariant;
-  if (tier !== "audit_9" && tier !== "audit_97") {
+  if (tier !== "audit_paid") {
     console.warn(`[stripe webhook] completed session ${session.id} has invalid tier:`, tier);
     return;
   }

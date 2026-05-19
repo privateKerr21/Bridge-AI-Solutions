@@ -15,7 +15,7 @@ Internal setup guide for the Shadow Audit tripwire funnel. Reference: `C:\Users\
 | Day 3: PDF generation | ✅ Code shipped to branch |
 | Day 4: Squeeze pages | ⏳ Not started |
 | Day 5: Email + nurture | ⏳ Not started |
-| Day 6: $97 Calendly flow | ⏳ Not started |
+| Day 6: $1 Calendly flow | ⏳ Not started |
 | Day 7: Cron + UTM + e2e | ⏳ Not started |
 | Day 7-8: Admin dashboard | ⏳ Not started |
 
@@ -33,8 +33,7 @@ Create `bridge-site/.env.local` (gitignored) with the following:
 # ── Stripe ────────────────────────────────────────────────────
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
-STRIPE_PRICE_AUDIT_9=price_...
-STRIPE_PRICE_AUDIT_97=price_...
+STRIPE_PRICE_AUDIT_PAID=price_...   # the $1 variant; free tier skips Stripe
 
 # ── Resend ────────────────────────────────────────────────────
 RESEND_API_KEY=re_...
@@ -59,8 +58,8 @@ ADMIN_EMAILS=hayden.kerr@lifetraq.com
 
 ### 1. Stripe
 1. Stripe Dashboard → Products → Add product
-   - Product 1: "Shadow Audit — Self-Serve" → one-time price $9.95 USD → copy the `price_...` ID into `STRIPE_PRICE_AUDIT_9`
-   - Product 2: "Shadow Audit — Done-With-You" → one-time price $97.00 USD → copy the `price_...` ID into `STRIPE_PRICE_AUDIT_97`
+   - Product: "Shadow Audit — Paid Tier" → one-time price $1.00 USD → copy the `price_...` ID into `STRIPE_PRICE_AUDIT_PAID`
+   - (The free tier skips Stripe entirely — `/shadow-audit-free` goes straight to email capture.)
 2. Stripe Dashboard → Developers → Webhooks → Add endpoint
    - URL: `https://aibridgesolutions.com/api/webhooks/stripe` (production) — for dev, use Stripe CLI to forward
    - Events: `checkout.session.completed`, `checkout.session.expired`
@@ -106,14 +105,17 @@ Once `.env.local` works locally, mirror all variables in Vercel:
 | `lib/supabase/admin.ts` | Admin (service role) Supabase client |
 | `lib/supabase/client.ts` | Browser Supabase client |
 | `lib/pdf.ts` | React-PDF report renderer |
-| `app/api/checkout/route.ts` | Create Stripe checkout session |
+| `app/api/checkout/route.ts` | Create Stripe checkout session (paid tier only) |
+| `app/api/lead/free/route.ts` | Free tier — create lead + audit_token, no Stripe |
 | `app/api/webhooks/stripe/route.ts` | Handle Stripe webhook events |
 | `app/api/audit/submit/route.ts` | Receive audit, generate report, email |
 | `app/api/cron/stripe-abandoned/route.ts` | Pull abandoned checkouts → leads table |
 | `app/(squeeze)/layout.tsx` | Squeeze route group layout (no Nav/Footer) |
-| `app/(squeeze)/shadow-audit-9/page.tsx` | Variant A ($9.95) |
-| `app/(squeeze)/shadow-audit-97/page.tsx` | Variant B ($97) |
-| `app/(squeeze)/shadow-audit/thank-you/[session_id]/page.tsx` | Post-purchase audit form |
+| `app/(squeeze)/shadow-audit-free/page.tsx` | Variant A (Free) |
+| `app/(squeeze)/shadow-audit-1/page.tsx` | Variant B ($1) |
+| `app/(squeeze)/shadow-audit/start/page.tsx` | Free tier — email capture before audit |
+| `app/(squeeze)/shadow-audit/audit/[token]/page.tsx` | Free tier — token-gated audit form |
+| `app/(squeeze)/shadow-audit/thank-you/[session_id]/page.tsx` | Paid tier — post-purchase audit form |
 | `app/admin/page.tsx` | Bridge AI funnel dashboard |
 | `components/AuditQuiz.tsx` | Multi-step audit form |
 | `emails/*.tsx` | Resend email templates |

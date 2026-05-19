@@ -17,7 +17,7 @@ interface SqueezeContentProps {
 }
 
 export default function SqueezeContent({ tier, variant }: SqueezeContentProps) {
-  const price = tier === "audit_9" ? "Free" : "$1";
+  const price = tier === "audit_free" ? "Free" : "$1";
   const ctaLabel = `Get My AI Roadmap — ${price}`;
 
   return (

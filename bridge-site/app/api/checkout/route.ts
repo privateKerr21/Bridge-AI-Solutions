@@ -3,8 +3,10 @@ import { createCheckoutSession } from "@/lib/stripe";
 import type { AuditTier, AuditVariant } from "@/lib/types";
 
 // POST /api/checkout
-// Body: { tier: 'audit_9' | 'audit_97', variant: 'a' | 'b', utm?: {...} }
+// Body: { tier: 'audit_paid', variant: 'a' | 'b', utm?: {...} }
 // Response: { url: string } — Stripe-hosted checkout URL to redirect to
+// Note: audit_free does NOT go through this endpoint — it skips Stripe and uses
+// /api/lead/free instead.
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => ({}));
   const { tier, variant, utm } = body as {
@@ -13,7 +15,7 @@ export async function POST(request: NextRequest) {
     utm?: { source?: string; campaign?: string; content?: string };
   };
 
-  if (tier !== "audit_9" && tier !== "audit_97") {
+  if (tier !== "audit_paid") {
     return Response.json({ error: "Invalid tier" }, { status: 400 });
   }
   if (variant !== "a" && variant !== "b") {

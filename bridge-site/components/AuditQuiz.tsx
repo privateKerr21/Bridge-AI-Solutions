@@ -27,9 +27,11 @@ type TeamSize = (typeof TEAM_SIZES)[number]["value"];
 
 // ─── Component ───────────────────────────────────────────────────────────
 
-interface AuditQuizProps {
-  sessionId: string; // Stripe checkout session id, passed from /thank-you/[id]
-}
+// Audit gate: either a Stripe session (paid tier) or an opaque audit token
+// (free tier). The submit endpoint accepts either; exactly one must be set.
+type AuditGate = { sessionId: string } | { auditToken: string };
+
+type AuditQuizProps = AuditGate;
 
 type Step =
   | "role"
@@ -74,7 +76,9 @@ const INITIAL: DraftState = {
   calibration: "",
 };
 
-export default function AuditQuiz({ sessionId }: AuditQuizProps) {
+export default function AuditQuiz(props: AuditQuizProps) {
+  const sessionId = "sessionId" in props ? props.sessionId : undefined;
+  const auditToken = "auditToken" in props ? props.auditToken : undefined;
   const router = useRouter();
   const [stepIndex, setStepIndex] = useState(0);
   const [draft, setDraft] = useState<DraftState>(INITIAL);
@@ -163,8 +167,12 @@ export default function AuditQuiz({ sessionId }: AuditQuizProps) {
       },
     ];
 
-    const payload: AuditRawResponses & { session_id: string } = {
-      session_id: sessionId,
+    const payload: AuditRawResponses & {
+      session_id?: string;
+      audit_token?: string;
+    } = {
+      ...(sessionId ? { session_id: sessionId } : {}),
+      ...(auditToken ? { audit_token: auditToken } : {}),
       role_and_business: draft.role,
       team_size: draft.team as TeamSize,
       selected_workflows: draft.selectedWorkflows,

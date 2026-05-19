@@ -19,25 +19,23 @@ export function assertStripeConfigured(): void {
 
 // ─── Helpers ─────────────────────────────────────────────────────────────
 
+// audit_paid is the only Stripe-charged tier. audit_free skips Stripe entirely.
 export function priceIdForTier(tier: AuditTier): string {
-  if (tier === "audit_9") {
-    const id = process.env.STRIPE_PRICE_AUDIT_9;
-    if (!id) throw new Error("STRIPE_PRICE_AUDIT_9 is not set");
-    return id;
+  if (tier !== "audit_paid") {
+    throw new Error(`Stripe price lookup called for non-paid tier: ${tier}`);
   }
-  const id = process.env.STRIPE_PRICE_AUDIT_97;
-  if (!id) throw new Error("STRIPE_PRICE_AUDIT_97 is not set");
+  const id = process.env.STRIPE_PRICE_AUDIT_PAID;
+  if (!id) throw new Error("STRIPE_PRICE_AUDIT_PAID is not set");
   return id;
 }
 
 export function tierFromPriceId(priceId: string): AuditTier | null {
-  if (priceId === process.env.STRIPE_PRICE_AUDIT_9) return "audit_9";
-  if (priceId === process.env.STRIPE_PRICE_AUDIT_97) return "audit_97";
+  if (priceId === process.env.STRIPE_PRICE_AUDIT_PAID) return "audit_paid";
   return null;
 }
 
 export function tierAmountCents(tier: AuditTier): number {
-  return tier === "audit_9" ? 995 : 9700;
+  return tier === "audit_paid" ? 100 : 0;
 }
 
 interface CreateCheckoutOptions {
@@ -82,7 +80,7 @@ export async function createCheckoutSession({
       utm_content: utm.content || "",
     },
     success_url: `${appUrl}/shadow-audit/thank-you/{CHECKOUT_SESSION_ID}`,
-    cancel_url: `${appUrl}/shadow-audit-${tier === "audit_9" ? "9" : "97"}?cancelled=1`,
+    cancel_url: `${appUrl}/shadow-audit-1?cancelled=1`,
     // Hide the "Powered by Stripe" footer and disable extra payment methods we don't want.
     billing_address_collection: "auto",
   });

@@ -9,18 +9,27 @@ export const runtime = "nodejs";
 export const maxDuration = 60;
 
 // POST /api/audit/submit
-// Body: AuditRawResponses + { session_id }
-// Flow: look up purchase by session_id → save raw responses → generate report → return auditId
+// Body: AuditRawResponses + ({ session_id } | { audit_token })
+// Flow:
+//   - paid: look up purchase by session_id → audit ties to lead_id + purchase_id
+//   - free: look up lead by audit_token → audit ties to lead_id, purchase_id null
+//   - generate report → return auditId
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => null);
   if (!body || typeof body !== "object") {
     return Response.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const { session_id, ...responses } = body as AuditRawResponses & { session_id?: string };
+  const { session_id, audit_token, ...responses } = body as AuditRawResponses & {
+    session_id?: string;
+    audit_token?: string;
+  };
 
-  if (!session_id || typeof session_id !== "string") {
-    return Response.json({ error: "session_id is required" }, { status: 400 });
+  if (!session_id && !audit_token) {
+    return Response.json(
+      { error: "session_id or audit_token is required" },
+      { status: 400 }
+    );
   }
 
   // Basic shape validation
@@ -34,33 +43,61 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: "Incomplete audit responses" }, { status: 400 });
   }
 
-  // Look up the purchase + lead from the Stripe session
-  const { data: purchase, error: purchaseError } = await supabaseAdmin
-    .from("purchases")
-    .select("id, lead_id, tier")
-    .eq("stripe_session_id", session_id)
-    .maybeSingle();
+  // Resolve gate → lead_id (+ optional purchase_id for the paid path)
+  let leadId: string;
+  let purchaseId: string | null = null;
 
-  if (purchaseError) {
-    return Response.json(
-      { error: `Failed to look up purchase: ${purchaseError.message}` },
-      { status: 500 }
-    );
+  if (session_id) {
+    const { data: purchase, error: purchaseError } = await supabaseAdmin
+      .from("purchases")
+      .select("id, lead_id, tier")
+      .eq("stripe_session_id", session_id)
+      .maybeSingle();
+
+    if (purchaseError) {
+      return Response.json(
+        { error: `Failed to look up purchase: ${purchaseError.message}` },
+        { status: 500 }
+      );
+    }
+
+    if (!purchase) {
+      return Response.json(
+        { error: "Purchase not found for that checkout session. If you just paid, wait a few seconds and refresh." },
+        { status: 404 }
+      );
+    }
+
+    leadId = purchase.lead_id;
+    purchaseId = purchase.id;
+  } else {
+    const { data: lead, error: leadError } = await supabaseAdmin
+      .from("leads")
+      .select("id")
+      .eq("audit_token", audit_token!)
+      .maybeSingle();
+
+    if (leadError) {
+      return Response.json(
+        { error: `Failed to look up lead: ${leadError.message}` },
+        { status: 500 }
+      );
+    }
+
+    if (!lead) {
+      return Response.json({ error: "Invalid audit token" }, { status: 404 });
+    }
+
+    leadId = lead.id;
   }
 
-  if (!purchase) {
-    return Response.json(
-      { error: "Purchase not found for that checkout session. If you just paid, wait a few seconds and refresh." },
-      { status: 404 }
-    );
-  }
-
-  // Idempotency: if an audit already exists for this purchase, return it.
-  const { data: existing } = await supabaseAdmin
+  // Idempotency: if an audit already exists for this gate, return it.
+  const existingQuery = supabaseAdmin
     .from("audit_responses")
-    .select("id, status")
-    .eq("purchase_id", purchase.id)
-    .maybeSingle();
+    .select("id, status");
+  const { data: existing } = await (purchaseId
+    ? existingQuery.eq("purchase_id", purchaseId).maybeSingle()
+    : existingQuery.eq("lead_id", leadId).is("purchase_id", null).maybeSingle());
 
   if (existing && existing.status === "completed") {
     return Response.json({ auditId: existing.id });
@@ -82,8 +119,8 @@ export async function POST(request: NextRequest) {
     const { data: inserted, error: insertError } = await supabaseAdmin
       .from("audit_responses")
       .insert({
-        lead_id: purchase.lead_id,
-        purchase_id: purchase.id,
+        lead_id: leadId,
+        purchase_id: purchaseId,
         raw_responses: responses,
         status: "generating",
       })
@@ -144,7 +181,7 @@ export async function POST(request: NextRequest) {
     await supabaseAdmin
       .from("leads")
       .update({ status: "audit_completed" })
-      .eq("id", purchase.lead_id);
+      .eq("id", leadId);
 
     // Email delivery is wired in Day 5.
 
