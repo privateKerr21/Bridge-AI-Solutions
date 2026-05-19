@@ -117,43 +117,59 @@ export default function SqueezeContent({ tier, variant }: SqueezeContentProps) {
 
       {/* ── WHAT YOU GET ───────────────────────────────────────────── */}
       <section className={styles.deliverables}>
-        <div className={styles.container}>
-          <p className={styles.eyebrow}>// What you actually get</p>
-          <h2 className={styles.h2}>Your Custom AI Roadmap.</h2>
-          <ul className={styles.deliverableList}>
-            <li className={styles.deliverable}>
-              <p className={styles.deliverableH}>The Diagnosis</p>
-              <p className={styles.deliverableBody}>
-                Where your operation is bleeding time — the specific workflows
-                costing you the most hours every week, quantified.
+        <div className={`${styles.container} ${styles.deliverablesGrid}`}>
+          <div className={styles.deliverablesText}>
+            <p className={styles.eyebrow}>// What you actually get</p>
+            <h2 className={styles.h2}>Your Custom AI Roadmap.</h2>
+            <ul className={styles.deliverableList}>
+              <li className={styles.deliverable}>
+                <p className={styles.deliverableH}>The Diagnosis</p>
+                <p className={styles.deliverableBody}>
+                  Where your operation is bleeding time — the specific workflows
+                  costing you the most hours every week, quantified.
+                </p>
+              </li>
+              <li className={styles.deliverable}>
+                <p className={styles.deliverableH}>The Opportunity</p>
+                <p className={styles.deliverableBody}>
+                  For each workflow you flagged: what an AI-powered solution
+                  looks like at a high level, the type of system required, and
+                  the projected impact on your operation.
+                </p>
+              </li>
+              <li className={styles.deliverable}>
+                <p className={styles.deliverableH}>The Recommendation</p>
+                <p className={styles.deliverableBody}>
+                  The one system worth building first and the rationale — enough
+                  clarity to start on your own or hand off to someone who can
+                  build it for you.
+                </p>
+              </li>
+            </ul>
+            <div className={styles.heroCta}>
+              <Suspense fallback={<CheckoutButtonFallback label={ctaLabel} className={styles.ctaButton} />}>
+                <CheckoutButton
+                  tier={tier}
+                  variant={variant}
+                  label={ctaLabel}
+                  className={styles.ctaButton}
+                />
+              </Suspense>
+              <p className={styles.qualifier}>
+                Built for founders and operators running a real business. Not a fit
+                for AI consultants, agencies, or anyone already mid-build.
               </p>
-            </li>
-            <li className={styles.deliverable}>
-              <p className={styles.deliverableH}>The Opportunity</p>
-              <p className={styles.deliverableBody}>
-                For each workflow you flagged: what an AI-powered solution
-                looks like at a high level, the type of system required, and
-                the projected impact on your operation.
-              </p>
-            </li>
-            <li className={styles.deliverable}>
-              <p className={styles.deliverableH}>The Recommendation</p>
-              <p className={styles.deliverableBody}>
-                The one system worth building first and the rationale — enough
-                clarity to start on your own or hand off to someone who can
-                build it for you.
-              </p>
-            </li>
-          </ul>
-          <div className={styles.heroCta}>
-            <Suspense fallback={<CheckoutButtonFallback label={ctaLabel} className={styles.ctaButton} />}>
-              <CheckoutButton
-                tier={tier}
-                variant={variant}
-                label={ctaLabel}
-                className={styles.ctaButton}
-              />
-            </Suspense>
+            </div>
+          </div>
+          <div className={styles.deliverablesVisual}>
+            <img
+              src="/brand/ai-roadmap-deliverable.png"
+              alt="Sample AI Roadmap deliverable showing top opportunities, implementation timeline, estimated impact, and key takeaways"
+              className={styles.deliverablesImage}
+            />
+            <p className={styles.deliverablesCaption}>
+              Sample output. Your roadmap is built from your responses.
+            </p>
           </div>
         </div>
       </section>
