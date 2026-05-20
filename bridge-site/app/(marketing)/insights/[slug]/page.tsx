@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllArticles, getArticleMeta } from "@/lib/articles";
+import RelatedReading from "@/components/RelatedReading";
 import styles from "./page.module.css";
 
 const SITE = "https://aibridgedsolutions.com";
@@ -65,8 +66,10 @@ export default async function ArticlePage({
     keywords: meta.keywords,
     author: {
       "@type": "Person",
+      "@id": `${SITE}/about#person`,
       name: "Hayden Kerr",
-      url: "https://www.linkedin.com/in/haydenkerr-bridged",
+      url: `${SITE}/about`,
+      sameAs: ["https://www.linkedin.com/in/haydenkerr-bridged"],
     },
     publisher: {
       "@type": "Organization",
@@ -137,6 +140,7 @@ export default async function ArticlePage({
           <div className={styles.articleGrid}>
             <article className={styles.articleContent}>
               <Content />
+              <RelatedReading currentSlug={slug} />
             </article>
 
             <aside className={styles.articleSidebar}>
