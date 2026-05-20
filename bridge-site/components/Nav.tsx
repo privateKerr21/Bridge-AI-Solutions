@@ -12,6 +12,7 @@ const links = [
   { href: "/use-cases", label: "Use cases" },
   { href: "/insights", label: "Insights" },
   { href: "/pricing", label: "How we work" },
+  { href: "/about", label: "About" },
 ];
 
 export default function Nav() {
