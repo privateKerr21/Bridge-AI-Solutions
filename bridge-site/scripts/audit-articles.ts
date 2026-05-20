@@ -43,8 +43,9 @@ function audit(): Row[] {
       const { data, content } = matter(raw);
       const date = data.date ?? "";
       const dateModified = data.dateModified ?? data.date ?? "";
-      // Citable factoid heuristic: a number followed by a parenthetical source — e.g. "73% (HubSpot, 2024)"
-      const hasCitableStat = /\d+[%a-zA-Z]?\s*\([^)]*\d{4}\)/.test(content);
+      // Citable factoid heuristic: a (Source, Year) parenthetical with a capitalized source name.
+      // Matches both tight "(McKinsey, 2024)" and prose-form "...growth (McKinsey & Company, 2024)".
+      const hasCitableStat = /\([A-Z][^)]*\d{4}\)/.test(content);
       return {
         slug,
         title: String(data.title ?? slug),
