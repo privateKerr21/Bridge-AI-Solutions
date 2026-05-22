@@ -1,0 +1,78 @@
+---
+title: "Your AI project failed. The AI wasn't the problem."
+description: "Most failed AI implementations didn't fail because the model was wrong. They failed because the business handed the model a problem it couldn't solve. Here's what actually breaks them — and how to spot it before you spend."
+date: "2026-05-22"
+dateModified: "2026-05-22"
+readTime: "6 min read"
+tag: "Perspective"
+sources:
+  - "McKinsey & Company, The state of AI in early 2024 (2024)"
+keywords: ["why AI projects fail", "AI implementation failure", "SMB AI adoption", "AI readiness", "custom AI software"]
+faqPairs:
+  - q: "Why do most small business AI projects fail?"
+    a: "The AI is almost never the failure point. The three patterns that kill SMB AI projects are messy upstream data, an undocumented process, and unclear expectations about what 'working' means. Each of those is solvable before you build — but invisible if you don't look."
+  - q: "Is the technology really not the problem?"
+    a: "For a 10-50 person B2B service business in 2026, the technology is mature enough. GPT-class models, retrieval, function calling, structured output — all of it is stable. What's unstable is the business inputs: the data the model sees, the rules it's asked to follow, and the success criteria nobody wrote down."
+  - q: "What's the cheapest way to find out if my business will hit this?"
+    a: "Run the 12-question readiness checklist before you spend a dollar. If most answers are 'no', the work to do first is documentation and data cleanup — not vendor selection."
+---
+
+**Most failed AI implementations didn't fail because the AI was wrong. They failed because the business handed the AI a problem it couldn't solve. Bad inputs. Undocumented rules. A success metric nobody wrote down. The model did exactly what it was asked. The asks were the problem.**
+
+---
+
+Spend any time in the post-mortems — r/smallbusiness, r/agency, the operator threads on LinkedIn, the case studies in McKinsey and BCG reports — and the same story shows up over and over. A business spent real money on an AI build, sometimes ten thousand, sometimes fifty. They were sold on the demo. Six to eight months later the system is shelved, the team is back on the old process, and leadership is quietly annoyed.
+
+The instinct in the comments is always to blame the AI. "It hallucinated." "It wasn't smart enough." "It got confused on edge cases."
+
+In reality, when you read past the headline of those threads, the AI almost never failed in the way people remember. The model produced output. The output was wrong, or inconsistent, or unusable — but the reason for that lives upstream of the model, not inside it. The technology is mature enough now that for the kind of work an SMB actually wants to automate — drafting, routing, summarization, document generation — the bottleneck isn't capability. 65% of organizations are regularly using generative AI in at least one business function (McKinsey, 2024). The functions that win are the operational ones. The technology works.
+
+What breaks the project is usually one of three things.
+
+## 1. The data was messier than anyone admitted
+
+This is the most common one and the one nobody talks about until the build is half done.
+
+A model can only act on what it's given. If your CRM has three different spellings of the same client, your project files live in a mix of Google Drive and someone's desktop, and the "source of truth" depends on which team member you ask — the AI inherits all of that. It doesn't fix it. It automates around it, badly.
+
+The Reddit pattern says it cleanly: *"Nobody told us we needed clean data first."*
+
+That's not an AI failure. That's a data hygiene problem that was always there — the AI just made it visible. A spreadsheet with the same problem would have failed in the same way, just more slowly.
+
+The cost of cleaning the data before the build is real. The cost of cleaning it during the build, with a system in production breaking in front of your team every day, is several times higher.
+
+## 2. The process only existed in someone's head
+
+This one is sneakier and shows up in almost every post-mortem write-up. Leadership signs off on automating a process. The build starts. The developer asks how it actually works. The answer is some version of: *"Ask the person who handles that."*
+
+That person has been handling it for years. They have not written it down, and when asked, they give the 80% version. The other 20% — the exceptions, the edge cases, the "well, if it's that client, we do this instead" — lives in their head, and they aren't withholding it. They just don't think of it until they're actually doing the work.
+
+That 20% is where the AI fails. Not because the model couldn't handle it — it could. Because nobody told the model the 20% existed.
+
+The fix is documentation before automation. Someone sits with the person doing the work, watches a full cycle, writes down every branching decision. It's slow. It's also the cheapest insurance policy in the project.
+
+## 3. Nobody defined what "working" looks like
+
+This is the one that kills the post-mortem.
+
+The build ships. The team uses it for a month. Leadership asks: "Is this working?" Nobody can answer, because nobody decided what working meant before the build started.
+
+"We want to automate proposals" is not a success metric. It's a wish. "We want first-draft proposals generated within 10 minutes of a discovery call ending, with a human-edited final version sent inside 24 hours, and a measurable reduction in turnaround time month-over-month" is a success metric. The first version of that statement is what gets you to a real assessment six months in. The second version is what every shelved AI project lacked.
+
+Without that, the system is judged on vibes. Every imperfect output becomes evidence the project failed. The wins get forgotten because nobody was tracking them in the first place.
+
+## What this actually means
+
+The pattern across all three is the same: **the readiness work happens before the build, not during it**. The businesses that get real results from custom AI software are the ones who treat the prep as part of the project — not as a phase to skip because it's boring.
+
+Clean the data. Document the process. Define the outcome. Then build.
+
+Skip that and you're not buying AI. You're buying a more expensive way to discover the problems you already had.
+
+---
+
+If you want a structured way to find your gaps before you spend anything, [the 12-question readiness checklist](/insights/smb-ai-readiness-checklist) is free on this site. No email gate. It tells you, in under ten minutes, whether the next thing to do is hire a builder or do the prep work first.
+
+The boring prep work isn't a phase you skip. It's where the return on the investment actually starts.
+
+[Take the Bottleneck Quiz →](/#quiz)
