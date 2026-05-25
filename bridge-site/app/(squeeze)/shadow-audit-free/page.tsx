@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "The Shadow Work Audit — Bridge AI Solutions",
     description:
       "The diagnostic that finds your highest-leverage automation. Free.",
-    url: "https://aibridgesolutions.com/shadow-audit-free",
+    url: "https://aibridgedsolutions.com/shadow-audit-free",
   },
 };
 

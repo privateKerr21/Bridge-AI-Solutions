@@ -35,7 +35,7 @@ export default async function AuditViewPage({ params }: PageProps) {
           <h1 className={styles.h1}>Something went wrong generating your roadmap.</h1>
           <p className={styles.body}>
             Don&apos;t worry — your audit responses are saved and we&apos;ll regenerate it.
-            Email <a href="mailto:hello@aibridgesolutions.com">hello@aibridgesolutions.com</a> if
+            Email <a href="mailto:hello@aibridgedsolutions.com">hello@aibridgedsolutions.com</a> if
             this persists.
           </p>
           {audit.error_message && (

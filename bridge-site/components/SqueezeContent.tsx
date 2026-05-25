@@ -206,7 +206,7 @@ export default function SqueezeContent({ tier, variant }: SqueezeContentProps) {
       <footer className={styles.microFooter}>
         <div className={styles.container}>
           <p className={styles.footerText}>
-            Bridge AI Solutions &nbsp;·&nbsp; aibridgesolutions.com
+            Bridge AI Solutions &nbsp;·&nbsp; aibridgedsolutions.com
           </p>
         </div>
       </footer>

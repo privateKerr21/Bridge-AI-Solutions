@@ -8,7 +8,7 @@ if (!apiKey) {
 
 export const resend = new Resend(apiKey || "");
 
-export const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "hello@aibridgesolutions.com";
+export const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "hello@aibridgedsolutions.com";
 export const FROM_NAME = process.env.RESEND_FROM_NAME || "Bridge AI Solutions";
 
 export function fromHeader(): string {

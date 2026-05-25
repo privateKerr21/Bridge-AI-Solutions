@@ -36,7 +36,7 @@ export default async function ThankYouPage({ params }: PageProps) {
           <p>
             We&apos;re waiting for Stripe to confirm your purchase. Refresh this page in
             a moment, or check your email for confirmation. If this persists, email{" "}
-            <a href="mailto:hello@aibridgesolutions.com">hello@aibridgesolutions.com</a>.
+            <a href="mailto:hello@aibridgedsolutions.com">hello@aibridgedsolutions.com</a>.
           </p>
         </div>
       </main>
