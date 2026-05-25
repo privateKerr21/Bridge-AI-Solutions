@@ -4,12 +4,12 @@ Internal setup guide for the Shadow Audit tripwire funnel. Reference: `C:\Users\
 
 ---
 
-## ⏸ Current Status (2026-05-19, paused)
+## ✅ Current Status (2026-05-21)
 
-**Branch**: `feat/shadow-audit` (pushed to origin, not merged to main)
-**PR**: #9 (DRAFT) — title/body still references old $9.95/$97 pricing; needs an update or merge
+**Branch**: merged to `main` (commit `be83550` ships the email-unique constraint migration)
+**Production domain**: `https://aibridgedsolutions.com` (with the 'd' — see memory)
 
-**Pricing pivot (2026-05-19):** A/B test moved from $9.95 vs $97 → **Free vs $1**. Free tier skips Stripe entirely (email capture → token-gated audit form). Paid tier ($1) still uses Stripe.
+**Pricing model:** A/B test = **Free vs $1**. Free tier skips Stripe (email capture → token-gated audit form). Paid tier ($1) uses Stripe.
 
 | Day | Status |
 |---|---|
@@ -17,19 +17,22 @@ Internal setup guide for the Shadow Audit tripwire funnel. Reference: `C:\Users\
 | Day 2: Audit form | ✅ Code shipped |
 | Day 3: PDF generation | ✅ Code shipped |
 | Day 4: Squeeze pages | ✅ Code shipped (Bagel Bots restyle + roadmap image + Free/$1 routes) |
-| Day 5: Email + nurture | ⏳ Not started |
+| Day 4.5: Paid path wiring | ✅ End-to-end smoke-test passed (Stripe → webhook → DB rows) on 2026-05-21 |
+| Day 5: Email + nurture | ⏳ Not started — `RESEND_API_KEY` still missing in both local + Vercel |
 | Day 6: $1 Calendly flow | ⏳ Not started |
 | Day 7: Cron + UTM + e2e | ⏳ Not started |
 | Day 7-8: Admin dashboard | ⏳ Not started |
 
-**External setup status**:
-- ⏳ Stripe: NEW $1 product needed (`STRIPE_PRICE_AUDIT_PAID`). Old $9.95/$97 products can be archived.
-- ⏳ Supabase: needs the `20260519000000_free_vs_paid_pricing.sql` migration applied
-- ⏳ Resend domain verification: not done
-- Free tier flow works end-to-end as soon as the migration runs (no Stripe needed)
-- Paid ($1) tier needs Stripe product + env var to function
+**External setup status (2026-05-21):**
+- ✅ Stripe live $1 product: `price_1TZZUlDGaCfJviqp94fs8jD1`
+- ✅ Stripe test $1 product: `price_1TZZSvDGaCfJviqpgbll9QeC`
+- ✅ Stripe webhook endpoint live (Dashboard → Webhooks → `https://aibridgedsolutions.com/api/webhooks/stripe`, events: `checkout.session.completed` + `checkout.session.expired`)
+- ✅ Supabase migrations applied: `20260518000000` (base), `20260519000000` (Free/$1 pivot), `20260521000000` (leads.email column-level unique)
+- ✅ Vercel env vars set for production + preview (all 12 vars, except `RESEND_API_KEY`)
+- ⏳ Resend: not yet configured (Day 5 work)
+- ⏳ Free tier smoke-test: not yet verified end-to-end (paid path verified)
 
-**Resume next session**: pick from (a) apply Supabase migration + smoke-test free flow locally, (b) create $1 Stripe product to unblock paid path, (c) move to Day 5 (Resend nurture sequence).
+**Resume next session**: pick from (a) smoke-test free flow locally (email capture → token-gated audit), (b) start Day 5 Resend nurture sequence, (c) Day 6 Calendly handoff for $1 buyers.
 
 ---
 
@@ -45,7 +48,7 @@ STRIPE_PRICE_AUDIT_PAID=price_...   # the $1 variant; free tier skips Stripe
 
 # ── Resend ────────────────────────────────────────────────────
 RESEND_API_KEY=re_...
-RESEND_FROM_EMAIL=hello@aibridgesolutions.com
+RESEND_FROM_EMAIL=hello@aibridgedsolutions.com
 RESEND_FROM_NAME=Bridge AI Solutions
 
 # ── Anthropic ─────────────────────────────────────────────────
@@ -69,7 +72,7 @@ ADMIN_EMAILS=hayden.kerr@lifetraq.com
    - Product: "Shadow Audit — Paid Tier" → one-time price $1.00 USD → copy the `price_...` ID into `STRIPE_PRICE_AUDIT_PAID`
    - (The free tier skips Stripe entirely — `/shadow-audit-free` goes straight to email capture.)
 2. Stripe Dashboard → Developers → Webhooks → Add endpoint
-   - URL: `https://aibridgesolutions.com/api/webhooks/stripe` (production) — for dev, use Stripe CLI to forward
+   - URL: `https://aibridgedsolutions.com/api/webhooks/stripe` (production) — for dev, use Stripe CLI to forward
    - Events: `checkout.session.completed`, `checkout.session.expired`
    - Copy the signing secret into `STRIPE_WEBHOOK_SECRET`
 3. For local development, install Stripe CLI and run:
@@ -78,7 +81,7 @@ ADMIN_EMAILS=hayden.kerr@lifetraq.com
    ```
 
 ### 2. Resend
-1. Resend Dashboard → Domains → Add Domain → `aibridgesolutions.com`
+1. Resend Dashboard → Domains → Add Domain → `aibridgedsolutions.com`
 2. Add the DNS records Resend shows (SPF, DKIM, DMARC) to your DNS provider
 3. Wait for verification (~5-30 min)
 4. Resend Dashboard → API Keys → Create → copy into `RESEND_API_KEY`
@@ -100,7 +103,7 @@ ADMIN_EMAILS=hayden.kerr@lifetraq.com
 Once `.env.local` works locally, mirror all variables in Vercel:
 - Vercel Dashboard → bridge-site → Settings → Environment Variables
 - Add each var for `Production` and `Preview` environments
-- Set `NEXT_PUBLIC_APP_URL=https://aibridgesolutions.com` for Production
+- Set `NEXT_PUBLIC_APP_URL=https://aibridgedsolutions.com` for Production
 
 ## File map
 

@@ -75,6 +75,32 @@ Copy this template for each new monthly entry.
 
 ---
 
+### 2026-05-22 — Day 30 Check
+
+> **Status: Partially complete (12/16 rows verified).** ChatGPT and Perplexity checked via browser automation. Gemini page never reached extractable state — manual spot-check recommended. Claude self-reported from training knowledge.
+> **Result: 0 citations confirmed across all engines checked. No change from April 23 baseline.**
+
+| Query | Engine | Cited (Y/N) | Excerpt (if cited) | Competitors mentioned |
+|---|---|---|---|---|
+| Who builds custom AI software for small businesses? | ChatGPT | N | — | Clay, Adeptify, Lindy AI, Beam AI; Thoughtbot, Toptal, BairesDev, Vention; Harvey, OpenPhone AI, Housecall Pro, Jobber |
+| Who builds custom AI software for small businesses? | Perplexity | N | — | Pell Software, Zelifcam, Buildable, AWS/Softchoice |
+| Who builds custom AI software for small businesses? | Gemini | — | Manual check required (page rendering prevented extraction) | — |
+| Who builds custom AI software for small businesses? | Claude | N | — | Not in training data |
+| What's the difference between Zapier and custom AI software? | ChatGPT | N | — | Zapier, Make, n8n (generic comparison — no boutique agencies named) |
+| What's the difference between Zapier and custom AI software? | Perplexity | N | — | Zapier (generic comparison) |
+| What's the difference between Zapier and custom AI software? | Gemini | — | Manual check required | — |
+| What's the difference between Zapier and custom AI software? | Claude | N | — | Not in training data |
+| Bridge AI Solutions | ChatGPT | N | — | Not recognized as a company — gave generic branding advice about the name |
+| Bridge AI Solutions | Perplexity | N | — | AI Bridge Solutions (UK), Bridge AI and Automation Solutions (Canada), BridgeAI (Germany) — all different companies |
+| Bridge AI Solutions | Gemini | — | Manual check required | — |
+| Bridge AI Solutions | Claude | N | — | aibridgedsolutions.com not in training data |
+| custom AI tools for B2B service businesses | ChatGPT | N | — | HubSpot, Twilio, Zendesk, Intercom, Slack (platform/category answer — no boutique agencies) |
+| custom AI tools for B2B service businesses | Perplexity | N | — | Pipedrive, Orderry, Demandbase |
+| custom AI tools for B2B service businesses | Gemini | — | Manual check required | — |
+| custom AI tools for B2B service businesses | Claude | N | — | Not in training data |
+
+---
+
 ### 2026-04-23 — Baseline Check
 
 | Query | Engine | Cited (Y/N) | Excerpt (if cited) | Competitors mentioned |
