@@ -11,8 +11,14 @@ Admin/
 Clients/
 Marketing/
 Templates/
+pull-playbook.html
 
 # Editor config
 .obsidian/
+
+# Local scratch / scrape artifacts / logs
+.firecrawl/
+.logs/
+**/.logs/
 
 .vercel
