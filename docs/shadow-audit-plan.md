@@ -2,10 +2,9 @@
 
 ---
 
-## ⏸ CURRENT STATUS (as of 2026-05-18, paused)
+## CURRENT STATUS (as of 2026-05-26)
 
-**Branch:** `feat/shadow-audit` (pushed to origin)
-**Last commit:** `3b5f5de feat: shadow audit tripwire funnel — infrastructure, audit form, PDF generation`
+**Branch:** `main` (squeeze funnel live in prod since 2026-05-21)
 
 ### Code progress
 
@@ -14,10 +13,10 @@
 | Day 1: Infrastructure | ✅ Done | npm deps installed; `lib/stripe.ts`, `lib/resend.ts`, `lib/anthropic.ts`, `lib/supabase/{admin,server,client}.ts`, `lib/types.ts`; `/api/checkout` + `/api/webhooks/stripe`; Supabase migration |
 | Day 2: Audit form | ✅ Done | `AuditQuiz.tsx` (10-step ATLAS form); `/api/audit/submit` route; `/shadow-audit/thank-you/[session_id]` page (Stripe-gated); `/dashboard/audit/[id]` report viewer; `(squeeze)` route group; audit + squeeze CSS |
 | Day 3: PDF generation | ✅ Done | `lib/pdf.tsx` React-PDF renderer; wired into audit submit; Supabase Storage upload + signed URLs; PDF download link on report viewer |
-| Day 4: Squeeze pages | ⏳ Pending | Variant A ($9.95) and Variant B ($97) marketing pages with full PULL copy |
-| Day 5: Email + nurture | ⏳ Pending | Resend templates + Vercel Cron for Day 1/5/14 follow-up emails |
-| Day 6: $97 Calendly flow | ⏳ Pending | Booking flow + 24-hr reminder + confirmation email |
-| Day 7: Cron + UTM + e2e | ⏳ Pending | Stripe abandoned-checkout cron; UTM tracking; full e2e test |
+| Day 4: Squeeze pages | ✅ Done | Variant A (free) and Variant B ($1) live as `/shadow-audit-free` and `/shadow-audit-1`. Pricing pivoted from $9.95/$97 → free/$1. |
+| Day 5: Transactional emails | 🟡 Partial | Audit-report delivery email shipped 2026-05-26 (`lib/emails/audit-report.ts`, wired into `/api/audit/submit`). Nurture sequence (Day 1/5/14) **dropped** — revisit only if buyer volume warrants. |
+| ~~Day 6: $97 Calendly flow~~ | ❌ Dropped | Pricing pivoted to free/$1; the $97 tier no longer exists. Discovery calls happen downstream as Focused Build, not as a tripwire deliverable. |
+| Day 7: Cron + UTM + e2e | ⏳ Pending | Stripe abandoned-checkout cron; UTM tracking verification; full e2e test |
 | Day 7-8: Admin dashboard | ⏳ Pending | `/admin` route + Supabase Auth + leads/purchases/audits table |
 
 **TypeScript compiles cleanly across all committed code.**

@@ -2,6 +2,8 @@ import { NextRequest } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase/admin";
 import { generateAuditReport } from "@/lib/anthropic";
 import { renderReportPdf } from "@/lib/pdf";
+import { sendEmail } from "@/lib/resend";
+import { renderAuditReportEmail } from "@/lib/emails/audit-report";
 import type { AuditRawResponses } from "@/lib/types";
 
 export const runtime = "nodejs";
@@ -142,8 +144,9 @@ export async function POST(request: NextRequest) {
 
     // Render PDF
     let pdfUrl: string | null = null;
+    let pdfBuffer: Buffer | null = null;
     try {
-      const pdfBuffer = await renderReportPdf(report);
+      pdfBuffer = await renderReportPdf(report);
       const path = `audits/${auditId}.pdf`;
 
       const { error: uploadError } = await supabaseAdmin.storage
@@ -183,7 +186,36 @@ export async function POST(request: NextRequest) {
       .update({ status: "audit_completed" })
       .eq("id", leadId);
 
-    // Email delivery is wired in Day 5.
+    // Send the report delivery email (best-effort — never fail the audit).
+    try {
+      const { data: lead } = await supabaseAdmin
+        .from("leads")
+        .select("email, name")
+        .eq("id", leadId)
+        .maybeSingle();
+
+      if (lead?.email) {
+        const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://aibridgedsolutions.com";
+        const dashboardUrl = `${appUrl}/dashboard/audit/${auditId}`;
+        const { subject, html, text } = renderAuditReportEmail({
+          recipientName: lead.name,
+          dashboardUrl,
+          hasPdf: pdfBuffer !== null,
+        });
+
+        await sendEmail({
+          to: lead.email,
+          subject,
+          html,
+          text,
+          attachments: pdfBuffer
+            ? [{ filename: "bridge-ai-shadow-audit.pdf", content: pdfBuffer }]
+            : undefined,
+        });
+      }
+    } catch (emailErr) {
+      console.error("[audit submit] email delivery failed:", emailErr);
+    }
 
     return Response.json({ auditId });
   } catch (err) {
