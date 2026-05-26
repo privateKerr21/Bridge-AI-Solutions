@@ -4,9 +4,9 @@ Internal setup guide for the Shadow Audit tripwire funnel. Reference: `C:\Users\
 
 ---
 
-## ✅ Current Status (2026-05-21)
+## ✅ Current Status (2026-05-26)
 
-**Branch**: merged to `main` (commit `be83550` ships the email-unique constraint migration)
+**Branch**: merged to `main` (commit `d90a168` ships the audit-report delivery email)
 **Production domain**: `https://aibridgedsolutions.com` (with the 'd' — see memory)
 
 **Pricing model:** A/B test = **Free vs $1**. Free tier skips Stripe (email capture → token-gated audit form). Paid tier ($1) uses Stripe.
@@ -18,21 +18,21 @@ Internal setup guide for the Shadow Audit tripwire funnel. Reference: `C:\Users\
 | Day 3: PDF generation | ✅ Code shipped |
 | Day 4: Squeeze pages | ✅ Code shipped (Bagel Bots restyle + roadmap image + Free/$1 routes) |
 | Day 4.5: Paid path wiring | ✅ End-to-end smoke-test passed (Stripe → webhook → DB rows) on 2026-05-21 |
-| Day 5: Email + nurture | ⏳ Not started — `RESEND_API_KEY` still missing in both local + Vercel |
-| Day 6: $1 Calendly flow | ⏳ Not started |
+| Day 5: Transactional email | ✅ Audit-report delivery shipped 2026-05-26 (`lib/emails/audit-report.ts`). Nurture sequence (Day 1/5/14) deferred. |
+| ~~Day 6: $1 Calendly flow~~ | ❌ Dropped (free/$1 pivot left no $97 tier — discovery happens downstream as Focused Build) |
 | Day 7: Cron + UTM + e2e | ⏳ Not started |
 | Day 7-8: Admin dashboard | ⏳ Not started |
 
-**External setup status (2026-05-21):**
+**External setup status (2026-05-26):**
 - ✅ Stripe live $1 product: `price_1TZZUlDGaCfJviqp94fs8jD1`
 - ✅ Stripe test $1 product: `price_1TZZSvDGaCfJviqpgbll9QeC`
 - ✅ Stripe webhook endpoint live (Dashboard → Webhooks → `https://aibridgedsolutions.com/api/webhooks/stripe`, events: `checkout.session.completed` + `checkout.session.expired`)
 - ✅ Supabase migrations applied: `20260518000000` (base), `20260519000000` (Free/$1 pivot), `20260521000000` (leads.email column-level unique)
-- ✅ Vercel env vars set for production + preview (all 12 vars, except `RESEND_API_KEY`)
-- ⏳ Resend: not yet configured (Day 5 work)
-- ⏳ Free tier smoke-test: not yet verified end-to-end (paid path verified)
+- ✅ Vercel env vars set for **production + preview + development** — `RESEND_API_KEY` added 2026-05-26 (all 13 vars now present)
+- ✅ Resend: API key configured in all three Vercel envs + `.env.local`
+- ⏳ Free tier smoke-test: not yet verified end-to-end (paid path verified). Now also untested: real email delivery via Resend in prod.
 
-**Resume next session**: pick from (a) smoke-test free flow locally (email capture → token-gated audit), (b) start Day 5 Resend nurture sequence, (c) Day 6 Calendly handoff for $1 buyers.
+**Resume next session**: pick from (a) smoke-test free flow end-to-end including email delivery, (b) Day 7 abandoned-cart cron + UTM verification, (c) Day 7-8 admin dashboard.
 
 ---
 
