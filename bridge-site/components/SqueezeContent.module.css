@@ -166,17 +166,6 @@
   max-width: 52ch;
 }
 
-.deliverablesCaption {
-  margin-top: 12px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--mute-warm);
-  text-align: center;
-  max-width: 52ch;
-}
-
 .ctaButton {
   display: inline-block;
   background-color: var(--cta);
@@ -259,6 +248,43 @@
 
 /* ─── HOW IT WORKS ───────────────────────────────────────────────────── */
 
+.howGrid {
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: center;
+}
+
+.howVisual {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.howImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.howText {
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .howGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .howVisual {
+    order: -1;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
 .steps {
   display: grid;
   gap: 1px;
@@ -304,9 +330,9 @@
 /* ─── DELIVERABLES ───────────────────────────────────────────────────── */
 
 .deliverablesGrid {
-  max-width: 1280px;
+  max-width: 1400px;
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: 1fr 1.7fr;
   gap: clamp(32px, 4vw, 64px);
   align-items: center;
 }

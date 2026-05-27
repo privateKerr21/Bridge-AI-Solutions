@@ -66,49 +66,58 @@ export default function SqueezeContent({ tier, variant }: SqueezeContentProps) {
 
       {/* ── HOW IT WORKS ───────────────────────────────────────────── */}
       <section className={styles.how}>
-        <div className={styles.container}>
-          <p className={styles.eyebrow}>// How it works</p>
-          <h2 className={styles.h2}>
-            Five minutes. Ten questions. A custom AI diagnostic when you finish.
-          </h2>
-          <div className={styles.steps}>
-            <div className={styles.step}>
-              <span className={styles.stepNum}>// Step 01</span>
-              <h3 className={styles.stepH}>Tell us where time disappears</h3>
-              <p className={styles.stepBody}>
-                Pick the two workflows eating the most of your week. Tell us
-                how the work actually gets done today and what you wish you
-                were doing instead.
-              </p>
-            </div>
-            <div className={styles.step}>
-              <span className={styles.stepNum}>// Step 02</span>
-              <h3 className={styles.stepH}>AI maps your opportunities</h3>
-              <p className={styles.stepBody}>
-                Your answers run through a diagnostic that separates
-                what&apos;s actually worth solving with AI from what
-                isn&apos;t.
-              </p>
-            </div>
-            <div className={styles.step}>
-              <span className={styles.stepNum}>// Step 03</span>
-              <h3 className={styles.stepH}>You see exactly what to build</h3>
-              <p className={styles.stepBody}>
-                A personalized PDF lands in your inbox: the highest-leverage
-                AI opportunity in your business, how much time and money
-                it&apos;s worth, and exactly what it would take to get it live.
-              </p>
-            </div>
+        <div className={`${styles.container} ${styles.howGrid}`}>
+          <div className={styles.howVisual}>
+            <img
+              src="/brand/how-it-works-illustration.png"
+              alt="Founder at a laptop completing the AI Roadmap intake questionnaire"
+              className={styles.howImage}
+            />
           </div>
-          <div className={styles.heroCta}>
-            <Suspense fallback={<CheckoutButtonFallback label={ctaLabel} className={styles.ctaButton} />}>
-              <CheckoutButton
-                tier={tier}
-                variant={variant}
-                label={ctaLabel}
-                className={styles.ctaButton}
-              />
-            </Suspense>
+          <div className={styles.howText}>
+            <p className={styles.eyebrow}>// How it works</p>
+            <h2 className={styles.h2}>
+              Five minutes. Ten questions. A custom AI diagnostic when you finish.
+            </h2>
+            <div className={styles.steps}>
+              <div className={styles.step}>
+                <span className={styles.stepNum}>// Step 01</span>
+                <h3 className={styles.stepH}>Tell us where time disappears</h3>
+                <p className={styles.stepBody}>
+                  Pick the two workflows eating the most of your week. Tell us
+                  how the work actually gets done today and what you wish you
+                  were doing instead.
+                </p>
+              </div>
+              <div className={styles.step}>
+                <span className={styles.stepNum}>// Step 02</span>
+                <h3 className={styles.stepH}>AI maps your opportunities</h3>
+                <p className={styles.stepBody}>
+                  Your answers run through a diagnostic that separates
+                  what&apos;s actually worth solving with AI from what
+                  isn&apos;t.
+                </p>
+              </div>
+              <div className={styles.step}>
+                <span className={styles.stepNum}>// Step 03</span>
+                <h3 className={styles.stepH}>You see exactly what to build</h3>
+                <p className={styles.stepBody}>
+                  A personalized PDF lands in your inbox: the highest-leverage
+                  AI opportunity in your business, how much time and money
+                  it&apos;s worth, and exactly what it would take to get it live.
+                </p>
+              </div>
+            </div>
+            <div className={styles.heroCta}>
+              <Suspense fallback={<CheckoutButtonFallback label={ctaLabel} className={styles.ctaButton} />}>
+                <CheckoutButton
+                  tier={tier}
+                  variant={variant}
+                  label={ctaLabel}
+                  className={styles.ctaButton}
+                />
+              </Suspense>
+            </div>
           </div>
         </div>
       </section>
@@ -163,13 +172,10 @@ export default function SqueezeContent({ tier, variant }: SqueezeContentProps) {
           </div>
           <div className={styles.deliverablesVisual}>
             <img
-              src="/brand/ai-roadmap-deliverable.png"
-              alt="Sample AI Roadmap deliverable showing top opportunities, implementation timeline, estimated impact, and key takeaways"
+              src="/brand/ai-roadmap-illustration.png"
+              alt="Illustration of an AI roadmap deliverable showing top opportunities, what you get, and focus/leverage/results outcomes"
               className={styles.deliverablesImage}
             />
-            <p className={styles.deliverablesCaption}>
-              Sample output. Your roadmap is built from your responses.
-            </p>
           </div>
         </div>
       </section>
