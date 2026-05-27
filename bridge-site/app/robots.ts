@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/dashboard", "/api/", "/shadow-audit-free", "/shadow-audit-1", "/shadow-audit/"],
+        disallow: ["/dashboard", "/api/", "/shadow-audit-1", "/shadow-audit/"],
       },
     ],
     sitemap: "https://aibridgedsolutions.com/sitemap.xml",
