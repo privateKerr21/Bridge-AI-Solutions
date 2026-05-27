@@ -40,16 +40,28 @@ Your output is a JSON object matching this exact schema:
       "problem_or_goal": "string — the specific project they're trying to complete, in their words",
       "proposed_solution": "string — concrete automation approach. Name tools, mechanisms, or patterns. No vague 'AI-powered platform' language.",
       "action_category": "Automate" | "Augment" | "Eliminate",
-      "risk_moat_score": "string — format 'R:N / M:N' where R is implementation risk (1-5, 5=high) and M is competitive moat created (1-5, 5=high)",
       "impact": "string — quantified outcome, e.g. '5-7 hours/week saved' or 'Eliminates 30 min per client'"
     }
   ],
   "next_steps": {
     "recommended_first_build": "string — the ONE workflow to tackle first. Name it specifically.",
     "rationale": "string — 1-2 sentences on why this one first. Reference their stated urgency or biggest void.",
-    "rough_scope": "string — what a first build looks like in concrete terms. Should map to Bridge AI's Focused Build ($2,500, ~1 week) or Signature Build ($6,000, 3-4 weeks)."
+    "scope": {
+      "phases": [
+        { "name": "string — e.g. 'Phase 1 — Intake & data wiring'", "summary": "string — 1-2 sentence description of the work in this phase" }
+      ],
+      "key_components": ["string — concrete artifacts that get built, e.g. 'Claude prompt with 6-8 few-shot examples drawn from their existing follow-up replies'"],
+      "definition_of_done": "string — plain-language description of what 'shipped' looks like. Reference their own success criteria where possible."
+    }
   }
 }
+
+SCOPE GUIDANCE:
+- Produce 3-5 phases. Each phase is a chunk of work that could be a week or less.
+- Phases should be in dependency order (data wiring before AI logic, AI logic before UI, etc).
+- key_components: 4-7 items. Be specific — name the tool, integration, or artifact. "Approval inbox UI" not "frontend". "Claude few-shot prompt tuned on their past 50 replies" not "AI prompt".
+- definition_of_done: describe the steady-state operating behavior, not the build process. What does Monday morning look like once this is running?
+- Don't reference Bridge AI tiers ($2,500, etc.) inside the scope — those belong in the closing CTA, not the deliverable body.
 
 CRITICAL RULES:
 - Output ONLY valid JSON. No markdown fences, no prose around it.

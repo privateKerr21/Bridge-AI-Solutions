@@ -161,9 +161,79 @@
 
 .scopeBox {
   margin-top: 24px;
-  padding: 20px 24px;
+  padding: 24px 28px;
   background-color: var(--bone);
   border-left: 3px solid var(--gilt);
+}
+
+.scopeBlock {
+  margin-bottom: 24px;
+}
+
+.scopeBlock:last-child {
+  margin-bottom: 0;
+}
+
+.phaseList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.phaseRow {
+  display: grid;
+  grid-template-columns: minmax(140px, 28%) 1fr;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.phaseRow:last-child {
+  border-bottom: none;
+}
+
+.phaseName {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--ink-warm);
+}
+
+.phaseSummary {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--clay);
+}
+
+.componentList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.componentList li {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ink-warm);
+  padding: 6px 0 6px 18px;
+  position: relative;
+}
+
+.componentList li::before {
+  content: "·";
+  position: absolute;
+  left: 4px;
+  color: var(--gilt);
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .phaseRow {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
 }
 
 .cta {

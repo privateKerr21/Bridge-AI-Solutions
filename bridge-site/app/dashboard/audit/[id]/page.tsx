@@ -104,10 +104,6 @@ export default async function AuditViewPage({ params }: PageProps) {
                   <p className={styles.opValue}>{item.action_category}</p>
                 </div>
                 <div>
-                  <p className={styles.opLabel}>// Risk / Moat</p>
-                  <p className={styles.opValue}>{item.risk_moat_score}</p>
-                </div>
-                <div className={styles.opFull}>
                   <p className={styles.opLabel}>// Impact</p>
                   <p className={styles.opValue}>{item.impact}</p>
                 </div>
@@ -122,27 +118,41 @@ export default async function AuditViewPage({ params }: PageProps) {
           <p className={styles.recommendation}>{report.next_steps.recommended_first_build}</p>
           <p className={styles.body}>{report.next_steps.rationale}</p>
           <div className={styles.scopeBox}>
-            <p className={styles.opLabel}>// Rough Scope</p>
-            <p>{report.next_steps.rough_scope}</p>
+            <div className={styles.scopeBlock}>
+              <p className={styles.opLabel}>// Phases</p>
+              <ul className={styles.phaseList}>
+                {report.next_steps.scope.phases.map((phase, i) => (
+                  <li key={i} className={styles.phaseRow}>
+                    <span className={styles.phaseName}>{phase.name}</span>
+                    <span className={styles.phaseSummary}>{phase.summary}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className={styles.scopeBlock}>
+              <p className={styles.opLabel}>// Key Components</p>
+              <ul className={styles.componentList}>
+                {report.next_steps.scope.key_components.map((c, i) => (
+                  <li key={i}>{c}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className={styles.opLabel}>// Definition of Done</p>
+              <p className={styles.opValue}>{report.next_steps.scope.definition_of_done}</p>
+            </div>
           </div>
         </section>
 
         <section className={styles.cta}>
           <h2 className={styles.sectionH}>Want help shipping this?</h2>
           <p className={styles.body}>
-            Book a 30-minute discovery call. We&apos;ll walk through your roadmap, scope the first
-            build, and decide if it&apos;s worth doing together.
+            You could take this roadmap and run with it. Or, if you&apos;d rather have it
+            built for you, reply to the email this came from — we&apos;ll talk through the
+            first build and decide if it&apos;s worth doing together.
           </p>
-          <div className={styles.ctaActions}>
-            <a
-              href="https://calendly.com/h-kerr711/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ink"
-            >
-              Book a discovery call →
-            </a>
-            {audit.pdf_url && (
+          {audit.pdf_url && (
+            <div className={styles.ctaActions}>
               <a
                 href={audit.pdf_url}
                 target="_blank"
@@ -151,8 +161,8 @@ export default async function AuditViewPage({ params }: PageProps) {
               >
                 Download PDF ↓
               </a>
-            )}
-          </div>
+            </div>
+          )}
         </section>
       </div>
     </main>

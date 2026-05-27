@@ -61,8 +61,18 @@ export interface OpportunityMatrixItem {
   problem_or_goal: string;
   proposed_solution: string;
   action_category: "Automate" | "Augment" | "Eliminate";
-  risk_moat_score: string; // e.g. "R:4 / M:1"
   impact: string; // e.g. "8-12 hours/week reclaimed"
+}
+
+export interface BuildPhase {
+  name: string; // e.g. "Phase 1 — Intake & data wiring"
+  summary: string; // 1-2 sentence description of the work in this phase
+}
+
+export interface BuildScope {
+  phases: BuildPhase[]; // 3-5 chronological phases
+  key_components: string[]; // concrete artifacts/integrations that get built
+  definition_of_done: string; // what "shipped" looks like in plain language
 }
 
 export interface GeneratedReport {
@@ -76,6 +86,6 @@ export interface GeneratedReport {
   next_steps: {
     recommended_first_build: string;
     rationale: string;
-    rough_scope: string;
+    scope: BuildScope;
   };
 }

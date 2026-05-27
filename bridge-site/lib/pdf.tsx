@@ -178,10 +178,56 @@ const styles = StyleSheet.create({
   },
   scopeBox: {
     marginTop: 10,
-    padding: 12,
+    padding: 14,
     backgroundColor: colors.bone,
     borderLeftWidth: 2,
     borderLeftColor: colors.gilt,
+  },
+  scopeBlock: {
+    marginBottom: 12,
+  },
+  scopeLabel: {
+    fontSize: 7,
+    letterSpacing: 1.2,
+    color: colors.mute,
+    marginBottom: 6,
+  },
+  phaseRow: {
+    flexDirection: "row",
+    marginBottom: 6,
+  },
+  phaseName: {
+    fontFamily: "Helvetica-Bold",
+    fontSize: 9,
+    color: colors.ink,
+    width: "32%",
+    paddingRight: 8,
+  },
+  phaseSummary: {
+    fontSize: 9,
+    lineHeight: 1.5,
+    color: colors.clay,
+    width: "68%",
+  },
+  bullet: {
+    flexDirection: "row",
+    marginBottom: 4,
+  },
+  bulletDot: {
+    fontSize: 9,
+    color: colors.gilt,
+    width: 10,
+  },
+  bulletText: {
+    fontSize: 9,
+    lineHeight: 1.5,
+    color: colors.ink,
+    flex: 1,
+  },
+  scopeBody: {
+    fontSize: 9,
+    lineHeight: 1.55,
+    color: colors.ink,
   },
   // ── Footer ──
   footer: {
@@ -282,10 +328,6 @@ function ReportDocument({ report }: { report: GeneratedReport }) {
                   <Text style={styles.opValue}>{item.action_category}</Text>
                 </View>
                 <View style={styles.opCell}>
-                  <Text style={styles.opLabel}>// RISK / MOAT</Text>
-                  <Text style={styles.opValue}>{item.risk_moat_score}</Text>
-                </View>
-                <View style={styles.opCellFull}>
                   <Text style={styles.opLabel}>// IMPACT</Text>
                   <Text style={styles.opValue}>{item.impact}</Text>
                 </View>
@@ -301,19 +343,43 @@ function ReportDocument({ report }: { report: GeneratedReport }) {
             {report.next_steps.recommended_first_build}
           </Text>
           <Text style={styles.body}>{report.next_steps.rationale}</Text>
+
           <View style={styles.scopeBox}>
-            <Text style={styles.opLabel}>// ROUGH SCOPE</Text>
-            <Text style={styles.opValue}>{report.next_steps.rough_scope}</Text>
+            <View style={styles.scopeBlock}>
+              <Text style={styles.scopeLabel}>// PHASES</Text>
+              {report.next_steps.scope.phases.map((phase, i) => (
+                <View key={i} style={styles.phaseRow} wrap={false}>
+                  <Text style={styles.phaseName}>{phase.name}</Text>
+                  <Text style={styles.phaseSummary}>{phase.summary}</Text>
+                </View>
+              ))}
+            </View>
+
+            <View style={styles.scopeBlock}>
+              <Text style={styles.scopeLabel}>// KEY COMPONENTS</Text>
+              {report.next_steps.scope.key_components.map((c, i) => (
+                <View key={i} style={styles.bullet} wrap={false}>
+                  <Text style={styles.bulletDot}>·</Text>
+                  <Text style={styles.bulletText}>{c}</Text>
+                </View>
+              ))}
+            </View>
+
+            <View>
+              <Text style={styles.scopeLabel}>// DEFINITION OF DONE</Text>
+              <Text style={styles.scopeBody}>{report.next_steps.scope.definition_of_done}</Text>
+            </View>
           </View>
         </View>
 
         {/* CTA */}
         <View style={styles.ctaBox}>
           <Text style={styles.ctaText}>
-            Want help shipping this? Book a 30-minute discovery call. We&apos;ll walk through
-            your roadmap, scope the first build, and decide if it&apos;s worth doing together.
+            You could take this roadmap and run with it. Or, if you&apos;d rather have it
+            built for you, reply to the email this report came in on — we&apos;ll talk
+            through the first build and decide if it&apos;s worth doing together.
           </Text>
-          <Text style={styles.ctaLink}>calendly.com/h-kerr711/30min</Text>
+          <Text style={styles.ctaLink}>hello@aibridgedsolutions.com</Text>
         </View>
 
         {/* Footer */}
