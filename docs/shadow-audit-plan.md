@@ -2,7 +2,7 @@
 
 ---
 
-## CURRENT STATUS (as of 2026-05-26)
+## CURRENT STATUS (as of 2026-05-27)
 
 **Branch:** `main` (squeeze funnel live in prod since 2026-05-21)
 
@@ -13,13 +13,33 @@
 | Day 1: Infrastructure | ✅ Done | npm deps installed; `lib/stripe.ts`, `lib/resend.ts`, `lib/anthropic.ts`, `lib/supabase/{admin,server,client}.ts`, `lib/types.ts`; `/api/checkout` + `/api/webhooks/stripe`; Supabase migration |
 | Day 2: Audit form | ✅ Done | `AuditQuiz.tsx` (10-step ATLAS form); `/api/audit/submit` route; `/shadow-audit/thank-you/[session_id]` page (Stripe-gated); `/dashboard/audit/[id]` report viewer; `(squeeze)` route group; audit + squeeze CSS |
 | Day 3: PDF generation | ✅ Done | `lib/pdf.tsx` React-PDF renderer; wired into audit submit; Supabase Storage upload + signed URLs; PDF download link on report viewer |
-| Day 4: Squeeze pages | ✅ Done | Variant A (free) and Variant B ($1) live as `/shadow-audit-free` and `/shadow-audit-1`. Pricing pivoted from $9.95/$97 → free/$1. |
+| Day 4: Squeeze pages | ✅ Done | $1 variant live as `/shadow-audit-1`. Free variant retired 2026-05-27 (301 → `/shadow-audit-1`). |
 | Day 5: Transactional emails | 🟡 Partial | Audit-report delivery email shipped 2026-05-26 (`lib/emails/audit-report.ts`, wired into `/api/audit/submit`). Nurture sequence (Day 1/5/14) **dropped** — revisit only if buyer volume warrants. |
-| ~~Day 6: $97 Calendly flow~~ | ❌ Dropped | Pricing pivoted to free/$1; the $97 tier no longer exists. Discovery calls happen downstream as Focused Build, not as a tripwire deliverable. |
-| Day 7: Cron + UTM + e2e | ⏳ Pending | Stripe abandoned-checkout cron; UTM tracking verification; full e2e test |
+| ~~Day 6: $97 Calendly flow~~ | ❌ Dropped | Pricing pivoted to $1; the $97 tier no longer exists. Discovery calls happen downstream as Focused Build, not as a tripwire deliverable. |
+| Day 7: Cron + UTM + e2e | 🟡 Partial | AI→PDF pipeline smoke test passed 2026-05-27 (`scripts/test-pipeline.ts`). Full Stripe-CLI e2e still needs interactive run. UTM verification + abandoned-checkout cron pending. |
 | Day 7-8: Admin dashboard | ⏳ Pending | `/admin` route + Supabase Auth + leads/purchases/audits table |
 
-**TypeScript compiles cleanly across all committed code.**
+**TypeScript compiles cleanly. `next build` clean across all committed code.**
+
+### 2026-05-27 session updates
+
+- **Pricing locked at $1.** Free variant retired via 301 redirect (`next.config.ts`). Free-path code left wired up but unreachable. (commit `cfcbde3`)
+- **Audit report schema simplified** (commit `ec4c101`):
+  - Removed `risk_moat_score` from opportunity matrix (jargon — buyers don't know R/M scoring).
+  - Replaced `next_steps.rough_scope: string` with structured `next_steps.scope: { phases[], key_components[], definition_of_done }`. The First Build section of the PDF now reads as a real blueprint rather than a vague paragraph — phases in dependency order, named components/integrations, plain-language Monday-morning steady-state.
+  - Stale Calendly CTA replaced (both in PDF + dashboard view) with reply-to-email handoff: *"You could take this roadmap and run with it. Or, if you'd rather have it built for you, reply to the email this came in on…"*
+- **Live Claude pipeline test passes** (commit `48c5b1b`): `scripts/test-pipeline.ts` calls real Anthropic API with mock form responses, validates returned JSON against the new schema (no deprecated fields, structured scope well-formed), renders the PDF. Haiku 4.5 returns valid output in ~21s.
+- **Zero stranded data**: `scripts/check-stranded-audits.ts` confirmed 0 existing `audit_responses` rows in prod — schema migration was safe (no buyers came through yet).
+- **Squeeze page imagery refreshed** (commit `fd56f8f`): How It Works section restructured into 2-col grid with new illustration on the left; deliverables section illustration swapped; "Sample output" caption removed. Image columns scaled up (1.3fr/1fr, 1400px max).
+
+### Pre-launch checklist remaining
+
+1. **Full Stripe-CLI e2e** — run `stripe listen --forward-to localhost:3000/api/webhooks/stripe`, complete one $1 test-mode purchase end-to-end (test card 4242…), confirm webhook fires, PDF lands in inbox, dashboard view renders.
+2. **Bagel Bots ad headline locked** — sent 8 options + 3 picks to partner 2026-05-27 for review. Variant E body + CTA unchanged. Surface concern: body promises "installs the systems for you" but CTA routes to a $1 audit, not an install quote — copy may need a soft re-anchor before launch.
+3. **Squeeze copy alignment** — page still describes the old three-bucket deliverable. Now that the PDF delivers structured phases + components + definition-of-done, the "What you actually get" section should be rewritten to match.
+4. **UTM verification** — confirm `?utm_source=bagelbots&utm_campaign=launch&utm_content=variant-b` lands a visitor on `/shadow-audit-1` and gets stored on the lead row.
+5. **Stripe abandoned-checkout cron**.
+6. **`/admin` dashboard** for leads / purchases / audits.
 
 ### External setup status (NOT done yet)
 
